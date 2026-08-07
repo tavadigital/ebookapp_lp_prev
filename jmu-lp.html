@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jalan Menuju Umroh: 5 Tools Interaktif + Ebook 14 Bab | Rp 127.000</title>
+<meta name="description" content="5 tools interaktif (kalkulator biaya, tes manasik, checklist keberangkatan, dan lainnya) plus ebook 14 bab, buat persiapan haji &amp; umroh yang lengkap dari menghitung biaya sampai menjaga mabrur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#F7F4EC; --paper2:#FFFDF7; --mint:#E7F0E6; --mint2:#F0F6EE;
+ --emerald:#0C5C43; --deep:#073D2D; --leaf:#2E7D5B;
+ --gold:#B99248; --gold2:#D6B76B; --ink:#22302A; --muted:#5C6B62; --line:#DFD9C8;
+ --clay:#B4632F; --clay-bg:#FBF2E9;
+ --bar-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.8;font-size:16.5px;overflow-x:hidden;padding-bottom:var(--bar-h)}
+::selection{background:var(--gold2);color:var(--deep)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.sec{padding:88px 0}
+.sec.tint{background:linear-gradient(180deg,transparent,var(--mint2) 45%,transparent)}
+
+h2.title{font-family:'Marcellus',serif;font-size:clamp(28px,4.4vw,44px);line-height:1.15;color:var(--deep);text-align:center;letter-spacing:-.4px}
+h2.title em{font-style:normal;color:var(--gold)}
+.lede{text-align:center;color:var(--muted);font-size:clamp(15px,1.7vw,17.5px);max-width:640px;margin:16px auto 0;font-weight:500}
+.orn{text-align:center;color:var(--gold);font-size:22px;letter-spacing:10px;margin-bottom:14px}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:70px 0 60px;
+ background:radial-gradient(1100px 560px at 50% -10%,#EAF3E8 0%,transparent 60%),
+ radial-gradient(900px 520px at 88% 105%,#F3EBD8 0%,transparent 55%),var(--paper)}
+.hero::before{content:"";position:absolute;inset:18px;border:1px solid var(--line);border-radius:24px;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:26px;border:1px solid rgba(185,146,72,.35);border-radius:18px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+.hero .ornament{font-size:30px;color:var(--gold);letter-spacing:14px;line-height:1;margin-bottom:22px}
+.hero h1{font-family:'Marcellus',serif;font-size:clamp(42px,5.6vw,72px);line-height:1.03;color:var(--deep);letter-spacing:-1px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .sub{font-size:clamp(15.5px,1.7vw,18.5px);color:var(--muted);font-weight:600;margin-top:20px;max-width:520px;line-height:1.7}
+.arabline{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);max-width:520px}
+.arabline .ar{font-family:'Amiri',serif;font-size:clamp(23px,2.8vw,30px);color:var(--emerald);direction:rtl;line-height:1.9}
+.arabline .tr{font-size:13.5px;color:var(--muted);font-style:italic;margin-top:4px}
+
+/* offer card */
+.offer{background:var(--paper2);border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:0 30px 70px rgba(34,48,42,.10);position:relative}
+.offer .tag{position:absolute;top:-14px;left:32px;background:var(--emerald);color:#F3F7EF;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:999px}
+.offer h3{font-family:'Marcellus',serif;font-size:26px;color:var(--deep);line-height:1.25;margin-bottom:8px}
+.offer .desc{font-size:14.5px;color:var(--muted);font-weight:500;line-height:1.65}
+.offer .rule{height:1px;background:var(--line);margin:22px 0}
+.price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.price .now{font-family:'Marcellus',serif;font-size:48px;color:var(--deep);line-height:1;letter-spacing:-1px}
+.price .was{font-size:16px;color:var(--muted);text-decoration:line-through;font-weight:600}
+.price .cut{background:var(--mint);color:var(--emerald);font-size:11.5px;font-weight:800;letter-spacing:.6px;padding:5px 11px;border-radius:999px}
+.pnote{font-size:13px;color:var(--muted);font-weight:600;margin-top:12px}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--emerald);color:#FDFBF4;
+ padding:19px 30px;border-radius:999px;font-family:inherit;font-size:16px;font-weight:800;width:100%;border:none;cursor:pointer;
+ box-shadow:0 16px 34px rgba(12,92,67,.26);transition:transform .2s,box-shadow .2s;margin-top:22px;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(12,92,67,.32)}
+.btn.gold{background:linear-gradient(135deg,var(--gold),#A9803B);box-shadow:0 16px 34px rgba(185,146,72,.3)}
+.btn.wide{max-width:420px;margin:26px auto 0}
+.trust{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:16px;font-size:12.5px;color:var(--muted);font-weight:600}
+
+/* ============ PAIN ============ */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.pain{background:var(--paper2);border:1px solid var(--line);border-radius:22px;padding:28px 26px}
+.pain .ic{font-size:28px;line-height:1;margin-bottom:14px}
+.pain h3{font-family:'Marcellus',serif;font-size:21px;color:var(--deep);line-height:1.3;margin-bottom:10px}
+.pain p{font-size:14.5px;color:var(--muted);line-height:1.7}
+.pain .fix{margin-top:16px;padding:14px 16px;background:var(--mint2);border-left:3px solid var(--emerald);border-radius:0 12px 12px 0;font-size:13.5px;color:var(--ink);line-height:1.65}
+.pain .fix b{color:var(--emerald)}
+
+/* ============ JALUR / TOC ============ */
+.journey{background:var(--paper2);border:1px solid var(--line);border-radius:26px;padding:48px 46px;margin-top:44px;box-shadow:0 24px 60px rgba(34,48,42,.06)}
+.path{position:relative;padding-left:34px;column-count:2;column-gap:52px}
+.path .phase{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);padding:20px 0 6px;break-inside:avoid}
+.path .item{position:relative;padding:9px 0;font-size:15px;font-weight:700;color:var(--ink);break-inside:avoid}
+.path .item span{display:block;color:var(--muted);font-weight:500;font-size:13px;line-height:1.55}
+.path .item::before{content:"";position:absolute;left:-30px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--paper2);border:2px solid var(--emerald);z-index:1}
+.path .item.key::before{background:var(--gold);border-color:var(--gold);width:12px;height:12px;left:-31px}
+.path .item::after{content:"";position:absolute;left:-26px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--emerald),var(--gold));opacity:.35;z-index:0}
+.jfoot{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
+.jfoot b{color:var(--deep)}
+
+/* ============ KIT COLLAPSE ============ */
+.kits{max-width:860px;margin:44px auto 0}
+.kit{background:var(--paper2);border:1px solid var(--line);border-radius:20px;margin-bottom:14px;overflow:hidden;transition:border-color .2s}
+.kit[open]{border-color:var(--gold2);box-shadow:0 18px 40px rgba(34,48,42,.07)}
+.kit summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;align-items:center;gap:18px}
+.kit summary::-webkit-details-marker{display:none}
+.kit .no{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--mint);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-family:'Marcellus',serif;font-size:20px}
+.kit[open] .no{background:var(--emerald);color:#F3F7EF}
+.kit .sm{flex:1;min-width:0}
+.kit .sm b{display:block;font-family:'Marcellus',serif;font-size:20px;color:var(--deep);font-weight:400;line-height:1.3}
+.kit .sm i{display:block;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:500;line-height:1.5;margin-top:3px}
+.kit .plus{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:19px;line-height:1;transition:.25s}
+.kit[open] .plus{transform:rotate(45deg);border-color:var(--gold);background:var(--paper)}
+.kit .body{padding:0 26px 26px;border-top:1px solid var(--line);margin-top:2px;padding-top:22px}
+.kit .body ul{margin:0 0 0 20px}
+.kit .body li{margin-bottom:9px;font-size:14.5px;color:var(--ink)}
+.kit .body li::marker{color:var(--gold)}
+.kit .when{margin-top:18px;background:var(--mint2);border-radius:14px;padding:14px 18px;font-size:13.5px;color:var(--muted)}
+.kit .when b{color:var(--emerald)}
+
+/* ============ DEMO ============ */
+.demo{max-width:940px;margin:40px auto 0;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 26px 60px rgba(34,48,42,.12);background:var(--paper2)}
+.demo .bar{background:var(--deep);padding:12px 18px;display:flex;align-items:center;gap:7px}
+.demo .bar .d{width:9px;height:9px;border-radius:50%}
+.demo .bar .lb{margin-left:auto;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);font-weight:800}
+.demo .stage{position:relative;height:640px;background:var(--paper)}
+.demo iframe{width:100%;height:100%;border:none;display:block;background:var(--paper)}
+.demo .veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:30px;background:var(--paper2)}
+.demo .veil p{font-size:14.5px;color:var(--muted);max-width:380px}
+.demo .veil button{background:var(--emerald);color:#FDFBF4;border:none;border-radius:999px;padding:15px 30px;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 14px 30px rgba(12,92,67,.24)}
+.demo-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:18px}
+.demo-note b{color:var(--deep)}
+
+/* ============ VALUE ============ */
+.value{max-width:720px;margin:44px auto 0;background:var(--paper2);border:1px solid var(--line);border-radius:24px;padding:36px 34px}
+.vrow{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.vrow span:first-child{font-weight:600}
+.vrow .amt{color:var(--muted);text-decoration:line-through;font-weight:700;white-space:nowrap}
+.vrow.total{border-bottom:none;border-top:2px solid var(--emerald);margin-top:8px;padding-top:18px;font-family:'Marcellus',serif;font-size:18px;color:var(--deep)}
+.vrow.total .amt{font-size:19px;color:var(--muted)}
+.paynow{max-width:720px;margin:20px auto 0;background:linear-gradient(160deg,var(--deep),var(--emerald));color:#EDF4EC;border-radius:24px;padding:40px 30px;text-align:center}
+.paynow .l{font-size:11.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--gold2)}
+.paynow .p{font-family:'Marcellus',serif;font-size:clamp(44px,7vw,64px);line-height:1.05;margin:10px 0 6px}
+.paynow .o{font-size:14.5px;opacity:.8}
+.paynow .btn{max-width:400px;margin:24px auto 0}
+
+/* ============ FAQ ============ */
+.faq{max-width:800px;margin:40px auto 0}
+.faq details{background:var(--paper2);border:1px solid var(--line);border-radius:18px;padding:20px 26px;margin-bottom:12px}
+.faq details[open]{border-color:var(--gold2)}
+.faq summary{list-style:none;cursor:pointer;font-weight:700;font-size:15.5px;color:var(--deep);display:flex;gap:14px;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';margin-left:auto;color:var(--gold);font-size:22px;line-height:1;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq p{margin-top:12px;font-size:14.5px;color:var(--muted);line-height:1.8}
+.faq p b{color:var(--deep)}
+
+/* ============ CLOSING ============ */
+.closing{max-width:900px;margin:0 auto;background:linear-gradient(160deg,var(--deep),var(--emerald));color:#EDF4EC;border-radius:30px;padding:70px 40px;text-align:center}
+.closing .ar{font-family:'Amiri',serif;font-size:clamp(26px,4.5vw,36px);color:var(--gold2);direction:rtl;line-height:1.9}
+.closing h2{font-family:'Marcellus',serif;font-size:clamp(28px,4.6vw,42px);margin:16px 0 14px}
+.closing p{max-width:560px;margin:0 auto;font-size:15.5px;opacity:.92;line-height:1.8}
+.closing .btn{background:var(--gold);color:#2A1E08;box-shadow:0 16px 34px rgba(0,0,0,.22)}
+.closing .mini{font-size:12.5px;opacity:.75;margin-top:16px}
+
+footer{text-align:center;padding:40px 26px 46px;color:var(--muted);font-size:13px}
+
+/* ============ STICKY BOTTOM CTA ============ */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,253,247,.94);backdrop-filter:blur(12px);
+ border-top:1px solid var(--line);box-shadow:0 -12px 34px rgba(34,48,42,.10);transform:translateY(120%);transition:transform .35s ease}
+.sticky.show{transform:translateY(0)}
+.sticky .in{max-width:1180px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:22px}
+.sticky .txt{flex:1;min-width:0}
+.sticky .txt b{display:block;font-family:'Marcellus',serif;font-size:17px;color:var(--deep);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky .txt i{font-style:normal;font-size:13px;color:var(--muted);font-weight:600}
+.sticky .pr{display:flex;align-items:baseline;gap:9px;flex-shrink:0}
+.sticky .pr .n{font-family:'Marcellus',serif;font-size:26px;color:var(--deep);line-height:1}
+.sticky .pr .w{font-size:13.5px;color:var(--muted);text-decoration:line-through;font-weight:600}
+.sticky .btn{margin-top:0;width:auto;flex-shrink:0;padding:15px 32px;font-size:15px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+ .hero-grid{grid-template-columns:1fr;gap:34px}
+ .hero{min-height:auto;padding:56px 0 52px}
+ .hero .sub,.arabline{max-width:none}
+ .path{column-count:1}
+ .journey{padding:34px 26px}
+ .pain-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+ :root{--bar-h:74px}
+ body{font-size:16px}
+ .wrap{padding:0 18px}
+ .sec{padding:60px 0}
+ .hero::before{inset:10px}.hero::after{inset:17px}
+ .offer{padding:26px 22px;border-radius:22px}
+ .offer .tag{left:22px}
+ .price .now{font-size:42px}
+ .btn{padding:18px 22px;font-size:15.5px}
+ .value{padding:26px 20px}
+ .vrow{font-size:14px;gap:12px}
+ .kit summary{padding:18px 18px;gap:14px}
+ .kit .no{width:40px;height:40px;font-size:18px}
+ .kit .sm b{font-size:17.5px}
+ .kit .body{padding:20px 18px 22px}
+ .faq details{padding:18px 20px}
+ .closing{padding:52px 24px;border-radius:24px}
+ .demo .stage{height:560px}
+ .sticky .in{padding:11px 16px;gap:12px}
+ .sticky .txt{display:none}
+ .sticky .pr{flex-direction:column;gap:0}
+ .sticky .pr .n{font-size:22px}
+ .sticky .pr .w{font-size:12px}
+ .sticky .btn{flex:1;padding:15px 18px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .btn:hover{transform:none}
+ .sticky{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <div class="ornament">۞</div>
+   <h1>Jalan Menuju <em>Umroh</em></h1>
+   <p class="sub">Bukan cuma ebook buat dibaca. Ini paket 5 tools interaktif yang bantu kamu menghitung biaya, kuasai manasik, dan urus semua checklist sampai hari keberangkatan, dilengkapi ebook 14 bab yang mengikat semuanya jadi satu alur yang jelas.</p>
+   <div class="arabline">
+    <div class="ar">لَبَّيْكَ اللَّهُمَّ لَبَّيْك</div>
+    <div class="tr">"Aku penuhi panggilan-Mu ya Allah, aku penuhi panggilan-Mu."</div>
+   </div>
+  </div>
+
+  <div class="offer">
+   <span class="tag">Paket Tools Lengkap · Edisi 2026</span>
+   <h3>5 Tools Interaktif<br>+ Ebook 14 Bab</h3>
+   <p class="desc">Kalkulator biaya, tes manasik, 21 doa digital, checklist keberangkatan H-90, dan kamus jamaah, satu paket yang beneran kamu pakai, dilengkapi ebook 14 bab sebagai panduan lengkapnya.</p>
+   <div class="rule"></div>
+   <div class="price">
+    <span class="now">Rp 127.000</span>
+    <span class="was">Rp 397.000</span>
+    <span class="cut">HEMAT 68%</span>
+   </div>
+   <p class="pnote">Akses langsung setelah pembayaran · Buka di HP &amp; laptop · Tanpa install</p>
+   <a href="#" class="btn">Ambil Paketnya Sekarang →</a>
+   <div class="trust"><span>Pembayaran aman</span><span>Akses instan</span><span>Bisa dibuka offline</span></div>
+  </div>
+ </div>
+</header>
+
+<!-- ============ PAIN ============ -->
+<section class="sec">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">Niatnya sudah kuat.<br>Yang masih bikin ragu: <em>teknisnya</em>.</h2>
+  <p class="lede">Berangkat ke Tanah Suci bukan soal kekayaan, melainkan soal niat yang diikat dengan rencana. Tiga hal ini yang paling sering membuat rencana itu berhenti di angan.</p>
+  <div class="pain-grid">
+   <div class="pain">
+    <div class="ic">💸</div>
+    <h3>Angkanya terasa mustahil</h3>
+    <p>Berapa sebenarnya biaya umroh dan haji? Mana yang termasuk paket, mana biaya tersembunyi? Belum lagi kabar travel yang membawa kabur uang jamaah.</p>
+    <div class="fix"><b>Diselesaikan pakai:</b> KIT 1 Financial Planner buat hitung biaya &amp; simulasi nabung, plus Bab 3 sampai 5 kalau kamu mau paham detailnya.</div>
+   </div>
+   <div class="pain">
+    <div class="ic">📖</div>
+    <h3>Manasiknya masih samar</h3>
+    <p>Miqat, tawaf, sa'i, tahallul, hafal namanya, tapi belum tergambar urutannya. Takut ada rukun yang keliru dan ibadahnya jadi tidak sempurna.</p>
+    <div class="fix"><b>Diselesaikan pakai:</b> KIT 2 Manasik Mastery buat belajar bertahap &amp; uji pemahaman, plus Bab 7 dan 8 buat detail lengkapnya.</div>
+   </div>
+   <div class="pain">
+    <div class="ic">🗂️</div>
+    <h3>Persiapannya berantakan</h3>
+    <p>Paspor, visa, vaksin, kesehatan, koper, semua penting, semua mendesak, tapi gak ada yang tahu mana yang harus diurus lebih dulu.</p>
+    <div class="fix"><b>Diselesaikan pakai:</b> KIT 4 Departure Ready dengan hitung mundur H-90, plus Bab 6, 9, dan 11 buat konteksnya.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section class="sec tint">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">14 bab, urut sesuai <em>perjalanan aslinya</em></h2>
+  <p class="lede">Bukan kumpulan artikel acak. Ebook ini mengikuti urutan yang benar-benar kamu lalui, dari niat pertama di hati sampai menjaga mabrur di rumah. Titik emas menandai bab kunci.</p>
+
+  <div class="journey">
+   <div class="path">
+    <div class="phase">Fase 1 · Meluruskan Arah</div>
+    <div class="item key">Bab 1 · Panggilan Itu Dimulai dari Niat<span>Keutamaan haji &amp; umroh, dan fondasi mabrur</span></div>
+    <div class="item">Bab 2 · Memahami Peta Besar: Umroh &amp; Haji<span>Perbedaan, jenis-jenis haji, dan realita antrian</span></div>
+
+    <div class="phase">Fase 2 · Menyiapkan Bekal</div>
+    <div class="item key">Bab 3 · Membedah Biaya Sampai ke Akarnya<span>Komponen biaya, tabel paket, biaya tersembunyi</span></div>
+    <div class="item">Bab 4 · Strategi Menabung yang Terbukti Berhasil<span>Tabungan haji, SISKOHAT, dan disiplin finansial</span></div>
+    <div class="item key">Bab 5 · Memilih Travel Resmi &amp; Menghindari Penipuan<span>PPIU/PIHK, cara cek izin, 7 red flags</span></div>
+    <div class="item">Bab 6 · Dokumen: Paspor, Visa &amp; Vaksin<span>Urutan pengurusan dan timeline anti-telat</span></div>
+
+    <div class="phase">Fase 3 · Menguasai Ilmu</div>
+    <div class="item key">Bab 7 · Manasik Umroh Langkah demi Langkah<span>Dari miqat sampai tahallul, lengkap dengan detail</span></div>
+    <div class="item">Bab 8 · Manasik Haji: Hari demi Hari<span>Rukun, wajib, dan kronologi 8–13 Dzulhijjah</span></div>
+
+    <div class="phase">Fase 4 · Menyiapkan Diri</div>
+    <div class="item">Bab 9 · Fisik yang Kuat, Ibadah yang Khusyuk<span>Program latihan &amp; kesehatan 6 bulan</span></div>
+    <div class="item">Bab 10 · Persiapan Hati: Taubat, Utang &amp; Maaf<span>Perjalanan ruhani dimulai sebelum berangkat</span></div>
+    <div class="item">Bab 11 · Seni Packing Jamaah Berpengalaman<span>Prinsip koper, bagasi, dan barang wajib</span></div>
+
+    <div class="phase">Fase 5 · Di Tanah Suci &amp; Setelahnya</div>
+    <div class="item key">Bab 12 · Hari-Hari di Tanah Suci<span>Adab, keamanan, itinerary umroh 9 hari</span></div>
+    <div class="item">Bab 13 · Pulang Membawa Mabrur<span>Tanda-tanda diterima dan cara menjaganya</span></div>
+    <div class="item">Bab 14 · Panduan Pakai 5 Tools<span>Cara memakai semua tools dalam paket ini</span></div>
+   </div>
+   <p class="jfoot">Format HTML interaktif, <b>buka di browser HP atau laptop, tanpa install</b>, dan tetap bisa dibaca offline setelah tersimpan.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ============ 5 KIT ============ -->
+<section class="sec">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">Bukan Cuma Bonus.<br>Ini <em>5 Tools yang Kamu Pakai</em>.</h2>
+  <p class="lede">Bukan PDF tambahan. Lima alat yang beneran bekerja di browser kamu. Ketuk untuk melihat isi tiap KIT.</p>
+
+  <div class="kits">
+   <details class="kit">
+    <summary><span class="no">1</span><span class="sm"><b>💰 Financial Planner</b><i>Hitung biaya, rencanakan tabungan, kenali antrian, lacak progres</i></span><span class="plus">+</span></summary>
+    <div class="body">
+     <ul>
+      <li><b>Kalkulator Biaya:</b> estimasi total semua jenis paket, termasuk komponen yang sering terlupakan.</li>
+      <li><b>Simulasi Nabung:</b> berapa yang harus disisihkan tiap bulan agar target keberangkatanmu tercapai.</li>
+      <li><b>Estimasi Waktu Tunggu:</b> perkiraan tahun berangkat berdasarkan provinsi dan usia daftar.</li>
+      <li><b>Tracker Progres:</b> pantau tabunganmu tumbuh, tersimpan otomatis di perangkatmu.</li>
+     </ul>
+     <div class="when"><b>Dipakai:</b> hari ini juga, lalu setiap kali gajian.</div>
+    </div>
+   </details>
+
+   <details class="kit">
+    <summary><span class="no">2</span><span class="sm"><b>📖 Manasik Mastery</b><i>Belajar per tahap, uji pemahaman, luruskan mitos, cek rukun</i></span><span class="plus">+</span></summary>
+    <div class="body">
+     <ul>
+      <li><b>Pelajari Tahap demi Tahap:</b> buka tiap tahap ibadah, tandai "sudah paham", progres tersimpan sendiri.</li>
+      <li><b>Tes Pengetahuan Manasik:</b> ukur kesiapanmu dengan skor, ulangi sampai mantap.</li>
+      <li><b>Quiz Mitos vs Fakta:</b> luruskan salah kaprah yang beredar turun-temurun.</li>
+      <li><b>Checklist Rukun &amp; Wajib:</b> pastikan tidak ada satu pun yang terlewat.</li>
+     </ul>
+     <div class="when"><b>Dipakai:</b> mulai 3 bulan sebelum berangkat, diulang tiap pekan.</div>
+    </div>
+   </details>
+
+   <details class="kit">
+    <summary><span class="no">3</span><span class="sm"><b>📿 Doa &amp; Dzikir</b><i>21 doa lengkap Arab-latin-arti, penanda favorit, tasbih digital</i></span><span class="plus">+</span></summary>
+    <div class="body">
+     <ul>
+      <li><b>Koleksi 21 Doa:</b> tersusun mengikuti alur perjalanan, dari sebelum berangkat sampai pulang ke rumah.</li>
+      <li><b>Doa Favorit:</b> tandai doa yang sedang kamu hafal agar cepat dibuka saat dibutuhkan.</li>
+      <li><b>Dzikir Counter:</b> tasbih digital dengan hitungan harian dan total.</li>
+     </ul>
+     <div class="when"><b>Dipakai:</b> untuk hafalan harian, lalu dibuka langsung di Tanah Suci.</div>
+    </div>
+   </details>
+
+   <details class="kit">
+    <summary><span class="no">4</span><span class="sm"><b>🧳 Departure Ready</b><i>Timeline H-90 plus checklist dokumen, kesehatan, dan koper</i></span><span class="plus">+</span></summary>
+    <div class="body">
+     <ul>
+      <li><b>Timeline H-90:</b> masukkan tanggal keberangkatan, seluruh tahapan tersusun otomatis mundur.</li>
+      <li><b>Checklist Dokumen:</b> paspor, visa, vaksin, dan berkas travel, tercentang satu per satu.</li>
+      <li><b>Checklist Kesehatan:</b> persiapan fisik bertahap, bukan dadakan seminggu sebelum terbang.</li>
+      <li><b>Checklist Koper:</b> barang wajib jamaah, tidak ada yang ketinggalan di rumah.</li>
+     </ul>
+     <div class="when"><b>Dipakai:</b> sejak H-90, dicentang tiap pekan sampai hari keberangkatan.</div>
+    </div>
+   </details>
+
+   <details class="kit">
+    <summary><span class="no">5</span><span class="sm"><b>📚 Kamus Jamaah</b><i>40+ istilah, frasa Arab praktis, dan angka penting</i></span><span class="plus">+</span></summary>
+    <div class="body">
+     <ul>
+      <li><b>Glosarium Istilah:</b> 40+ istilah manasik, tempat, dan administrasi, bisa dicari atau dijelajah per kategori.</li>
+      <li><b>Frasa Arab Praktis:</b> kalimat sehari-hari untuk bertanya arah, berbelanja, dan meminta tolong.</li>
+      <li><b>Angka &amp; Kata Kunci:</b> bekal tawar-menawar dan membaca petunjuk di Tanah Suci.</li>
+     </ul>
+     <div class="when"><b>Dipakai:</b> kapan pun kamu menemukan istilah asing, sebelum, selama, dan sesudah perjalanan.</div>
+    </div>
+   </details>
+  </div>
+ </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section class="sec tint">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">Coba dulu <em>satu KIT-nya</em></h2>
+  <p class="lede">KIT 5 · Kamus Jamaah, versi utuh, langsung di halaman ini. Beginilah rasanya keempat KIT lainnya bekerja.</p>
+  <div class="demo">
+   <div class="bar">
+    <span class="d" style="background:#C2703D"></span><span class="d" style="background:#D6B76B"></span><span class="d" style="background:#2E7D5B"></span>
+    <span class="lb">KIT 5 · Kamus Jamaah</span>
+   </div>
+   <div class="stage">
+    <iframe id="demoFrame" title="Pratinjau KIT 5 Kamus Jamaah" sandbox="allow-scripts"></iframe>
+    <div class="veil" id="demoVeil">
+     <div class="orn" style="margin:0">۞</div>
+     <p>Pratinjau langsung KIT 5, cari istilah, jelajah kategori, dan buka frasa Arab praktisnya.</p>
+     <button type="button" id="demoBtn">Jalankan Pratinjau</button>
+    </div>
+   </div>
+  </div>
+  <p class="demo-note"><b>Empat KIT lainnya</b> (Financial Planner, Manasik Mastery, Doa &amp; Dzikir, dan Departure Ready) kebuka begitu kamu ambil paketnya.</p>
+ </div>
+</section>
+
+<!-- ============ VALUE ============ -->
+<section class="sec">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">Yang kamu bawa pulang <em>hari ini</em></h2>
+  <div class="value">
+   <div class="vrow"><span>💰 KIT 1 · Financial Planner (4 alat)</span><span class="amt">Rp 197.000</span></div>
+   <div class="vrow"><span>📖 KIT 2 · Manasik Mastery (4 modul)</span><span class="amt">Rp 167.000</span></div>
+   <div class="vrow"><span>📿 KIT 3 · Doa &amp; Dzikir (21 doa)</span><span class="amt">Rp 147.000</span></div>
+   <div class="vrow"><span>🧳 KIT 4 · Departure Ready (timeline + 3 checklist)</span><span class="amt">Rp 147.000</span></div>
+   <div class="vrow"><span>📚 KIT 5 · Kamus Jamaah (40+ istilah)</span><span class="amt">Rp 97.000</span></div>
+   <div class="vrow"><span>📗 Ebook 14 bab · 5 fase perjalanan</span><span class="amt">Rp 297.000</span></div>
+   <div class="vrow total"><span>Total nilai</span><span class="amt">Rp 1.052.000</span></div>
+  </div>
+  <div class="paynow">
+   <div class="l">Harga hari ini</div>
+   <div class="p">Rp 127.000</div>
+   <div class="o">Harga normal Rp 397.000, hemat Rp 270.000</div>
+   <a href="#" class="btn gold">Ambil Paketnya Sekarang →</a>
+  </div>
+ </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec tint">
+ <div class="wrap">
+  <div class="orn">۞</div>
+  <h2 class="title">Sebelum kamu <em>memutuskan</em></h2>
+  <div class="faq">
+   <details><summary>Saya belum pernah umroh sama sekali. Terlalu awal, ya?</summary><p>Justru inilah waktunya. Ebook dan tools di paket ini dimulai dari titik paling awal, meluruskan niat dan memahami perbedaan umroh &amp; haji, sebelum masuk ke biaya, dokumen, dan manasik. Tidak ada bagian yang mengasumsikan kamu sudah pernah berangkat.</p></details>
+   <details><summary>Saya sudah terdaftar haji dan tinggal menunggu porsi. Masih perlu?</summary><p>Perlu, dan justru inilah masa paling produktif untuk menyiapkan diri. Fokusmu bergeser ke manasik, fisik, hati, dan dokumen, semuanya dibahas di Fase 3 sampai 5. KIT 2 dan KIT 4 dirancang persis untuk masa menunggu seperti ini.</p></details>
+   <details><summary>Apakah ini menggantikan bimbingan manasik dari travel?</summary><p>Tidak menggantikan, tapi <b>melengkapi</b>. Bimbingan travel terbatas beberapa pertemuan, di sini kamu bisa mengulang materi dan tes pemahamanmu sendiri lewat KIT 2 kapan saja, sehingga saat manasik resmi kamu datang sudah siap, bukan mulai dari nol.</p></details>
+   <details><summary>KIT-nya beneran jalan atau cuma gambar?</summary><p>Beneran jalan, bukan cuma mockup. Kamu bisa coba KIT 5 secara utuh di halaman ini sekarang juga. Semua KIT berformat HTML interaktif, dibuka di browser HP maupun laptop, tanpa install, dan progres pengisianmu tersimpan otomatis di perangkat.</p></details>
+   <details><summary>Pembahasan fiqihnya mengikuti pendapat siapa?</summary><p>Mengikuti pendapat mainstream yang dipegang mayoritas pembimbing jamaah Indonesia dan panduan manasik resmi Kementerian Agama RI. Untuk kasus khusus, tetap sebaiknya kamu konsultasikan kepada ustadz atau pembimbing manasikmu.</p></details>
+   <details><summary>Setelah bayar, saya dapat apa dan bagaimana membukanya?</summary><p>Kamu menerima 6 file: lima KIT dan satu ebook. Semuanya HTML, cukup ketuk untuk membuka di browser. Simpan di folder khusus HP-mu dan cadangkan ke Google Drive atau email agar tetap aman walau ganti perangkat.</p></details>
+  </div>
+ </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="sec">
+ <div class="wrap">
+  <div class="closing">
+   <div class="ar">لَبَّيْكَ اللَّهُمَّ لَبَّيْك</div>
+   <h2>Sampai Bertemu di Baitullah</h2>
+   <p>Kamu tidak perlu menunggu kaya untuk memulai. Kamu hanya perlu memutuskan, lalu berjalan dengan rencana yang jelas. Ambil paketnya hari ini, dan biarkan Allah menyempurnakan sisanya.</p>
+   <a href="#" class="btn wide">Ambil Paketnya · Rp 127.000 →</a>
+   <p class="mini">Akses langsung setelah pembayaran · Berlaku selamanya</p>
+  </div>
+ </div>
+</section>
+
+<footer>© 2026 - Jalan Menuju Umroh</footer>
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky show" id="stickyBar">
+ <div class="in">
+  <div class="txt"><b>Jalan Menuju Umroh</b><i>5 KIT interaktif + Ebook 14 bab</i></div>
+  <div class="pr"><span class="n">Rp 127.000</span><span class="w">Rp 397.000</span></div>
+  <a href="#" class="btn">Ambil Sekarang →</a>
+ </div>
+</div>
+
+<script id="demoData" type="application/json">"PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImlkIj48aGVhZD48bWV0YSBjaGFyc2V0PSJVVEYtOCI+PG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCxpbml0aWFsLXNjYWxlPTEuMCI+Cjx0aXRsZT5LSVQgNSDigJQgS2FtdXMgSmFtYWFoIMK3IEphbGFuIE1lbnVqdSBVbXJvaDwvdGl0bGU+CjxsaW5rIHJlbD0icHJlY29ubmVjdCIgaHJlZj0iaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbSI+CjxsaW5rIGhyZWY9Imh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9TWFyY2VsbHVzJmZhbWlseT1QbHVzK0pha2FydGErU2Fuczp3Z2h0QDQwMDs1MDA7NjAwOzcwMDs4MDAmZmFtaWx5PUFtaXJpOndnaHRANDAwOzcwMCZkaXNwbGF5PXN3YXAiIHJlbD0ic3R5bGVzaGVldCI+CjxzdHlsZT4KOnJvb3R7CiAtLXBhcGVyOiNGN0Y0RUM7IC0tcGFwZXIyOiNGRkZERjc7IC0tbWludDojRTdGMEU2OyAtLW1pbnQyOiNGMEY2RUU7CiAtLWVtZXJhbGQ6IzBDNUM0MzsgLS1kZWVwOiMwNzNEMkQ7IC0tbGVhZjojMkU3RDVCOwogLS1nb2xkOiNCOTkyNDg7IC0tZ29sZDI6I0Q2Qjc2QjsgLS1pbms6IzIyMzAyQTsgLS1tdXRlZDojNUM2QjYyOyAtLWxpbmU6I0RGRDlDODsKfQoqe21hcmdpbjowO3BhZGRpbmc6MDtib3gtc2l6aW5nOmJvcmRlci1ib3h9CmJvZHl7Zm9udC1mYW1pbHk6J1BsdXMgSmFrYXJ0YSBTYW5zJyxzYW5zLXNlcmlmO2JhY2tncm91bmQ6dmFyKC0tcGFwZXIpO2NvbG9yOnZhcigtLWluayk7bWluLWhlaWdodDoxMDB2aDttaW4taGVpZ2h0OjEwMHN2aH0KOjpzZWxlY3Rpb257YmFja2dyb3VuZDp2YXIoLS1nb2xkMik7Y29sb3I6dmFyKC0tZGVlcCl9CgovKiA9PT09PSBIRVJPID09PT09ICovCi5oZXJve2JhY2tncm91bmQ6cmFkaWFsLWdyYWRpZW50KDEwMDBweCA0ODBweCBhdCA1MCUgLTIwJSwjRUFGM0U4IDAlLHRyYW5zcGFyZW50IDYwJSksCiByYWRpYWwtZ3JhZGllbnQoODAwcHggNDIwcHggYXQgOTAlIDAlLCNGM0VCRDggMCUsdHJhbnNwYXJlbnQgNTUlKSwgdmFyKC0tcGFwZXIpOwogcGFkZGluZzo0NHB4IDIycHggMzBweDt0ZXh0LWFsaWduOmNlbnRlcjtib3JkZXItYm90dG9tOjFweCBzb2xpZCB2YXIoLS1saW5lKX0KLmhlcm8gLmtpY2tlcntmb250LXNpemU6MTEuNXB4O2ZvbnQtd2VpZ2h0OjgwMDtsZXR0ZXItc3BhY2luZzozcHg7dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO2NvbG9yOnZhcigtLWdvbGQpfQouaGVybyBoMXtmb250LWZhbWlseTonTWFyY2VsbHVzJyxzZXJpZjtmb250LXNpemU6Y2xhbXAoMjhweCw1dncsNDJweCk7Y29sb3I6dmFyKC0tZGVlcCk7bWFyZ2luOjhweCAwIDhweH0KLmhlcm8gcHtmb250LXNpemU6MTVweDtjb2xvcjp2YXIoLS1tdXRlZCk7Zm9udC13ZWlnaHQ6NTAwO21heC13aWR0aDo1NjBweDttYXJnaW46MCBhdXRvfQoKLyogPT09PT0gU0hFTEwgPT09PT0gKi8KLnNoZWxse21heC13aWR0aDo5ODBweDttYXJnaW46MCBhdXRvO3BhZGRpbmc6MCAyMHB4IDgwcHh9CgovKiA9PT09PSBTTkFQU0hPVCA9PT09PSAqLwouc25hcHtkaXNwbGF5OmdyaWQ7Z3JpZC10ZW1wbGF0ZS1jb2x1bW5zOnJlcGVhdCgzLDFmcik7Z2FwOjE0cHg7bWFyZ2luOi0yNnB4IDAgMzJweDtwb3NpdGlvbjpyZWxhdGl2ZTt6LWluZGV4OjJ9Ci5zbmFwIC5jYXJke2JhY2tncm91bmQ6dmFyKC0tcGFwZXIyKTtib3JkZXI6MXB4IHNvbGlkIHZhcigtLWxpbmUpO2JvcmRlci1yYWRpdXM6MThweDtwYWRkaW5nOjIwcHggMThweDtib3gtc2hhZG93OjAgMTZweCA0MHB4IHJnYmEoMzQsNDgsNDIsLjA3KTt0ZXh0LWFsaWduOmNlbnRlcn0KLnNuYXAgLmNhcmQgLmxie2ZvbnQtc2l6ZToxMXB4O2ZvbnQtd2VpZ2h0OjgwMDtsZXR0ZXItc3BhY2luZzoxLjVweDt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7Y29sb3I6dmFyKC0tZ29sZCk7bWFyZ2luLWJvdHRvbTo2cHh9Ci5zbmFwIC5jYXJkIC52bHtmb250LWZhbWlseTonTWFyY2VsbHVzJyxzZXJpZjtmb250LXNpemU6MjJweDtjb2xvcjp2YXIoLS1kZWVwKTtsaW5lLWhlaWdodDoxLjJ9Ci5zbmFwIC5jYXJkIC52bCBzbWFsbHtmb250LXNpemU6MTJweDtjb2xvcjp2YXIoLS1tdXRlZCk7Zm9udC13ZWlnaHQ6NjAwO2ZvbnQtZmFtaWx5OidQbHVzIEpha2FydGEgU2Fucycsc2Fucy1zZXJpZjtkaXNwbGF5OmJsb2NrO21hcmdpbi10b3A6M3B4fQoKLyogPT09PT0gVEFCIE5BViA9PT09PSAqLwoudGFibmF2e2Rpc3BsYXk6Z3JpZDtncmlkLXRlbXBsYXRlLWNvbHVtbnM6cmVwZWF0KDMsMWZyKTtnYXA6MTBweDttYXJnaW4tYm90dG9tOjMwcHg7cG9zaXRpb246c3RpY2t5O3RvcDoxMnB4O3otaW5kZXg6MjB9Ci50YWJidG57YmFja2dyb3VuZDp2YXIoLS1wYXBlcjIpO2JvcmRlcjoxLjVweCBzb2xpZCB2YXIoLS1saW5lKTtib3JkZXItcmFkaXVzOjE0cHg7cGFkZGluZzoxNHB4IDEwcHg7dGV4dC1hbGlnbjpjZW50ZXI7Y3Vyc29yOnBvaW50ZXI7Zm9udC1mYW1pbHk6aW5oZXJpdDt0cmFuc2l0aW9uOi4yc30KLnRhYmJ0biAuaWN7Zm9udC1zaXplOjIwcHg7ZGlzcGxheTpibG9jazttYXJnaW4tYm90dG9tOjRweH0KLnRhYmJ0biAubGJ7Zm9udC1zaXplOjEyLjVweDtmb250LXdlaWdodDo3MDA7Y29sb3I6dmFyKC0taW5rKX0KLnRhYmJ0bi5vbntiYWNrZ3JvdW5kOnZhcigtLWVtZXJhbGQpO2JvcmRlci1jb2xvcjp2YXIoLS1lbWVyYWxkKTtib3gtc2hhZG93OjAgMTBweCAyNHB4IHJnYmEoMTIsOTIsNjcsLjI1KX0KLnRhYmJ0bi5vbiAubGJ7Y29sb3I6I0YzRjdFRn0KLnRhYmJ0bjpob3Zlcjpub3QoLm9uKXtib3JkZXItY29sb3I6dmFyKC0tZ29sZCl9CgovKiA9PT09PSBQQU5FTFMgPT09PT0gKi8KLnBhbmVse2Rpc3BsYXk6bm9uZX0KLnBhbmVsLm9ue2Rpc3BsYXk6YmxvY2s7YW5pbWF0aW9uOmZhZGUgLjM1cyBlYXNlfQpAa2V5ZnJhbWVzIGZhZGV7ZnJvbXtvcGFjaXR5OjA7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoNnB4KX10b3tvcGFjaXR5OjE7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoMCl9fQoKLnBhbmVsLWhlYWR7bWFyZ2luLWJvdHRvbToyMnB4fQoucGFuZWwtaGVhZCAuZXllYnJvd3tmb250LXNpemU6MTEuNXB4O2ZvbnQtd2VpZ2h0OjgwMDtsZXR0ZXItc3BhY2luZzoyLjVweDt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7Y29sb3I6dmFyKC0tZW1lcmFsZCl9Ci5wYW5lbC1oZWFkIGgye2ZvbnQtZmFtaWx5OidNYXJjZWxsdXMnLHNlcmlmO2ZvbnQtc2l6ZTpjbGFtcCgyNHB4LDR2dywzMHB4KTtjb2xvcjp2YXIoLS1kZWVwKTttYXJnaW46NnB4IDAgOHB4fQoucGFuZWwtaGVhZCBwe2ZvbnQtc2l6ZToxNC41cHg7Y29sb3I6dmFyKC0tbXV0ZWQpO21heC13aWR0aDo2MDBweH0KLm5vdGV7Zm9udC1zaXplOjEyLjVweDtjb2xvcjp2YXIoLS1tdXRlZCk7bGluZS1oZWlnaHQ6MS43O21hcmdpbi10b3A6MTRweH0KCi8qID09PT09IFNFQVJDSCAmIEZJTFRFUiA9PT09PSAqLwouc2VhcmNoe3dpZHRoOjEwMCU7cGFkZGluZzoxNHB4IDE4cHg7YmFja2dyb3VuZDp2YXIoLS1wYXBlcjIpO2JvcmRlcjoxLjVweCBzb2xpZCB2YXIoLS1saW5lKTtib3JkZXItcmFkaXVzOjk5OXB4O2ZvbnQtc2l6ZToxNC41cHg7Zm9udC1mYW1pbHk6aW5oZXJpdDtmb250LXdlaWdodDo2MDA7Y29sb3I6dmFyKC0taW5rKTttYXJnaW4tYm90dG9tOjE2cHh9Ci5zZWFyY2g6Zm9jdXN7b3V0bGluZTpub25lO2JvcmRlci1jb2xvcjp2YXIoLS1lbWVyYWxkKX0KLmNoaXBze2Rpc3BsYXk6ZmxleDtnYXA6OHB4O292ZXJmbG93LXg6YXV0bztwYWRkaW5nLWJvdHRvbToxMHB4O21hcmdpbi1ib3R0b206MjBweDtzY3JvbGxiYXItd2lkdGg6dGhpbn0KLmNoaXBzOjotd2Via2l0LXNjcm9sbGJhcntoZWlnaHQ6NXB4fQouY2hpcHM6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1ie2JhY2tncm91bmQ6dmFyKC0tbGluZSk7Ym9yZGVyLXJhZGl1czo1cHh9Ci5jaGlwe2ZsZXgtc2hyaW5rOjA7cGFkZGluZzoxMHB4IDE2cHg7YmFja2dyb3VuZDp2YXIoLS1wYXBlcjIpO2JvcmRlcjoxLjVweCBzb2xpZCB2YXIoLS1saW5lKTtib3JkZXItcmFkaXVzOjk5OXB4O2ZvbnQtc2l6ZToxMi41cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOnZhcigtLWRlZXApO2N1cnNvcjpwb2ludGVyO3doaXRlLXNwYWNlOm5vd3JhcDt0cmFuc2l0aW9uOi4xNXN9Ci5jaGlwLm9ue2JhY2tncm91bmQ6dmFyKC0tZW1lcmFsZCk7Ym9yZGVyLWNvbG9yOnZhcigtLWVtZXJhbGQpO2NvbG9yOiNmZmZ9CgouY2F0aGVhZHtmb250LXNpemU6MTIuNXB4O2ZvbnQtd2VpZ2h0OjgwMDtjb2xvcjp2YXIoLS1lbWVyYWxkKTt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7bGV0dGVyLXNwYWNpbmc6MS41cHg7bWFyZ2luOjI2cHggMCAxMnB4fQouY2F0aGVhZDpmaXJzdC1jaGlsZHttYXJnaW4tdG9wOjB9Ci5lbXB0eXt0ZXh0LWFsaWduOmNlbnRlcjtjb2xvcjp2YXIoLS1tdXRlZCk7Zm9udC1zaXplOjEzLjVweDtwYWRkaW5nOjQwcHggMTBweDtmb250LXN0eWxlOml0YWxpY30KCi8qID09PT09IEdMT1NTQVJZIFRFUk0gQ0FSRCA9PT09PSAqLwoudGVybXtiYWNrZ3JvdW5kOnZhcigtLXBhcGVyMik7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1saW5lKTtib3JkZXItcmFkaXVzOjE0cHg7cGFkZGluZzoxNnB4IDE4cHg7bWFyZ2luLWJvdHRvbToxMHB4fQoudGVybSBoM3tmb250LXNpemU6MTQuNXB4O2NvbG9yOnZhcigtLWRlZXApO2ZvbnQtd2VpZ2h0OjgwMDttYXJnaW4tYm90dG9tOjVweH0KLnRlcm0gcHtmb250LXNpemU6MTNweDtjb2xvcjp2YXIoLS1pbmspO2xpbmUtaGVpZ2h0OjEuNjV9CgovKiA9PT09PSBQSFJBU0UgQ0FSRCA9PT09PSAqLwouZnJhc2F7YmFja2dyb3VuZDp2YXIoLS1wYXBlcjIpO2JvcmRlcjoxcHggc29saWQgdmFyKC0tbGluZSk7Ym9yZGVyLXJhZGl1czoxNHB4O3BhZGRpbmc6MTZweCAxOHB4O21hcmdpbi1ib3R0b206MTBweH0KLmZyYXNhIC5hcntmb250LWZhbWlseTonQW1pcmknLHNlcmlmO2ZvbnQtc2l6ZToyMHB4O2NvbG9yOnZhcigtLWRlZXApO2RpcmVjdGlvbjpydGw7dGV4dC1hbGlnbjpyaWdodDttYXJnaW4tYm90dG9tOjZweH0KLmZyYXNhIC5sYXtmb250LXNpemU6MTNweDtjb2xvcjp2YXIoLS1lbWVyYWxkKTtmb250LXN0eWxlOml0YWxpYzttYXJnaW4tYm90dG9tOjRweH0KLmZyYXNhIC5pZHtmb250LXNpemU6MTNweDtjb2xvcjp2YXIoLS1pbmspfQouZnJhc2EgLmlkIGJ7Y29sb3I6dmFyKC0tZ29sZCl9CgovKiA9PT09PSBOVU1CRVIvS0VZV09SRCBHUklEID09PT09ICovCi5rd2dyaWR7ZGlzcGxheTpncmlkO2dyaWQtdGVtcGxhdGUtY29sdW1uczpyZXBlYXQoYXV0by1maWxsLG1pbm1heCgxMzBweCwxZnIpKTtnYXA6MTBweH0KLmt3Y2FyZHtiYWNrZ3JvdW5kOnZhcigtLXBhcGVyMik7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1saW5lKTtib3JkZXItcmFkaXVzOjEycHg7cGFkZGluZzoxNHB4O3RleHQtYWxpZ246Y2VudGVyfQoua3djYXJkIC5hcntmb250LWZhbWlseTonQW1pcmknLHNlcmlmO2ZvbnQtc2l6ZToyMnB4O2NvbG9yOnZhcigtLWRlZXApO21hcmdpbi1ib3R0b206NHB4fQoua3djYXJkIC5sYXtmb250LXNpemU6MTJweDtjb2xvcjp2YXIoLS1lbWVyYWxkKTtmb250LXdlaWdodDo3MDA7Zm9udC1zdHlsZTppdGFsaWM7bWFyZ2luLWJvdHRvbToycHh9Ci5rd2NhcmQgLmlke2ZvbnQtc2l6ZToxMS41cHg7Y29sb3I6dmFyKC0tbXV0ZWQpfQoKQG1lZGlhIChtYXgtd2lkdGg6NzYwcHgpewogLnNuYXB7Z3JpZC10ZW1wbGF0ZS1jb2x1bW5zOjFmcjttYXJnaW4tdG9wOi0xOHB4fQogLnRhYm5hdntwb3NpdGlvbjpzdGF0aWM7dG9wOmF1dG99CiAua3dncmlke2dyaWQtdGVtcGxhdGUtY29sdW1uczpyZXBlYXQoYXV0by1maWxsLG1pbm1heCgxMDVweCwxZnIpKX0KfQo8L3N0eWxlPjwvaGVhZD4KPGJvZHk+Cgo8aGVhZGVyIGNsYXNzPSJoZXJvIj4KIDxkaXYgY2xhc3M9ImtpY2tlciI+S0lUIDUg4oCUIEphbGFuIE1lbnVqdSBVbXJvaDwvZGl2PgogPGgxPkthbXVzIEphbWFhaDwvaDE+CiA8cD40MCsgaXN0aWxhaCBoYWppICZhbXA7IHVtcm9oLCBmcmFzYSBBcmFiIHByYWt0aXMgdW50dWsgcGVyY2FrYXBhbiBzZWhhcmktaGFyaSwgZGFuIGFuZ2thIHBlbnRpbmcgdW50dWsgdGF3YXItbWVuYXdhciBkaSBUYW5haCBTdWNpLjwvcD4KPC9oZWFkZXI+Cgo8ZGl2IGNsYXNzPSJzaGVsbCI+Cgo8ZGl2IGNsYXNzPSJzbmFwIj4KIDxkaXYgY2xhc3M9ImNhcmQiPgogIDxkaXYgY2xhc3M9ImxiIj5Jc3RpbGFoPC9kaXY+CiAgPGRpdiBjbGFzcz0idmwiIGlkPSJzbmFwVGVybXMiPjA8c21hbGw+a2F0YSAmIHNpbmdrYXRhbjwvc21hbGw+PC9kaXY+CiA8L2Rpdj4KIDxkaXYgY2xhc3M9ImNhcmQiPgogIDxkaXYgY2xhc3M9ImxiIj5GcmFzYSBQcmFrdGlzPC9kaXY+CiAgPGRpdiBjbGFzcz0idmwiIGlkPSJzbmFwUGhyYXNlcyI+MDxzbWFsbD5zaWFwIGRpcGFrYWk8L3NtYWxsPjwvZGl2PgogPC9kaXY+CiA8ZGl2IGNsYXNzPSJjYXJkIj4KICA8ZGl2IGNsYXNzPSJsYiI+S2F0ZWdvcmk8L2Rpdj4KICA8ZGl2IGNsYXNzPSJ2bCIgaWQ9InNuYXBDYXRzIj4wPHNtYWxsPnRvcGlrIHRlcnN1c3VuPC9zbWFsbD48L2Rpdj4KIDwvZGl2Pgo8L2Rpdj4KCjxkaXYgY2xhc3M9InRhYm5hdiI+CiA8YnV0dG9uIGNsYXNzPSJ0YWJidG4gb24iIGRhdGEtdGFiPSJ0MSIgb25jbGljaz0ic2hvd1RhYigndDEnKSI+PHNwYW4gY2xhc3M9ImljIj7wn5OWPC9zcGFuPjxzcGFuIGNsYXNzPSJsYiI+R2xvc2FyaXVtPC9zcGFuPjwvYnV0dG9uPgogPGJ1dHRvbiBjbGFzcz0idGFiYnRuIiBkYXRhLXRhYj0idDIiIG9uY2xpY2s9InNob3dUYWIoJ3QyJykiPjxzcGFuIGNsYXNzPSJpYyI+8J+Xo++4jzwvc3Bhbj48c3BhbiBjbGFzcz0ibGIiPkZyYXNhIEFyYWI8L3NwYW4+PC9idXR0b24+CiA8YnV0dG9uIGNsYXNzPSJ0YWJidG4iIGRhdGEtdGFiPSJ0MyIgb25jbGljaz0ic2hvd1RhYigndDMnKSI+PHNwYW4gY2xhc3M9ImljIj7wn5SiPC9zcGFuPjxzcGFuIGNsYXNzPSJsYiI+QW5na2EgJiBLYXRhIEt1bmNpPC9zcGFuPjwvYnV0dG9uPgo8L2Rpdj4KCjwhLS0gPT09PT09PT09PT09IFRBQiAxOiBHTE9TQVJJVU0gPT09PT09PT09PT09IC0tPgo8c2VjdGlvbiBjbGFzcz0icGFuZWwgb24iIGlkPSJ0MSI+CiA8ZGl2IGNsYXNzPSJwYW5lbC1oZWFkIj4KICA8ZGl2IGNsYXNzPSJleWVicm93Ij5SZWZlcmVuc2kgQ2VwYXQ8L2Rpdj4KICA8aDI+R2xvc2FyaXVtIElzdGlsYWg8L2gyPgogIDxwPlNlbXVhIGlzdGlsYWggbWFuYXNpaywgdGVtcGF0LCBkYW4gYWRtaW5pc3RyYXNpIGhhamkgJmFtcDsgdW1yb2ggZGFsYW0gc2F0dSB0ZW1wYXQuIENhcmkgYXRhdSBqZWxhamFoIHBlciBrYXRlZ29yaS48L3A+CiA8L2Rpdj4KIDxpbnB1dCB0eXBlPSJ0ZXh0IiBjbGFzcz0ic2VhcmNoIiBpZD0idGVybVNlYXJjaCIgcGxhY2Vob2xkZXI9IvCflI0gQ2FyaTogaWhyYW0sIHRhd2FmLCBCUElILCBTSVNLT0hBVC4uLiIgb25pbnB1dD0icmVuZGVyVGVybXMoKSI+CiA8ZGl2IGNsYXNzPSJjaGlwcyIgaWQ9InRlcm1DaGlwcyI+PC9kaXY+CiA8ZGl2IGlkPSJ0ZXJtTGlzdCI+PC9kaXY+Cjwvc2VjdGlvbj4KCjwhLS0gPT09PT09PT09PT09IFRBQiAyOiBGUkFTQSBBUkFCIFBSQUtUSVMgPT09PT09PT09PT09IC0tPgo8c2VjdGlvbiBjbGFzcz0icGFuZWwiIGlkPSJ0MiI+CiA8ZGl2IGNsYXNzPSJwYW5lbC1oZWFkIj4KICA8ZGl2IGNsYXNzPSJleWVicm93Ij5QZXJjYWthcGFuIFNlaGFyaS1oYXJpPC9kaXY+CiAgPGgyPkZyYXNhIEFyYWIgUHJha3RpczwvaDI+CiAgPHA+RnJhc2Egc2luZ2thdCB5YW5nIGxhbmdzdW5nIHRlcnBha2FpIOKAlCBkYXJpIGJlcnRhbnlhIGFyYWggc2FtcGFpIGtlYWRhYW4gZGFydXJhdC4gRGlrZWxvbXBva2thbiBzZXN1YWkgc2l0dWFzaS48L3A+CiA8L2Rpdj4KIDxpbnB1dCB0eXBlPSJ0ZXh0IiBjbGFzcz0ic2VhcmNoIiBpZD0icGhyYXNlU2VhcmNoIiBwbGFjZWhvbGRlcj0i8J+UjSBDYXJpOiBoYXJnYSwgdG9pbGV0LCB0ZXJzZXNhdCwgZG9rdGVyLi4uIiBvbmlucHV0PSJyZW5kZXJQaHJhc2VzKCkiPgogPGRpdiBjbGFzcz0iY2hpcHMiIGlkPSJwaHJhc2VDaGlwcyI+PC9kaXY+CiA8ZGl2IGlkPSJwaHJhc2VMaXN0Ij48L2Rpdj4KIDxwIGNsYXNzPSJub3RlIj7wn5OMIEVqYWFuIGxhdGluIGRpIHNpbmkgZGlzZWRlcmhhbmFrYW4gYWdhciBtdWRhaCBkaWJhY2EgbGlkYWggSW5kb25lc2lhIOKAlCBidWthbiB0cmFuc2xpdGVyYXNpIGlsbWlhaCBiYWt1LiBVbnR1ayBzaXR1YXNpIGRhcnVyYXQgc3VuZ2d1aGFuLCBqYW5nYW4gcmFndSBtZW1ha2FpIGJhaGFzYSBpc3lhcmF0IGF0YXUgbWVuY2FyaSBzZXNhbWEgamFtYWFoIEluZG9uZXNpYS9wZXR1Z2FzIGJlcnNlcmFnYW0uPC9wPgo8L3NlY3Rpb24+Cgo8IS0tID09PT09PT09PT09PSBUQUIgMzogQU5HS0EgJiBLQVRBIEtVTkNJID09PT09PT09PT09PSAtLT4KPHNlY3Rpb24gY2xhc3M9InBhbmVsIiBpZD0idDMiPgogPGRpdiBjbGFzcz0icGFuZWwtaGVhZCI+CiAgPGRpdiBjbGFzcz0iZXllYnJvdyI+QmVrYWwgVGF3YXItTWVuYXdhcjwvZGl2PgogIDxoMj5BbmdrYSAmYW1wOyBLYXRhIEt1bmNpPC9oMj4KICA8cD5BbmdrYSB1bnR1ayBiZWxhbmphICZhbXA7IHRhd2FyIGhhcmdhLCBrYXRhIHRhbnlhIGRhc2FyLCBkYW4gbmFtYSBoYXJpIOKAlCBtb2RhbCBwZW50aW5nIGJlcmludGVyYWtzaSBkaSBwYXNhciBUYW5haCBTdWNpLjwvcD4KIDwvZGl2PgoKIDxkaXYgY2xhc3M9ImNhdGhlYWQiPvCflKIgQW5na2EgMeKAkzEwPC9kaXY+CiA8ZGl2IGNsYXNzPSJrd2dyaWQiIGlkPSJudW1HcmlkMSI+PC9kaXY+CgogPGRpdiBjbGFzcz0iY2F0aGVhZCI+8J+SryBQdWx1aGFuLCBSYXR1c2FuICYgUmlidWFuPC9kaXY+CiA8ZGl2IGNsYXNzPSJrd2dyaWQiIGlkPSJudW1HcmlkMiI+PC9kaXY+CgogPGRpdiBjbGFzcz0iY2F0aGVhZCI+4p2TIEthdGEgVGFueWEgRGFzYXI8L2Rpdj4KIDxkaXYgY2xhc3M9Imt3Z3JpZCIgaWQ9InF3R3JpZCI+PC9kaXY+CgogPGRpdiBjbGFzcz0iY2F0aGVhZCI+8J+ThSBOYW1hIEhhcmk8L2Rpdj4KIDxkaXYgY2xhc3M9Imt3Z3JpZCIgaWQ9ImRheUdyaWQiPjwvZGl2PgoKIDxwIGNsYXNzPSJub3RlIj7wn5OMIEFuZ2thIHNhbmdhdCBiZXJndW5hIHNhYXQgdGF3YXItbWVuYXdhciBkaSBwYXNhciBTZW5nL0JpbiBEYXdvb2Qg4oCUIHNlYnV0a2FuIGFuZ2thIGRhbGFtIEFyYWIgc2VyaW5nIG1lbWJ1YXQgcGVkYWdhbmcgbGViaWggcmVzcGVrICZhbXA7IGhhcmdhIGxlYmloIGJlcnNhaGFiYXQuPC9wPgo8L3NlY3Rpb24+Cgo8L2Rpdj4KCjxzY3JpcHQ+Ci8qID09PT09PT09PT09PT09PT09PT09PSBUQUIgU1dJVENIID09PT09PT09PT09PT09PT09PT09PSAqLwpmdW5jdGlvbiBzaG93VGFiKGlkKXsKIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5wYW5lbCcpLmZvckVhY2gocD0+cC5jbGFzc0xpc3QudG9nZ2xlKCdvbicscC5pZD09PWlkKSk7CiBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcudGFiYnRuJykuZm9yRWFjaChiPT5iLmNsYXNzTGlzdC50b2dnbGUoJ29uJyxiLmRhdGFzZXQudGFiPT09aWQpKTsKIHdpbmRvdy5zY3JvbGxUbyh7dG9wOjAsYmVoYXZpb3I6J3Ntb290aCd9KTsKfQoKLyogPT09PT09PT09PT09PT09PT09PT09IFRBQiAxOiBHTE9TQVJJVU0gREFUQSA9PT09PT09PT09PT09PT09PT09PT0gKi8KY29uc3QgVENBVFM9Wwoge2tleTonaWJhZGFoJywgbGFiZWw6J/CflYsgSXN0aWxhaCBJYmFkYWgnfSwKIHtrZXk6J3RlbXBhdCcsIGxhYmVsOifwn5ONIE5hbWEgVGVtcGF0J30sCiB7a2V5OidqZW5pcycsIGxhYmVsOifwn5eT77iPIEplbmlzICYgV2FrdHUnfSwKIHtrZXk6J2FkbWluJywgbGFiZWw6J/Cfk4sgQWRtaW5pc3RyYXNpICYgRG9rdW1lbid9LAoge2tleToncm9tYm9uZ2FuJywgbGFiZWw6J/CfkaUgU3RydWt0dXIgUm9tYm9uZ2FuJ30KXTsKY29uc3QgVEVSTVM9Wwoge2NhdDonaWJhZGFoJywgdDonSWhyYW0nLCBkOidOaWF0IG1lbXVsYWkgaWJhZGFoIGhhamkvdW1yb2gsIGRpdGFuZGFpIGRlbmdhbiBwYWthaWFuIGtodXN1cyAocHJpYTogMiBoZWxhaSBrYWluIHRhbnBhIGphaGl0YW4sIHdhbml0YTogcGFrYWlhbiBiaWFzYSBtZW51dHVwIGF1cmF0KS4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J01pcWF0JywgZDonVGVtcGF0ICYgd2FrdHUgeWFuZyBkaXRlbnR1a2FuIHN5YXJpYXQgdW50dWsgYmVybmlhdCBpaHJhbS4gU2V0aWFwIGFyYWggcHVueWEgbWlxYXQgYmVyYmVkYS4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J1RhbGJpeWFoJywgZDonQmFjYWFuICJMYWJiYWlrYSBBbGxhaHVtbWEgbGFiYmFpay4uLiIgeWFuZyBkaWxhbnR1bmthbiBzYWF0IGlocmFtLCBtZW55YXRha2FuIGtlc2lhcGFuIG1lbWVudWhpIHBhbmdnaWxhbiBBbGxhaC4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J1Rhd2FmJywgZDoiTWVuZ2VsaWxpbmdpIEthJ2JhaCBzZWJhbnlhayA3IHB1dGFyYW4gYmVybGF3YW5hbiBhcmFoIGphcnVtIGphbSwgZGltdWxhaSBkYXJpIEhhamFyIEFzd2FkLiJ9LAoge2NhdDonaWJhZGFoJywgdDoiU2EnaSIsIGQ6J0JlcmphbGFuIDcga2FsaSBib2xhay1iYWxpayBhbnRhcmEgYnVraXQgU2hhZmEgZGFuIE1hcndhaCwgbWVuZ2VuYW5nIHBlcmp1YW5nYW4gU2l0aSBIYWphci4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J1d1a3VmJywgZDonQmVyZGlhbS9iZXJkb2EgZGkgUGFkYW5nIEFyYWZhaCBwYWRhIDkgRHp1bGhpamphaCDigJQgcnVrdW4gaGFqaSB0ZXJwZW50aW5nLid9LAoge2NhdDonaWJhZGFoJywgdDonTWFiaXQnLCBkOidCZXJtYWxhbSAoZGkgTXV6ZGFsaWZhaCBwYWRhIG1hbGFtIDEwIER6dWxoaWpqYWggJiBkaSBNaW5hIHBhZGEgbWFsYW0gMTHigJMxMyBEenVsaGlqamFoKS4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J0p1bXJhaCcsIGQ6J1RpZ2EgdGlhbmcgYmF0dSBkaSBNaW5hIHlhbmcgZGlsb250YXJpIGtlcmlraWwgKEFxYWJhaC9XdXN0aGEvVWxhKSBzZWJhZ2FpIHNpbWJvbCBtZWxhd2FuIGdvZGFhbiBzZXRhbi4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J1RhaGFsbHVsJywgZDonTWVuY3VrdXIvbWVuZ2d1bnRpbmcgcmFtYnV0IHNlYmFnYWkgdGFuZGEgYmVyYWtoaXJueWEgbGFyYW5nYW4gaWhyYW0uJ30sCiB7Y2F0OidpYmFkYWgnLCB0OidEYW0nLCBkOidEZW5kYSBiZXJ1cGEgc2VtYmVsaWhhbiBrYW1iaW5nL3NhcGkvdW50YSBqaWthIG1lbGFuZ2dhciBsYXJhbmdhbiBpaHJhbSBhdGF1IHRlcnRpbmdnYWwgd2FqaWIgaGFqaS4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J0JhZGFsIEhhamknLCBkOidNZW5naGFqaWthbiBvcmFuZyBsYWluICh5YW5nIHN1ZGFoIG1lbmluZ2dhbCBhdGF1IHRpZGFrIG1hbXB1IGZpc2lrKSDigJQgZGVuZ2FuIHN5YXJhdCBzYW5nIGJhZGFsIHN1ZGFoIHBlcm5haCBoYWppIHVudHVrIGRpcmlueWEgc2VuZGlyaS4nfSwKIHtjYXQ6J2liYWRhaCcsIHQ6J01haHJhbScsIGQ6J1ByaWEgeWFuZyBoYXJhbSBkaW5pa2FoaSAoc3VhbWksIGF5YWgsIGFuYWsgbGFraSwgc2F1ZGFyYSBsYWtpLCBkbGwpLiBVbnR1ayB3YW5pdGEgeWFuZyBpbmdpbiBoYWppLid9LAoge2NhdDonaWJhZGFoJywgdDonTWFicnVyJywgZDonSGFqaSB5YW5nIGRpdGVyaW1hIEFsbGFoIOKAlCB0YW5kYW55YSBha2hsYWsgbGViaWggYmFpaywgaWJhZGFoIGxlYmloIGtodXN5dWssIGxlYmloIGRlcm1hd2FuLid9LAoge2NhdDondGVtcGF0JywgdDonSGFqYXIgQXN3YWQnLCBkOiJCYXR1IGhpdGFtIGRpIHN1ZHV0IEthJ2JhaCwgdGl0aWsgbXVsYWkgJiBha2hpciB0YXdhZi4gRGlzdW5uYWhrYW4gZGl1c2FwIGF0YXUgZGljaXVtIGppa2EgbWVtdW5na2lua2FuLiJ9LAoge2NhdDondGVtcGF0JywgdDonTXVsdGF6YW0nLCBkOiJBcmVhIGFudGFyYSBIYWphciBBc3dhZCAmIHBpbnR1IEthJ2JhaCDigJQgdGVtcGF0IG11c3RhamFiIGJlcmRvYS4ifSwKIHtjYXQ6J3RlbXBhdCcsIHQ6J0hpamlyIElzbWFpbCcsIGQ6IkFyZWEgYmVyYmVudHVrIHNldGVuZ2FoIGxpbmdrYXJhbiBkaSBzaXNpIEthJ2JhaCwgZGlhbmdnYXAgYmFnaWFuIEthJ2JhaC4gU2hhbGF0IGRpIGRhbGFtbnlhID0gc2hhbGF0IGRpIGRhbGFtIEthJ2JhaC4ifSwKIHtjYXQ6J3RlbXBhdCcsIHQ6J01hcWFtIElicmFoaW0nLCBkOiJCYXR1IHRlbXBhdCBOYWJpIElicmFoaW0gQVMgYmVyZGlyaSBzYWF0IG1lbWJhbmd1biBLYSdiYWguIFNoYWxhdCAyIHJha2FhdCBkaSBiZWxha2FuZ255YSBkaXN1bm5haGthbiBzZXRlbGFoIHRhd2FmLiJ9LAoge2NhdDondGVtcGF0JywgdDonWmFtemFtJywgZDonU3VtYmVyIGFpciBrZXJhbWF0IGRpIE1hc2ppZGlsIEhhcmFtLCBtdW5jdWwgZGFyaSBoZW50YWthbiBrYWtpIE5hYmkgSXNtYWlsIHNhYXQgYmF5aS4gQmVya2FoICYgYm9sZWggZGliYXdhIHB1bGFuZy4nfSwKIHtjYXQ6J3RlbXBhdCcsIHQ6J1JhdWRoYWgnLCBkOidUYW1hbiBzdXJnYSBkaSBNYXNqaWQgTmFiYXdpIChhbnRhcmEgbWltYmFyICYgbWFrYW0gUmFzdWx1bGxhaCDvt7opLiBUZW1wYXQgbXVzdGFqYWIuJ30sCiB7Y2F0Oid0ZW1wYXQnLCB0OidBcmFmYWgnLCBkOidQYWRhbmcgbHVhcyB0ZW1wYXQgd3VrdWYsIMKxMjBrbSBkYXJpIE1ha2thaC4gRGlsYWt1a2FuIHBhZGEgOSBEenVsaGlqamFoLid9LAoge2NhdDondGVtcGF0JywgdDonTXV6ZGFsaWZhaCcsIGQ6J1RlbXBhdCBtYWJpdCBhbnRhcmEgQXJhZmFoICYgTWluYSwgbWVuZ2FtYmlsIGtlcmlraWwgdW50dWsgSnVtcmFoLid9LAoge2NhdDondGVtcGF0JywgdDonTWluYScsIGQ6J1RlbXBhdCBtYWJpdCAmIG1lbG9udGFyIEp1bXJhaCBzZWxhbWEgaGFyaSBUYXN5cmlxICgxMeKAkzEzIER6dWxoaWpqYWgpLid9LAoge2NhdDondGVtcGF0JywgdDonSmFtYXJhdCcsIGQ6J0tvbXBsZWtzIDMgdGlhbmcgSnVtcmFoIGRpIE1pbmEuJ30sCiB7Y2F0Oid0ZW1wYXQnLCB0OidFbWJhcmthc2knLCBkOidCYW5kYXJhIGtlYmVyYW5na2F0YW4gaGFqaSAoY3RoOiBTb2V0dGEsIEp1YW5kYSwgS3VhbGFuYW11LCBkbGwpLid9LAoge2NhdDonamVuaXMnLCB0OidIYXJpIFRhc3lyaXEnLCBkOicxMSwgMTIsIDEzIER6dWxoaWpqYWgg4oCUIGhhcmktaGFyaSBzZXRlbGFoIElkdWwgQWRoYSwgbWFzaWggZGFsYW0gcmFuZ2thaWFuIGhhamkuJ30sCiB7Y2F0OidqZW5pcycsIHQ6IkhhamkgVGFtYXR0dSciLCBkOidVbXJvaCBkdWx1IGxhbHUgdGFoYWxsdWwsIGtlbXVkaWFuIGlocmFtIGxhZ2kgdW50dWsgaGFqaS4gUGFsaW5nIHVtdW0gdW50dWsgamFtYWFoIEluZG9uZXNpYS4nfSwKIHtjYXQ6J2plbmlzJywgdDonSGFqaSBJZnJhZCcsIGQ6J0hhbnlhIG1lbGFrdWthbiBoYWppLCB0YW5wYSB1bXJvaCBkYWxhbSByYW5na2FpYW4uJ30sCiB7Y2F0OidqZW5pcycsIHQ6J0hhamkgUWlyYW4nLCBkOidOaWF0IGhhamkgJiB1bXJvaCBzZWthbGlndXMgZGFsYW0gc2F0dSBpaHJhbSwgdGFucGEgdGFoYWxsdWwgZGkgYW50YXJhbnlhLid9LAoge2NhdDonYWRtaW4nLCB0OidCUElIJywgZDonQmlheWEgUGVueWVsZW5nZ2FyYWFuIEliYWRhaCBIYWppIOKAlCBiaWF5YSByZXNtaSBoYWppIHJlZ3VsZXIgeWFuZyBkaXRldGFwa2FuIEtlbWVuYWcuJ30sCiB7Y2F0OidhZG1pbicsIHQ6J09OSCBQbHVzIC8gSGFqaSBLaHVzdXMnLCBkOidQYWtldCBoYWppIGRlbmdhbiBiaWF5YSBsZWJpaCB0aW5nZ2ksIGFudHJpYW4gbGViaWggcGVuZGVrLCBmYXNpbGl0YXMgbGViaWggcHJlbWl1bS4nfSwKIHtjYXQ6J2FkbWluJywgdDonU0lTS09IQVQnLCBkOidTaXN0ZW0gS29tcHV0ZXJpc2FzaSBIYWppIFRlcnBhZHUgS2VtZW5hZyDigJQgdW50dWsgZGFmdGFyIGFudHJpYW4gaGFqaSAmIGNlayBlc3RpbWFzaSBrZWJlcmFuZ2thdGFuLid9LAoge2NhdDonYWRtaW4nLCB0OidUYWJ1bmdhbiBIYWppJywgZDonVGFidW5nYW4gZGkgYmFuayBzeWFyaWFoIHJlc21pIHlhbmcgdGVyaW50ZWdyYXNpIFNJU0tPSEFUIHVudHVrIG1lbmdhbnRyaSBoYWppLid9LAoge2NhdDonYWRtaW4nLCB0OidQSUhLJywgZDonUGVueWVsZW5nZ2FyYSBJYmFkYWggSGFqaSBLaHVzdXMg4oCUIHRyYXZlbCBiZXJpemluIEtlbWVuYWcgdW50dWsgaGFqaSBraHVzdXMvT05IKy4nfSwKIHtjYXQ6J2FkbWluJywgdDonUFBJVScsIGQ6J1BlbnllbGVuZ2dhcmEgUGVyamFsYW5hbiBJYmFkYWggVW1yb2gg4oCUIHRyYXZlbCBiZXJpemluIEtlbWVuYWcgdW50dWsgdW1yb2guJ30sCiB7Y2F0OidhZG1pbicsIHQ6J1Zpc2EgSGFqaS9VbXJvaCcsIGQ6J1Zpc2Ega2h1c3VzIGRhcmkgQXJhYiBTYXVkaSB1bnR1ayBpYmFkYWgsIGRlbmdhbiBrZXRlbnR1YW4gbWFzdWsgJiBrZWx1YXIgeWFuZyBrZXRhdC4nfSwKIHtjYXQ6J2FkbWluJywgdDonUGFzcG9yIEhpamF1L0JpcnUnLCBkOidQYXNwb3IgZGluYXMvZGlwbG9tYXRpayB2cyBwYXNwb3IgYmlhc2EgKGhpamF1KSDigJQgamFtYWFoIHVtdW0gbWVtYWthaSBoaWphdS4nfSwKIHtjYXQ6J2FkbWluJywgdDonSUNWJywgZDonSW50ZXJuYXRpb25hbCBDZXJ0aWZpY2F0ZSBvZiBWYWNjaW5hdGlvbiDigJQgc2VydGlmaWthdCB2YWtzaW4gbWVuaW5naXRpcyBXQUpJQiB1bnR1ayBtYXN1ayBBcmFiIFNhdWRpLid9LAoge2NhdDonYWRtaW4nLCB0OidUYXNyZWgnLCBkOidTdXJhdCBpemluL2thcnR1IGlkZW50aXRhcyBqYW1hYWggZGFyaSBwZW1lcmludGFoIFNhdWRpLid9LAoge2NhdDoncm9tYm9uZ2FuJywgdDonS2xvdGVyJywgZDonS2Vsb21wb2sgVGVyYmFuZyDigJQgcm9tYm9uZ2FuIGphbWFhaCB5YW5nIGJlcmFuZ2thdCBiZXJzYW1hIGRhbGFtIHNhdHUgcGVzYXdhdC4nfSwKIHtjYXQ6J3JvbWJvbmdhbicsIHQ6J0thcnUnLCBkOidLZXR1YSBSZWd1IOKAlCBwZW1pbXBpbiAxMCBqYW1hYWggZGFsYW0ga2xvdGVyLid9LAoge2NhdDoncm9tYm9uZ2FuJywgdDonS2Fyb20nLCBkOidLZXR1YSBSb21ib25nYW4g4oCUIHBlbWltcGluIDTigJM1IHJlZ3UgKMKxNDDigJM1MCBqYW1hYWgpLid9Cl07CmxldCBhY3RpdmVUQ2F0PSdhbGwnOwpmdW5jdGlvbiByZW5kZXJUZXJtQ2hpcHMoKXsKIGNvbnN0IGJveD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGVybUNoaXBzJyk7CiBjb25zdCBhbGw9W3trZXk6J2FsbCcsbGFiZWw6J1NlbXVhJ30sIC4uLlRDQVRTXTsKIGJveC5pbm5lckhUTUw9YWxsLm1hcChjPT5gPGRpdiBjbGFzcz0iY2hpcCAke2FjdGl2ZVRDYXQ9PT1jLmtleT8nb24nOicnfSIgb25jbGljaz0ic2V0VENhdCgnJHtjLmtleX0nKSI+JHtjLmxhYmVsfTwvZGl2PmApLmpvaW4oJycpOwp9CmZ1bmN0aW9uIHNldFRDYXQoayl7IGFjdGl2ZVRDYXQ9azsgcmVuZGVyVGVybUNoaXBzKCk7IHJlbmRlclRlcm1zKCk7IH0KZnVuY3Rpb24gcmVuZGVyVGVybXMoKXsKIGNvbnN0IHE9KGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0ZXJtU2VhcmNoJykudmFsdWV8fCcnKS50b0xvd2VyQ2FzZSgpLnRyaW0oKTsKIGNvbnN0IGJveD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGVybUxpc3QnKTsKIGNvbnN0IGNhdHMgPSBhY3RpdmVUQ2F0PT09J2FsbCcgPyBUQ0FUUyA6IFRDQVRTLmZpbHRlcihjPT5jLmtleT09PWFjdGl2ZVRDYXQpOwogbGV0IGh0bWw9JycsIGZvdW5kPTA7CiBjYXRzLmZvckVhY2goYz0+ewogIGNvbnN0IGl0ZW1zPVRFUk1TLmZpbHRlcih4PT54LmNhdD09PWMua2V5ICYmICghcSB8fCB4LnQudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyhxKSB8fCB4LmQudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyhxKSkpOwogIGlmKGl0ZW1zLmxlbmd0aD09PTApIHJldHVybjsKICBmb3VuZCs9aXRlbXMubGVuZ3RoOwogIGh0bWwrPWA8ZGl2IGNsYXNzPSJjYXRoZWFkIj4ke2MubGFiZWx9PC9kaXY+YCArIGl0ZW1zLm1hcCh4PT5gPGRpdiBjbGFzcz0idGVybSI+PGgzPiR7eC50fTwvaDM+PHA+JHt4LmR9PC9wPjwvZGl2PmApLmpvaW4oJycpOwogfSk7CiBib3guaW5uZXJIVE1MID0gZm91bmQ+MCA/IGh0bWwgOiAnPGRpdiBjbGFzcz0iZW1wdHkiPlRpZGFrIGFkYSBpc3RpbGFoIHlhbmcgY29jb2sgZGVuZ2FuIHBlbmNhcmlhbm11LjwvZGl2Pic7Cn0KCi8qID09PT09PT09PT09PT09PT09PT09PSBUQUIgMjogRlJBU0EgQVJBQiBQUkFLVElTID09PT09PT09PT09PT09PT09PT09PSAqLwpjb25zdCBQQ0FUUz1bCiB7a2V5OidzYXBhYW4nLCBsYWJlbDon8J+ZjyBTYXBhYW4gJiBTb3BhbiBTYW50dW4nfSwKIHtrZXk6J2FyYWgnLCBsYWJlbDon8J+nrSBCZXJ0YW55YSBBcmFoJ30sCiB7a2V5OidiZWxhbmphJywgbGFiZWw6J/CfkrAgVGF3YXItTWVuYXdhciAmIEJlbGFuamEnfSwKIHtrZXk6J2hvdGVsJywgbGFiZWw6J/Cfj6ggRGkgSG90ZWwnfSwKIHtrZXk6J21ha2FuJywgbGFiZWw6J/Cfjb3vuI8gTWFrYW4gJiBNaW51bSd9LAoge2tleTonZGFydXJhdCcsIGxhYmVsOifwn5qoIEtlYWRhYW4gRGFydXJhdCd9Cl07CmNvbnN0IFBIUkFTRVM9Wwoge2NhdDonc2FwYWFuJywgYXI6J9in2YTYs9mO2ZHZhNmO2KfZhdmPINi52Y7ZhNmO2YrZktmD2Y/ZhdmSJywgbGE6IkFzc2FsYW11J2FsYWlrdW0iLCBpZDonU2Vtb2dhIGtlc2VsYW1hdGFuIGF0YXNtdSAoc2FsYW0gcGVtYnVrYSknfSwKIHtjYXQ6J3NhcGFhbicsIGFyOifZiNmO2LnZjtmE2Y7ZitmS2YPZj9mF2Y8g2KfZhNiz2Y7ZkdmE2Y7Yp9mFJywgbGE6IldhJ2FsYWlrdW11c3NhbGFtIiwgaWQ6J0RhbiBhdGFzbXUganVnYSBrZXNlbGFtYXRhbiAoamF3YWJhbiBzYWxhbSknfSwKIHtjYXQ6J3NhcGFhbicsIGFyOifYtNmP2YPZktix2YvYpyDYrNmO2LLZkNmK2YTZi9inJywgbGE6J1N5dWtyb24gamF6aWxhbicsIGlkOidUZXJpbWEga2FzaWggYmFueWFrJ30sCiB7Y2F0OidzYXBhYW4nLCBhcjon2LnZjtmB2ZLZiNmL2KcnLCBsYTonQWZ3YW4nLCBpZDonU2FtYS1zYW1hIC8gcGVybWlzaSAvIG1hYWYnfSwKIHtjYXQ6J3NhcGFhbicsIGFyOifZhdmQ2YbZkiDZgdmO2LbZktmE2ZDZgycsIGxhOidNaW4gZmFkaGxpaycsIGlkOidUb2xvbmcgKHBlcm1pbnRhYW4gc29wYW4pJ30sCiB7Y2F0OidzYXBhYW4nLCBhcjon2YbZjti52Y7ZhdmSIC8g2YTZjtinJywgbGE6Ik5hJ2FtIC8gTGFhIiwgaWQ6J1lhIC8gVGlkYWsnfSwKIHtjYXQ6J2FyYWgnLCBhcjon2KPZjtmK2ZLZhtmOINin2YTZktmB2Y/ZhtmS2K/Zj9mC2J8nLCBsYTonQWluYSBhbC1mdW5kdXE/JywgaWQ6J0RpIG1hbmEgaG90ZWw/J30sCiB7Y2F0OidhcmFoJywgYXI6J9ij2Y7ZitmS2YbZjiDYp9mE2ZLYrdmO2YXZjtmR2KfZhdifJywgbGE6J0FpbmEgYWwtaGFtbWFtPycsIGlkOidEaSBtYW5hIHRvaWxldD8nfSwKIHtjYXQ6J2FyYWgnLCBhcjon2YPZjtmF2ZIg2KfZhNmS2YXZjtiz2Y7Yp9mB2Y7YqdifJywgbGE6J0thbSBhbC1tYXNhZmFoPycsIGlkOidCZXJhcGEgamF1aCBqYXJha255YT8nfSwKIHtjYXQ6J2FyYWgnLCBhcjon2KXZkNmE2Y7ZiSDYp9mE2ZLZitmO2YXZkNmK2YYnLCBsYTonSWxhbCB5YW1pbicsIGlkOidLZSBhcmFoIGthbmFuJ30sCiB7Y2F0OidhcmFoJywgYXI6J9il2ZDZhNmO2Ykg2KfZhNmS2YrZjtiz2Y7Yp9ixJywgbGE6J0lsYWwgeWFzYXInLCBpZDonS2UgYXJhaCBraXJpJ30sCiB7Y2F0OidhcmFoJywgYXI6J9i52Y7ZhNmO2Ykg2LfZj9mI2YQnLCBsYToiJ0FsYSB0aHVsIiwgaWQ6J0x1cnVzIHRlcnVzJ30sCiB7Y2F0OidiZWxhbmphJywgYXI6J9io2ZDZg9mO2YXZkiDZh9mO2LDZjtin2J8nLCBsYTonQmlrYW0gaGFkemE/JywgaWQ6J0JlcmFwYSBoYXJnYSBpbmk/J30sCiB7Y2F0OidiZWxhbmphJywgYXI6J9i62Y7Yp9mE2ZDZiiDYrNmQ2K/Zi9mR2KcnLCBsYTonR2hhbGkgamlkZGFuJywgaWQ6J1RlcmxhbHUgbWFoYWwnfSwKIHtjYXQ6J2JlbGFuamEnLCBhcjon2LHZjtiu2ZDZkdi12ZIg2LTZj9mI2Y7ZitmRJywgbGE6J1Jha2hraGlzaCBzeXV3YXl5JywgaWQ6J0t1cmFuZ2kgc2VkaWtpdCAoaXN0aWxhaCB0YXdhciBwYXNhciknfSwKIHtjYXQ6J2JlbGFuamEnLCBhcjon2K3Zjtiz2Y7ZhtmL2KfYjCDYo9mO2LTZktiq2Y7YsdmQ2YonLCBsYTonSGFzYW5hbiwgYXN5dGFyaScsIGlkOidCYWlrLCBzYXlhIGJlbGknfSwKIHtjYXQ6J2JlbGFuamEnLCBhcjon2YTZjtin2Iwg2LTZj9mD2ZLYsdmL2KcnLCBsYTonTGFhLCBzeXVrcm9uJywgaWQ6J1RpZGFrLCB0ZXJpbWEga2FzaWggKG1lbm9sYWsgaGFsdXMpJ30sCiB7Y2F0Oidob3RlbCcsIGFyOifYo9mP2LHZkNmK2K/ZjyDYutmP2LHZktmB2Y7YqScsIGxhOidVcmlkdSBnaHVyZmFoJywgaWQ6J1NheWEgaW5naW4ga2FtYXInfSwKIHtjYXQ6J2hvdGVsJywgYXI6J9ix2Y7ZgtmO2YXZjyDYp9mE2ZLYutmP2LHZktmB2Y7YqdifJywgbGE6J1JhcW0gYWwtZ2h1cmZhaD8nLCBpZDonTm9tb3Iga2FtYXIgYmVyYXBhPyd9LAoge2NhdDonaG90ZWwnLCBhcjon2KPZjtmK2ZLZhtmOINin2YTZktmF2ZDYtdmS2LnZjtiv2J8nLCBsYToiQWluYSBhbC1taXMnYWQ/IiwgaWQ6J0RpIG1hbmEgbGlmdD8nfSwKIHtjYXQ6J2hvdGVsJywgYXI6J9mF2Y7Yp9ih2Ywg2LPZjtin2K7ZkNmGJywgbGE6J01hXCd1biBzYWtoaW4nLCBpZDonQWlyIHBhbmFzJ30sCiB7Y2F0OidtYWthbicsIGFyOifYo9mP2LHZkNmK2K/ZjyDZhdmO2KfYoScsIGxhOiJVcmlkdSBtYSciLCBpZDonU2F5YSBpbmdpbiBhaXInfSwKIHtjYXQ6J21ha2FuJywgYXI6J9ij2Y7ZitmS2YbZjiDYp9mE2ZLZhdmO2LfZkti52Y7ZhdifJywgbGE6IkFpbmEgYWwtbWF0J2FtPyIsIGlkOidEaSBtYW5hIHJlc3RvcmFuPyd9LAoge2NhdDonbWFrYW4nLCBhcjon2YfZjtiw2Y7YpyDZhNmO2LDZkNmK2LAnLCBsYTonSGFkemEgbGFkemlkeicsIGlkOidJbmkgZW5hayd9LAoge2NhdDonZGFydXJhdCcsIGFyOifYs9mO2KfYudmQ2K/ZktmG2ZDZiicsIGxhOiJTYSdpZG5pIiwgaWQ6J1RvbG9uZyBzYXlhISd9LAoge2NhdDonZGFydXJhdCcsIGFyOifYo9mO2YbZjtinINiq2Y/Zh9mS2KonLCBsYTonQW5hIHR1aHQnLCBpZDonU2F5YSB0ZXJzZXNhdCd9LAoge2NhdDonZGFydXJhdCcsIGFyOifYo9mO2YbZjtinINmF2Y7YsdmQ2YrYticsIGxhOidBbmEgbWFyaWRoJywgaWQ6J1NheWEgc2FraXQnfSwKIHtjYXQ6J2RhcnVyYXQnLCBhcjon2KPZjtmK2ZLZhtmOINin2YTYt9mO2ZHYqNmQ2YrYqNifJywgbGE6J0FpbmEgYXQtdGFiaWI/JywgaWQ6J0RpIG1hbmEgZG9rdGVyPyd9LAoge2NhdDonZGFydXJhdCcsIGFyOifYp9mQ2KrZjtmR2LXZkNmEINio2ZDYp9mE2LTZj9mR2LHZkti32Y7YqScsIGxhOidJdHRhc2hpbCBiaXN5LXN5dXJ0aGFoJywgaWQ6J0h1YnVuZ2kgcG9saXNpJ30sCiB7Y2F0OidkYXJ1cmF0JywgYXI6J9mB2Y7ZgtmO2K/Zktiq2Y8g2KzZjtmI2Y7Yp9iy2ZDZiicsIGxhOidGYXFhZHR1IGphd2F6aScsIGlkOidTYXlhIGtlaGlsYW5nYW4gcGFzcG9yIHNheWEnfQpdOwpsZXQgYWN0aXZlUENhdD0nYWxsJzsKZnVuY3Rpb24gcmVuZGVyUGhyYXNlQ2hpcHMoKXsKIGNvbnN0IGJveD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGhyYXNlQ2hpcHMnKTsKIGNvbnN0IGFsbD1be2tleTonYWxsJyxsYWJlbDonU2VtdWEnfSwgLi4uUENBVFNdOwogYm94LmlubmVySFRNTD1hbGwubWFwKGM9PmA8ZGl2IGNsYXNzPSJjaGlwICR7YWN0aXZlUENhdD09PWMua2V5Pydvbic6Jyd9IiBvbmNsaWNrPSJzZXRQQ2F0KCcke2Mua2V5fScpIj4ke2MubGFiZWx9PC9kaXY+YCkuam9pbignJyk7Cn0KZnVuY3Rpb24gc2V0UENhdChrKXsgYWN0aXZlUENhdD1rOyByZW5kZXJQaHJhc2VDaGlwcygpOyByZW5kZXJQaHJhc2VzKCk7IH0KZnVuY3Rpb24gcmVuZGVyUGhyYXNlcygpewogY29uc3QgcT0oZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BocmFzZVNlYXJjaCcpLnZhbHVlfHwnJykudG9Mb3dlckNhc2UoKS50cmltKCk7CiBjb25zdCBib3g9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BocmFzZUxpc3QnKTsKIGNvbnN0IGNhdHMgPSBhY3RpdmVQQ2F0PT09J2FsbCcgPyBQQ0FUUyA6IFBDQVRTLmZpbHRlcihjPT5jLmtleT09PWFjdGl2ZVBDYXQpOwogbGV0IGh0bWw9JycsIGZvdW5kPTA7CiBjYXRzLmZvckVhY2goYz0+ewogIGNvbnN0IGl0ZW1zPVBIUkFTRVMuZmlsdGVyKHg9PnguY2F0PT09Yy5rZXkgJiYgKCFxIHx8IHgubGEudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyhxKSB8fCB4LmlkLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMocSkpKTsKICBpZihpdGVtcy5sZW5ndGg9PT0wKSByZXR1cm47CiAgZm91bmQrPWl0ZW1zLmxlbmd0aDsKICBodG1sKz1gPGRpdiBjbGFzcz0iY2F0aGVhZCI+JHtjLmxhYmVsfTwvZGl2PmAgKyBpdGVtcy5tYXAoeD0+CiAgIGA8ZGl2IGNsYXNzPSJmcmFzYSI+PGRpdiBjbGFzcz0iYXIiPiR7eC5hcn08L2Rpdj48ZGl2IGNsYXNzPSJsYSI+JHt4LmxhfTwvZGl2PjxkaXYgY2xhc3M9ImlkIj4ke3guaWR9PC9kaXY+PC9kaXY+YAogICkuam9pbignJyk7CiB9KTsKIGJveC5pbm5lckhUTUwgPSBmb3VuZD4wID8gaHRtbCA6ICc8ZGl2IGNsYXNzPSJlbXB0eSI+VGlkYWsgYWRhIGZyYXNhIHlhbmcgY29jb2sgZGVuZ2FuIHBlbmNhcmlhbm11LjwvZGl2Pic7Cn0KCi8qID09PT09PT09PT09PT09PT09PT09PSBUQUIgMzogQU5HS0EgJiBLQVRBIEtVTkNJID09PT09PT09PT09PT09PT09PT09PSAqLwpjb25zdCBOVU0xPVsKIFsn2aEnLCd3YWhpZCcsJ3NhdHUnXSxbJ9miJywnaXRzbmFuJywnZHVhJ10sWyfZoycsJ3RzYWxhdHNhaCcsJ3RpZ2EnXSxbJ9mkJywiYXJiYSdhaCIsJ2VtcGF0J10sWyfZpScsJ2toYW1zYWgnLCdsaW1hJ10sCiBbJ9mmJywnc2l0dGFoJywnZW5hbSddLFsn2acnLCJzYWInYWgiLCd0dWp1aCddLFsn2agnLCd0c2FtYW5peWFoJywnZGVsYXBhbiddLFsn2aknLCJ0aXMnYWgiLCdzZW1iaWxhbiddLFsn2aHZoCcsIidhc3lhcmFoIiwnc2VwdWx1aCddCl07CmNvbnN0IE5VTTI9WwogWyfZotmgJywiJ2lzeXJ1biIsJ2R1YSBwdWx1aCddLFsn2aPZoCcsJ3RzYWxhdGh1bicsJ3RpZ2EgcHVsdWgnXSxbJ9mk2aAnLCJhcmJhJ3VuIiwnZW1wYXQgcHVsdWgnXSxbJ9ml2aAnLCdraGFtc3VuJywnbGltYSBwdWx1aCddLAogWyfZptmgJywnc2l0dHVuJywnZW5hbSBwdWx1aCddLFsn2afZoCcsInNhYid1biIsJ3R1anVoIHB1bHVoJ10sWyfZqNmgJywndHNhbWFudW4nLCdkZWxhcGFuIHB1bHVoJ10sWyfZqdmgJywidGlzJ3VuIiwnc2VtYmlsYW4gcHVsdWgnXSwKIFsn2aHZoNmgJywibWknYWgiLCdzZXJhdHVzJ10sWyfZodmg2aDZoCcsJ2FsZicsJ3NlcmlidSddCl07CmNvbnN0IFFXPVsKIFsn2YPZjtmF2ZLYnycsJ0thbT8nLCdCZXJhcGE/J10sWyfZhdmO2KrZjtmJ2J8nLCdNYXRhPycsJ0thcGFuPyddLFsn2YXZjtin2LDZjtin2J8nLCdNYWR6YT8nLCdBcGE/J10sWyfZhdmO2YbZktifJywnTWFuPycsJ1NpYXBhPyddLFsn2YPZjtmK2ZLZgdmO2J8nLCdLYXlmYT8nLCdCYWdhaW1hbmE/J10sWyfYo9mO2YrZktmG2Y7YnycsJ0FpbmE/JywnRGkgbWFuYT8nXQpdOwpjb25zdCBEQVlTPVsKIFsn2KfZhNmS2KPZjtit2Y7YrycsJ0FsLUFoYWQnLCdNaW5nZ3UnXSxbJ9in2YTZktil2ZDYq9mS2YbZjtmK2ZLZhicsJ0FsLUl0c25heW4nLCdTZW5pbiddLFsn2KfZhNir2Y/ZkdmE2Y7Yp9ir2Y7Yp9ihJywnQXRzLVRzdWxhdHNhJywnU2VsYXNhJ10sCiBbJ9in2YTZktij2Y7YsdmS2KjZkNi52Y7Yp9ihJywiQWwtQXJiaSdhIiwnUmFidSddLFsn2KfZhNmS2K7ZjtmF2ZDZitizJywnQWwtS2hhbWlzJywnS2FtaXMnXSxbJ9in2YTZktis2Y/ZhdmP2LnZjtipJywiQWwtSnVtdSdhaCIsJ0p1bWF0J10sWyfYp9mE2LPZjtmR2KjZktiqJywnQXMtU2FidCcsJ1NhYnR1J10KXTsKZnVuY3Rpb24ga3dDYXJkKFthcixsYSxpZF0peyByZXR1cm4gYDxkaXYgY2xhc3M9Imt3Y2FyZCI+PGRpdiBjbGFzcz0iYXIiPiR7YXJ9PC9kaXY+PGRpdiBjbGFzcz0ibGEiPiR7bGF9PC9kaXY+PGRpdiBjbGFzcz0iaWQiPiR7aWR9PC9kaXY+PC9kaXY+YDsgfQpmdW5jdGlvbiByZW5kZXJLZXl3b3JkcygpewogZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ251bUdyaWQxJykuaW5uZXJIVE1MPU5VTTEubWFwKGt3Q2FyZCkuam9pbignJyk7CiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbnVtR3JpZDInKS5pbm5lckhUTUw9TlVNMi5tYXAoa3dDYXJkKS5qb2luKCcnKTsKIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdxd0dyaWQnKS5pbm5lckhUTUw9UVcubWFwKGt3Q2FyZCkuam9pbignJyk7CiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGF5R3JpZCcpLmlubmVySFRNTD1EQVlTLm1hcChrd0NhcmQpLmpvaW4oJycpOwp9CgovKiA9PT09PT09PT09PT09PT09PT09PT0gU05BUFNIT1QgPT09PT09PT09PT09PT09PT09PT09ICovCmZ1bmN0aW9uIHVwZGF0ZVNuYXBzaG90KCl7CiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc25hcFRlcm1zJykuaW5uZXJIVE1MPVRFUk1TLmxlbmd0aCsnPHNtYWxsPmthdGEgJiBzaW5na2F0YW48L3NtYWxsPic7CiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc25hcFBocmFzZXMnKS5pbm5lckhUTUw9UEhSQVNFUy5sZW5ndGgrJzxzbWFsbD5zaWFwIGRpcGFrYWk8L3NtYWxsPic7CiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc25hcENhdHMnKS5pbm5lckhUTUw9KFRDQVRTLmxlbmd0aCtQQ0FUUy5sZW5ndGgpKyc8c21hbGw+dG9waWsgdGVyc3VzdW48L3NtYWxsPic7Cn0KCi8qID09PT09PT09PT09PT09PT09PT09PSBJTklUID09PT09PT09PT09PT09PT09PT09PSAqLwpyZW5kZXJUZXJtQ2hpcHMoKTsKcmVuZGVyVGVybXMoKTsKcmVuZGVyUGhyYXNlQ2hpcHMoKTsKcmVuZGVyUGhyYXNlcygpOwpyZW5kZXJLZXl3b3JkcygpOwp1cGRhdGVTbmFwc2hvdCgpOwo8L3NjcmlwdD4KPC9ib2R5PjwvaHRtbD4K"</script>
+<script>
+(function(){
+ /* sticky bar: sembunyi saat masih di area hero */
+ var bar=document.getElementById('stickyBar');
+ function onScroll(){
+  var trigger=Math.min(window.innerHeight*0.75,700);
+  bar.classList.toggle('show',window.scrollY>trigger);
+ }
+ addEventListener('scroll',onScroll,{passive:true});
+ addEventListener('resize',onScroll,{passive:true});
+ onScroll();
+
+ /* pratinjau KIT 5 */
+ var btn=document.getElementById('demoBtn'),veil=document.getElementById('demoVeil'),frame=document.getElementById('demoFrame');
+ btn.addEventListener('click',function(){
+  try{
+   var b64=JSON.parse(document.getElementById('demoData').textContent);
+   var bin=atob(b64),bytes=new Uint8Array(bin.length);
+   for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+   frame.srcdoc=new TextDecoder('utf-8').decode(bytes);
+   veil.style.display='none';
+  }catch(e){
+   veil.innerHTML='<p>Pratinjau tidak bisa dimuat di browser ini. Isi lengkapnya tetap kamu terima setelah mengambil paket.</p>';
+  }
+ });
+})();
+</script>
+</body>
+</html>
