@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Body Recomp - Ebook + 4 Tools Interaktif untuk Turun 2-4 Kg Sebulan | Rp 127.000</title>
+<meta name="description" content="Ebook 11 bab + 4 tools HTML interaktif. Diet evidence-based untuk turun 2-4 kg dalam 30 hari, tanpa berhenti makan nasi, tanpa aturan yang tidak masuk akal. Latihan cukup 15 menit di rumah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0C1F1A;
+  --emerald-900:#0A4435;
+  --emerald-700:#0E5C46;
+  --emerald-500:#149A72;
+  --emerald-100:#DEF2EA;
+  --emerald-050:#EFF8F4;
+  --gold-600:#B08A3E;
+  --gold-500:#C9A24B;
+  --gold-100:#F6EEDC;
+  --paper:#FAFAF7;
+  --card:#FFFFFF;
+  --line:#E3E9E4;
+  --muted:#5B6B64;
+  --danger:#B3402F;
+  --danger-bg:#FBEDEA;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;overflow-x:hidden;
+  padding-bottom:84px}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--gold-100);color:var(--emerald-900)}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+@media(max-width:640px){.container{padding:0 18px}}
+
+/* ===== HERO - fullscreen desktop ===== */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  color:#F5F8F4;overflow:hidden;border-radius:0 0 32px 32px;padding:64px 0 72px;
+  background:
+    radial-gradient(1100px 800px at 110% -20%, rgba(201,162,75,.16), transparent 55%),
+    radial-gradient(900px 700px at -10% 110%, rgba(20,154,114,.14), transparent 55%),
+    linear-gradient(168deg,var(--emerald-900) 0%,var(--emerald-700) 62%,#0C6B50 100%)}
+.hero .ornament{position:absolute;right:-90px;bottom:-110px;width:420px;height:420px;border-radius:50%;
+  border:1.5px solid rgba(201,162,75,.30);pointer-events:none}
+.hero .ornament::after{content:'';position:absolute;inset:46px;border-radius:50%;border:1px solid rgba(245,248,244,.14)}
+@media(max-width:640px){.hero .ornament{width:230px;height:230px;right:-70px;bottom:-80px}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(245,248,244,.28);
+  padding:9px 18px;border-radius:999px;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gold-500);font-weight:800;margin-bottom:24px;backdrop-filter:blur(3px)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-500);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.45)}50%{box-shadow:0 0 0 7px rgba(201,162,75,0)}}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,5.4vw,66px);line-height:1.05;
+  letter-spacing:-.5px;margin-bottom:18px}
+h1 em{font-style:italic;font-weight:600;color:var(--gold-500)}
+.subh{font-size:clamp(15.5px,2vw,18.5px);color:#CFE3D8;max-width:560px;line-height:1.75;margin-bottom:26px}
+.subh b{color:#fff}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid rgba(245,248,244,.28);border-radius:999px;padding:8px 16px;
+  font-size:12.5px;font-weight:700;color:#EAF3EE}
+.chip b{color:var(--gold-500)}
+
+.hero-card{background:var(--card);color:var(--ink);border-radius:22px;padding:28px 26px;
+  box-shadow:0 34px 90px rgba(6,32,25,.45);border:1px solid rgba(201,162,75,.35)}
+.product-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;
+  font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1.6px;color:var(--emerald-700)}
+.product-meta .ver{background:var(--gold-100);color:var(--gold-600);padding:4px 11px;border-radius:6px;white-space:nowrap}
+.pname{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--emerald-900);margin-bottom:6px;line-height:1.2}
+.pname em{font-style:italic;color:var(--gold-600);font-weight:600}
+.ptag{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+.price-block{display:flex;align-items:baseline;gap:13px;margin-bottom:6px;flex-wrap:wrap}
+.price-now{font-family:var(--serif);font-size:46px;font-weight:700;color:var(--emerald-900);letter-spacing:-1px;line-height:1}
+.price-old{font-size:16px;color:#9AABA3;text-decoration:line-through}
+.price-save{background:var(--gold-100);color:var(--gold-600);font-size:11px;font-weight:800;padding:4px 9px;border-radius:6px;letter-spacing:.5px}
+.price-note{font-size:12.5px;color:var(--muted);margin-bottom:18px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,var(--emerald-900),var(--emerald-700));color:#fff;
+  padding:17px 28px;border-radius:14px;font-size:15px;font-weight:800;width:100%;
+  box-shadow:0 14px 34px rgba(10,68,53,.35);transition:transform .2s,box-shadow .2s;border:none;cursor:pointer}
+.cta:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(10,68,53,.45)}
+.cta.gold{background:linear-gradient(135deg,var(--gold-600),var(--gold-500));color:var(--emerald-900);
+  box-shadow:0 14px 34px rgba(176,138,62,.4)}
+.cta-lg{font-size:17px;padding:20px 32px;max-width:440px;margin:22px auto 0;display:flex}
+.trust{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--muted)}
+
+/* ===== SECTIONS ===== */
+section{padding:72px 0;position:relative}
+@media(max-width:640px){section{padding:52px 0}}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,42px);color:var(--emerald-900);
+  text-align:center;letter-spacing:-.3px;line-height:1.18;margin-bottom:16px}
+h2 em{font-style:italic;color:var(--gold-600);font-weight:600}
+.sub{text-align:center;color:var(--muted);font-size:15.5px;max-width:640px;margin:0 auto 42px;line-height:1.75}
+.sub b{color:var(--ink)}
+
+/* ===== PAIN ===== */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.pain-grid{grid-template-columns:1fr}}
+.pain{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--danger);
+  border-radius:16px;padding:24px;box-shadow:0 6px 18px rgba(12,31,26,.05)}
+.pain .emo{font-size:34px;margin-bottom:10px}
+.pain h3{font-family:var(--serif);font-size:19px;color:var(--danger);font-weight:700;margin-bottom:7px}
+.pain p{font-size:14px;color:#25342E;line-height:1.7}
+.pain .sol{margin-top:13px;padding:12px 14px;background:var(--emerald-050);border-left:3px solid var(--emerald-500);
+  border-radius:0 8px 8px 0;font-size:13px;color:var(--emerald-700);line-height:1.65}
+.pain .sol b{color:var(--emerald-900)}
+
+/* ===== PILAR ===== */
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;margin:0 auto}
+@media(max-width:860px){.process{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px 22px;position:relative;
+  box-shadow:0 6px 18px rgba(12,31,26,.05)}
+.step .n{position:absolute;top:-16px;left:22px;width:34px;height:34px;
+  background:linear-gradient(135deg,var(--emerald-900),var(--emerald-700));color:var(--gold-500);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:16px;
+  box-shadow:0 5px 12px rgba(10,68,53,.3)}
+.step h3{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--emerald-900);margin:8px 0 7px}
+.step p{font-size:13.5px;color:#3A4A43;line-height:1.7}
+
+/* ===== DEMOS ===== */
+.demo-section{background:linear-gradient(180deg,var(--paper),var(--emerald-050) 40%,var(--gold-100))}
+.demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+@media(max-width:920px){.demo-wrap{grid-template-columns:1fr}}
+.demo-card{background:var(--card);border-radius:18px;padding:26px;box-shadow:0 10px 34px rgba(12,31,26,.08);
+  border:1px solid var(--line)}
+.demo-card.wide{grid-column:1/-1}
+@media(max-width:920px){.demo-card.wide{grid-column:auto}}
+.demo-card .label{display:inline-block;background:var(--emerald-900);color:var(--gold-500);font-size:10.5px;
+  font-weight:800;padding:5px 11px;border-radius:6px;margin-bottom:12px;letter-spacing:1.2px;text-transform:uppercase}
+.demo-card h3{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--emerald-900);margin-bottom:7px}
+.demo-card .desc{font-size:13.5px;color:var(--muted);margin-bottom:16px;line-height:1.65}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:12px}
+.demo-grid label{display:block;font-size:10.5px;font-weight:800;color:var(--emerald-700);text-transform:uppercase;
+  margin-bottom:5px;letter-spacing:1px}
+.demo-grid input,.demo-grid select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:9px;
+  font-size:13.5px;font-weight:600;color:var(--ink);font-family:inherit;background:#fff}
+.demo-grid input:focus,.demo-grid select:focus{outline:2px solid var(--emerald-500);outline-offset:1px;border-color:var(--emerald-500)}
+.demo-out{background:var(--emerald-050);border:1.5px solid var(--emerald-100);border-radius:13px;padding:16px;margin-top:14px}
+.demo-out .row{display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;font-weight:700;color:#25342E}
+.demo-out .row .v{color:var(--emerald-700);font-variant-numeric:tabular-nums}
+.demo-out .row.big{font-size:16px;color:var(--emerald-900);border-top:1px solid var(--emerald-100);padding-top:11px;margin-top:6px}
+.demo-out .row.big .v{font-family:var(--serif);color:var(--gold-600);font-size:23px;font-weight:700}
+.demo-foot{margin-top:13px;font-size:11.5px;color:var(--emerald-700);text-align:center;font-weight:700;
+  background:var(--emerald-050);padding:9px 12px;border-radius:9px;line-height:1.55}
+
+.meal-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:13px}
+.meal-pick .mp{padding:11px 8px;background:var(--emerald-050);border:1.5px solid var(--line);border-radius:10px;
+  text-align:center;cursor:pointer;font-size:11.5px;font-weight:800;color:var(--emerald-700);transition:.2s;
+  -webkit-tap-highlight-color:transparent}
+.meal-pick .mp.active{background:var(--emerald-900);color:var(--gold-500);border-color:var(--emerald-900)}
+.meal-pick .mp .em{font-size:23px;display:block;margin-bottom:4px}
+.meal-out{background:#fff;border:1.5px solid var(--emerald-100);border-radius:12px;padding:15px;
+  font-size:13.5px;line-height:1.75;color:#25342E}
+.meal-out b{color:var(--emerald-900)}
+.meal-out .kcal{color:var(--gold-600);font-weight:800}
+.meal-out .ing{background:var(--emerald-050);border-radius:8px;padding:11px 13px;margin-top:9px;font-size:12.5px}
+
+.quiz-q{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:14px;background:var(--emerald-050);
+  padding:15px;border-radius:11px;border-left:4px solid var(--gold-500);line-height:1.6}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
+.quiz-opts button{padding:15px;background:#fff;border:2px solid var(--line);border-radius:11px;font-size:14px;
+  font-weight:800;color:var(--emerald-700);cursor:pointer;transition:.2s;font-family:inherit}
+.quiz-opts button:hover{background:var(--emerald-050);border-color:var(--emerald-500)}
+.quiz-opts button.correct{background:var(--emerald-100);border-color:var(--emerald-500);color:var(--emerald-900)}
+.quiz-opts button.wrong{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
+.quiz-exp{background:var(--gold-100);border-left:4px solid var(--gold-500);padding:12px 15px;
+  border-radius:0 9px 9px 0;font-size:13px;color:#5B4A22;display:none;line-height:1.65}
+.quiz-exp.show{display:block}
+
+/* ===== COMPARISON ===== */
+.compare{max-width:880px;margin:0 auto;background:var(--card);border-radius:18px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(12,31,26,.08);border:1px solid var(--line)}
+.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.compare-row:last-child{border-bottom:none}
+.compare-row.head{background:var(--emerald-900);color:#F2F7F3;font-weight:800;font-size:11.5px;
+  text-transform:uppercase;letter-spacing:1.2px}
+.compare-row > div{padding:14px 18px;font-size:13.5px;line-height:1.55}
+@media(max-width:640px){.compare-row > div{padding:12px 12px;font-size:12px}}
+.compare-row .label{font-weight:700;color:var(--ink)}
+.compare-row .x{color:var(--danger);font-weight:700;background:var(--danger-bg)}
+.compare-row .v{color:var(--emerald-700);font-weight:800;background:var(--emerald-050)}
+
+/* ===== MATH ===== */
+.math-card{max-width:700px;margin:0 auto;background:var(--emerald-900);color:var(--gold-100);border-radius:20px;
+  padding:30px;font-family:'JetBrains Mono','Courier New',monospace;font-size:14.5px;line-height:1.9;
+  box-shadow:0 24px 60px rgba(6,32,25,.35)}
+@media(max-width:640px){.math-card{font-size:12.5px;padding:22px 18px}}
+.math-card .ml{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.math-card b{color:var(--gold-500);font-weight:800;text-align:right}
+.math-card .hr{border-top:1px dashed rgba(245,248,244,.3);margin:13px 0}
+.math-card .res{background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.45);color:var(--gold-500);
+  padding:15px;border-radius:12px;margin-top:12px;font-size:16.5px;font-weight:800;text-align:center;
+  font-family:var(--sans)}
+
+/* ===== CHAPTERS ===== */
+.chapter-list{max-width:820px;margin:0 auto;background:var(--card);border-radius:20px;padding:32px;
+  border:1px solid var(--line);box-shadow:0 8px 22px rgba(12,31,26,.05);list-style:none}
+@media(max-width:640px){.chapter-list{padding:22px 16px}}
+.chapter-list .group{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:800;
+  color:var(--gold-600);padding:18px 0 8px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.chapter-list .group:first-child{padding-top:0}
+.chapter-list li{display:flex;gap:14px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--emerald-050);
+  font-size:14.5px;color:#25342E;line-height:1.6}
+.chapter-list li:last-child{border-bottom:none}
+.chapter-list .cn{flex-shrink:0;width:34px;height:34px;background:var(--emerald-050);color:var(--emerald-700);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);
+  font-weight:700;font-style:italic;font-size:14px}
+.chapter-list b{color:var(--ink)}
+
+/* ===== BONUS COLLAPSE ===== */
+.bonus-list{max-width:820px;margin:0 auto}
+.bonus-list details{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:0;margin-bottom:12px;overflow:hidden;box-shadow:0 6px 18px rgba(12,31,26,.05)}
+.bonus-list details[open]{border-color:var(--gold-500)}
+.bonus-list summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:18px 22px;
+  -webkit-tap-highlight-color:transparent}
+.bonus-list summary::-webkit-details-marker{display:none}
+.bonus-list .kit-no{flex-shrink:0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:13px;
+  color:var(--gold-600);background:var(--gold-100);padding:5px 12px;border-radius:999px;white-space:nowrap}
+.bonus-list .kit-head{flex:1;min-width:0}
+.bonus-list .kit-head h4{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--emerald-900);line-height:1.3}
+.bonus-list .kit-head .kit-tag{font-size:12px;color:var(--muted);margin-top:2px}
+.bonus-list .kit-val{flex-shrink:0;font-size:12px;color:var(--emerald-700);font-weight:800;white-space:nowrap}
+.bonus-list summary .arrow{flex-shrink:0;color:var(--gold-600);font-size:20px;font-weight:700;
+  transition:transform .25s;line-height:1}
+.bonus-list details[open] summary .arrow{transform:rotate(45deg)}
+.bonus-list .kit-body{padding:0 22px 20px;border-top:1px solid var(--emerald-050)}
+.bonus-list .kit-body p{font-size:13.5px;color:#3A4A43;line-height:1.7;padding-top:14px}
+.bonus-list .kit-body ul{margin:12px 0 0 2px;list-style:none}
+.bonus-list .kit-body li{position:relative;padding:5px 0 5px 26px;font-size:13.5px;color:#25342E;line-height:1.6}
+.bonus-list .kit-body li::before{content:'✓';position:absolute;left:0;top:5px;width:18px;height:18px;
+  background:var(--emerald-100);color:var(--emerald-700);border-radius:6px;display:flex;align-items:center;
+  justify-content:center;font-size:11px;font-weight:900}
+@media(max-width:640px){
+  .bonus-list summary{flex-wrap:wrap;gap:10px;padding:16px}
+  .bonus-list .kit-val{width:100%;order:5}
+  .bonus-list .kit-body{padding:0 16px 18px}
+}
+
+/* ===== VALUE STACK ===== */
+.value-stack{max-width:700px;margin:0 auto;background:var(--card);border-radius:20px;padding:32px;
+  border:2px dashed var(--gold-500)}
+@media(max-width:640px){.value-stack{padding:22px 16px}}
+.vrow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--emerald-050);
+  font-size:14.5px;color:#25342E}
+@media(max-width:640px){.vrow{font-size:13px}}
+.vrow .v{color:var(--emerald-700);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.vrow.total{border-bottom:none;font-weight:800;font-size:17px;padding-top:18px;border-top:2px solid var(--emerald-900);
+  margin-top:8px;color:var(--emerald-900)}
+.vrow.total .v{font-family:var(--serif);font-size:20px;color:var(--emerald-900)}
+.you-pay{background:linear-gradient(135deg,var(--gold-100),#F0E2C2);border:2px solid var(--gold-500);
+  border-radius:16px;padding:26px;text-align:center;margin:18px auto 0;max-width:700px}
+.you-pay .label{font-size:11px;color:var(--gold-600);font-weight:800;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:8px}
+.you-pay .price{font-family:var(--serif);font-size:52px;color:var(--emerald-900);font-weight:700;line-height:1;letter-spacing:-1px}
+.you-pay .old{font-size:14px;color:#8A7440;text-decoration:line-through;margin-top:6px}
+
+/* ===== FAQ ===== */
+.faq{max-width:820px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px 22px;margin-bottom:10px}
+.faq details[open]{border-color:var(--emerald-500)}
+.faq summary{font-weight:800;cursor:pointer;font-size:15px;color:var(--ink);list-style:none;line-height:1.55;
+  display:flex;justify-content:space-between;gap:12px;align-items:baseline;-webkit-tap-highlight-color:transparent}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold-600);font-size:22px;font-weight:700;flex-shrink:0;line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq p{margin-top:11px;font-size:14px;color:#3A4A43;line-height:1.75}
+.faq b{color:var(--ink)}
+
+/* ===== FINAL ===== */
+.final{text-align:center;padding:60px 28px;border-radius:26px;max-width:860px;margin:0 auto;
+  color:#F5F8F4;position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 600px at 110% -20%, rgba(201,162,75,.18), transparent 55%),
+    linear-gradient(168deg,var(--emerald-900) 0%,var(--emerald-700) 70%,#0C6B50 100%);
+  box-shadow:0 30px 80px rgba(6,32,25,.35)}
+@media(max-width:640px){.final{padding:44px 20px}}
+.final h2{color:#F5F8F4}
+.final h2 em{color:var(--gold-500)}
+.final .fsub{font-size:15px;color:#CFE3D8;max-width:540px;margin:14px auto 0;line-height:1.75}
+.final .fsub b{color:var(--gold-500)}
+.countdown{display:flex;gap:10px;justify-content:center;margin:24px 0 4px}
+.countdown .cd{background:rgba(245,248,244,.08);border:1px solid rgba(201,162,75,.4);color:var(--gold-500);
+  border-radius:12px;padding:12px 14px;min-width:66px;text-align:center}
+.countdown .cd .v{font-family:var(--serif);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.countdown .cd .l{font-size:9px;text-transform:uppercase;letter-spacing:1.4px;margin-top:4px;color:#CFE3D8}
+.final .safe{font-size:11.5px;color:#9CC7B4;margin-top:16px}
+
+footer{text-align:center;padding:34px 20px;color:var(--muted);font-size:12.5px}
+
+/* ===== STICKY BOTTOM CTA ===== */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:1000;background:var(--emerald-900);
+  border-top:1px solid rgba(201,162,75,.45);box-shadow:0 -10px 30px rgba(6,32,25,.35);
+  padding:12px max(16px,env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right))}
+.sticky-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sticky-price{display:flex;flex-direction:column;line-height:1.2}
+.sticky-price .now{font-family:var(--serif);font-weight:700;font-size:21px;color:var(--gold-500)}
+.sticky-price .old{font-size:11.5px;color:#9CC7B4;text-decoration:line-through}
+.sticky-cta .cta{width:auto;padding:13px 26px;font-size:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold-600),var(--gold-500));color:var(--emerald-900);
+  box-shadow:0 8px 22px rgba(0,0,0,.3)}
+@media(max-width:480px){
+  .sticky-price .now{font-size:18px}
+  .sticky-cta .cta{padding:12px 18px;font-size:13px}
+}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="ornament"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="pill"><span class="dot"></span>Diet Evidence-Based · Edisi Premium 2026</div>
+        <h1>Body <em>Recomp</em></h1>
+        <p class="subh">Ebook panduan plus 4 tools interaktif yang menghitung, merencanakan, dan melacak progresmu otomatis. Turun <b>2-4 kg lemak</b> dalam sebulan, tanpa menyiksa diri, tanpa berhenti makan nasi, dan latihan cukup <b>15 menit di rumah</b>.</p>
+        <div class="hero-chips">
+          <span class="chip"><b>4 Tools</b> Interaktif</span>
+          <span class="chip"><b>11 Bab</b> Panduan</span>
+          <span class="chip">Data <b>Tersimpan Otomatis</b></span>
+          <span class="chip">Berbasis <b>Riset</b>, Bukan Tren</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="product-meta"><span>🧰 4 Tools + Ebook</span><span class="ver">Edisi Premium</span></div>
+        <div class="pname">Body <em>Recomp</em></div>
+        <div class="ptag">4 tools interaktif + 11 bab panduan lengkap, semua dalam satu sistem</div>
+        <div class="price-block"><span class="price-now">Rp 127rb</span><span class="price-old">Rp 399rb</span><span class="price-save">HEMAT 68%</span></div>
+        <div class="price-note">⚡ Akses instan setelah pembayaran terkonfirmasi</div>
+        <a href="#" class="cta">📥 Beli Sekarang →</a>
+        <div class="trust"><span>🔒 Bayar Aman</span><span>⚡ Akses Instan</span><span>📱 HP &amp; PC</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAIN ===== -->
+<section>
+<div class="container">
+<h2>Kenapa Diet Selalu <em>Gagal?</em></h2>
+<p class="sub">Bukan karena kamu lemah mental. Bukan salah genetik. Ada tiga jebakan yang menggagalkan hampir semua diet, dan Body Recomp dirancang untuk memutus ketiganya.</p>
+
+<div class="pain-grid">
+  <div class="pain"><div class="emo">📉</div><h3>Efek Yo-Yo</h3><p>Diet ekstrem → turun cepat → metabolisme melambat → berat naik lagi <b>lebih cepat</b> dari sebelumnya. Siklus yang membuatmu merasa gagal, padahal sistemnya yang salah.</p><div class="sol"><b>✅ Jawaban sistemnya:</b> defisit moderat 300-500 kkal, bukan ekstrem. Lambat yang konsisten mengalahkan cepat yang menyerah.</div></div>
+  <div class="pain"><div class="emo">⚖️</div><h3>Menebak, Bukan Mengukur</h3><p>Fokus ke angka timbangan harian yang berayun ±1-2 kg hanya karena air, garam, dan karbo kemarin, lalu panik dan berhenti.</p><div class="sol"><b>✅ Jawaban sistemnya:</b> nilai <b>rata-rata mingguan</b> + lingkar pinggang. Saat timbangan bohong, meteran jarang bohong.</div></div>
+  <div class="pain"><div class="emo">🚫</div><h3>All-or-Nothing</h3><p>"Mulai Senin gak makan nasi sama sekali!" → hari ke-3 kebablasan → merasa gagal total → berhenti. Satu hari buruk dianggap membatalkan segalanya.</p><div class="sol"><b>✅ Jawaban sistemnya:</b> tidak ada makanan haram. Sistemnya dinilai per minggu, bukan per hari, jadi satu hari buruk tidak membatalkan apa pun.</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== PILAR ===== -->
+<section style="padding-top:0">
+<div class="container">
+<h2>Tiga Pilar <em>Body Recomp</em></h2>
+<p class="sub">Berbasis riset (Mifflin-St Jeor, posisi ISSN untuk protein), bukan mitos TikTok. Sederhana dijalankan, jujur soal hasilnya.</p>
+
+<div class="process">
+  <div class="step"><div class="n">1</div><h3>Defisit Moderat</h3><p>Kalori target = TDEE − 300 s.d. 500 kkal. Cukup untuk membakar lemak, tidak cukup untuk membuat tubuhmu panik dan membuang otot.</p></div>
+  <div class="step"><div class="n">2</div><h3>Protein 1,8 g/kg</h3><p>Tersebar di 3-4 slot makan. Menjaga massa otot saat fat loss sekaligus jadi rem lapar alami paling kuat.</p></div>
+  <div class="step"><div class="n">3</div><h3>Latihan 15 Menit</h3><p>Latihan beban tubuh progresif di rumah, tanpa alat. Perannya bukan membakar kalori, tapi memberi tahu tubuh agar yang dibakar adalah <b>lemak, bukan otot</b>.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== DEMOS ===== -->
+<section class="demo-section">
+<div class="container">
+<h2>Coba <em>Tools-nya</em> Sekarang Juga</h2>
+<p class="sub">Beneran jalan, bukan screenshot. Ini baru <b>cicipan</b>, versi lengkapnya menunggumu di dalam paket, dan semuanya berjalan langsung di browser HP/laptopmu.</p>
+
+<div class="demo-wrap">
+
+<div class="demo-card">
+  <span class="label">Kit 01 · Kalkulator Suite · Preview</span>
+  <h3>📊 Kalkulator TDEE &amp; Kalori Target</h3>
+  <p class="desc">Hitung kebutuhan kalorimu + target protein harian. Versi lengkap: goal cut/maintain/bulk, breakdown macros penuh, dan simulasi cheat meal 20 menu Indonesia.</p>
+  <div class="demo-grid">
+    <div><label>Gender</label><select id="d1_g" onchange="d1()"><option value="m">👨 Laki-laki</option><option value="f" selected>👩 Perempuan</option></select></div>
+    <div><label>Umur</label><input type="number" id="d1_a" value="28" inputmode="numeric" oninput="d1()"></div>
+    <div><label>Tinggi (cm)</label><input type="number" id="d1_h" value="160" inputmode="numeric" oninput="d1()"></div>
+    <div><label>Berat (kg)</label><input type="number" id="d1_w" value="65" step="0.1" inputmode="decimal" oninput="d1()"></div>
+  </div>
+  <div class="demo-out">
+    <div class="row"><span>BMR</span><span class="v" id="d1_bmr">0</span></div>
+    <div class="row"><span>TDEE (aktivitas ringan)</span><span class="v" id="d1_tdee">0</span></div>
+    <div class="row"><span>Kalori Target (cutting)</span><span class="v" id="d1_cut">0</span></div>
+    <div class="row big"><span>🥩 Protein / hari</span><span class="v" id="d1_p">0g</span></div>
+  </div>
+  <div class="demo-foot">🔓 Versi lengkap di Kit 01: pilih goal, macros penuh (protein-lemak-karbo), dan simulasi dampak cheat meal ke sisa minggumu.</div>
+</div>
+
+<div class="demo-card">
+  <span class="label">Kit 02 · Meal System · Preview</span>
+  <h3>🍽️ Contoh Menu Harian Indonesia</h3>
+  <p class="desc">Pilih slot makan → lihat takaran + kalori + cara masak. Versi lengkap: rencana 30 hari otomatis sesuai kalorimu, database 100+ makanan Indonesia, 15 resep low-cal, dan grocery list mingguan.</p>
+  <div class="meal-pick">
+    <div class="mp active" data-m="b1" onclick="d2('b1',this)"><span class="em">🥣</span>Oat Pisang</div>
+    <div class="mp" data-m="l1" onclick="d2('l1',this)"><span class="em">🍱</span>Ayam Bakar</div>
+    <div class="mp" data-m="d1" onclick="d2('d1',this)"><span class="em">🐟</span>Ikan Kembung</div>
+  </div>
+  <div class="meal-out" id="d2_out"></div>
+  <div class="demo-foot">🔓 Versi lengkap di Kit 02: 30 hari plan otomatis, 3 gaya makan, filter halal/no-seafood/vegetarian, plus grocery list + estimasi budget.</div>
+</div>
+
+<div class="demo-card wide">
+  <span class="label">Dari Ebook · Bab 1 &amp; 2 · Preview</span>
+  <h3>🧠 Kuis Mitos &amp; Fakta Diet</h3>
+  <p class="desc">Tes seberapa banyak "ilmu diet" di kepalamu yang ternyata mitos. Semua jawabannya dibahas tuntas di dalam ebook, lengkap dengan dasar risetnya.</p>
+  <div class="quiz-q" id="d3_q">Soal 1 dari 3: "Kalau mau langsing, tidak boleh makan nasi sama sekali"</div>
+  <div class="quiz-opts">
+    <button onclick="d3(0)">❌ MITOS</button>
+    <button onclick="d3(1)">✅ FAKTA</button>
+  </div>
+  <div class="quiz-exp" id="d3_exp"></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== COMPARISON ===== -->
+<section>
+<div class="container">
+<h2>Bandingkan dengan <em>Cara Lain</em></h2>
+<p class="sub">Kebanyakan panduan diet ditulis untuk orang yang sarapan oatmeal dan makan siang salad. Kamu makan di warteg, dan Body Recomp paham itu.</p>
+
+<div class="compare">
+<div class="compare-row head"><div>Aspek</div><div>Diet Biasa</div><div>Body Recomp</div></div>
+<div class="compare-row"><div class="label">Pendekatan</div><div class="x">Pantangan ketat</div><div class="v">Evidence-based</div></div>
+<div class="compare-row"><div class="label">Makanan</div><div class="x">Salad, oatmeal Western</div><div class="v">Warteg, Padang, masakan rumah</div></div>
+<div class="compare-row"><div class="label">Latihan</div><div class="x">1 jam gym / hari</div><div class="v">15 menit di rumah, tanpa alat</div></div>
+<div class="compare-row"><div class="label">Cheat meal</div><div class="x">Haram, bikin guilt</div><div class="v">Bagian dari sistemnya, terjadwal</div></div>
+<div class="compare-row"><div class="label">Situasi nyata</div><div class="x">Tidak dibahas</div><div class="v">Kondangan, warteg, traveling, PMS</div></div>
+<div class="compare-row"><div class="label">Tools</div><div class="x">Aplikasi berbayar bulanan</div><div class="v">4 kit interaktif, milik selamanya</div></div>
+<div class="compare-row"><div class="label">Harga</div><div class="x">Personal trainer Rp 1-3 jt/bln</div><div class="v">Rp 127rb sekali bayar</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== MATH ===== -->
+<section style="padding-top:0">
+<div class="container">
+<h2>Math Sederhana, <em>Hasil Jujur</em></h2>
+<p class="sub">Tidak ada janji "turun 10 kg sebulan", karena itu bukan fat loss, itu kehilangan air, otot, dan kewarasan. Ini hitungan realistisnya.</p>
+
+<div class="math-card">
+<div class="ml"><span>Defisit harian</span><b>400-500 kkal</b></div>
+<div class="ml"><span>× 7 hari</span><b>±3.000 kkal/minggu</b></div>
+<div class="ml"><span>÷ 7.700 kkal per kg lemak</span><b>±0,4-0,5 kg/minggu</b></div>
+<div class="hr"></div>
+<div class="ml"><span>× 4 minggu</span><b>±1,6-2 kg lemak</b></div>
+<div class="ml"><span>+ air &amp; glikogen minggu pertama</span><b>±1-1,5 kg</b></div>
+<div class="hr"></div>
+<div class="res">💪 Realistis di hari 30: turun 2-4 kg + lingkar pinggang menyusut 3-6 cm</div>
+</div>
+<p class="sub" style="margin-top:20px;margin-bottom:0">Dengan massa otot terjaga, energi stabil, dan pola makan yang masih terasa seperti hidup normal orang Indonesia.</p>
+</div>
+</section>
+
+<!-- ===== CHAPTERS ===== -->
+<section>
+<div class="container">
+<h2>11 Bab yang Disusun sebagai <em>Urutan Kerja</em></h2>
+<p class="sub">Bukan bacaan sekali duduk lalu dilupakan. Bagian I membangun fondasi, Bagian II eksekusi harian, Bagian III memastikan hasilnya bertahan.</p>
+
+<ol class="chapter-list">
+<div class="group">Bagian I · Fondasi</div>
+<li><div class="cn">01</div><div><b>Kenapa Diet Gagal</b>: memutus pola yo-yo dan all-or-nothing</div></li>
+<li><div class="cn">02</div><div><b>Sains di Balik Fat Loss</b>: cara kerja tubuhmu, tanpa jargon</div></li>
+<li><div class="cn">03</div><div><b>Protokol Kalori &amp; Macros</b>: empat angka personalmu, dihitung langsung</div></li>
+<div class="group">Bagian II · Eksekusi</div>
+<li><div class="cn">04</div><div><b>Piring Indonesia</b>: Formula Piring 2-1-1 untuk warteg sampai resto Padang</div></li>
+<li><div class="cn">05</div><div><b>Sistem Makan 30 Hari</b>: slot makan, IF 16:8, dan meal prep 90 menit</div></li>
+<li><div class="cn">06</div><div><b>Protokol Latihan 15 Menit</b>: beban tubuh progresif, tanpa gym, tanpa alat</div></li>
+<li><div class="cn">07</div><div><b>Tidur, Stres &amp; Hormon</b>: dua faktor senyap yang menentukan hasil</div></li>
+<div class="group">Bagian III · Bertahan</div>
+<li><div class="cn">08</div><div><b>Cheat Meal &amp; Hidup Sosial</b>: kondangan dan makan enak tanpa sabotase</div></li>
+<li><div class="cn">09</div><div><b>Plateau &amp; Troubleshooting</b>: diagnosis berurutan saat timbangan diam</div></li>
+<li><div class="cn">10</div><div><b>Peta 30 Hari, Minggu demi Minggu</b>: apa yang dilakukan &amp; dirasakan tiap minggu</div></li>
+<li><div class="cn">11</div><div><b>Setelah Hari ke-30</b>: reverse diet &amp; hidup tanpa efek yo-yo</div></li>
+<div class="group">Referensi</div>
+<li><div class="cn">✦</div><div><b>Glosarium Interaktif</b>: 40+ istilah dengan pencarian instan, langsung di dalam ebook</div></li>
+</ol>
+</div>
+</section>
+
+<!-- ===== BONUS (COLLAPSE) ===== -->
+<section style="background:linear-gradient(180deg,var(--paper),var(--emerald-050))">
+<div class="container">
+<h2>Ini Bukan Ebook Biasa. Ini <em>4 Tools</em> yang Kamu Pakai Tiap Hari.</h2>
+<p class="sub">Setiap bab ebook menunjukkan kapan tepatnya kamu memakai masing-masing kit. Semuanya berjalan di browser HP/laptop, data tersimpan otomatis di perangkatmu. Tap untuk lihat isinya.</p>
+
+<div class="bonus-list">
+
+<details>
+  <summary>
+    <span class="kit-no">Kit 01</span>
+    <div class="kit-head"><h4>Kalkulator <em>Suite</em></h4><div class="kit-tag">TDEE, macros &amp; simulasi cheat meal</div></div>
+    <span class="kit-val">Senilai Rp 129.000</span>
+    <span class="arrow">+</span>
+  </summary>
+  <div class="kit-body">
+    <p>Pusat angka-angka personalmu. Hitung sekali di hari pertama, lalu jadikan rujukan sepanjang prosesmu.</p>
+    <ul>
+      <li>Kalkulator TDEE &amp; BMR dengan pilihan goal: cutting, maintenance, atau lean bulk</li>
+      <li>Breakdown macros otomatis: protein 1,8 g/kg, lemak, dan karbo sesuai targetmu</li>
+      <li>Simulasi cheat meal: 20 menu paling umum + estimasi kalori, dampak surplus, dan penyesuaian sisa minggu</li>
+      <li>Target tersimpan otomatis dan terhubung ke kit lainnya</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <span class="kit-no">Kit 02</span>
+    <div class="kit-head"><h4>Meal <em>System</em></h4><div class="kit-tag">Planner 30 hari, database makanan, resep &amp; grocery list</div></div>
+    <span class="kit-val">Senilai Rp 179.000</span>
+    <span class="arrow">+</span>
+  </summary>
+  <div class="kit-body">
+    <p>Ekosistem makanmu lengkap dalam satu app: dari rencana bulanan sampai daftar belanja mingguan.</p>
+    <ul>
+      <li>Meal plan 30 hari auto-generate sesuai kalori target, dengan 3 gaya makan (Indonesia klasik, low carb, balanced)</li>
+      <li>Filter preferensi: halal, no-seafood, vegetarian-friendly</li>
+      <li>Database 100+ makanan Indonesia: kalori, protein, dan diet-score per item, dengan pencarian instan</li>
+      <li>15 resep low-cal cita rasa lokal (semua di bawah 450 kkal) dengan scaling porsi otomatis</li>
+      <li>Grocery list auto-generator + estimasi budget, siap dikirim ke WhatsApp keluarga</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <span class="kit-no">Kit 03</span>
+    <div class="kit-head"><h4>Training &amp; <em>Progress Hub</em></h4><div class="kit-tag">Workout harian, tracker berat &amp; matriks habit</div></div>
+    <span class="kit-val">Senilai Rp 149.000</span>
+    <span class="arrow">+</span>
+  </summary>
+  <div class="kit-body">
+    <p>Seluruh progress 30 harimu dalam satu dashboard: latihan, badan, dan kebiasaan.</p>
+    <ul>
+      <li>Program latihan 15 menit rotasi 30 hari dengan timer built-in dan checklist per gerakan</li>
+      <li>Progress tracker: berat, lingkar pinggang, mood, energy &amp; tidur, dengan grafik trend otomatis</li>
+      <li>Rata-rata mingguan dihitung otomatis, jadi kamu menilai data, bukan menebak</li>
+      <li>Matriks 30 hari × 10 habit dengan aturan compliance yang jelas</li>
+      <li>Export CSV untuk arsip datamu sendiri</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <span class="kit-no">Kit 04</span>
+    <div class="kit-head"><h4>Survival <em>Guide</em></h4><div class="kit-tag">Protokol kondangan, makan di luar, traveling &amp; pemulihan</div></div>
+    <span class="kit-val">Senilai Rp 119.000</span>
+    <span class="arrow">+</span>
+  </summary>
+  <div class="kit-body">
+    <p>Panduan lapangan untuk lima situasi yang paling sering menggagalkan diet, supaya hidup nyata tidak membatalkan progresmu.</p>
+    <ul>
+      <li>Protokol kondangan &amp; prasmanan, termasuk skrip menjawab "kok makin kurus, makan yang banyak!"</li>
+      <li>Peta makan di luar: warteg, resto Padang, dan menu-menu jebakan lainnya dengan ranking terbaik/boleh/awas</li>
+      <li>Panduan PMS &amp; craving: kenapa muncul dan penyesuaian yang wajar</li>
+      <li>Mode traveling: checklist sebelum berangkat + strategi hotel buffet, bandara, dan dinas padat meeting</li>
+      <li>Protokol pemulihan setelah kebablasan: langkah persis berdasarkan kapan kejadiannya</li>
+    </ul>
+  </div>
+</details>
+
+</div>
+</div>
+</section>
+
+<!-- ===== VALUE STACK ===== -->
+<section>
+<div class="container">
+<h2>Yang Kamu Dapat <em>Hari Ini</em></h2>
+<p class="sub">Satu paket lengkap. Sekali bayar, milikmu selamanya, tanpa langganan bulanan.</p>
+
+<div class="value-stack">
+<div class="vrow"><span>🧮 Kit 01 · Kalkulator Suite</span><span class="v">Rp 129.000</span></div>
+<div class="vrow"><span>🍽️ Kit 02 · Meal System</span><span class="v">Rp 179.000</span></div>
+<div class="vrow"><span>💪 Kit 03 · Training &amp; Progress Hub</span><span class="v">Rp 149.000</span></div>
+<div class="vrow"><span>🧭 Kit 04 · Survival Guide</span><span class="v">Rp 119.000</span></div>
+<div class="vrow"><span>📘 Ebook Body Recomp: 11 bab + glosarium interaktif</span><span class="v">Rp 249.000</span></div>
+<div class="vrow total"><span>Total Nilai</span><span class="v">Rp 825.000</span></div>
+</div>
+
+<div class="you-pay">
+<div class="label">Harga Hari Ini</div>
+<div class="price">Rp 127.000</div>
+<div class="old">Harga normal Rp 399.000</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section style="padding-top:0">
+<div class="container">
+<h2>Pertanyaan yang <em>Sering Diajukan</em></h2>
+<div class="faq" style="margin-top:36px">
+<details><summary>Apakah cocok untuk pemula total?</summary><p>Sangat cocok. Bagian I ebook (Bab 1-3) menjelaskan fondasinya dengan bahasa awam, dan Kalkulator Suite menghitung semua angkamu otomatis, kamu tidak perlu hafal rumus apa pun. Program latihannya dimulai dari level beginner dengan panduan form per gerakan.</p></details>
+<details><summary>Berapa lama komitmen waktunya per hari?</summary><p>Latihan 15 menit per hari, tracking makanan 5-10 menit (wajib penuh hanya di minggu pertama), dan mencentang checklist harian sekitar 5 menit tiap malam. Total sekitar 30 menit per hari.</p></details>
+<details><summary>Apakah saya harus punya alat gym?</summary><p>Tidak. Seluruh program latihan memakai beban tubuh, bisa di kamar atau teras. Yang kamu butuhkan hanya lantai dan 15 menit.</p></details>
+<details><summary>Saya tidak bisa lepas dari nasi. Bisa ikut?</summary><p>Justru Body Recomp dirancang untukmu. Tidak ada makanan haram. Yang diatur adalah komposisi lewat Formula Piring 2-1-1 (Bab 4). Meal plan-nya berisi makanan rumahan Indonesia: nasi, ayam, ikan, tempe, sayur. Tidak ada salad gandum atau bahan import.</p></details>
+<details><summary>Bagaimana dengan kondangan, makan di luar, atau traveling?</summary><p>Ada satu kit khusus untuk itu: Survival Guide. Protokol prasmanan kondangan, peta menu warteg &amp; resto Padang, mode traveling, sampai langkah pemulihan kalau terlanjur kebablasan. Semua situasi nyata dibahas, bukan dihindari.</p></details>
+<details><summary>Kalau saya hamil / menyusui / punya kondisi medis, boleh ikut?</summary><p>Konsultasikan dulu dengan doktermu. Body Recomp ditulis untuk orang dewasa sehat dan bukan pengganti nasihat medis personal.</p></details>
+<details><summary>Formatnya seperti apa? Bisa dibuka di HP?</summary><p>Semuanya HTML interaktif, dibuka di browser HP atau laptop, tanpa install aplikasi. Kalkulator, checklist, dan tracker menyimpan datamu otomatis di perangkatmu sendiri, dan tetap jalan tanpa koneksi internet setelah file terbuka.</p></details>
+<details><summary>Saya sudah gagal diet berkali-kali. Apa bedanya kali ini?</summary><p>Body Recomp mulai dari membedah <b>kenapa</b> diet sebelumnya gagal (Bab 1) sebelum memberi solusi, lalu memberimu sistem yang dinilai per minggu, bukan per hari, sehingga satu hari buruk tidak membatalkan apa pun. Ditambah Bab 11 yang memastikan hasilnya bertahan setelah hari ke-30.</p></details>
+<details><summary>Apa garansinya kalau saya tidak puas?</summary><p>Karena ini produk digital, tidak ada refund. Tapi kamu bisa mencoba langsung preview tools-nya di halaman ini sebelum memutuskan. Apa yang kamu lihat adalah apa yang kamu dapat, dalam versi yang jauh lebih lengkap.</p></details>
+<details><summary>Bisakah file-nya dibagikan ke teman?</summary><p>Akses yang kamu terima bersifat personal. Kalau Body Recomp membantu kamu, cara terbaik mendukung kami adalah mengajak temanmu memiliki paketnya sendiri, supaya kami bisa terus memperbarui materi dan tools-nya.</p></details>
+</div>
+</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section style="padding-top:0">
+<div class="container">
+<div class="final">
+<h2>Hari 1 yang <em>Dijalani</em><br>Lebih Bernilai dari Hari 1 yang <em>Ditunda</em></h2>
+<p class="fsub">Investasi <b>Rp 127rb</b> untuk sistem yang kamu pakai seumur hidup: 4 tools interaktif plus 11 bab panduan lengkap. 30 hari pertamamu dimulai dari menit ini.</p>
+<div class="countdown" id="cd">
+<div class="cd"><div class="v" id="cd_h">--</div><div class="l">Jam</div></div>
+<div class="cd"><div class="v" id="cd_m">--</div><div class="l">Menit</div></div>
+<div class="cd"><div class="v" id="cd_s">--</div><div class="l">Detik</div></div>
+</div>
+<a href="#" class="cta cta-lg gold">📥 Beli Sekarang · Rp 127.000 →</a>
+<p class="safe">🔒 Pembayaran aman · ⚡ Akses instan setelah pembayaran terkonfirmasi</p>
+</div>
+</div>
+</section>
+
+<footer>© 2026 · Body Recomp</footer>
+
+<!-- ===== STICKY BOTTOM CTA ===== -->
+<div class="sticky-cta">
+  <div class="sticky-in">
+    <div class="sticky-price">
+      <span class="now">Rp 127.000</span>
+      <span class="old">Rp 399.000 · Hemat 68%</span>
+    </div>
+    <a href="#" class="cta">📥 Beli Sekarang →</a>
+  </div>
+</div>
+
+<script>
+// ===== DEMO 1: TDEE =====
+function d1(){
+  const m=document.getElementById('d1_g').value==='m';
+  const a=+document.getElementById('d1_a').value||0;
+  const h=+document.getElementById('d1_h').value||0;
+  const w=+document.getElementById('d1_w').value||0;
+  const bmr=m?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;
+  const tdee=bmr*1.375;
+  const cut=tdee-500;
+  const prot=Math.round(w*1.8);
+  document.getElementById('d1_bmr').textContent=Math.round(bmr)+' kkal';
+  document.getElementById('d1_tdee').textContent=Math.round(tdee)+' kkal';
+  document.getElementById('d1_cut').textContent=Math.round(cut)+' kkal';
+  document.getElementById('d1_p').textContent=prot+'g';
+}
+d1();
+
+// ===== DEMO 2: Meal =====
+const MEALS={
+  b1:{n:'Oat Pisang Madu',kcal:380,p:16,c:55,f:9,ing:'Oat 40g · Pisang 1 buah · Madu 1 sdt · Susu UHT 100ml · Almond 10g',cara:'Masak oat dengan air panas 3 menit, tambahkan pisang potong, madu, dan susu. Taburi almond.'},
+  l1:{n:'Ayam Bakar + Nasi',kcal:510,p:35,c:58,f:12,ing:'Nasi putih 100g · Dada ayam bakar bumbu 100g · Daun singkong rebus 100g · Sambal',cara:'Bakar ayam berbumbu sampai matang. Rebus daun singkong. Sajikan mengikuti Formula Piring 2-1-1.'},
+  d1:{n:'Ikan Kembung Bakar',kcal:420,p:34,c:40,f:11,ing:'Nasi merah 80g · Ikan kembung 1 ekor · Lalapan (mentimun, tomat, kemangi) · Sambal tomat',cara:'Bakar ikan dengan bumbu kunyit-jeruk nipis. Sajikan dengan nasi merah, lalapan, dan sambal.'},
+};
+function d2(k,el){
+  document.querySelectorAll('.mp').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  const m=MEALS[k];
+  document.getElementById('d2_out').innerHTML=`<b>🍽️ ${m.n}</b> · <span class="kcal">${m.kcal} kkal</span><br>
+  <span style="font-size:12px">🥩 ${m.p}g protein · 🍚 ${m.c}g karbo · 🥑 ${m.f}g lemak</span>
+  <div class="ing"><b>Bahan:</b> ${m.ing}<br><br><b>Cara:</b> ${m.cara}</div>`;
+}
+d2('b1',document.querySelector('.mp'));
+
+// ===== DEMO 3: Quiz =====
+const QUIZ=[
+  {q:'"Kalau mau langsing, tidak boleh makan nasi sama sekali"',a:0,e:'❌ MITOS. Nasi 100g (±1 centong) hanya ±130 kkal. Selama total kalori harian masih defisit, nasi tidak menggemukkan. Yang jadi masalah adalah porsi dominan, metode goreng, dan gula di minuman. Dibedah di Bab 4: Piring Indonesia.'},
+  {q:'"Teh detox / pelangsing instan membakar lemak lebih cepat"',a:0,e:'❌ MITOS. Produk seperti ini umumnya bekerja lewat efek laksatif dan diuretik. Yang hilang adalah air dan isi usus, bukan lemak. Tubuhmu sudah punya sistem detox bernama hati dan ginjal, gratis. Dibahas di Bab 9.'},
+  {q:'"Intermittent fasting adalah sihir metabolik yang wajib diikuti"',a:0,e:'❌ MITOS. Studi perbandingan langsung menunjukkan IF hasilnya setara diet biasa ketika total kalorinya sama. IF hanyalah alat kepatuhan. Cocok untuk sebagian orang, buruk untuk sebagian lain. Bab 5 membantumu memutuskan.'},
+];
+let qIdx=0,qScore=0;
+function d3(ans){
+  const btns=document.querySelectorAll('.quiz-opts button');
+  btns.forEach(b=>b.disabled=true);
+  const Q=QUIZ[qIdx];
+  btns[Q.a].classList.add('correct');
+  if(ans!==Q.a)btns[ans].classList.add('wrong');
+  else qScore++;
+  const exp=document.getElementById('d3_exp');
+  exp.textContent=Q.e;exp.classList.add('show');
+  setTimeout(()=>{
+    qIdx++;
+    if(qIdx>=QUIZ.length){
+      document.getElementById('d3_q').innerHTML=`🎉 Selesai! Skor kamu: <b>${qScore}/${QUIZ.length}</b>. Semua mitos ini, dan banyak lainnya, dibedah tuntas di dalam ebook.`;
+      document.querySelector('.quiz-opts').style.display='none';
+      return;
+    }
+    document.getElementById('d3_q').textContent=`Soal ${qIdx+1} dari ${QUIZ.length}: ${QUIZ[qIdx].q}`;
+    btns.forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+    exp.classList.remove('show');
+  },3200);
+}
+
+// ===== COUNTDOWN =====
+function pad(n){return String(n).padStart(2,'0');}
+function tick(){
+  const end=new Date();end.setHours(23,59,59,0);
+  const left=Math.max(0,end-Date.now());
+  const h=Math.floor(left/3600000),m=Math.floor(left/60000)%60,s=Math.floor(left/1000)%60;
+  document.getElementById('cd_h').textContent=pad(h);
+  document.getElementById('cd_m').textContent=pad(m);
+  document.getElementById('cd_s').textContent=pad(s);
+}
+tick();setInterval(tick,1000);
+</script>
+</body></html>
