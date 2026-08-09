@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hizbi Rezeki</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-950:#050a07;
+  --bg-900:#0a120d;
+  --bg-800:#0f1c15;
+  --bg-700:#15271c;
+  --bg-600:#1d3527;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.16);
+  --ink:#f3efe4;
+  --ink-dim:#aab6a9;
+  --ink-faint:#6d7c6e;
+  --gold:#c08a2e;
+  --gold-bright:#e2ab4d;
+  --sage:#5e7b6e;
+  --sage-bright:#8caa9b;
+  --emerald:#1f4a3d;
+  --emerald-bright:#2f6a56;
+  --font-display:'Lexend',sans-serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
+  --font-mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg-950);
+  color:var(--ink);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+::selection{background:rgba(192,138,46,.35);}
+a{color:inherit;text-decoration:none;}
+
+/* ---------- SECTION SHELL ---------- */
+.section{
+  position:relative;width:100%;padding:100px 24px;overflow:hidden;
+}
+.section-inner{max-width:1120px;margin:0 auto;}
+.section-narrow{max-width:720px;margin:0 auto;}
+@media(max-width:880px){.section{padding:64px 20px;}}
+
+.h2{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.4vw,40px);line-height:1.16;letter-spacing:-.01em;
+  margin:0 0 18px;color:var(--ink);
+}
+.h2 .accent{color:var(--gold-bright);}
+.p-lead{
+  font-size:16.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 16px;
+}
+.p-lead:last-child{margin-bottom:0;}
+strong{color:var(--ink);font-weight:700;}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* ---------- BUTTONS ---------- */
+.btn-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:#1c1204;font-family:var(--font-display);font-weight:800;
+  font-size:15.5px;letter-spacing:.01em;
+  padding:18px 30px;border-radius:14px;border:none;cursor:pointer;
+  box-shadow:0 14px 34px -14px rgba(192,138,46,.55);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 20px 44px -14px rgba(192,138,46,.7);}
+.btn-cta svg{width:18px;height:18px;flex:0 0 auto;}
+
+/* ---------- HERO (desktop: foto full bleed di belakang, di mirror) ---------- */
+.hero{
+  position:relative;min-height:100vh;width:100%;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:64px 24px 90px;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  z-index:0;
+}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(90deg, rgba(5,10,7,.97) 0%, rgba(5,10,7,.86) 32%, rgba(5,10,7,.35) 62%, rgba(5,10,7,.05) 100%),
+    linear-gradient(0deg, rgba(5,10,7,.9) 0%, rgba(5,10,7,.15) 40%, rgba(5,10,7,.35) 100%);
+}
+.hero-glow{
+  position:absolute;z-index:1;left:6%;top:18%;width:520px;height:520px;
+  background:radial-gradient(circle, rgba(226,171,77,.16), transparent 65%);
+  filter:blur(10px);
+  animation:heroGlow 9s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes heroGlow{0%,100%{opacity:.55;transform:scale(1);}50%{opacity:.9;transform:scale(1.12);}}
+@media(prefers-reduced-motion:reduce){.hero-glow{animation:none;}}
+
+.hero-text{position:relative;z-index:2;max-width:640px;}
+.hero h1{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(32px,5vw,54px);line-height:1.1;letter-spacing:-.02em;
+  margin:0 0 20px;color:var(--ink);
+}
+.hero h1 .accent{color:var(--gold-bright);}
+.hero .sub{
+  font-size:clamp(15px,1.6vw,17.5px);line-height:1.65;color:var(--ink-dim);
+  max-width:520px;margin:0 0 32px;
+}
+.hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.hero-note{font-size:12.5px;color:var(--ink-faint);}
+
+/* ---------- HERO (mobile: urutan headline, foto, sub-headline, ditumpuk) ---------- */
+@media(max-width:880px){
+  .hero{
+    min-height:auto;
+    padding:28px 20px 48px;
+  }
+  .hero-scrim{display:none;}
+  .hero-glow{left:-10%;top:0;width:380px;height:380px;}
+  .hero-text{max-width:none;}
+  .hero-photo{
+    position:static;transform:none;
+    width:100%;height:auto;aspect-ratio:4/5;
+    border-radius:20px;object-position:65% center;
+    margin:20px 0;z-index:auto;
+  }
+  .hero h1{margin-bottom:0;}
+  .hero .sub{max-width:none;margin-bottom:26px;}
+}
+
+/* ---------- MASALAH (split layout) ---------- */
+.masalah{background:var(--bg-950);}
+.split{
+  display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;
+}
+.split-photo{
+  position:relative;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line-strong);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.7);
+}
+.split-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
+.syllo-box{
+  margin-top:26px;padding:20px 22px;border-radius:14px;
+  background:var(--bg-800);border-left:3px solid var(--sage-bright);
+}
+.syllo-box p{
+  margin:0;font-size:15px;line-height:1.7;color:var(--ink-dim);font-style:italic;
+}
+.syllo-box p strong{color:var(--sage-bright);font-style:normal;}
+@media(max-width:880px){
+  .split{grid-template-columns:1fr;gap:30px;}
+  .split-photo{order:-1;}
+}
+
+/* ---------- BRIDGE ---------- */
+.bridge{background:var(--bg-900);text-align:center;}
+.bridge .h2{margin-left:auto;margin-right:auto;}
+
+/* ---------- SISTEM (4 tahap) ---------- */
+.sistem{background:var(--bg-950);}
+.sistem .h2, .sistem .p-lead{text-align:center;margin-left:auto;margin-right:auto;}
+.sistem .p-lead{max-width:640px;}
+.flow{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative;
+}
+.flow::before{
+  content:"";position:absolute;top:26px;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg, transparent, var(--line-strong) 15%, var(--line-strong) 85%, transparent);
+}
+.flow-step{position:relative;text-align:center;padding:0 14px;}
+.flow-dot{
+  width:52px;height:52px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-800);border:1px solid var(--line-strong);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--gold-bright);
+  position:relative;z-index:1;
+}
+.flow-step h3{font-family:var(--font-display);font-weight:800;font-size:16px;margin:0 0 8px;color:var(--ink);}
+.flow-step p{font-size:13px;line-height:1.55;color:var(--ink-dim);margin:0;}
+@media(max-width:880px){
+  .flow{grid-template-columns:1fr;gap:26px;}
+  .flow::before{display:none;}
+  .flow-step{padding:0;}
+}
+
+/* ---------- ISI PRODUK ---------- */
+.isi{background:var(--bg-900);}
+.isi .h2{text-align:center;margin-left:auto;margin-right:auto;}
+.isi-split{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start;margin-top:44px;}
+.isi-mockup{border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);}
+.isi-cards{display:flex;flex-direction:column;gap:22px;}
+.isi-card{
+  background:var(--bg-800);border:1px solid var(--line);border-radius:18px;padding:30px 28px;
+}
+.isi-card h3{
+  font-family:var(--font-display);font-weight:800;font-size:19px;margin:0 0 6px;color:var(--ink);
+}
+.isi-card .tag{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--sage-bright);text-transform:uppercase;margin-bottom:10px;
+}
+.isi-card p{font-size:14px;line-height:1.65;color:var(--ink-dim);margin:0 0 18px;}
+.tool-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+.tool-list li{display:flex;gap:12px;align-items:flex-start;}
+.tool-ic{
+  flex:0 0 auto;width:32px;height:32px;border-radius:9px;
+  background:rgba(226,171,77,.1);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--gold-bright);
+}
+.tool-ic svg{width:16px;height:16px;}
+.tool-list b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:2px;}
+.tool-list span{font-size:12.5px;color:var(--ink-dim);line-height:1.5;}
+.ch-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.ch-list li{font-size:13.5px;color:var(--ink-dim);line-height:1.55;padding-left:20px;position:relative;}
+.ch-list li::before{
+  content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;
+  background:var(--sage-bright);
+}
+@media(max-width:880px){.isi-split{grid-template-columns:1fr;gap:26px;} .isi-mockup{order:-1;}}
+
+/* ---------- CARA MULAI ---------- */
+.cara{background:var(--bg-950);}
+.cara .h2{text-align:center;margin-left:auto;margin-right:auto;}
+.cara-list{
+  max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:0;
+}
+.cara-item{
+  display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line);
+}
+.cara-item:last-child{border-bottom:none;}
+.cara-num{
+  flex:0 0 auto;width:44px;height:44px;border-radius:12px;
+  background:var(--bg-800);border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:700;color:var(--gold-bright);font-size:15px;
+}
+.cara-body h3{font-family:var(--font-display);font-weight:800;font-size:16.5px;margin:2px 0 6px;color:var(--ink);}
+.cara-body p{font-size:14px;line-height:1.6;color:var(--ink-dim);margin:0;}
+
+/* ---------- KENAPA MASUK AKAL ---------- */
+.proof{background:var(--bg-900);}
+.proof .h2{text-align:center;margin-left:auto;margin-right:auto;}
+.proof-box{
+  max-width:760px;margin:36px auto 0;padding:32px 34px;border-radius:18px;
+  background:var(--bg-800);border:1px solid var(--line);
+  border-top:2px solid var(--sage-bright);
+}
+.proof-box p{font-size:15px;line-height:1.8;color:var(--ink-dim);margin:0 0 16px;}
+.proof-box p:last-child{margin-bottom:0;}
+
+/* ---------- HARGA ---------- */
+.harga{background:var(--bg-950);}
+.harga-card{
+  max-width:560px;margin:0 auto;text-align:center;
+  background:linear-gradient(180deg, var(--bg-800), var(--bg-900));
+  border:1px solid var(--line-strong);border-radius:24px;
+  padding:52px 40px;position:relative;
+}
+.harga-card .h2{font-size:clamp(22px,3vw,30px);}
+.price-row{margin:22px 0 8px;display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;}
+.price-old{
+  font-family:var(--font-mono);font-size:19px;color:var(--ink-faint);
+  position:relative;
+}
+.price-old::after{
+  content:"";position:absolute;left:0;top:52%;height:2px;background:#ef4444;
+  width:0%;transition:width .7s ease .1s;
+}
+.price-old.in-view::after{width:100%;}
+.price-new{
+  font-family:var(--font-display);font-weight:900;font-size:clamp(34px,5vw,46px);color:var(--gold-bright);
+}
+.price-note{font-size:13.5px;color:var(--ink-dim);margin:0 0 30px;}
+.risk-list{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:11px;text-align:left;max-width:380px;margin-left:auto;margin-right:auto;}
+.risk-list li{
+  display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-dim);line-height:1.5;
+}
+.risk-list svg{flex:0 0 auto;width:17px;height:17px;color:var(--sage-bright);margin-top:1px;}
+
+/* ---------- CLOSING ---------- */
+.closing{
+  position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;
+  padding:100px 24px;overflow:hidden;text-align:center;
+}
+.closing-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
+.closing-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:radial-gradient(1000px 700px at 50% 40%, rgba(5,10,7,.55), rgba(5,10,7,.94));
+}
+.closing-content{position:relative;z-index:2;max-width:660px;}
+.closing-content .h2{margin-left:auto;margin-right:auto;}
+.closing-content .p-lead{max-width:600px;margin-left:auto;margin-right:auto;}
+.closing-content .btn-cta{margin-top:14px;}
+@media(max-width:880px){.closing{min-height:70vh;padding:80px 20px;}}
+
+/* ---------- FOOTER ---------- */
+footer{
+  padding:40px 24px 130px;text-align:center;background:var(--bg-950);
+  border-top:1px solid var(--line);
+}
+footer p{font-size:12px;color:var(--ink-faint);margin:0;}
+@media(max-width:880px){footer{padding:32px 20px 150px;}}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(10,18,13,.92);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line-strong);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  transform:translateY(110%);transition:transform .38s ease;
+}
+.sticky-cta.show{transform:translateY(0);}
+.sticky-inner{
+  width:100%;max-width:1120px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.sticky-price{display:flex;flex-direction:column;line-height:1.25;}
+.sticky-price .lbl{font-size:11px;color:var(--ink-faint);}
+.sticky-price .amt{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--gold-bright);}
+.sticky-cta .btn-cta{padding:13px 22px;font-size:13.5px;white-space:nowrap;}
+@media(max-width:600px){
+  .sticky-cta{padding:12px 16px;}
+  .sticky-inner{gap:12px;}
+  .sticky-price .amt{font-size:15px;}
+  .sticky-cta .btn-cta{padding:12px 16px;font-size:12.5px;gap:6px;}
+  .sticky-cta .btn-cta svg{width:15px;height:15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO / ABOVE THE FOLD ============ -->
+<section class="hero" id="hero">
+  <div class="hero-scrim"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-text">
+    <h1>Tenang Dulu 30 Hari, <span class="accent">Ikhtiar Jalan Pakai Sistem yang Tinggal Kamu Buka</span></h1>
+  </div>
+  <img class="hero-photo" src="https://drive.google.com/thumbnail?id=1H5Ur5x2AIA1NQW39DAjyrkyayW19zyf7&sz=w1600" alt="Ilustrasi meja kerja tenang dengan tasbih, cangkir teh, dan cahaya lattice islami">
+  <div class="hero-text">
+    <p class="sub">5 tools kecil buat dipakai tiap hari, ritual, script niat, jurnal, sampai tracker progres. Gak perlu bongkar ulang cara kerja kamu dari nol, tinggal buka dan ikutin.</p>
+    <div class="hero-cta-row">
+      <button class="btn-cta" onclick="document.getElementById('harga').scrollIntoView({behavior:'smooth'})">
+        Ya, Aku Mau Mulai Tenang Hari Ini
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <p class="hero-note">5 tools interaktif plus panduan lengkapnya, langsung kamu buka malam ini juga.</p>
+  </div>
+</section>
+
+<!-- ============ MASALAHNYA BUKAN KAMU KURANG USAHA ============ -->
+<section class="section masalah" id="masalah">
+  <div class="section-inner split">
+    <div class="split-photo reveal">
+      <img src="https://drive.google.com/thumbnail?id=1IOg1RXZuiAunT9Jkvfy4k5Nul4R_hqig&sz=w1600" alt="Ilustrasi air keruh berputar dengan pola geometris islami yang buram">
+    </div>
+    <div class="reveal">
+      <h2 class="h2">Masalahnya Bukan Kamu Kurang Usaha</h2>
+      <p class="p-lead">Pernah gak, abis shalat kamu minta, "tenangin dulu hatiku, baru aku lanjut kerja"? Terus tenangnya gak pernah datang, dan kamu nunda lagi. Follow up klien. Posting jualan. Balesin chat yang udah dibaca dari kemarin.</p>
+      <p class="p-lead">Dagangan sepi lima hari, satu fakta kecil langsung jadi vonis. "Jangan jangan ini emang bukan rezekiku." Padahal faktanya sesimpel, kamu cuma belum follow up lagi.</p>
+      <div class="syllo-box">
+        <p><strong>Ikhtiar yang jernih</strong> cuma lahir dari hati yang tenang. Hati yang panik gak pernah ngasilin itu. Jadi sebesar apapun usaha kamu, kalau berangkatnya dari panik, hasilnya muter di situ situ aja.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRIDGE ============ -->
+<section class="section bridge" id="bridge">
+  <div class="section-narrow reveal">
+    <h2 class="h2">Kenapa Selama Ini Terasa Mentok</h2>
+    <p class="p-lead">Bukan kamu males. Bukan juga rezeki kamu jelek. Kamu cuma belum mulai dari tempat yang bener, tenang dulu, baru ikhtiar.</p>
+    <p class="p-lead">Masalahnya, "tenang dulu" itu gampang diomongin, susah dipraktikkin. Kamu butuh alat yang beneran nemenin kamu ngelakuinnya, bukan cuma teori yang kebaca terus lupa.</p>
+  </div>
+</section>
+
+<!-- ============ SATU SISTEM DARI AKAR ============ -->
+<section class="section sistem" id="sistem">
+  <div class="section-inner">
+    <div class="reveal">
+      <h2 class="h2">Satu Sistem yang Benerin dari Titik Awal, Bukan Cuma Gejala</h2>
+      <p class="p-lead">Bukan tips jualan atau motivasi kerja keras. Ini sistem 4 tahap yang tersedia di 5 tools terpisah, dikawal rutinitas 30 hari, biar bukan cuma paham di kepala, tapi kepakai tiap hari.</p>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-step">
+        <div class="flow-dot">01</div>
+        <h3>Ghaflah</h3>
+        <p>Kondisi hati yang panik dan reaktif, titik berangkat yang bikin ikhtiar berantakan.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot">02</div>
+        <h3>Khusyuk</h3>
+        <p>Kondisi hati yang tenang, tempat ikhtiar yang jernih mulai bisa lahir.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot">03</div>
+        <h3>Tafakkur</h3>
+        <p>Cara mikir yang jernih, ganti dari overthinking yang cuma bikin capek.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot">04</div>
+        <h3>Tawakal</h3>
+        <p>Menyerahkan hasil ke Allah setelah ikhtiar tetap jalan penuh, bukan berhenti usaha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APA SAJA YANG KAMU DAPAT ============ -->
+<section class="section isi" id="isi">
+  <div class="section-inner">
+    <div class="reveal">
+      <h2 class="h2">Apa Saja yang Kamu Dapat</h2>
+    </div>
+    <div class="isi-split">
+      <div class="isi-mockup reveal">
+        <img src="https://drive.google.com/thumbnail?id=1YQOmFMaJjKJSC_vDwFgkAADjLPzphCb7&sz=w1400" alt="Tampilan ebook Hizbi Rezeki dan lima tools interaktif di perangkat">
+      </div>
+      <div class="isi-cards">
+      <div class="isi-card reveal">
+        <span class="tag">Panduan Lengkapnya</span>
+        <h3>Ebook Hizbi Rezeki</h3>
+        <p>Baca sekali buat paham alur besarnya, dari Ghaflah sampai Tawakal. Abis itu, tiap hari kamu tinggal balik ke lima tools di sebelah.</p>
+        <ul class="ch-list">
+          <li>Mengenal fase Ghaflah dan audit pola kepanikan rezeki</li>
+          <li>Masuk ke fase Khusyuk sebelum mulai ikhtiar</li>
+          <li>Mengubah overthinking menjadi Tafakkur</li>
+          <li>Husnudzon dan Tawakal setelah ikhtiar</li>
+          <li>Rutinitas 30 hari, sistem harian Hizbi Rezeki</li>
+        </ul>
+      </div>
+      <div class="isi-card reveal">
+        <span class="tag">Yang Kamu Pakai Tiap Hari</span>
+        <h3>Lima Tools Interaktif</h3>
+        <p>Gak perlu mikir lagi cara aplikasinya, tinggal buka dan pakai. Isiannya kesimpen otomatis di perangkat kamu sendiri.</p>
+        <ul class="tool-list">
+          <li>
+            <span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <span><b>Ritual 5 Menit</b><span>Panduan keluar dari Ghaflah, timer-nya jalan otomatis, lengkap versi darurat 60 detik saat panik tiba-tiba.</span></span>
+          </li>
+          <li>
+            <span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/></svg></span>
+            <span><b>Script Niat</b><span>Lima varian niat siap baca sebelum kerja, jualan, meeting, atau ambil keputusan finansial. Tinggal pilih, tinggal salin.</span></span>
+          </li>
+          <li>
+            <span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></span>
+            <span><b>Jurnal Hajat dan Husnudzon</b><span>Mindahin kecemasan dari kepala ke tulisan langsung di sini, gak perlu buku catatan terpisah.</span></span>
+          </li>
+          <li>
+            <span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <span><b>Tracker 30 Hari</b><span>Pantau skor kondisi hati dan amalan harian kamu selama sebulan penuh, progresnya kesimpen otomatis.</span></span>
+          </li>
+          <li>
+            <span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+            <span><b>Cek Ghaflah atau Khusyuk</b><span>Diagnosa cepat sebelum mulai kerja, tinggal centang, sistemnya langsung kasih tau kamu lagi di mode panik atau mode tenang.</span></span>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMPANG BANGET CARA MULAINYA ============ -->
+<section class="section cara" id="cara">
+  <div class="section-inner">
+    <div class="reveal">
+      <h2 class="h2">Gampang Banget Cara Mulainya</h2>
+    </div>
+    <div class="cara-list">
+      <div class="cara-item reveal">
+        <div class="cara-num">1</div>
+        <div class="cara-body">
+          <h3>Klik tombol di bawah</h3>
+          <p>Isi data, sistemnya langsung kamu terima malam ini juga.</p>
+        </div>
+      </div>
+      <div class="cara-item reveal">
+        <div class="cara-num">2</div>
+        <div class="cara-body">
+          <h3>Baca ebooknya sekali</h3>
+          <p>Buat paham alurnya, dari Ghaflah sampai Tawakal.</p>
+        </div>
+      </div>
+      <div class="cara-item reveal">
+        <div class="cara-num">3</div>
+        <div class="cara-body">
+          <h3>Buka 5 tools-nya tiap hari</h3>
+          <p>Ritual, script niat, jurnal, dan tracker, tinggal buka dan pakai.</p>
+        </div>
+      </div>
+      <div class="cara-item reveal">
+        <div class="cara-num">4</div>
+        <div class="cara-body">
+          <h3>Jalani 30 hari</h3>
+          <p>Rasain bedanya cara kamu berikhtiar sekarang sama sebulan lalu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KENAPA PENDEKATAN INI MASUK AKAL ============ -->
+<section class="section proof" id="proof">
+  <div class="section-inner">
+    <div class="reveal">
+      <h2 class="h2">Kenapa Pendekatan Ini Masuk Akal</h2>
+    </div>
+    <div class="proof-box reveal">
+      <p>Kebanyakan nasihat rezeki nyuruh kamu kerja lebih keras. Padahal masalahnya jarang di jumlah usaha, tapi di titik berangkatnya. Panik bikin kamu capek duluan sebelum hasil kelihatan. Tenang bikin usaha yang sama jalan lebih ringan.</p>
+      <p>Ini bukan konsep baru, cuma jarang diterjemahin jadi tools harian yang bisa langsung kamu pakai, bukan cuma dibaca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARGA ============ -->
+<section class="section harga" id="harga">
+  <div class="section-inner">
+    <div class="harga-card reveal">
+      <h2 class="h2">Investasi Kecil Buat Benerin Cara Hati Kamu Kerja</h2>
+      <div class="price-row">
+        <span class="price-old" id="priceOld">Rp397.000</span>
+        <span class="price-new">Rp127.000</span>
+      </div>
+      <p class="price-note">Gak lebih mahal dari sekali kamu ikut kajian berbayar, bahkan gak sampai harga sekali makan di luar bareng keluarga.</p>
+      <button class="btn-cta" onclick="document.getElementById('harga').scrollIntoView({behavior:'smooth'})">
+        Ya, Aku Mau Mulai Tenang Hari Ini
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <ul class="risk-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Akses seumur hidup, tanpa biaya bulanan</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Pembayaran aman</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sistemnya langsung kamu terima begitu selesai isi data</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEKARANG TINGGAL PILIH ============ -->
+<section class="closing" id="pilihan">
+  <img class="closing-photo" src="https://drive.google.com/thumbnail?id=1C7TvseRjiKSbn1ArGXzHx-897U5idUU1&sz=w1600" alt="Ilustrasi air tenang memantulkan bulan sabit dan pola lattice islami">
+  <div class="closing-scrim"></div>
+  <div class="closing-content reveal">
+    <h2 class="h2">Sekarang Tinggal Pilih</h2>
+    <p class="p-lead">Tutup halaman ini, besok kamu ketemu pola yang sama. Atau mulai malam ini, kamu benerin urutannya. Bukan nambah kerja keras, tapi benerin dari mana kerja keras itu berangkat.</p>
+    <button class="btn-cta" onclick="document.getElementById('harga').scrollIntoView({behavior:'smooth'})">
+      Ya, Aku Mau Mulai Tenang Hari Ini
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>Hizbi Rezeki, Ebook dan 5 Tools Interaktif.</p>
+</footer>
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-inner">
+    <div class="sticky-price">
+      <span class="lbl">Hizbi Rezeki</span>
+      <span class="amt">Rp127.000</span>
+    </div>
+    <button class="btn-cta" onclick="document.getElementById('harga').scrollIntoView({behavior:'smooth'})">
+      Mulai Tenang Hari Ini
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* reveal on scroll */
+var revealEls = document.querySelectorAll('.reveal');
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(function(el){ revealObserver.observe(el); });
+
+/* strike price line */
+var priceOld = document.getElementById('priceOld');
+if(priceOld){
+  var priceObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        priceOld.classList.add('in-view');
+        priceObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.4});
+  priceObserver.observe(priceOld);
+}
+
+/* sticky cta, muncul setelah lewat hero */
+var hero = document.getElementById('hero');
+var stickyCta = document.getElementById('stickyCta');
+var heroObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      stickyCta.classList.remove('show');
+    } else if(entry.boundingClientRect.top < 0){
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  });
+}, {threshold:0});
+heroObserver.observe(hero);
+
+})();
+</script>
+
+</body>
+</html>
