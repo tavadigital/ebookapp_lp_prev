@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>HTML Preview — Rewin Digital Kreatif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1116;
+  --surface:#131C23;
+  --surface-2:#1B2731;
+  --line:#2A3944;
+  --text:#E9E6DD;
+  --muted:#8497A2;
+  --lamp:#F0A82A;          /* safelight amber: satu-satunya aksen */
+  --radius:3px;
+  --bg-image:url('bg.jpg');
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--text);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.5;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+
+/* ---------------------------------------------------------------- hero */
+.hero{
+  position:relative;
+  padding:72px 24px 56px;
+  text-align:center;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:var(--bg-image);
+  background-size:cover;background-position:center;
+  filter:grayscale(1) contrast(1.1);
+  opacity:.22;
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,17,22,.55) 0%,rgba(11,17,22,.92) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  opacity:.16;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,#000 20%,transparent 75%);
+}
+.hero-inner{position:relative}
+h1{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(38px,8.5vw,86px);
+  letter-spacing:-.02em;
+  line-height:.94;
+  margin:0;
+}
+.sub{
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:clamp(15px,2.6vw,25px);
+  letter-spacing:.16em;
+  margin:14px 0 0;
+  color:var(--lamp);
+}
+.stamp{
+  display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  margin-top:26px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.04em;
+}
+.stamp b{color:var(--text);font-weight:500}
+
+/* ---------------------------------------------------------------- layout */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px}
+.section-head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin:56px 0 22px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.section-head h2{
+  font-family:'Archivo',sans-serif;font-weight:700;
+  font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin:0;
+}
+.section-head .meta{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+  margin-left:auto;
+}
+
+/* ---------------------------------------------------------------- cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.card:hover{border-color:var(--lamp);transform:translateY(-3px)}
+.thumb{
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:var(--surface-2);
+  border-bottom:1px solid var(--line);
+}
+.thumb iframe{
+  position:absolute;top:0;left:0;
+  width:1280px;height:960px;
+  border:0;
+  transform-origin:top left;
+  transform:scale(var(--s,.2));
+  pointer-events:none;
+}
+.thumb .fallback{
+  position:absolute;inset:0;
+  display:grid;place-items:center;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+}
+.flag{
+  position:absolute;top:8px;left:8px;z-index:2;
+  background:var(--lamp);color:#101010;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.1em;padding:2px 7px;border-radius:2px;
+}
+.card-body{padding:13px 14px 15px}
+.card-body h3{
+  margin:0;font-size:15px;font-weight:600;line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.card-body .file{
+  margin-top:5px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.card-body .date{
+  margin-top:9px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--lamp);
+}
+
+/* ---------------------------------------------------------------- list */
+.toggle-row{margin:44px 0 0;text-align:center}
+.btn{
+  display:inline-block;cursor:pointer;
+  background:transparent;color:var(--text);
+  border:1px solid var(--line);border-radius:var(--radius);
+  font-family:'Archivo',sans-serif;font-weight:700;
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  padding:13px 34px;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.btn:hover{border-color:var(--lamp);color:var(--lamp)}
+.btn[aria-expanded="true"]{background:var(--lamp);color:#101010;border-color:var(--lamp)}
+
+#listPanel[hidden]{display:none}
+.search{
+  width:100%;margin-bottom:4px;
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 14px;
+  font-family:'IBM Plex Mono',monospace;font-size:13px;
+}
+.search::placeholder{color:var(--muted)}
+.rows{border-top:1px solid var(--line);margin-top:18px}
+.row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:6px 20px;
+  align-items:center;
+  padding:14px 4px;
+  border-bottom:1px solid var(--line);
+  transition:background .15s ease;
+}
+.row:hover{background:var(--surface)}
+.row .name{font-weight:600;font-size:15px}
+.row .path{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+  margin-top:3px;word-break:break-all;
+}
+.row .when{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--muted);text-align:right;white-space:nowrap;
+}
+.row .when b{display:block;color:var(--text);font-weight:500;margin-bottom:3px}
+.tag{
+  display:inline-block;margin-left:8px;vertical-align:1px;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
+  color:var(--lamp);border:1px solid var(--lamp);border-radius:2px;
+  padding:0 5px;
+}
+.empty{padding:30px 4px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:13px}
+
+.notice{
+  border:1px solid var(--line);border-left:3px solid var(--lamp);
+  background:var(--surface);
+  padding:18px 20px;margin-top:36px;border-radius:var(--radius);
+}
+.notice h4{margin:0 0 8px;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.notice p{margin:0;color:var(--muted);font-size:14px}
+.notice code{font-family:'IBM Plex Mono',monospace;color:var(--text);font-size:13px}
+
+.reveal{opacity:0;transform:translateY(10px);animation:rise .45s ease forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .reveal{animation:none;opacity:1;transform:none}
+  .card:hover{transform:none}
+}
+@media (max-width:520px){
+  .hero{padding:48px 20px 40px}
+  .wrap{padding:0 16px 64px}
+  .row{grid-template-columns:1fr}
+  .row .when{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <h1>HTML PREVIEW</h1>
+    <p class="sub">REWIN DIGITAL KREATIF</p>
+    <div class="stamp">
+      <span>TOTAL <b id="statCount">—</b></span>
+      <span>UPLOAD TERAKHIR <b id="statLatest">—</b></span>
+      <span>INDEX <b id="statBuilt">—</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="section-head">
+    <h2>Sales Page Terbaru</h2>
+    <span class="meta" id="latestMeta"></span>
+  </div>
+  <div class="grid" id="latestGrid"></div>
+
+  <div class="toggle-row">
+    <button class="btn" id="toggleList" aria-expanded="false" aria-controls="listPanel">
+      Buka list lengkap
+    </button>
+  </div>
+
+  <section id="listPanel" hidden>
+    <div class="section-head">
+      <h2>Semua Sales Page</h2>
+      <span class="meta" id="listMeta"></span>
+    </div>
+    <input class="search" id="search" type="search" placeholder="Cari judul atau nama file…" autocomplete="off">
+    <div class="rows" id="rows"></div>
+  </section>
+
+  <div id="errorBox"></div>
+</main>
+
+<script>
+const DAY = 86400000;
+const NEW_WINDOW = 2 * DAY;      // ditandai "BARU" kalau update < 48 jam
+
+const el = id => document.getElementById(id);
+
+function fmtDate(iso){
+  if(!iso) return "—";
+  const d = new Date(iso);
+  return d.toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'});
+}
+function fmtRelative(iso){
+  if(!iso) return "tanggal tidak diketahui";
+  const diff = Date.now() - new Date(iso).getTime();
+  const m = Math.floor(diff/60000), h = Math.floor(diff/3600000), d = Math.floor(diff/DAY);
+  if(m < 1) return "baru saja";
+  if(m < 60) return m + " menit lalu";
+  if(h < 24) return h + " jam lalu";
+  if(d < 30) return d + " hari lalu";
+  const mo = Math.floor(d/30);
+  return mo < 12 ? mo + " bulan lalu" : Math.floor(d/365) + " tahun lalu";
+}
+function isNew(iso){ return iso && (Date.now() - new Date(iso).getTime()) < NEW_WINDOW; }
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => (
+  {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+/* thumbnail dirender pakai iframe asli, diskalakan mengikuti lebar kartu */
+function scaleThumbs(){
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.style.setProperty('--s', (t.clientWidth / 1280).toFixed(4));
+  });
+}
+window.addEventListener('resize', scaleThumbs);
+
+function cardHTML(item, i){
+  return `
+  <a class="card reveal" href="${esc(item.path)}" target="_blank" rel="noopener"
+     style="animation-delay:${i*60}ms">
+    <div class="thumb">
+      ${isNew(item.updated) ? '<span class="flag">BARU</span>' : ''}
+      <span class="fallback">memuat preview…</span>
+      <iframe src="${esc(item.path)}" loading="lazy" scrolling="no" tabindex="-1"
+              title="Preview ${esc(item.title)}"></iframe>
+    </div>
+    <div class="card-body">
+      <h3>${esc(item.title)}</h3>
+      <div class="file">${esc(item.path)}</div>
+      <div class="date">${esc(fmtRelative(item.updated))}</div>
+    </div>
+  </a>`;
+}
+
+function rowHTML(item){
+  return `
+  <a class="row" href="${esc(item.path)}" target="_blank" rel="noopener">
+    <div>
+      <div class="name">${esc(item.title)}${isNew(item.updated) ? '<span class="tag">BARU</span>' : ''}</div>
+      <div class="path">${esc(item.path)}</div>
+    </div>
+    <div class="when"><b>${esc(fmtDate(item.updated))}</b>${esc(fmtRelative(item.updated))}</div>
+  </a>`;
+}
+
+let ALL = [];
+
+function renderList(filter){
+  const q = (filter || "").toLowerCase().trim();
+  const hits = q
+    ? ALL.filter(i => (i.title + " " + i.path).toLowerCase().includes(q))
+    : ALL;
+  el('rows').innerHTML = hits.length
+    ? hits.map(rowHTML).join("")
+    : `<div class="empty">Tidak ada yang cocok dengan "${esc(q)}".</div>`;
+  el('listMeta').textContent = hits.length + " dari " + ALL.length + " file";
+}
+
+function showError(msg, hint){
+  el('errorBox').innerHTML = `
+    <div class="notice">
+      <h4>${esc(msg)}</h4>
+      <p>${hint}</p>
+    </div>`;
+}
+
+async function boot(){
+  let data;
+  try{
+    const res = await fetch('data.json?t=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error(res.status + " " + res.statusText);
+    data = await res.json();
+  }catch(err){
+    el('latestGrid').innerHTML = '';
+    showError('data.json belum bisa dibaca',
+      'Halaman ini harus dibuka lewat GitHub Pages, bukan dari file lokal. ' +
+      'Kalau sudah di Pages tapi tetap gagal, cek tab <code>Actions</code> — ' +
+      'workflow <code>Build preview index</code> mungkin belum pernah jalan. ' +
+      'Jalankan manual lewat <code>Run workflow</code>. <br><br>Detail: <code>' + esc(err.message) + '</code>');
+    return;
+  }
+
+  ALL = data.items || [];
+  el('statCount').textContent  = ALL.length;
+  el('statLatest').textContent = ALL.length ? fmtDate(ALL[0].updated) : "—";
+  el('statBuilt').textContent  = fmtDate(data.generated_at);
+
+  if(!ALL.length){
+    el('latestGrid').innerHTML = '';
+    showError('Belum ada sales page yang terdeteksi',
+      'Scanner mencari file <code>.html</code> yang namanya mengandung <code>-lp</code>, ' +
+      'di root maupun di dalam folder seperti <code>assets/</code>. ' +
+      'Pastikan penamaan filenya sudah pakai pola itu.');
+    return;
+  }
+
+  el('latestMeta').textContent = 'terbaru: ' + fmtDate(ALL[0].updated);
+  el('latestGrid').innerHTML = ALL.slice(0,4).map(cardHTML).join("");
+  scaleThumbs();
+
+  document.querySelectorAll('.thumb iframe').forEach(f => {
+    f.addEventListener('load', () => {
+      const fb = f.parentElement.querySelector('.fallback');
+      if(fb) fb.remove();
+    });
+  });
+
+  renderList("");
+}
+
+el('toggleList').addEventListener('click', e => {
+  const open = el('listPanel').hidden;
+  el('listPanel').hidden = !open;
+  e.currentTarget.setAttribute('aria-expanded', String(open));
+  e.currentTarget.textContent = open ? 'Tutup list' : 'Buka list lengkap';
+  if(open) el('listPanel').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+el('search').addEventListener('input', e => renderList(e.target.value));
+
+boot();
+</script>
+</body>
+</html>
