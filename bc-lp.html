@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Baraqah Code, Rezeki Terasa Lancar Lagi dalam 30 Hari</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F0E1;
+  --cream-soft:#FBF6EA;
+  --emerald-deep:#163C2C;
+  --emerald:#1F5940;
+  --gold:#C89B3C;
+  --gold-soft:#E8D9AE;
+  --terracotta:#B9714A;
+  --ink:#2B3630;
+  --ink-soft:#5C6B60;
+  --container:1100px;
+  --radius:20px;
+  --radius-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.container{max-width:var(--container);margin:0 auto;padding:0 20px;}
+.container--narrow{max-width:720px;}
+
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--emerald-deep);line-height:1.18;}
+h1{font-size:clamp(28px,5vw,48px);}
+h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:20px;}
+h3{font-size:20px;margin-bottom:8px;}
+p{font-size:16px;margin-bottom:16px;color:var(--ink);}
+.sub{font-size:17px;color:var(--ink-soft);}
+
+a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- SECTION BASE ---------- */
+.section{padding:72px 0;position:relative;}
+@media (min-width:1024px){
+  .section--full{min-height:100vh;display:flex;align-items:center;padding:96px 0;}
+  .section--full > .container{width:100%;}
+}
+
+/* ---------- REVEAL ANIMATION ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.is-visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{transition:none;opacity:1;transform:none;}
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  background:var(--emerald-deep);color:var(--cream);
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;
+  padding:16px 30px;border-radius:999px;border:none;cursor:pointer;
+  text-decoration:none;transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{background:var(--emerald);transform:translateY(-2px);}
+.btn--gold{background:var(--gold);color:var(--emerald-deep);}
+.btn--gold:hover{background:var(--gold-soft);}
+
+/* ---------- HERO & CLOSING (layout split dengan ilustrasi) ---------- */
+.split-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+.hero-content .accent, .closing-content .accent{color:var(--gold);}
+
+.illus-frame{
+  background:var(--cream-soft);border:1px solid var(--gold-soft);border-radius:var(--radius);
+  padding:28px;display:flex;align-items:center;justify-content:center;
+}
+.illus-frame img{width:100%;max-width:320px;height:auto;display:block;margin:0 auto;}
+
+.hero-img-mobile{
+  display:block;width:100%;max-width:300px;height:auto;margin:18px auto 4px;
+  background:var(--cream-soft);border:1px solid var(--gold-soft);border-radius:var(--radius);padding:20px;
+}
+.hero-media{display:none;}
+.closing-media{margin-bottom:8px;}
+
+@media (min-width:1024px){
+  .split-grid{grid-template-columns:1fr 1fr;gap:64px;}
+  .hero-img-mobile{display:none;}
+  .hero-media{display:flex;}
+  .closing-media{margin-bottom:0;}
+  .illus-frame{padding:40px;}
+  .illus-frame img{max-width:360px;}
+}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:100;
+  max-width:100vw;overflow:hidden;
+  background:var(--emerald-deep);color:var(--cream);
+  transform:translateY(100%);transition:transform .35s ease;
+  box-shadow:0 -8px 24px rgba(0,0,0,.18);
+}
+.sticky-cta.is-visible{transform:translateY(0);}
+.sticky-cta__inner{
+  max-width:var(--container);margin:0 auto;padding:10px 14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.sticky-cta__price{flex:1 1 auto;min-width:0;font-family:'Fraunces',serif;font-size:13px;line-height:1.25;}
+.sticky-cta__price del{color:rgba(247,240,225,.55);font-weight:400;margin-right:5px;font-style:normal;}
+.sticky-cta__btn{
+  flex:0 0 auto;
+  background:var(--gold);color:var(--emerald-deep);font-weight:700;
+  padding:10px 16px;border-radius:999px;border:none;cursor:pointer;white-space:nowrap;
+  font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;font-size:13px;
+  transition:transform .15s ease, background .15s ease;
+}
+.sticky-cta__btn:hover{background:var(--gold-soft);transform:translateY(-1px);}
+@media (min-width:480px){
+  .sticky-cta__inner{padding:12px 20px;gap:16px;}
+  .sticky-cta__price{font-size:16px;}
+  .sticky-cta__btn{padding:12px 24px;font-size:14px;}
+}
+@media (min-width:640px){
+  .sticky-cta__price{font-size:17px;}
+  .sticky-cta__btn{padding:13px 26px;font-size:15px;}
+}
+
+/* ---------- PROBLEM (nol gambar, full teks) ---------- */
+.problem__note{color:var(--terracotta);font-weight:600;}
+
+/* ---------- MECHANISM / PHASEPATH ---------- */
+.phasepath{position:relative;display:flex;flex-direction:column;gap:36px;margin:48px 0;}
+.phasepath::before{
+  content:'';position:absolute;left:21px;top:22px;bottom:22px;width:2px;
+  background:linear-gradient(180deg, var(--gold), var(--gold-soft));
+  transform:scaleY(0);transform-origin:top;transition:transform 1.1s ease;
+}
+.phasepath.is-visible::before{transform:scaleY(1);}
+.phasepath__item{display:flex;gap:20px;position:relative;z-index:1;align-items:flex-start;}
+.phasepath__node{
+  flex:0 0 44px;width:44px;height:44px;border-radius:50%;
+  background:var(--emerald-deep);color:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+  box-shadow:0 0 0 6px var(--cream);
+}
+.phasepath__body p{color:var(--ink-soft);font-size:15px;margin-bottom:0;}
+
+/* ---------- PROOF ---------- */
+.proof p{color:var(--ink-soft);}
+
+/* ---------- WHATS INSIDE (tools jadi headline utama) ---------- */
+.whats-inside__grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+.whats-inside__media img{border-radius:var(--radius);box-shadow:0 24px 60px -24px rgba(22,60,44,.35);}
+.offer-block{margin-bottom:28px;}
+.offer-block:last-child{margin-bottom:0;}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.offer-list li{font-size:15px;color:var(--ink-soft);}
+.offer-list li strong{color:var(--gold);font-family:'Fraunces',serif;margin-right:6px;}
+@media (min-width:1024px){
+  .whats-inside__grid{grid-template-columns:0.9fr 1.1fr;gap:64px;}
+}
+
+/* ---------- HOW IT WORKS ---------- */
+.howto__grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:36px;}
+.howto__step{background:var(--cream-soft);border:1px solid var(--gold-soft);border-radius:var(--radius);padding:28px 24px;}
+.howto__step p{margin-bottom:0;}
+.howto__num{
+  display:inline-flex;width:40px;height:40px;border-radius:50%;
+  background:var(--emerald-deep);color:var(--cream);align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:600;margin-bottom:16px;
+}
+@media (min-width:768px){
+  .howto__grid{grid-template-columns:repeat(3,1fr);gap:28px;}
+}
+
+/* ---------- PRICING ---------- */
+.pricing__box{
+  background:var(--cream-soft);border:1px solid var(--gold-soft);border-radius:var(--radius);
+  padding:32px 20px;margin-top:28px;text-align:center;
+}
+.pricing__price{
+  font-family:'Fraunces',serif;font-size:clamp(28px,7vw,44px);color:var(--emerald-deep);
+  display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:8px 12px;
+  margin:12px 0;
+}
+.pricing__price del{font-size:0.5em;color:var(--ink-soft);font-style:normal;font-weight:400;}
+.pricing__cta{margin:22px 0 8px;width:100%;max-width:340px;}
+.risk-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:22px auto 0;max-width:380px;text-align:left;}
+.risk-list li{font-size:14px;color:var(--ink-soft);position:relative;padding-left:24px;}
+.risk-list li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;}
+.pricing__note{font-size:13px;color:var(--ink-soft);margin-top:18px;margin-bottom:0;}
+@media (min-width:640px){
+  .pricing__box{padding:40px 28px;}
+}
+
+/* ---------- FOOTER ---------- */
+.footer{padding:28px 0 110px;}
+.footer__inner{display:flex;justify-content:center;font-size:13px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__inner">
+    <div class="sticky-cta__price"><del>Rp397.000</del>Rp127.000</div>
+    <a href="#harga" class="sticky-cta__btn">Mulai Sekarang</a>
+  </div>
+</div>
+
+<section class="section section--full reveal" id="hero">
+  <div class="container split-grid">
+    <div class="hero-content">
+      <h1>Rezeki Terasa Lancar Lagi dalam 30 Hari, Tanpa Kamu Harus Kerja Lebih Keras dari Sekarang</h1>
+      <img class="hero-img-mobile" src="https://drive.google.com/thumbnail?id=1C5GSEYkPAdcDOiO7iyPpd3rhUXXynBRf&sz=w1000" alt="Ilustrasi ketenangan hati saat berikhtiar" loading="lazy">
+      <p class="sub">Baraqah Code bukan ebook yang cuma dibaca terus ditutup. Ini sistem lengkap plus 5 tools interaktif yang bisa langsung kamu pakai tiap hari buat benerin cara hati kamu berikhtiar.</p>
+      <a href="#harga" class="btn btn--gold">Ya, Aku Mau Mulai Sekarang</a>
+    </div>
+    <div class="hero-media illus-frame">
+      <img src="https://drive.google.com/thumbnail?id=1C5GSEYkPAdcDOiO7iyPpd3rhUXXynBRf&sz=w1200" alt="Ilustrasi ketenangan hati saat berikhtiar" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section section--full problem reveal" id="masalah">
+  <div class="container container--narrow">
+    <h2>Kamu Udah Shalat, Udah Sedekah, Udah Ikhtiar Habis-Habisan. Tapi Rezekinya Tetap Kerasa Seret?</h2>
+    <p>Udah bangun subuh buat shalat, udah sedekah, udah kerja lembur, udah follow up klien satu-satu. Tapi hasilnya tetap aja kerasa jalan di tempat, seolah semua usaha itu gak nyambung sama hasil yang didapat.</p>
+    <p>Refleks kita biasanya nambah usaha. Padahal masalahnya sering kali bukan di jumlah usahanya, tapi di kondisi hati yang panik duluan sebelum mulai kerja. Ikhtiar yang lahir dari rasa takut itu capek dua kali, capek fisik dan capek nahan cemas sendiri.</p>
+    <p class="problem__note">Ini bukan cuma kamu. Ini pola yang paling sering kejadian ke orang yang ikhtiarnya lahir dari rasa takut kekurangan, bukan dari niat yang jernih.</p>
+  </div>
+</section>
+
+<section class="section section--full mechanism reveal" id="cara-kerja">
+  <div class="container container--narrow">
+    <h2>Ikhtiar Kamu Berat Bukan Karena Kerjaannya, Tapi Karena Hati yang Panik Duluan</h2>
+    <p>Baraqah Code ngajarin kamu benerin urutannya lewat 4 fase ini.</p>
+
+      <div class="phasepath">
+        <div class="phasepath__item">
+          <div class="phasepath__node">1</div>
+          <div class="phasepath__body">
+            <h3>Ghaflah</h3>
+            <p>Sadar dulu kapan hati lagi dikuasai panik, kondisi yang bikin ikhtiar jadi ngawur.</p>
+          </div>
+        </div>
+        <div class="phasepath__item">
+          <div class="phasepath__node">2</div>
+          <div class="phasepath__body">
+            <h3>Khusyuk</h3>
+            <p>Nenangin hati sebelum mulai kerja lewat Ritual 5 Menit dan Script Niat.</p>
+          </div>
+        </div>
+        <div class="phasepath__item">
+          <div class="phasepath__node">3</div>
+          <div class="phasepath__body">
+            <h3>Tafakkur</h3>
+            <p>Mindahin kecemasan ke tulisan, sampai ketemu satu langkah kecil yang jernih.</p>
+          </div>
+        </div>
+        <div class="phasepath__item">
+          <div class="phasepath__node">4</div>
+          <div class="phasepath__body">
+            <h3>Tawakal</h3>
+            <p>Nyerahin hasil tanpa harus ngecek HP tiap lima menit.</p>
+          </div>
+        </div>
+      </div>
+
+    <p>Paham doang belum cukup, sama kayak baca panduan angkat beban tanpa pernah ke gym. Makanya tiap fase ini dibungkus jadi tools yang bisa langsung kamu pakai tiap hari, bukan cuma teori yang dibaca sekali terus lupa.</p>
+  </div>
+</section>
+
+<section class="section section--full proof reveal" id="cerita">
+  <div class="container container--narrow">
+    <h2>Ini Bukan Teori dari Orang yang Tiba-Tiba Kaya</h2>
+    <p>Baraqah Code lahir dari pengalaman dagang sepi dan ikhtiar yang hasilnya gak nyambung. Yang bikin remuk itu bukan kerjaannya, tapi rasa panik yang nempel di setiap keputusan, tiap kali cek saldo, tiap kali nunggu balasan chat.</p>
+    <p>Salah satu contohnya, ada yang usahanya sepi banget sampai mikir mau tutup usaha. Begitu dipaksa nulis semua kecemasannya lewat salah satu tools jurnalnya, baru ketahuan faktanya. Usahanya gak gagal, cuma belum follow up ke siapa-siapa selama lima hari terakhir. Masalahnya sesimpel itu, cuma kelihatan besar karena dibungkus panik.</p>
+  </div>
+</section>
+
+<section class="section section--full whats-inside reveal" id="isi">
+  <div class="container whats-inside__grid">
+    <div class="whats-inside__media">
+      <img src="https://drive.google.com/thumbnail?id=16CZ5qPDVHUndPJvn1zDMtc4sr6PP_Nod&sz=w1200" alt="Mockup 5 tools interaktif Baraqah Code dan ebook panduannya" loading="lazy">
+    </div>
+    <div class="whats-inside__content">
+      <h2>5 Tools yang Bisa Kamu Pakai Tiap Hari, Bukan Sekadar Ebook yang Dibaca Sekali</h2>
+      <div class="offer-block">
+        <ul class="offer-list">
+          <li><strong>1.</strong>Workbook 30 Hari, nyimpen progres harianmu otomatis, ngitung skor rata-rata dan persentase amalan tanpa kamu itung manual.</li>
+          <li><strong>2.</strong>Ritual 5 Menit, timer terpandu yang jalan otomatis tiap langkah, ada versi darurat 60 detik buat situasi genting.</li>
+          <li><strong>3.</strong>Script Niat, tinggal pilih situasinya, tinggal salin, gak perlu mikirin kata-katanya sendiri.</li>
+          <li><strong>4.</strong>Jurnal Hajat dan Husnudzon, nyimpen semua tulisanmu, bisa dibaca ulang kapan aja butuh.</li>
+          <li><strong>5.</strong>Ghaflah atau Khusyuk, checklist yang langsung ngasih diagnosa kondisi hatimu hari itu juga.</li>
+        </ul>
+      </div>
+      <div class="offer-block">
+        <h3>Plus ebook panduan lengkap</h3>
+        <p>Kerangka lengkap 4 fase, dari Ghaflah, Khusyuk, Tafakkur, sampai Tawakal dan Husnudzon, yang jelasin kenapa tiap fase itu penting dan gimana cara makai kelima tools di atas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--full howto reveal" id="langkah">
+  <div class="container container--narrow">
+    <h2>Semudah 3 Langkah, Gak Perlu Mikir Keras</h2>
+    <div class="howto__grid">
+      <div class="howto__step">
+        <span class="howto__num">1</span>
+        <p>Baca ebooknya buat paham 4 fase-nya dan kenapa ikhtiar kamu selama ini kerasa berat.</p>
+      </div>
+      <div class="howto__step">
+        <span class="howto__num">2</span>
+        <p>Buka tools-nya tiap hari, tinggal pakai, gak perlu mikir keras atau nyiapin apa-apa.</p>
+      </div>
+      <div class="howto__step">
+        <span class="howto__num">3</span>
+        <p>Pantau progresmu otomatis lewat Workbook, sampai 30 hari kelar dan polanya beneran berubah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--full pricing reveal" id="harga">
+  <div class="container container--narrow">
+    <h2>Harganya Gak Sampai Sekali Makan di Luar Sama Keluarga</h2>
+    <p>Buat dapetin ebook Baraqah Code plus 5 tools pendampingnya, kamu gak perlu keluar biaya sebesar ikut seminar atau kelas bisnis.</p>
+    <div class="pricing__box">
+      <div class="pricing__price"><del>Rp397.000</del>Rp127.000</div>
+      <p>Sekali bayar, ebook dan 5 tools-nya langsung jadi milik kamu.</p>
+      <a href="#" class="btn btn--gold pricing__cta">Ya, Aku Mau Mulai Sekarang</a>
+      <ul class="risk-list">
+        <li>Akses seumur hidup, ebook dan tools-nya bisa dipakai berulang kali</li>
+        <li>Gak ada biaya bulanan</li>
+        <li>Pembayaran aman</li>
+      </ul>
+      <p class="pricing__note">Sekali bayar, semuanya jadi milik kamu buat selamanya. Gak ada tagihan susulan, gak ada paksaan upgrade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--full reveal" id="penutup">
+  <div class="container split-grid">
+    <div class="closing-media illus-frame">
+      <img src="https://drive.google.com/thumbnail?id=1UrkEtzT7jtZd1dYB3RLB_FGaAI2ZakSO&sz=w1200" alt="Ilustrasi jalan menuju cahaya fajar, langkah baru yang tenang" loading="lazy">
+    </div>
+    <div class="closing-content">
+      <h2>Sekarang Kamu Ada di Dua Pilihan</h2>
+      <p class="sub">Tutup halaman ini, besok kamu jalanin hari yang sama. Atau mulai hari ini, benerin cara ikhtiarmu, cukup satu langkah kecil dulu.</p>
+      <a href="#harga" class="btn btn--gold">Ya, Aku Mau Mulai Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>Baraqah Code</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var revealEls = document.querySelectorAll('.reveal, .phasepath');
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var hero = document.getElementById('hero');
+  var stickyCta = document.getElementById('stickyCta');
+
+  if(hero && stickyCta && 'IntersectionObserver' in window){
+    var heroObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var scrolledPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        stickyCta.classList.toggle('is-visible', scrolledPastHero);
+      });
+    }, {threshold:0});
+    heroObserver.observe(hero);
+  }
+
+})();
+</script>
+</body>
+</html>
