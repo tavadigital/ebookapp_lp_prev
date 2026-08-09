@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Miftahur Rezeki, Kunci Batin agar Rezeki Berhenti Mampet</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --bg-950:#040e0c;
+  --bg-900:#081d19;
+  --bg-800:#0d2b24;
+  --bg-700:#123830;
+  --line:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.18);
+  --ink:#f2f6f4;
+  --ink-dim:#a9c2ba;
+  --ink-faint:#6d8880;
+  --parchment:#f3ecdd;
+  --ink-on-parchment:#1c2b25;
+  --ink-on-parchment-dim:#4a5a52;
+  --gold:#c0932f;
+  --gold-bright:#e3b65a;
+  --sage:#5c7d74;
+  --sage-bright:#82a99d;
+  --font-display:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Menlo,Consolas,monospace;
+  --maxw:700px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg-950);
+  color:var(--ink);
+  font-family:var(--font-ui);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  padding-bottom:calc(96px + env(safe-area-inset-bottom, 0px));
+}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+a{color:inherit;text-decoration:none;}
+::selection{background:rgba(192,147,47,.35);}
+:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;}
+
+.section{
+  position:relative;width:100%;
+  padding:52px 22px 60px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.section-dark{background:var(--bg-950);color:var(--ink);}
+.section-light{background:var(--parchment);color:var(--ink-on-parchment);}
+.section-deepest{background:radial-gradient(1200px 700px at 50% -10%, rgba(192,147,47,.10), transparent 60%), var(--bg-950);}
+
+.wrap{max-width:var(--maxw);width:100%;margin:0 auto;position:relative;z-index:2;}
+.wrap-media{max-width:920px;}
+
+.kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);margin:0 0 12px;}
+.section-light .kicker{color:var(--gold);}
+
+h1,h2{font-family:var(--font-display);font-weight:700;margin:0 0 16px;line-height:1.18;letter-spacing:-.005em;}
+h1{font-size:clamp(27px,5vw,44px);}
+h2{font-size:clamp(23px,3.4vw,32px);}
+.accent{color:var(--gold-bright);}
+.section-light .accent{color:var(--gold);}
+
+p{font-size:16px;line-height:1.68;color:var(--ink-dim);margin:0 0 14px;}
+.section-light p{color:var(--ink-on-parchment-dim);}
+p:last-of-type{margin-bottom:0;}
+strong{color:var(--ink);font-weight:700;}
+.section-light strong{color:var(--ink-on-parchment);}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:17px 30px;border-radius:11px;border:none;
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:#241705;font-weight:700;font-size:16px;letter-spacing:.01em;
+  transition:transform .18s ease, filter .18s ease;
+  animation:pulseGlow 3.2s ease-in-out infinite;
+  width:100%;
+}
+.btn:hover{transform:translateY(-1px) scale(1.015);filter:brightness(1.05);}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(227,182,90,.35);}50%{box-shadow:0 0 26px 6px rgba(227,182,90,.28);}}
+@media(min-width:640px){.btn{width:auto;padding:18px 40px;}}
+
+.risk{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;margin-top:20px;font-size:14px;color:var(--ink-dim);}
+.risk span{display:flex;align-items:center;gap:7px;}
+.risk svg{width:15px;height:15px;color:var(--sage-bright);flex:none;}
+
+.divider{width:100%;height:30px;position:relative;overflow:hidden;}
+.divider svg{width:100%;height:100%;display:block;}
+.divider path{stroke:var(--gold);stroke-width:1.4;fill:none;opacity:.55;}
+.divider-flow{stroke-dasharray:6 10;animation:flow 7s linear infinite;}
+@keyframes flow{to{stroke-dashoffset:-160;}}
+
+.hero{padding:28px 22px 44px;text-align:left;}
+.hero-media{display:none;}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(4,14,12,.94) 0%, rgba(4,14,12,.82) 32%, rgba(4,14,12,.35) 62%, rgba(4,14,12,.15) 100%);
+}
+.hero-inner{max-width:640px;}
+.hero-inner .sub{font-size:17.5px;color:var(--ink-dim);margin:0 0 26px;}
+.hero-cta-block{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+
+.hero-mobile-media{margin:20px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 20px 40px -18px rgba(0,0,0,.5);}
+.hero-mobile-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}.btn{animation:none;}.divider-flow{animation:none;}}
+
+.media-frame{border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 30px 60px -20px rgba(0,0,0,.55);}
+.section-light .media-frame{border-color:rgba(28,43,37,.14);box-shadow:0 24px 50px -22px rgba(28,43,37,.28);}
+
+.grid-2{display:grid;gap:32px;align-items:center;}
+@media(min-width:900px){
+  .grid-2{grid-template-columns:1.05fr .95fr;gap:56px;}
+  .grid-2.reverse{grid-template-columns:.95fr 1.05fr;}
+  .grid-2.reverse .grid-2-media{order:2;}
+  .grid-2.reverse .grid-2-text{order:1;}
+}
+
+.root-media{max-width:280px;margin:0 auto 28px;border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 24px 50px -20px rgba(0,0,0,.55);}
+.root-media img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.root-bg{display:none;}
+
+.proof-card{border-left:3px solid var(--gold);padding:16px 20px;margin-top:20px;border-radius:0 10px 10px 0;background:rgba(255,255,255,.03);}
+.section-light .proof-card{background:rgba(28,43,37,.045);}
+.proof-card p{font-size:14.5px;font-style:italic;color:var(--ink-dim);margin:0;}
+.section-light .proof-card p{color:var(--ink-on-parchment-dim);}
+
+.toggle-wrap{margin-top:24px;}
+.toggle-label{font-size:14.5px;color:var(--ink-dim);margin-bottom:12px;}
+.toggle-btns{display:flex;gap:10px;}
+.toggle-btn{
+  flex:1;padding:13px 14px;border-radius:10px;border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.03);color:var(--ink);font-weight:700;font-size:14.5px;
+  transition:.18s;
+}
+.toggle-btn:hover{border-color:var(--gold);}
+.toggle-btn.active{background:var(--gold);border-color:var(--gold);color:#241705;}
+.toggle-panel{
+  margin-top:16px;padding:18px 20px;border-radius:12px;background:rgba(255,255,255,.035);
+  border:1px solid var(--line);font-size:14.5px;line-height:1.65;color:var(--ink-dim);
+  min-height:64px;
+}
+.toggle-panel strong{color:var(--gold-bright);}
+
+.steps{display:grid;gap:16px;margin-top:30px;}
+@media(min-width:700px){.steps{grid-template-columns:1fr 1fr;}}
+.step{display:flex;gap:14px;padding:20px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--line);}
+.step-num{font-family:var(--font-display);font-size:24px;color:var(--gold-bright);flex:none;width:36px;}
+.step h3{font-size:16px;margin:0 0 4px;color:var(--ink);font-weight:700;}
+.step p{font-size:14px;margin:0;line-height:1.55;}
+
+.kit-list{display:grid;gap:12px;margin-top:22px;}
+.kit-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:rgba(28,43,37,.045);border:1px solid rgba(28,43,37,.09);}
+.kit-badge{flex:none;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#241705;font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center;}
+.kit-item h3{margin:0 0 3px;font-size:15px;color:var(--ink-on-parchment);font-weight:700;}
+.kit-item p{margin:0;font-size:13.5px;}
+
+.price-card{background:rgba(255,255,255,.035);border:1px solid var(--line-strong);border-radius:20px;padding:36px 26px;text-align:center;}
+.price-old{font-family:var(--font-mono);font-size:17px;color:var(--ink-faint);text-decoration:line-through;text-decoration-color:rgba(239,68,68,.7);text-decoration-thickness:2px;}
+.price-new{font-family:var(--font-display);font-size:clamp(36px,7vw,54px);color:var(--gold-bright);font-weight:700;margin:6px 0 22px;}
+.price-new sup{font-size:.4em;top:-.6em;position:relative;margin-right:2px;}
+
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:100;
+  background:rgba(4,14,12,.92);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line-strong);padding:12px 18px;
+  transform:translateY(120%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.sticky-cta.show{transform:translateY(0);}
+.sticky-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.sticky-info{display:flex;flex-direction:column;line-height:1.3;}
+.sticky-name{font-size:12px;color:var(--ink-faint);font-weight:600;}
+.sticky-price{font-size:16.5px;font-weight:700;color:var(--gold-bright);font-family:var(--font-mono);}
+.sticky-cta .btn{padding:12px 20px;font-size:14px;animation:none;width:auto;}
+
+@media(min-width:1024px){
+  .section{min-height:100vh;padding:88px 40px;}
+  .wrap{max-width:var(--maxw);}
+  .wrap-media{max-width:1040px;}
+  .hero{min-height:100vh;padding:88px 40px;}
+  .hero-media{display:block;position:absolute;inset:0;z-index:0;}
+  .hero-mobile-media{display:none;}
+  .root-media{display:none;}
+  .root-bg{
+    display:block;position:absolute;inset:0;z-index:0;
+  }
+  .root-bg img{width:100%;height:100%;object-fit:cover;opacity:.13;filter:saturate(.85);}
+  .root-bg::after{content:"";position:absolute;inset:0;background:rgba(4,14,12,.5);}
+}
+</style>
+</head>
+<body>
+
+<section id="hero" class="section section-dark hero">
+  <div class="hero-media"><img src="https://drive.google.com/thumbnail?id=1A7Yr3EykZwNcigvQaO95ROjJI_zo9e2c&sz=w1600" alt="Ilustrasi kunci emas berukir di atas kitab terbuka dengan tasbih, di atas kain beludru hijau tua"></div>
+  <div class="wrap hero-inner reveal">
+    <h1>30 Hari Bikin Rezeki yang Kerasa Mampet Mulai <span class="accent">Ngalir Lagi</span>. Bukan dengan Kerja Makin Gila, Tapi dengan Hati yang <span class="accent">Lebih Tenang</span></h1>
+    <div class="hero-mobile-media"><img src="https://drive.google.com/thumbnail?id=1A7Yr3EykZwNcigvQaO95ROjJI_zo9e2c&sz=w1200" alt="Ilustrasi kunci emas berukir di atas kitab terbuka dengan tasbih, di atas kain beludru hijau tua"></div>
+    <p class="sub">Sistem harian yang tinggal kamu ikutin tiap pagi. Cukup 5 menit. Gak perlu ganti usaha, gak perlu belajar skill baru.</p>
+    <div class="hero-cta-block">
+      <a href="#pricing" class="btn">Ya, Aku Mau Rezekiku Mulai Ngalir Lagi</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider section-light" style="background:var(--parchment);">
+  <svg viewBox="0 0 400 30" preserveAspectRatio="none"><path class="divider-flow" d="M0 15 Q 50 3, 100 15 T 200 15 T 300 15 T 400 15"/></svg>
+</div>
+
+<section id="problem" class="section section-light">
+  <div class="wrap reveal">
+    <p class="kicker">Coba Jujur Sama Diri Sendiri</p>
+    <h2>Capeknya Sama Persis, Kenapa Hasilnya Beda Jauh?</h2>
+    <p>Ada dua orang jualan barang yang sama, jam kerja sama, effort sama. Yang satu makin rame. Yang satu jalan di tempat, bertahun tahun. Kalau capeknya sama tapi hasilnya beda jauh, berarti bukan kerja kerasnya yang nentuin.</p>
+    <p>Kamu udah bangun paling pagi, udah usaha maksimal, udah berdoa tiap habis sholat. Tapi malemnya susah merem, mikirin tagihan dan omzet yang gak nutup target. Paginya bangun, yang kerasa duluan bukan semangat, tapi berat di dada.</p>
+  </div>
+</section>
+
+<section id="root" class="section section-dark">
+  <div class="root-bg" aria-hidden="true"><img src="https://drive.google.com/thumbnail?id=1E1Bhh3gde9L8tMQpr9IC6vzj_SXEwqU0&sz=w1600" alt=""></div>
+  <div class="wrap reveal">
+    <div class="root-media"><img src="https://drive.google.com/thumbnail?id=1E1Bhh3gde9L8tMQpr9IC6vzj_SXEwqU0&sz=w900" alt="Ilustrasi wadah tanah liat retak dengan cahaya keemasan merembes keluar dari retakannya"></div>
+    <p class="kicker">Akar Masalahnya</p>
+    <h2>Ternyata Bukan Rezekinya yang Seret. <span class="accent">Wadah Hatinya yang Retak</span></h2>
+    <p>Rezeki itu kayak air yang emang udah dijamin terus ngalir. Hati kita wadahnya. Kalau wadahnya retak karena panik, airnya susah masuk, atau masuk tapi gak sempet kerasa nikmatnya.</p>
+
+    <div class="toggle-wrap">
+      <p class="toggle-label">Coba cek, hari ini hatimu lagi di fase mana?</p>
+      <div class="toggle-btns">
+        <button type="button" class="toggle-btn active" data-fase="ghaflah">Ghaflah</button>
+        <button type="button" class="toggle-btn" data-fase="khusyuk">Khusyuk</button>
+      </div>
+      <div class="toggle-panel" id="fasePanel"><strong>Ghaflah,</strong> auto pilot ketakutan. Kerja diburu buru, follow up keliatan maksa, susah bersyukur karena cuma fokus ke pintu yang lagi ketutup.</div>
+    </div>
+
+    <p style="margin-top:20px;">Kabar baiknya, hati bisa dilatih pindah dari Ghaflah ke Khusyuk. Bukan nunggu keajaiban, latihan harian yang sederhana aja. Justru urutannya kebalik dari yang biasa kita kira. Tenang dulu, baru jalan rezeki yang tadinya mampet mulai bergerak lagi.</p>
+
+    <div class="proof-card">
+      <p>Ada pebisnis kecil yang tiap pagi buka WhatsApp dengan hati takut gak ada order. Makin dicek makin cemas. Begitu dia tenangin hati dulu sebelum follow up, order emang gak langsung meledak, tapi beban di pundaknya jauh lebih ringan.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider section-light" style="background:var(--parchment);">
+  <svg viewBox="0 0 400 30" preserveAspectRatio="none"><path class="divider-flow" d="M0 15 Q 50 27, 100 15 T 200 15 T 300 15 T 400 15"/></svg>
+</div>
+
+<section id="solution" class="section section-light">
+  <div class="wrap reveal">
+    <p class="kicker">Solusinya</p>
+    <h2>Satu Sistem Harian, <span class="accent">Hati Tenang Dulu Baru Rezeki Ikut Jalan</span></h2>
+    <p>Semua cara ini disusun jadi satu sistem harian yang tinggal kamu buka dan pakai, bukan cuma dibaca sekali terus nguap. Isinya ebook interaktif Miftahur Rezeki yang bisa kamu akses langsung dari browser, plus lima kit pendamping yang tinggal kamu isi, gak perlu install apa apa.</p>
+    <p>Dipandu 30 hari lewat tracker yang progresnya otomatis kesimpen, biar kebiasaan tenang ini bener bener nempel, bukan cuma niat doang.</p>
+  </div>
+</section>
+
+<section id="howitworks" class="section section-dark">
+  <div class="wrap reveal">
+    <p class="kicker">Cara Kerjanya</p>
+    <h2>Cuma 4 Langkah, <span class="accent">Gak Ribet</span></h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><h3>Ritual 5 Menit</h3><p>Tinggal buka dan ikutin langkahnya tiap pagi sebelum kerja, biar hati geser dari panik ke tenang.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><h3>Script Niat</h3><p>Tinggal baca dari layar, biar ikhtiar hari itu ada arahnya, bukan cuma capek doang.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h3>Jurnal Hajat</h3><p>Ketik langsung di sini, otomatis kesimpen, biar kepala plong sebelum mulai kerja.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h3>Tracker 30 Hari</h3><p>Centang progres tiap hari, kesimpen otomatis, biar perubahannya kelihatan.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider section-light" style="background:var(--parchment);">
+  <svg viewBox="0 0 400 30" preserveAspectRatio="none"><path class="divider-flow" d="M0 18 Q 50 5, 100 18 T 200 18 T 300 18 T 400 18"/></svg>
+</div>
+
+<section id="kit" class="section section-light">
+  <div class="wrap-media grid-2 reveal">
+    <div class="grid-2-text">
+      <p class="kicker">KIT Tambahan</p>
+      <h2>Semua Udah Disiapin, <span class="accent">Kamu Tinggal Pakai</span></h2>
+      <p>Selain ebook utamanya yang bisa kamu baca langsung dari HP atau laptop, kamu juga dapet lima kit interaktif yang tinggal kamu isi, gak perlu bikin template sendiri dari nol.</p>
+      <div class="kit-list">
+        <div class="kit-item"><div class="kit-badge">1</div><div><h3>Ritual 5 Menit Keluar dari Ghaflah</h3><p>Geser dari panik ke tenang sebelum mulai kerja.</p></div></div>
+        <div class="kit-item"><div class="kit-badge">2</div><div><h3>Script Niat Sebelum Ikhtiar</h3><p>Biar tindakanmu ada rohnya, bukan cuma ngoyo.</p></div></div>
+        <div class="kit-item"><div class="kit-badge">3</div><div><h3>Jurnal Hajat dan Husnudzon</h3><p>Mindahin kecemasan jadi tulisan langsung dari HP, otomatis kesimpen.</p></div></div>
+        <div class="kit-item"><div class="kit-badge">4</div><div><h3>Tracker Amalan dan Peluang 30 Hari</h3><p>Mantau progres harian selama sebulan, tinggal dicentang, kesimpen otomatis.</p></div></div>
+        <div class="kit-item"><div class="kit-badge">5</div><div><h3>Diagnosa Ghaflah atau Khusyuk</h3><p>Cek cepat kondisi hatimu lagi di fase mana.</p></div></div>
+      </div>
+    </div>
+    <div class="grid-2-media">
+      <div class="media-frame"><img src="https://drive.google.com/thumbnail?id=1ScoHlhkgIfYPhrqEdJRkkEt-Jio1rFVM&sz=w1200" alt="Mockup buku utama dan lima KIT tambahan Miftahur Rezeki"></div>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="section section-dark">
+  <div class="wrap reveal">
+    <p class="kicker">Kenapa Percaya</p>
+    <h2>Ini Bukan Teori. <span class="accent">Ini Perubahan yang Kerasa</span></h2>
+    <p>Ini bukan buku motivasi biasa. Bukan janji kaya mendadak. Cuma cara supaya ikhtiarmu jernih, gak lagi berangkat dari rasa takut.</p>
+    <p>Perubahannya kerasa dari hal kecil dulu. Berhenti cek mbanking berkali kali. Follow up jadi lebih tenang. Bangun pagi, kepala lebih jernih buat mulai ikhtiar hari itu.</p>
+  </div>
+</section>
+
+<section id="pricing" class="section section-deepest">
+  <div class="wrap reveal" style="text-align:center;">
+    <p class="kicker">Investasinya</p>
+    <h2>Gak Sampe Semahal <span class="accent">Makan Berdua di Luar</span></h2>
+    <p>Sekali bayar, aksesnya bisa kamu buka berkali kali dari HP atau laptop, kapan pun kamu butuh, gak ada biaya bulanan.</p>
+    <div class="price-card" style="margin-top:20px;">
+      <div class="price-old">Rp297.000</div>
+      <div class="price-new"><sup>Rp</sup>127.000</div>
+      <a href="#" class="btn">Ya, Aku Mau Rezekiku Mulai Ngalir Lagi</a>
+      <div class="risk">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Akses selamanya</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Tanpa biaya bulanan</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Pembayaran aman</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="closing" class="section section-dark hero">
+  <div class="hero-media"><img src="https://drive.google.com/thumbnail?id=1dcbZlWXz_U8__hxe1sk_MHVX7JLVmYnY&sz=w1600" alt="Ilustrasi cahaya subuh menyinari kitab terbuka dan tasbih di meja kecil lewat jendela berukir"></div>
+  <div class="wrap hero-inner reveal">
+    <p class="kicker">Bismillah</p>
+    <h2 style="font-size:clamp(22px,4vw,30px);">Udah Cukup Lama Kerja dari Rasa Takut?</h2>
+    <div class="hero-mobile-media"><img src="https://drive.google.com/thumbnail?id=1dcbZlWXz_U8__hxe1sk_MHVX7JLVmYnY&sz=w1200" alt="Ilustrasi cahaya subuh menyinari kitab terbuka dan tasbih di meja kecil lewat jendela berukir"></div>
+    <p class="sub">Mungkin ini saatnya. Klik tombol di bawah, bangun ikhtiar dengan hati yang lebih tenang, lalu serahkan hasilnya sama Allah.</p>
+    <div class="hero-cta-block">
+      <a href="#" class="btn">Mulai Sekarang, Bismillah</a>
+    </div>
+  </div>
+</section>
+
+<div id="stickyCta" class="sticky-cta">
+  <div class="sticky-inner">
+    <div class="sticky-info">
+      <span class="sticky-name">Miftahur Rezeki</span>
+      <span class="sticky-price">Rp127.000</span>
+    </div>
+    <a href="#pricing" class="btn">Mulai Sekarang</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var hero = document.getElementById('hero');
+  var sticky = document.getElementById('stickyCta');
+  if('IntersectionObserver' in window){
+    var stickyObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        sticky.classList.toggle('show', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+      });
+    }, {threshold:0});
+    stickyObs.observe(hero);
+
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    sticky.classList.add('show');
+  }
+
+  var faseData = {
+    ghaflah: '<strong>Ghaflah,</strong> auto pilot ketakutan. Kerja diburu buru, follow up keliatan maksa, susah bersyukur karena cuma fokus ke pintu yang lagi ketutup.',
+    khusyuk: '<strong>Khusyuk,</strong> sadar dan tenang. Ikhtiar tetap jalan habis habisan, cuma hasil akhirnya diserahin ke Allah. Rezeki yang tadinya mampet, pelan pelan mulai bergerak lagi.'
+  };
+  var toggleBtns = document.querySelectorAll('.toggle-btn');
+  var fasePanel = document.getElementById('fasePanel');
+  toggleBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      toggleBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      fasePanel.innerHTML = faseData[btn.getAttribute('data-fase')];
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
