@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hafal Quran Mandiri, Metode Khusus Otak Dewasa</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --navy-950:#0a0f18;
+  --navy-900:#0d1420;
+  --navy-800:#121b2c;
+  --navy-700:#182338;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.16);
+  --ink:#eef2f7;
+  --ink-dim:#9fb0c4;
+  --ink-faint:#647388;
+  --gold:#c9a227;
+  --gold-bright:#e6c14e;
+  --teal:#2f8f7e;
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-serif:Georgia,"Times New Roman",serif;
+  --font-mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(1100px 620px at 10% -10%, rgba(201,162,39,.08), transparent 60%),
+    radial-gradient(900px 560px at 108% 8%, rgba(47,143,126,.10), transparent 55%),
+    var(--navy-950);
+  color:var(--ink);
+  font-family:var(--font-ui);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+::selection{background:rgba(201,162,39,.35);}
+:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+  .reveal{opacity:1 !important;transform:none !important;}
+}
+
+/* ---------- LAYOUT PRIMITIVES ---------- */
+.section{
+  position:relative;
+  padding:64px 20px;
+  background:var(--navy-950);
+  overflow:hidden;
+}
+.section.alt{background:var(--navy-900);}
+.section-inner{max-width:1040px;margin:0 auto;position:relative;z-index:2;width:100%;}
+@media (min-width:881px){
+  .section{min-height:100vh;display:flex;align-items:center;padding:80px 64px;}
+}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease-out, transform .65s ease-out;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:.08s;}
+.reveal.d2{transition-delay:.16s;}
+.reveal.d3{transition-delay:.24s;}
+
+.h2{
+  font-family:var(--font-serif);
+  font-weight:700;
+  font-size:clamp(24px,3.4vw,36px);
+  line-height:1.28;
+  color:var(--ink);
+  margin-bottom:22px;
+  letter-spacing:-.01em;
+}
+.h2 .accent{color:var(--gold);}
+.lede{font-size:16.5px;color:var(--ink-dim);line-height:1.8;max-width:640px;}
+.lede + .lede{margin-top:16px;}
+.center .lede{margin-left:auto;margin-right:auto;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+.pattern-corner{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(560px 360px at 85% 15%, black, transparent 70%);
+}
+
+.img-card{
+  border-radius:20px;
+  border:1px solid var(--line-strong);
+  overflow:hidden;
+  background:var(--navy-800);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+}
+.img-card img{width:100%;height:100%;object-fit:cover;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--gold);color:var(--navy-950);
+  font-weight:700;font-size:15.5px;line-height:1.25;
+  padding:16px 26px;border-radius:999px;
+  text-decoration:none;border:none;cursor:pointer;
+  font-family:var(--font-ui);letter-spacing:.01em;
+  transition:background .2s, transform .2s;
+  animation:pulseGlow 2.8s ease-in-out infinite;
+  max-width:100%;text-align:center;
+}
+.btn:hover{background:var(--gold-bright);transform:translateY(-1px);}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.38);}
+  50%{box-shadow:0 0 0 12px rgba(201,162,39,0);}
+}
+@media (max-width:480px){
+  .btn{font-size:14px;padding:14px 20px;gap:6px;}
+}
+/* ---------- HERO ---------- */
+.hero .section-inner{
+  display:grid;grid-template-columns:1fr;
+  grid-template-areas:"headline" "media" "body";
+  gap:24px;
+}
+@media (min-width:881px){
+  .hero .section-inner{
+    grid-template-columns:1.05fr .95fr;
+    grid-template-areas:
+      "headline media"
+      "body media";
+    gap:16px 60px;align-items:center;
+  }
+}
+.hero-headline{grid-area:headline;}
+.hero-media{grid-area:media;}
+.hero-body{grid-area:body;}
+.hero-h1{
+  font-family:var(--font-serif);font-weight:700;
+  font-size:clamp(30px,5vw,52px);line-height:1.18;
+  letter-spacing:-.01em;color:var(--ink);
+}
+.hero-h1 .accent{color:var(--gold);}
+.hero-sub{font-size:17px;color:var(--ink-dim);line-height:1.75;max-width:520px;margin-bottom:28px;}
+.hero-media img{aspect-ratio:4/5;}
+
+/* ---------- METODE ---------- */
+.metode-img{margin-bottom:44px;}
+.metode-img .img-card img{aspect-ratio:16/9;object-fit:cover;}
+.technique-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media (min-width:700px){.technique-grid{grid-template-columns:repeat(3,1fr);}}
+.technique-card{
+  background:var(--navy-800);border:1px solid var(--line);border-radius:16px;
+  padding:22px 22px 20px;
+}
+.technique-num{
+  font-family:var(--font-mono);font-size:12.5px;font-weight:700;color:var(--gold);
+  letter-spacing:.06em;margin-bottom:10px;display:block;
+}
+.technique-card h3{font-family:var(--font-serif);font-size:17.5px;color:var(--ink);margin-bottom:8px;font-weight:700;}
+.technique-card p{font-size:14px;color:var(--ink-dim);line-height:1.65;}
+.time-note{margin-top:28px;font-size:14.5px;color:var(--ink-faint);}
+
+/* ---------- APA SAJA YANG KAMU DAPAT ---------- */
+.offer-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+.proof-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+.offer-list{display:flex;flex-direction:column;gap:18px;}
+.offer-card{
+  background:var(--navy-950);border:1px solid var(--line-strong);border-radius:16px;
+  padding:22px 24px;
+}
+.section.alt .offer-card{background:var(--navy-800);}
+.offer-tag{font-family:var(--font-mono);font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;margin-bottom:8px;display:block;}
+.offer-card h3{font-family:var(--font-serif);font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:700;}
+.offer-card p{font-size:14.5px;color:var(--ink-dim);line-height:1.7;}
+
+/* ---------- CARA PAKAINYA ---------- */
+.step-list{display:flex;flex-direction:column;gap:0;max-width:640px;margin-left:auto;margin-right:auto;text-align:left;}
+.step-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);}
+.step-item:last-child{border-bottom:none;}
+.step-num{
+  font-family:var(--font-serif);font-size:26px;font-weight:700;color:var(--gold);
+  min-width:44px;line-height:1;
+}
+.step-text{font-size:15.5px;color:var(--ink-dim);line-height:1.7;padding-top:4px;}
+
+/* ---------- CERITA ---------- */
+.quote-block{max-width:680px;margin-left:auto;margin-right:auto;}
+.quote-mark{font-family:var(--font-serif);font-size:64px;color:var(--gold);line-height:.4;margin-bottom:18px;display:block;}
+.quote-block p{font-size:16.5px;color:var(--ink-dim);line-height:1.85;}
+.quote-block p + p{margin-top:18px;}
+.quote-block .closing-line{color:var(--ink);font-style:italic;font-family:var(--font-serif);font-size:19px;margin-top:26px;}
+
+/* ---------- HARGA ---------- */
+.price-card{
+  max-width:520px;margin:0 auto;text-align:center;
+  background:var(--navy-800);border:1px solid var(--line-strong);border-radius:24px;
+  padding:44px 32px 36px;
+}
+.price-value-old{font-family:var(--font-mono);font-size:16px;color:var(--ink-faint);text-decoration:line-through;margin-bottom:6px;}
+.price-value-new{font-family:var(--font-mono);font-size:44px;font-weight:700;color:var(--gold-bright);letter-spacing:-.01em;}
+.price-save{
+  display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--teal);
+  background:rgba(47,143,126,.14);border:1px solid rgba(47,143,126,.35);
+  padding:5px 14px;border-radius:999px;letter-spacing:.03em;
+}
+.price-desc{margin-top:18px;font-size:14.5px;color:var(--ink-dim);line-height:1.7;}
+.price-card .btn{margin-top:26px;width:100%;}
+.reassurance{
+  margin-top:36px;display:flex;flex-direction:column;gap:10px;
+  max-width:520px;margin-left:auto;margin-right:auto;
+}
+.reassurance-item{display:flex;align-items:flex-start;gap:10px;font-size:13.8px;color:var(--ink-dim);}
+.reassurance-item .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+  margin-top:7px;flex:0 0 auto;
+}
+
+/* ---------- PENUTUP ---------- */
+.penutup{position:relative;}
+.penutup-bg{
+  position:absolute;inset:0;z-index:0;
+}
+.penutup-bg img{width:100%;height:100%;object-fit:cover;}
+.penutup-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg, rgba(10,15,24,.55) 0%, rgba(10,15,24,.88) 78%, var(--navy-950) 100%);
+}
+.penutup .section-inner{position:relative;z-index:2;text-align:center;max-width:680px;}
+.penutup .quote-block{margin:0 auto;}
+.penutup .quote-block p{color:var(--ink);}
+.penutup .btn{margin-top:30px;}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:rgba(13,20,32,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line-strong);
+  padding:12px 16px;
+  transform:translateY(110%);
+  transition:transform .4s ease;
+  overflow:hidden;
+}
+.sticky-cta.visible{transform:translateY(0);}
+.sticky-cta-inner{
+  max-width:1040px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.sticky-price{font-family:var(--font-mono);min-width:0;flex:1 1 auto;}
+.sticky-price .old{font-size:11px;color:var(--ink-faint);text-decoration:line-through;display:block;}
+.sticky-price .new{font-size:17px;font-weight:700;color:var(--gold-bright);white-space:nowrap;}
+.sticky-cta .btn{
+  padding:12px 18px;font-size:13.5px;animation:none;
+  flex:0 0 auto;white-space:nowrap;
+}
+#bottomSpacer{height:0;}
+
+/* ---------- FOOTER ---------- */
+.sp-footer{
+  background:var(--navy-900);
+  border-top:1px solid var(--line);
+  padding:44px 20px 40px;
+  text-align:center;
+}
+.sp-footer-nav{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px 24px;margin:0 auto 24px;
+}
+.sp-footer-nav a{
+  font-family:var(--font-ui);font-size:13px;font-weight:600;
+  color:var(--ink-dim);text-decoration:none;transition:color .2s;
+}
+.sp-footer-nav a:hover{color:var(--gold-bright);}
+.sp-footer-disclaimer{
+  font-family:var(--font-ui);font-size:12px;color:var(--ink-faint);
+  line-height:1.7;max-width:480px;margin:0 auto 10px;
+}
+.sp-footer-owner{
+  font-family:var(--font-ui);font-size:11.5px;color:var(--ink-faint);
+  max-width:480px;margin:0 auto;
+}
+
+@media (min-width:881px){
+  .offer-grid{grid-template-columns:1fr 1fr;}
+  .proof-grid{grid-template-columns:1.05fr .95fr;gap:60px;}
+  .sticky-cta{padding:16px 64px;}
+  .sticky-price .new{font-size:19px;}
+  .sticky-cta .btn{padding:13px 22px;font-size:14px;}
+}
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============ HERO / ABOVE THE FOLD ============ -->
+  <section class="section hero" id="hero">
+    <div class="pattern-corner"></div>
+    <div class="section-inner">
+      <div class="hero-headline reveal in-view">
+        <h1 class="hero-h1">Metode Hafal Quran Khusus <span class="accent">Otak Dewasa</span>, Bisa Dipelajari Sendiri di Rumah</h1>
+      </div>
+      <div class="hero-media reveal in-view d1">
+        <div class="img-card">
+          <img src="https://drive.google.com/thumbnail?id=1YLJ_qijZxEcxdPcdMD2sDVq9syCygX-N&sz=w1200" alt="Ilustrasi mushaf terbuka bercahaya hangat dengan ornamen geometris Islami">
+        </div>
+      </div>
+      <div class="hero-body reveal in-view d2">
+        <p class="hero-sub">Tanpa kelas, tanpa guru privat. Cukup ikuti caranya sesuai bagaimana otak orang dewasa benar benar menyimpan ingatan.</p>
+        <a href="#harga" class="btn">Aku Mau Mulai Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MASALAH YANG SEBENARNYA ============ -->
+  <section class="section" id="masalah">
+    <div class="section-inner center" style="max-width:720px;">
+      <div class="reveal">
+        <h2 class="h2">Masalah yang Sebenarnya</h2>
+        <p class="lede">Ayat yang kamu ulang sepuluh kali tadi malam, besok pagi masih lancar atau enggak?</p>
+        <p class="lede">Kalau enggak, itu bukan soal kurang rajin. Itu kayak nuang air ke ember bocor. Sebentar penuh, ditinggal semalam kosong lagi. Bukan kurang nuang airnya, ada lubang yang belum ditambal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUKTI KAMU SEBENARNYA MAMPU ============ -->
+  <section class="section alt" id="bukti">
+    <div class="section-inner proof-grid">
+      <div class="reveal">
+        <h2 class="h2">Bukti Kamu Sebenarnya Mampu</h2>
+        <p class="lede">Coba pejamkan mata. Bayangkan rumah masa kecilmu, ruang tamunya, dapurnya. Masih kebayang jelas kan? Padahal udah belasan tahun kamu gak ke sana, dan gak pernah sengaja ngapalinnya tiap malam.</p>
+        <p class="lede">Itu buktinya. Ingatan soal tempat adalah salah satu ingatan paling kuat yang otakmu punya. Taruh ayat Al Quran di tempat yang sama kuatnya, dan ayat itu bisa nempel selama itu juga. Bukan otakmu yang lemah, kamu cuma belum pakai jalur ingatan itu.</p>
+      </div>
+      <div class="reveal d1">
+        <div class="img-card">
+          <img src="https://drive.google.com/thumbnail?id=1UqmblrwAFa4iUvvQkQj0ok4gZ4bnpIYJ&sz=w1000" alt="Ilustrasi pintu dan lentera bercahaya hangat dengan siluet mushaf, menggambarkan ingatan dan tempat familiar">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KENAPA CARA LAMA SUSAH DIPAKAI ORANG DEWASA ============ -->
+  <section class="section" id="kenapa">
+    <div class="section-inner center" style="max-width:720px;">
+      <div class="reveal">
+        <h2 class="h2">Kenapa Cara Lama Susah Dipakai Orang Dewasa</h2>
+        <p class="lede">Kenapa anak TPA bisa hafal satu surat dalam beberapa hari? Bukan karena mereka lebih pintar. Otak anak kecil itu spons, apa aja yang dituang langsung nempel walau cuma diulang ulang.</p>
+        <p class="lede">Otak orang dewasa udah beda. Dia minta alasan dan makna dulu, baru mau nyimpen sesuatu lama. Cara ngapalin ala anak kecil gak akan cocok lagi buat kita.</p>
+      </div>
+    </div>
+  </section>
+  <!-- ============ METODENYA ============ -->
+  <section class="section alt" id="metode">
+    <div class="section-inner">
+      <div class="reveal metode-img">
+        <div class="img-card">
+          <img src="https://drive.google.com/thumbnail?id=1eU22dgJb38gpOf7n1peuq8zkKm6s5qug&sz=w1200" alt="Tiga ikon garis emas melambangkan tiga teknik menghafal, pintu bercahaya, buku terbuka, dan gelombang suara dengan tasbih">
+        </div>
+      </div>
+      <div class="reveal d1">
+        <h2 class="h2">Metodenya</h2>
+        <p class="lede">Di kit ini kamu belajar 3 teknik simpel yang kerja sesuai cara otak dewasa nyimpen sesuatu. Bisa dipraktikkan sendiri, tanpa kelas atau guru privat.</p>
+      </div>
+      <div class="reveal d2" style="margin-top:28px;">
+        <div class="technique-grid">
+          <div class="technique-card">
+            <span class="technique-num">Teknik 1</span>
+            <h3>Pemetaan Spasial Ayat</h3>
+            <p>Menaruh tiap ayat di titik yang sudah familiar di rumahmu sendiri.</p>
+          </div>
+          <div class="technique-card">
+            <span class="technique-num">Teknik 2</span>
+            <h3>Menghubungkan Makna Ayat</h3>
+            <p>Meringkas makna ayat jadi satu kalimat pendek yang gampang diinget.</p>
+          </div>
+          <div class="technique-card">
+            <span class="technique-num">Teknik 3</span>
+            <h3>Pengelompokan Multi Sensorik</h3>
+            <p>Mengikat ayat itu dengan gambaran, suara, dan rasa biar makin nempel.</p>
+          </div>
+        </div>
+        <p class="time-note">Begitu kamu paham polanya, bedanya udah mulai kerasa dari beberapa hari pertama kamu coba.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APA SAJA YANG KAMU DAPAT ============ -->
+  <section class="section" id="dapat">
+    <div class="section-inner">
+      <div class="reveal" style="margin-bottom:36px;">
+        <h2 class="h2">Apa Saja yang Kamu Dapat</h2>
+      </div>
+      <div class="offer-grid">
+        <div class="reveal">
+          <div class="img-card">
+            <img src="https://drive.google.com/thumbnail?id=1y9xSakVGlM7_cFyul6m8mdq8Xo61zqsp&sz=w1000" alt="Mockup ebook Hafal Quran Mandiri">
+          </div>
+        </div>
+        <div class="reveal d1 offer-list">
+          <div class="offer-card">
+            <span class="offer-tag">Ebook Utama</span>
+            <h3>Hafal Quran Mandiri</h3>
+            <p>Panduan lengkap 3 teknik di atas, dijelasin step by step biar langsung paham. Bentuknya online, bisa dibuka dari HP atau laptop kapan aja, dan progres bacaanmu otomatis kesimpen tiap kamu buka lagi.</p>
+          </div>
+          <div class="offer-card">
+            <span class="offer-tag">3 Kit Interaktif</span>
+            <h3>Alat Pendamping Praktik Harian</h3>
+            <p>Rutinitas Harian dengan timer jalan otomatis, Retensi 4 Fase yang ngitungin sendiri jadwal muraja'ahmu, dan Roadmap 90 Hari buat pantau progres harian. Tiga tools terpisah, semuanya langsung jalan dari browser tanpa perlu install apa-apa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARA PAKAINYA ============ -->
+  <section class="section alt" id="cara">
+    <div class="section-inner center">
+      <div class="reveal" style="margin-bottom:8px;">
+        <h2 class="h2">Cara Pakainya</h2>
+      </div>
+      <div class="reveal d1 step-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <span class="step-text">Baca 3 teknik intinya, santai aja.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <span class="step-text">Praktikkan di ruang rumahmu sendiri, ikuti contohnya di kit.</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <span class="step-text">Pakai Kit Tambahan tiap hari, biar hafalan gak lari lagi.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============ CERITA DI BALIK KIT INI ============ -->
+  <section class="section" id="cerita">
+    <div class="section-inner center">
+      <div class="reveal quote-block">
+        <span class="quote-mark">&ldquo;</span>
+        <p>Kit ini lahir dari pengalaman sendiri. Bertahun tahun coba serius menghafal, tapi selalu berhenti di tengah jalan. Bukan karena gak niat, tapi tiap kali gagal, yang disalahin selalu diri sendiri.</p>
+        <p>Titik baliknya datang waktu berhenti mikirin kurang rajin apa enggak, dan mulai cari tau gimana otak dewasa sebenarnya nyimpen sesuatu. Begitu paham caranya, ayat yang tadinya berat kayak batu di pundak, jadi ringan kayak kapas.</p>
+        <p class="closing-line">Kalau hafalanmu gitu gitu aja padahal niatmu udah lama ada, mungkin bukan niatmu yang kurang. Cuma jalannya aja yang belum ketemu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HARGA ============ -->
+  <section class="section alt" id="harga">
+    <div class="section-inner">
+      <div class="reveal price-card">
+        <div class="price-value-old">Rp297.000</div>
+        <div class="price-value-new">Rp127.000</div>
+        <span class="price-save">Hemat 57 persen hari ini</span>
+        <p class="price-desc">Ebook Hafal Quran Mandiri plus Kit Tambahan. Sekali bayar, akses selamanya, tanpa biaya bulanan.</p>
+        <a href="#" class="btn">Aku Mau Mulai Sekarang</a>
+      </div>
+      <div class="reveal d1 reassurance">
+        <div class="reassurance-item"><span class="dot"></span>Akses langsung hari itu juga</div>
+        <div class="reassurance-item"><span class="dot"></span>Sekali bayar, tanpa langganan bulanan</div>
+        <div class="reassurance-item"><span class="dot"></span>Pembayaran diproses aman</div>
+        <div class="reassurance-item"><span class="dot"></span>Bisa dipakai dari hp atau laptop kapan aja</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PENUTUP ============ -->
+  <section class="section penutup" id="penutup">
+    <div class="penutup-bg">
+      <img src="https://drive.google.com/thumbnail?id=1WQV8HAxKXtvbbs4D4qyQ0ZBJwtsJnGZC&sz=w1600" alt="Ilustrasi siluet Kaaba dengan langit senja hangat">
+    </div>
+    <div class="penutup-overlay"></div>
+    <div class="section-inner">
+      <div class="reveal quote-block">
+        <p>Niatmu menghafal Al Quran itu, insya Allah, udah dicatat sejak detik pertama terlintas di hati. Yang belum ketemu cuma jalannya. Sekarang jalannya ada di depan matamu.</p>
+        <a href="#harga" class="btn">Ya, Aku Siap Mulai Hari Ini</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="sp-footer">
+    <nav class="sp-footer-nav">
+      <a href="https://wawasanku.id/tnc" target="_blank" rel="noopener">Syarat &amp; Ketentuan</a>
+      <a href="https://wawasanku.id/pp-wawasanku" target="_blank" rel="noopener">Kebijakan Privasi</a>
+      <a href="https://wawasanku.id/rp-1" target="_blank" rel="noopener">Kebijakan Pengembalian</a>
+      <a href="https://wawasanku.id/contactus" target="_blank" rel="noopener">Hubungi Kami</a>
+    </nav>
+    <p class="sp-footer-disclaimer">Buku ini adalah materi edukasi tentang teknik menghafal Al-Quran untuk orang dewasa. Ia tidak menjanjikan hasil hafal dalam waktu tertentu atau menggantikan bimbingan guru tahfidz.</p>
+    <p class="sp-footer-owner">Owned and Operated by Hadona Digital Media Limited.</p>
+  </footer>
+
+  <!-- ============ STICKY CTA ============ -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-inner">
+      <div class="sticky-price">
+        <span class="old">Rp297.000</span>
+        <span class="new">Rp127.000</span>
+      </div>
+      <a href="#harga" class="btn">Mulai Sekarang</a>
+    </div>
+  </div>
+
+  <div id="bottomSpacer"></div>
+
+</div>
+
+<script>
+(function(){
+  var revealEls = document.querySelectorAll('.reveal:not(.in-view)');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  var hero = document.getElementById('hero');
+  var sticky = document.getElementById('stickyCta');
+  var spacer = document.getElementById('bottomSpacer');
+
+  function syncSpacer(){
+    if(sticky && spacer){ spacer.style.height = sticky.offsetHeight + 'px'; }
+  }
+  syncSpacer();
+  window.addEventListener('resize', syncSpacer);
+  window.addEventListener('load', syncSpacer);
+
+  if(hero && sticky && 'IntersectionObserver' in window){
+    var heroWatch = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          sticky.classList.remove('visible');
+        } else if(entry.boundingClientRect.top < 0){
+          sticky.classList.add('visible');
+        } else {
+          sticky.classList.remove('visible');
+        }
+      });
+    }, {threshold:0});
+    heroWatch.observe(hero);
+  }
+})();
+</script>
+
+</body>
+</html>
