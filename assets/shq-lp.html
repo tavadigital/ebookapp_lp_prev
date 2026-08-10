@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sistem Hafal Quran</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --cream:#F7F1E3;
+  --cream-deep:#EFE5CC;
+  --card:#FFFDF7;
+  --line:rgba(31,92,70,.14);
+  --line-strong:rgba(31,92,70,.26);
+  --ink:#23302A;
+  --ink-dim:#5C6B60;
+  --ink-faint:#8B9A8C;
+  --em-950:#0B1F17;
+  --em-900:#123326;
+  --em-800:#173D2E;
+  --em-700:#1F5C46;
+  --sage:#5E8471;
+  --gold:#C79A3E;
+  --gold-bright:#E3B94E;
+  --cream-on-dark:#F3EFE0;
+  --font-serif:"Iowan Old Style","Palatino Linotype","URW Palladio L","Book Antiqua",Georgia,serif;
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--em-900);
+  color:var(--ink);
+  font-family:var(--font-ui);
+  font-size:17.5px;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:rgba(199,154,62,.35);}
+
+.lattice{
+  background-image:
+    repeating-linear-gradient(45deg, rgba(199,154,62,.09) 0, rgba(199,154,62,.09) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(-45deg, rgba(199,154,62,.09) 0, rgba(199,154,62,.09) 1px, transparent 1px, transparent 28px);
+}
+
+/* ---------- SECTION FRAME ---------- */
+.section{
+  position:relative;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:88px 24px;
+  overflow:hidden;
+}
+.section-inner{
+  position:relative; z-index:2;
+  width:100%; max-width:700px;
+  margin:0 auto;
+  text-align:center;
+}
+.section-inner.wide{max-width:920px;}
+.section.on-cream{background:var(--cream);}
+.section.on-cream-deep{background:var(--cream-deep);}
+.section.on-dark{background:var(--em-900); color:var(--cream-on-dark);}
+
+/* fullscreen per section di desktop */
+@media (min-width:901px){
+  .section{min-height:100vh; padding:100px 40px;}
+}
+
+/* ---------- BG ILLUSTRATION + SCRIM ---------- */
+.section-bg{
+  position:absolute; inset:0; z-index:0;
+  background-size:cover; background-position:center;
+}
+.section-bg::before{
+  content:""; position:absolute; inset:0;
+  background:rgba(6,16,12,.32);
+}
+.section-bg::after{
+  content:""; position:absolute; inset:0;
+  background:var(--scrim, linear-gradient(180deg, rgba(11,31,23,.42), rgba(11,31,23,.82)));
+}
+.scrim-left::after{background:linear-gradient(100deg, rgba(11,31,23,.88) 0%, rgba(11,31,23,.58) 45%, rgba(11,31,23,.34) 100%);}
+.scrim-bottom::after{background:linear-gradient(0deg, rgba(11,31,23,.90) 0%, rgba(11,31,23,.50) 55%, rgba(11,31,23,.28) 100%);}
+.scrim-soft::after{background:linear-gradient(180deg, rgba(11,31,23,.34), rgba(11,31,23,.68));}
+
+.on-image{color:var(--cream-on-dark);}
+.on-image .eyebrow-none{display:none;}
+
+/* ---------- TYPE ---------- */
+.tag{
+  font-family:var(--font-ui); font-size:12.5px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright);
+  margin:0 0 14px;
+}
+.on-cream .tag, .on-cream-deep .tag{color:var(--em-700);}
+h1.h-hero{
+  font-family:var(--font-serif); font-weight:700;
+  font-size:clamp(30px,4.6vw,50px); line-height:1.14; letter-spacing:-.01em;
+  margin:0 0 18px;
+}
+h2.h-sec{
+  font-family:var(--font-serif); font-weight:700;
+  font-size:clamp(25px,3.4vw,36px); line-height:1.2; letter-spacing:-.005em;
+  margin:0 0 16px;
+}
+.sub{
+  font-size:clamp(16px,1.7vw,18.5px); line-height:1.65;
+  color:var(--ink-dim); max-width:560px; margin:0 auto 30px;
+}
+.on-image .sub, .on-dark .sub{color:rgba(243,239,224,.86);}
+p.body-txt{font-size:17px; line-height:1.72; color:var(--ink-dim); max-width:600px; margin:0 auto 16px;}
+.on-image p.body-txt, .on-dark p.body-txt{color:rgba(243,239,224,.86);}
+strong{color:var(--ink); font-weight:700;}
+.on-image strong, .on-dark strong{color:#fff;}
+
+/* ---------- CTA BUTTON ---------- */
+.cta-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--em-700); color:var(--gold-bright);
+  border:1px solid rgba(227,185,78,.4);
+  font-size:16px; font-weight:700; letter-spacing:.01em;
+  padding:17px 30px; border-radius:14px;
+  text-decoration:none; transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow:0 8px 24px rgba(31,92,70,.28);
+  animation:pulseGlow 3.4s ease-in-out infinite;
+}
+.cta-btn:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(31,92,70,.36);}
+.cta-btn svg{width:18px;height:18px;flex:0 0 auto;}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 8px 24px rgba(31,92,70,.28);}
+  50%{box-shadow:0 8px 30px rgba(227,185,78,.38);}
+}
+@media (prefers-reduced-motion:reduce){
+  .cta-btn{animation:none;}
+}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1; transform:none; transition:none;}
+}
+
+/* ---------- GLOW DOTS (dipakai di hero & asal usul) ---------- */
+.glow-dot{
+  position:absolute; width:7px; height:7px; border-radius:50%;
+  background:var(--gold-bright);
+  box-shadow:0 0 14px 4px rgba(227,185,78,.55);
+  animation:glowPulse 5s ease-in-out infinite;
+}
+@keyframes glowPulse{
+  0%,100%{opacity:.35; transform:scale(.85);}
+  50%{opacity:1; transform:scale(1.15);}
+}
+@media (prefers-reduced-motion:reduce){
+  .glow-dot{animation:none; opacity:.7;}
+}
+
+/* ---------- HERO INLINE IMAGE (khusus mobile) ---------- */
+.hero-inline-img{display:none;}
+@media (max-width:900px){
+  #hero .section-bg{display:none;}
+  #hero{background:var(--em-900); padding-top:36px; padding-bottom:56px;}
+  #hero .glow-dot{display:none;}
+  .hero-inline-img{
+    display:block; width:100%; max-width:340px; aspect-ratio:4/5;
+    object-fit:cover; border-radius:20px; margin:0 auto 22px;
+    box-shadow:0 18px 40px rgba(0,0,0,.32);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO / ABOVE THE FOLD ============ -->
+<section class="section on-image scrim-left" id="hero">
+  <div class="section-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1cQqshXJHsDFQBVMAn6fxFXAjh6oaaHpc&sz=w2000');"></div>
+  <span class="glow-dot" style="top:22%; left:14%; animation-delay:.2s;"></span>
+  <span class="glow-dot" style="top:64%; left:20%; animation-delay:1.6s;"></span>
+  <span class="glow-dot" style="top:40%; left:9%; animation-delay:2.8s;"></span>
+  <div class="section-inner">
+    <h1 class="h-hero">Hafalan Akhirnya Nempel, Cuma 20 Sampai 45 Menit Sehari, Tanpa Ngulang Ratusan Kali</h1>
+    <img class="hero-inline-img" src="https://drive.google.com/thumbnail?id=1cQqshXJHsDFQBVMAn6fxFXAjh6oaaHpc&sz=w1000" alt="Ilustrasi mushaf bercahaya">
+    <p class="sub">Bukan soal kurang niat. Begitu caranya pas sama otak orang dewasa, ayat yang dulu gampang lepas, sekarang nempel.</p>
+    <a href="#harga" class="cta-btn">
+      Ya, Aku Mau Hafalan yang Nempel
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ SILOGISME MASALAH (digabung, dipersingkat) ============ -->
+<section class="section on-image scrim-bottom" id="masalah">
+  <div class="section-bg" style="background-image:url('https://drive.google.com/thumbnail?id=1rKPfvkvG2b-sDtB1RhZmZgjJS-t339Qj&sz=w2000');"></div>
+  <div class="section-inner">
+    <h2 class="h-sec">Kalau Ngulang Aja Cukup, Kenapa Besoknya Hilang Lagi?</h2>
+    <p class="body-txt">Kamu ulang satu ayat dua puluh kali. Yakin udah nempel. Besoknya kosong lagi. Bukan kamu kurang niat, cuma caranya aja yang keliru.</p>
+    <p class="body-txt">Persis ember bocor. Penuh sesaat, ditinggal semalam, <strong>kosong lagi</strong>.</p>
+    <p class="body-txt">Wajar. Otak anak kecil emang tinggal diulang langsung nempel. Otak kamu beda, dia <strong>gudang arsip</strong> yang nyimpen lewat lokasi, makna, sama indera.</p>
+  </div>
+</section>
+
+<!-- ============ ASAL USUL METODE (trust point 1) ============ -->
+<section class="section on-image scrim-soft" id="asal-usul">
+  <div class="section-bg" style="background-image:url('https://drive.google.com/thumbnail?id=19rc-VyxtbKrzCMDs00k0up3JotkJkXEL&sz=w2000');"></div>
+  <span class="glow-dot" style="top:26%; left:22%; animation-delay:.4s;"></span>
+  <span class="glow-dot" style="top:58%; left:70%; animation-delay:2.1s;"></span>
+  <span class="glow-dot" style="top:70%; left:38%; animation-delay:3.4s;"></span>
+  <div class="section-inner">
+    <p class="tag">Asal Usul Metodenya</p>
+    <h2 class="h-sec">Ini Bukan Teori dari Orang yang Nggak Pernah Gagal</h2>
+    <p class="body-txt">Penulisnya juga bukan hafiz. Pernah ngulang sampai berbusa, tetap lupa besoknya. Titik baliknya dari kisah kuno ribuan tahun lalu, tentang otak yang jauh lebih kuat inget <strong>lokasi</strong> dibanding suara.</p>
+    <p class="body-txt">Teknik itu sekarang dipakai <strong>juara dunia</strong> buat hafal ratusan angka acak dalam hitungan menit. Digabung sama cara kerja ingatan makna dan indera, jadilah sistem di ebook ini.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS (4 langkah) ============ -->
+<section class="section on-cream-deep" id="cara-kerja">
+  <div class="section-inner wide">
+    <h2 class="h-sec">Semudah 4 Langkah</h2>
+    <p class="sub">Dari paham metodenya sampai jalan otomatis tiap hari.</p>
+    <div class="steps-grid">
+
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3 class="step-title">Pahami Metodenya Lewat Ebook</h3>
+        <p class="step-desc">Cara naruh ayat ke lokasi, makna, dan cerita, dijelasin step by step.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+        </div>
+        <h3 class="step-title">Praktik 20 Sampai 45 Menit Pakai KIT Interaktif</h3>
+        <p class="step-desc">Empat langkah harian, lengkap pengatur waktunya sendiri.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.5-7.1"/><path d="M21 3v6h-6"/></svg>
+        </div>
+        <h3 class="step-title">Biarkan Jadwal Review Jalan Otomatis</h3>
+        <p class="step-desc">KIT-nya yang ingetin kapan review, biar nggak bocor lagi.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">4</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
+        </div>
+        <h3 class="step-title">Ikuti Roadmap 90 Hari</h3>
+        <p class="step-desc">Tinggal centang progres tiap hari, target naik bertahap.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUKTI NYATA (social proof narasi, tanpa gambar) ============ -->
+<section class="section on-cream" id="bukti">
+  <div class="section-inner">
+    <p class="tag">Bukti Nyata</p>
+    <h2 class="h-sec">Kakek 65 Tahun yang Dulu Nangis Lihat Mushaf, Sekarang Jadi Imam di Kompleksnya</h2>
+    <div class="quote-card">
+      <p class="body-txt" style="margin-bottom:0;">Abdullah, 65 tahun, dulu ngerasa otaknya udah karatan. Setelah pakai sistem yang sama kayak di ebook ini, hafalannya menetap. Sekarang beliau imam shalat berjamaah di kompleksnya.</p>
+    </div>
+    <p class="body-txt" style="margin-top:20px;"><strong>Kalau beliau bisa, peluangmu lebih besar.</strong></p>
+  </div>
+</section>
+
+<!-- ============ ISI PRODUK ============ -->
+<section class="section on-cream-deep" id="isi-produk">
+  <div class="section-inner wide">
+    <h2 class="h-sec">Bukan Cuma Teori, Ada Alat Bantu Praktik Tiap Hari</h2>
+    <div class="produk-grid">
+      <div class="produk-mockup reveal">
+        <img src="https://drive.google.com/thumbnail?id=1zink5tfQo1M6Kds9hYboXLYWCkPaNRa2&sz=w1000" alt="Mockup ebook Sistem Hafal Quran">
+      </div>
+      <div class="produk-list reveal">
+        <div class="produk-item">
+          <h3 class="produk-item-title">Ebook Sistem Hafal Quran</h3>
+          <p class="produk-item-desc">Metode lengkapnya, dari kenapa cara lama bikin bocor sampai tiga teknik intinya, dijelasin gampang dicerna. Dibaca online langsung dari browser, ada progress bar biar kamu tau udah sampai mana.</p>
+        </div>
+        <div class="produk-item">
+          <h3 class="produk-item-title">4 Kit Interaktif</h3>
+          <p class="produk-item-desc">Alat praktiknya, jalan langsung dari browser: Rutinitas Harian dengan timer, Retensi 4 Fase yang jadwalin review otomatis, Rencana 90 Hari buat pantau progres, dan Referensi Cepat buat cek sekilas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARGA & CTA UTAMA ============ -->
+<section class="section on-dark" id="harga">
+  <div class="section-inner">
+    <h2 class="h-sec" style="color:#fff;">Sekali Bayar, Kepake Buat Selamanya</h2>
+    <div class="price-box reveal">
+      <div class="price-old">Rp297.000</div>
+      <div class="price-new">Rp127.000</div>
+      <div class="price-note">Sekali bayar. Bukan langganan bulanan.</div>
+    </div>
+    <p class="body-txt">Bukan janji hafal 30 juz sebulan, itu urusan hati sama Allah. Sistem ini cuma bikin caramu menghafal akhirnya cocok sama cara kerja otakmu.</p>
+    <a href="#" class="cta-btn" style="margin-top:8px;">
+      Ya, Aku Mau Mulai Malam Ini
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <ul class="risk-list">
+      <li>Akses online selamanya</li>
+      <li>Tanpa biaya bulanan tambahan</li>
+      <li>Pembayaran aman</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PENUTUP ============ -->
+<section class="section on-image scrim-bottom" id="penutup">
+  <div class="section-bg" style="background-image:url('https://drive.google.com/thumbnail?id=10wseTG_JvJdewXZIxg9_VMYjLF3cNsf-&sz=w2000');"></div>
+  <div class="section-inner">
+    <h2 class="h-sec">Kalau Caranya Masih Sama Kayak Kemarin, Hasilnya Juga Bakal Sama</h2>
+    <p class="body-txt">Cukup lama ngerasa hafalan jalan di tempat. Sekarang coba cara yang beda. Klik tombol di bawah ini.</p>
+    <a href="#" class="cta-btn">
+      Ya, Aku Mau Hafalan yang Nempel
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <nav class="footer-nav">
+      <a href="https://ilmuhub.id/tnc-ilmuhub" target="_blank" rel="noopener">Syarat &amp; Ketentuan</a>
+      <a href="https://ilmuhub.id/pp-ilmuhub" target="_blank" rel="noopener">Kebijakan Privasi</a>
+      <a href="https://ilmuhub.id/rp-ilmuhub" target="_blank" rel="noopener">Kebijakan Pengembalian</a>
+      <a href="https://ilmuhub.id/contactus-ilmuhub" target="_blank" rel="noopener">Hubungi Kami</a>
+    </nav>
+    <p class="footer-disclaimer">Produk ini adalah bahan edukasi metode menghafal Al-Quran untuk orang dewasa. Ia tidak menjanjikan kecepatan hafal juz tertentu atau jaminan hasil, karena itu murni usaha dan taufik dari Allah.</p>
+    <p class="footer-owned">Owned and Operated by Hadona Digital Media Limited.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA (muncul setelah Hero terlewati) ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-price">
+      <span class="sticky-price-label">Sekali bayar</span>
+      <span class="sticky-price-value">Rp127.000</span>
+    </div>
+    <a href="#" class="sticky-btn">Ya, Aku Mau Mulai Malam Ini</a>
+  </div>
+</div>
+
+<style>
+/* ---------- STEP CARDS (How It Works) ---------- */
+.steps-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+  margin-top:38px; text-align:left;
+}
+.step-card{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:24px 20px;
+  transition-delay:calc(var(--i,0) * 80ms), 0s;
+  transition-property:opacity, transform, border-color, box-shadow;
+  transition-duration:.5s, .4s, .2s, .2s;
+}
+.step-card:hover{border-color:var(--gold); box-shadow:0 12px 26px rgba(31,92,70,.12); transform:translateY(-3px);}
+.step-num{
+  font-family:var(--font-serif); font-weight:700; font-size:13px;
+  color:var(--gold-bright); background:var(--em-700);
+  width:26px; height:26px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:14px;
+}
+.step-icon{color:var(--em-700); width:26px; height:26px; margin-bottom:12px;}
+.step-icon svg{width:100%; height:100%;}
+.step-title{
+  font-family:var(--font-serif); font-size:16.5px; font-weight:700;
+  color:var(--ink); margin:0 0 8px; line-height:1.32;
+}
+.step-desc{font-size:14.5px; color:var(--ink-dim); line-height:1.6; margin:0;}
+
+/* ---------- QUOTE CARD (Bukti Nyata) ---------- */
+.quote-card{
+  background:var(--card); border:1px solid var(--line); border-left:4px solid var(--gold);
+  border-radius:var(--radius); padding:26px 28px; text-align:left; margin-top:8px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.quote-card:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(31,92,70,.14);}
+
+/* ---------- ISI PRODUK ---------- */
+.produk-grid{
+  display:grid; grid-template-columns:.85fr 1.15fr; gap:44px;
+  align-items:center; margin-top:34px; text-align:left;
+}
+.produk-mockup img{border-radius:14px; box-shadow:0 20px 50px rgba(23,61,46,.22);}
+.produk-list{display:flex; flex-direction:column; gap:24px;}
+.produk-item{padding:14px 16px; border-radius:14px; transition:background .2s ease;}
+.produk-item:hover{background:rgba(255,253,247,.7);}
+.produk-item-title{
+  font-family:var(--font-serif); font-size:19px; font-weight:700;
+  color:var(--em-800); margin:0 0 6px;
+}
+.produk-item-desc{font-size:15px; color:var(--ink-dim); line-height:1.65; margin:0;}
+
+/* ---------- PRICE BOX ---------- */
+.price-box{margin:26px 0 22px;}
+.price-old{
+  font-size:18px; color:rgba(243,239,224,.55); text-decoration:line-through;
+  text-decoration-color:rgba(181,83,62,.8); text-decoration-thickness:2px;
+}
+.price-new{
+  font-family:var(--font-serif); font-weight:700; color:var(--gold-bright);
+  font-size:clamp(38px,5.5vw,58px); line-height:1.1; margin:4px 0 8px;
+}
+.price-note{font-size:14px; color:rgba(243,239,224,.7);}
+.risk-list{
+  list-style:none; padding:0; margin:26px 0 0;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px 22px;
+  font-size:13.5px; color:rgba(243,239,224,.85);
+}
+.risk-list li{display:flex; align-items:center; gap:7px;}
+.risk-list li::before{
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:var(--gold-bright); flex:0 0 auto;
+}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:60;
+  transform:translateY(120%); opacity:0;
+  transition:transform .32s ease, opacity .32s ease;
+  background:rgba(11,31,23,.92);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid rgba(227,185,78,.25);
+  padding:14px 20px; padding-bottom:calc(14px + env(safe-area-inset-bottom));
+}
+.sticky-cta.visible{transform:translateY(0); opacity:1;}
+.sticky-cta-inner{
+  max-width:920px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+}
+.sticky-price{display:flex; flex-direction:column; line-height:1.3;}
+.sticky-price-label{font-size:11px; color:rgba(243,239,224,.6); letter-spacing:.04em;}
+.sticky-price-value{font-family:var(--font-serif); font-weight:700; font-size:19px; color:var(--gold-bright);}
+.sticky-btn{
+  background:var(--em-700); color:var(--gold-bright);
+  border:1px solid rgba(227,185,78,.4);
+  font-size:14.5px; font-weight:700; padding:13px 22px; border-radius:11px;
+  text-decoration:none; white-space:nowrap; flex:0 0 auto;
+  transition:transform .15s ease;
+}
+.sticky-btn:hover{transform:translateY(-1px);}
+
+/* ---------- FOOTER ---------- */
+.site-footer{
+  background:var(--em-950);
+  border-top:1px solid rgba(227,185,78,.15);
+  padding:40px 24px 130px;
+}
+.footer-inner{
+  max-width:640px; margin:0 auto; text-align:center;
+}
+.footer-nav{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:10px 26px; margin-bottom:22px;
+}
+.footer-nav a{
+  font-family:var(--font-ui); font-size:13px; font-weight:600;
+  color:rgba(243,239,224,.75); text-decoration:none;
+  letter-spacing:.01em; transition:color .15s ease;
+}
+.footer-nav a:hover{color:var(--gold-bright);}
+.footer-disclaimer{
+  font-family:var(--font-ui); font-size:12px; line-height:1.65;
+  color:rgba(243,239,224,.5); max-width:480px; margin:0 auto 10px;
+}
+.footer-owned{
+  font-family:var(--font-ui); font-size:11.5px; line-height:1.6;
+  color:rgba(243,239,224,.4); max-width:480px; margin:0 auto;
+}
+@media (max-width:560px){
+  .site-footer{padding:36px 20px 190px;}
+  .footer-nav{gap:10px 18px;}
+}
+
+/* ---------- RUANG EKSTRA DI BAWAH SUPAYA CTA TERAKHIR TIDAK KETUTUPAN STICKY CTA ---------- */
+#penutup{padding-bottom:180px;}
+@media (min-width:901px){
+  #penutup{padding-bottom:calc(100px + 96px);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .section{padding:64px 22px;}
+  #penutup{padding-bottom:240px;}
+  .steps-grid{grid-template-columns:1fr 1fr; gap:14px;}
+  .produk-grid{grid-template-columns:1fr; gap:28px; text-align:center;}
+  .produk-mockup{max-width:280px; margin:0 auto;}
+  .produk-list{text-align:left;}
+}
+@media (max-width:560px){
+  .steps-grid{grid-template-columns:1fr;}
+  .sticky-cta-inner{flex-direction:column; align-items:stretch; gap:10px;}
+  .sticky-price{flex-direction:row; align-items:baseline; gap:8px; justify-content:center;}
+  .sticky-btn{text-align:center;}
+  body{font-size:16.5px;}
+  #penutup{padding-bottom:260px;}
+}
+</style>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Sticky CTA muncul setelah Hero terlewati */
+  var hero = document.getElementById("hero");
+  var stickyCta = document.getElementById("stickyCta");
+
+  if("IntersectionObserver" in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var pastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        stickyCta.classList.toggle("visible", pastHero);
+      });
+    }, { threshold: 0 });
+    obs.observe(hero);
+  }
+
+  /* Reveal animasi saat section masuk viewport */
+  var revealTargets = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && revealTargets.length){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .18 });
+    revealTargets.forEach(function(el){ revealObs.observe(el); });
+  } else {
+    revealTargets.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Index untuk delay stagger step-card */
+  document.querySelectorAll(".step-card").forEach(function(el, i){
+    el.style.setProperty("--i", i);
+    el.classList.add("reveal");
+  });
+
+})();
+</script>
+</body>
+</html>
