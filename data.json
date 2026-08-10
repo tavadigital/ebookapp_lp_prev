@@ -1,8 +1,19 @@
 {
-  "generated_at": "2026-08-10T14:38:52+00:00",
+  "generated_at": "2026-08-10T18:04:31+00:00",
   "keyword": "-lp",
-  "count": 10,
+  "count": 11,
   "items": [
+    {
+      "path": "assets/mhq-lp.html",
+      "file": "mhq-lp.html",
+      "folder": "assets",
+      "slug": "MHQ",
+      "title": "Metode Hafal Quran, Hafalan Nempel Lebih Lama Cukup 20 Menit Sehari",
+      "description": "Metode SSI, cara menghafal Al Quran yang dirancang khusus untuk otak orang dewasa yang sibuk. Cukup 20 menit sehari, tanpa ngulang ratusan kali.",
+      "size": 42022,
+      "created": "2026-08-11T01:04:21+07:00",
+      "updated": "2026-08-11T01:04:21+07:00"
+    },
     {
       "path": "assets/ss-lp.html",
       "file": "ss-lp.html",
