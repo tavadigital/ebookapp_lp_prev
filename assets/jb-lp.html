@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Jalur Baitullah: Ebook dan KIT Tambahan</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7EFE1;
+  --paper-2:#FFFCF6;
+  --ink:#2B1810;
+  --ink-dim:#6B5847;
+  --ink-faint:#A6957F;
+  --line:#E6D9C3;
+  --line-strong:#D8C7A8;
+  --terracotta:#6B3226;
+  --terracotta-2:#8A4433;
+  --caramel:#9C6B3E;
+  --gold:#C08A28;
+  --gold-bright:#D9A542;
+  --gold-soft:#FBF0D9;
+  --font-display:'Fraunces',serif;
+  --font-ui:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-ui);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.62;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+main{padding-bottom:120px;}
+::selection{background:var(--gold-soft);color:var(--terracotta);}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;color:var(--ink);}
+p{color:var(--ink-dim);}
+strong{color:var(--terracotta);font-weight:700;}
+
+.fullsection{
+  position:relative;
+  width:100%;
+  padding:52px 20px;
+  overflow:hidden;
+}
+@media(min-width:941px){
+  .fullsection{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:64px 56px;
+  }
+}
+
+.inner{
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in-view{opacity:1;transform:none;}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:17px 30px;border-radius:100px;
+  font-family:var(--font-ui);font-weight:700;font-size:15.5px;
+  text-decoration:none;cursor:pointer;border:none;
+  text-align:center;line-height:1.3;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 26px rgba(107,50,38,.30);}
+.btn-primary:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 14px 32px rgba(107,50,38,.38);}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 10px 26px rgba(192,138,40,.30);}
+.btn-gold:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 14px 32px rgba(192,138,40,.38);}
+.btn-large{padding:19px 38px;font-size:17px;}
+.btn-sm{padding:12px 20px;font-size:13.5px;}
+@media(max-width:640px){
+  .btn{padding:14px 22px;font-size:14px;max-width:100%;}
+  .btn-large{padding:15px 26px;font-size:14.5px;}
+}
+
+/* ---------- JALUR PROGRESS (signature element, desktop only) ---------- */
+.jalur-progress{
+  display:none;
+  position:fixed;left:26px;top:60px;bottom:60px;width:3px;z-index:40;
+}
+@media(min-width:941px){.jalur-progress{display:block;}}
+.jalur-progress::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(to bottom, var(--line-strong) 0 6px, transparent 6px 15px);
+  border-radius:3px;
+}
+.jalur-fill{
+  position:absolute;left:0;top:0;width:100%;height:0%;
+  background:linear-gradient(to bottom, var(--gold-bright), var(--terracotta));
+  border-radius:3px;
+}
+.jalur-dot{
+  position:absolute;left:50%;top:0%;transform:translate(-50%,-50%);
+  width:13px;height:13px;border-radius:50%;background:var(--gold-bright);
+  box-shadow:0 0 0 5px var(--paper), 0 0 12px rgba(192,138,40,.55);
+}
+.jalur-end{
+  position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+  width:24px;height:24px;background:var(--ink);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+}
+.jalur-end svg{width:13px;height:13px;}
+
+/* ---------- HERO ---------- */
+/* Mobile-first default: normal flow, headline > image > subheadline > cta, no top gap */
+.hero{
+  padding:0 20px 40px;
+  background:var(--paper);
+  color:var(--ink);
+}
+.hero-bg-desktop{display:none;}
+.hero-overlay{display:none;}
+.hero .inner{max-width:640px;padding-top:28px;}
+.hero h1{font-size:clamp(26px,7vw,34px);line-height:1.18;color:var(--ink);margin-bottom:18px;}
+.hero-mobile-img{
+  width:100%;border-radius:20px;margin:0 0 20px;
+  box-shadow:0 14px 34px rgba(43,24,16,.18);
+}
+.hero .lead{font-size:15px;color:var(--ink-dim);margin-bottom:26px;}
+
+@media(min-width:941px){
+  .hero{padding:64px 56px;background:var(--paper);color:var(--ink);}
+  .hero-bg-desktop{
+    display:block;position:absolute;inset:0;
+    background-size:cover;background-position:center 40%;
+  }
+  .hero-overlay{
+    display:block;position:absolute;inset:0;
+    background:linear-gradient(100deg, var(--paper) 0%, rgba(247,239,225,.86) 26%, rgba(247,239,225,.32) 54%, rgba(247,239,225,.04) 78%);
+  }
+  .hero-mobile-img{display:none;}
+  .hero .inner{max-width:640px;padding:0;}
+  .hero h1{font-size:clamp(30px,4.6vw,48px);color:var(--ink);margin-bottom:18px;}
+  .hero .lead{font-size:clamp(15.5px,1.6vw,18px);color:var(--ink-dim);max-width:520px;margin-bottom:32px;}
+}
+
+/* ---------- TWO COLUMN SECTIONS ---------- */
+.two-col{max-width:1040px;}
+.two-col-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:center;}
+@media(min-width:941px){
+  .two-col-grid{grid-template-columns:1.05fr .95fr;gap:64px;}
+  .two-col-grid.reverse .col-media{order:2;}
+  .two-col-grid.reverse .col-text{order:1;}
+}
+.col-media img{border-radius:18px;box-shadow:0 20px 50px rgba(43,24,16,.16);}
+.col-text h2{font-size:clamp(23px,3vw,32px);line-height:1.2;margin-bottom:16px;}
+.col-text p{font-size:15px;margin-bottom:12px;}
+.col-text p:last-child{margin-bottom:0;}
+
+.narrow-col{max-width:640px;}
+
+.problem{background:var(--paper-2);}
+.kredibilitas{background:var(--paper-2);}
+
+/* ---------- STAT BLOCK ---------- */
+.stat-block{
+  display:flex;align-items:center;gap:16px;
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:16px;
+  padding:16px 18px;margin:16px 0;
+}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5vw,40px);color:var(--terracotta);line-height:1;flex:0 0 auto;}
+.stat-label{font-size:13px;color:var(--ink-dim);margin:0;}
+
+/* ---------- CALC TOGGLE (interactive detail) ---------- */
+.calc-toggle{
+  margin:14px 0 0;border:1px dashed var(--line-strong);border-radius:14px;
+  padding:0 16px;background:var(--paper);
+}
+.calc-toggle summary{
+  cursor:pointer;font-weight:700;color:var(--terracotta);font-size:13.5px;
+  padding:13px 0;list-style:none;display:flex;align-items:center;gap:8px;
+}
+.calc-toggle summary::-webkit-details-marker{display:none;}
+.calc-toggle summary::after{content:'+';margin-left:auto;font-size:17px;color:var(--gold);}
+.calc-toggle[open] summary::after{content:'\2212';}
+.calc-toggle p{font-size:13px;padding-bottom:14px;margin:0;color:var(--ink-dim);}
+
+/* ---------- SYLLOGISM BOX ---------- */
+.syllogism-box{
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:16px;
+  padding:18px 20px;margin:18px 0;
+}
+.syl-row{display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line-strong);}
+.syl-row:last-child{border-bottom:none;}
+.syl-tag{
+  flex:0 0 auto;font-family:var(--font-mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);
+  padding-top:2px;min-width:96px;
+}
+.syl-row p{font-size:14px;color:var(--ink);margin:0;}
+.syl-conclusion .syl-tag{color:var(--terracotta);}
+.syl-conclusion p{font-weight:600;color:var(--terracotta);}
+
+/* ---------- CREDIBILITY LIST ---------- */
+.cred-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+.cred-list li{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+}
+.cred-num{
+  flex:0 0 auto;width:26px;height:26px;border-radius:50%;
+  background:var(--gold-soft);color:var(--terracotta);
+  font-family:var(--font-display);font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+}
+.cred-list p{font-size:14px;color:var(--ink);margin:0;}
+
+/* ---------- OFFER STACK ---------- */
+.offer{background:var(--terracotta);color:#fff;}
+.offer h2{color:#fff;font-size:clamp(23px,3vw,32px);margin-bottom:14px;text-align:center;}
+.offer-lead{color:rgba(255,255,255,.82);font-size:14.5px;text-align:center;max-width:520px;margin:0 auto 30px;}
+.offer .inner{max-width:1040px;}
+.offer-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:start;}
+@media(min-width:941px){.offer-grid{grid-template-columns:.85fr 1.15fr;gap:56px;}}
+.offer-media img{border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.offer-list{display:flex;flex-direction:column;gap:14px;}
+.offer-item{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:16px 18px;
+}
+.offer-item.main{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);}
+.offer-item h3{color:#fff;font-size:16.5px;margin-bottom:5px;}
+.offer-item p{color:rgba(255,255,255,.78);font-size:13.5px;margin:0;}
+
+/* ---------- HOW IT WORKS ---------- */
+.cara-kerja .inner{max-width:920px;}
+.cara-kerja h2{font-size:clamp(23px,3vw,32px);text-align:center;margin-bottom:34px;}
+.steps{display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:720px){.steps{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:941px){.steps{grid-template-columns:repeat(4,1fr);}}
+.step{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px 18px;}
+.step-num{
+  font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--gold);
+  display:block;margin-bottom:8px;
+}
+.step h3{font-size:15.5px;margin-bottom:6px;line-height:1.3;}
+.step p{font-size:13px;margin:0;}
+.steps-note{
+  margin-top:28px;text-align:center;font-size:13.5px;max-width:560px;
+  margin-left:auto;margin-right:auto;
+}
+
+/* ---------- UNTUK SIAPA ---------- */
+.untuk-siapa{background:var(--gold-soft);}
+.untuk-siapa .inner{max-width:620px;text-align:center;}
+.untuk-siapa h2{font-size:clamp(21px,2.8vw,26px);margin-bottom:12px;}
+.untuk-siapa p{font-size:14.5px;}
+
+/* ---------- HARGA ---------- */
+.harga{background:var(--ink);color:#fff;}
+.harga .inner{max-width:520px;text-align:center;}
+.harga h2{color:#fff;font-size:clamp(23px,3vw,30px);margin-bottom:26px;}
+.price-box{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;padding:32px 24px;
+}
+.price-old{
+  display:block;font-family:var(--font-ui);font-size:15px;color:rgba(255,255,255,.5);
+  text-decoration:line-through;margin-bottom:6px;
+}
+.price-new{
+  display:block;font-family:var(--font-display);font-weight:700;
+  font-size:clamp(34px,6vw,48px);color:var(--gold-bright);line-height:1;margin-bottom:12px;
+}
+.price-desc{color:rgba(255,255,255,.75);font-size:14px;max-width:360px;margin:0 auto 24px;}
+.risk-reversal{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:9px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto;}
+.risk-reversal li{
+  display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.8);
+}
+.risk-reversal li svg{flex:0 0 auto;width:16px;height:16px;color:var(--gold-bright);margin-top:2px;}
+
+/* ---------- PENUTUP ---------- */
+.penutup{background:var(--paper);}
+.penutup .inner{max-width:560px;text-align:center;}
+.penutup .closing-lead{
+  font-family:var(--font-display);font-size:clamp(20px,2.6vw,26px);color:var(--ink);
+  font-weight:600;margin-bottom:16px;
+}
+.penutup p{font-size:14.5px;margin-bottom:22px;}
+.penutup .btn{margin-top:2px;}
+.penutup-img{
+  width:100%;max-width:280px;margin:0 auto 24px;border-radius:18px;
+  box-shadow:0 12px 28px rgba(43,24,16,.12);
+}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:rgba(24,13,8,.97);backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  transform:translateY(110%);opacity:0;
+  transition:transform .35s ease, opacity .35s ease;
+}
+.sticky-cta.show{transform:translateY(0);opacity:1;}
+.sticky-inner{
+  max-width:1040px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.sticky-price{display:flex;flex-direction:column;line-height:1.15;flex:1 1 auto;min-width:0;}
+.sticky-price .old{font-size:10.5px;color:rgba(255,255,255,.45);text-decoration:line-through;}
+.sticky-price .new{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--gold-bright);}
+.sticky-cta .btn{flex:0 0 auto;white-space:nowrap;}
+@media(max-width:400px){.sticky-price{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="jalur-progress" aria-hidden="true">
+  <div class="jalur-fill" id="jalurFill"></div>
+  <div class="jalur-dot" id="jalurDot"></div>
+  <div class="jalur-end">
+    <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+  </div>
+</div>
+
+<main>
+
+  <section class="fullsection hero" id="hero">
+    <div class="hero-bg-desktop" style="background-image:url('https://drive.google.com/thumbnail?id=13DvvcfZjbwOVo5KhRl3pUhBqUYWpt7Vi&sz=w1600');"></div>
+    <div class="hero-overlay"></div>
+    <div class="inner">
+      <h1>Berangkatkan Orang Tuamu ke Tanah Suci, Bukan Nunggu Gaji Naik, Tapi Lewat Loket yang Benar</h1>
+      <img class="hero-mobile-img" src="https://drive.google.com/thumbnail?id=13DvvcfZjbwOVo5KhRl3pUhBqUYWpt7Vi&sz=w1200" alt="Ilustrasi siluet Ka'bah bergaya line art" loading="lazy">
+      <p class="lead">Ada jalur lain yang selama ini nganggur di rumahmu sendiri. Cukup 10 sampai 15 menit sehari, lewat panduan 30 hari.</p>
+      <a href="#harga" class="btn btn-primary">Ya, Aku Mau Mulai Buka Jalurnya Sekarang</a>
+    </div>
+  </section>
+
+  <section class="fullsection problem" id="problem">
+    <div class="inner narrow-col reveal">
+      <div class="col-text">
+        <h2>Coba Hitung Sendiri, Kenapa Tabunganmu Kayaknya Gak Akan Pernah Cukup</h2>
+        <p>Gaji empat juta, sisa nabung tiga ratus ribu sebulan. Kebutuhan berangkatin dua orang tua, sekitar enam puluh juta.</p>
+        <div class="stat-block">
+          <span class="stat-num">16 Tahun</span>
+          <p class="stat-label">Kalau dihitung pakai cara biasa. Umur orang tua kita, gak ada yang bisa jamin sepanjang itu.</p>
+        </div>
+        <details class="calc-toggle">
+          <summary>Lihat cara hitungnya</summary>
+          <p>Gaji Rp4.000.000, sisa nabung Rp300.000 per bulan. Kebutuhan dua orang tua sekitar Rp60.000.000. Rp60.000.000 dibagi Rp300.000 sama dengan 200 bulan, atau sekitar 16 tahun.</p>
+        </details>
+        <p>Ada temen sepengajian yang gajinya lebih kecil, tapi udah duluan berangkatin orang tuanya. Berarti bukan cuma soal gaji.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fullsection mekanisme" id="mekanisme">
+    <div class="inner two-col reveal">
+      <div class="two-col-grid reverse">
+        <div class="col-media">
+          <img src="https://drive.google.com/thumbnail?id=1r2Zuuy3p9eO8ljsUD2intRiEBQsx7cbT&sz=w1200" alt="Ilustrasi dua gerbang, satu tertutup satu terbuka menuju Ka'bah" loading="lazy">
+        </div>
+        <div class="col-text">
+          <h2>Loket yang Selama Ini Kamu Datangi, Bukan Salah, Cuma Bukan yang Tepat untuk Hajat Ini</h2>
+          <p>Selama ini kamu antri di jalur logika: dapat gaji, sisihkan sedikit, kumpulkan sampai cukup. Valid buat beli motor, tapi kelewat lambat buat hajat sebesar ini.</p>
+          <div class="syllogism-box">
+            <div class="syl-row">
+              <span class="syl-tag">Premis Satu</span>
+              <p>Ridho Allah tergantung ridho orang tua.</p>
+            </div>
+            <div class="syl-row">
+              <span class="syl-tag">Premis Dua</span>
+              <p>Ridho Allah adalah pintu rezeki.</p>
+            </div>
+            <div class="syl-row syl-conclusion">
+              <span class="syl-tag">Kesimpulan</span>
+              <p>Pintu rezeki untuk hajat ini, kemungkinan besar terbuka lewat ridho orang tua dulu, bukan cuma lewat hitungan gaji.</p>
+            </div>
+          </div>
+          <p>Bukan berhenti menabung. Cuma ridho ditaruh duluan, sebagai pembuka pintu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fullsection kredibilitas" id="kredibilitas">
+    <div class="inner narrow-col reveal">
+      <div class="col-text">
+        <h2>Ini Bukan Cerita Karangan, Sudah Tercatat Sembilan Ratus Tahun</h2>
+        <ul class="cred-list">
+          <li>
+            <span class="cred-num">1</span>
+            <p><strong>Uwais Al Qarni</strong>, orang biasa. Rasulullah sendiri bilang doanya mustajab, sebab baktinya ke ibu.</p>
+          </li>
+          <li>
+            <span class="cred-num">2</span>
+            <p><strong>Imam Bukhari</strong>, penglihatannya kembali karena doa ibunya.</p>
+          </li>
+          <li>
+            <span class="cred-num">3</span>
+            <p>Kitab Birrul Walidain karya <strong>Ibnul Jauzi</strong>, umurnya 900 tahun, masih dicetak sampai sekarang.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="fullsection offer" id="offer">
+    <div class="inner reveal">
+      <h2>Semua yang Kamu Butuhin, Udah Dirangkum Jadi Satu</h2>
+      <p class="offer-lead">Bukan file yang didownload terus numpuk di folder. Begitu bayar, kamu langsung dapet link akses pribadi + kode masuk, tinggal buka dari HP kapan pun kamu mau.</p>
+      <div class="offer-grid">
+        <div class="offer-media">
+          <img src="https://drive.google.com/thumbnail?id=1iTsLu65ehWQEzU4juH-0SHSY_pzpkTUP&sz=w1200" alt="Mockup ebook Jalur Baitullah dan KIT tambahan" loading="lazy">
+        </div>
+        <div class="offer-list">
+          <div class="offer-item main">
+            <h3>Ebook Jalur Baitullah</h3>
+            <p>Paham urutan jalur ridho dari awal, lengkap dalil, kisah, dan langkah konkretnya.</p>
+          </div>
+          <div class="offer-item">
+            <h3>Kalkulator Rezeki Tiket</h3>
+            <p>Masukkan kota, jumlah orang tua, dan setoranmu. Langsung dapat target dana dan estimasi tanggal berangkat.</p>
+          </div>
+          <div class="offer-item">
+            <h3>Tracker 30 Hari</h3>
+            <p>Satu misi per hari, empat minggu, biar jalanmu terarah.</p>
+          </div>
+          <div class="offer-item">
+            <h3>Bank Doa dan Script Bakti</h3>
+            <p>Kalimat siap pakai buat minta doa ke orang tua, tinggal pilih situasinya.</p>
+          </div>
+          <div class="offer-item">
+            <h3>Jurnal Penyerahan Hajat</h3>
+            <p>Tempat menulis surat penyerahan hajat, dibaca ulang kapan pun cemas datang.</p>
+          </div>
+          <div class="offer-item">
+            <h3>Papan Milestone</h3>
+            <p>Progres visual, makin dekat ke Ka'bah tiap kali kamu menyetor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fullsection cara-kerja" id="cara-kerja">
+    <div class="inner reveal">
+      <h2>Cukup Empat Langkah, Mulai dari Hari Ini</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Hitung target dana</h3>
+          <p>Pakai Kalkulator Rezeki Tiket, biar angkanya jelas.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>Aktifkan jalur ridho</h3>
+          <p>Jalanin misi harian, pakai Bank Doa kalau masih canggung.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>Serahkan hajatnya</h3>
+          <p>Tulis Surat Penyerahan Hajat, biar hati tetap tenang.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <h3>Pantau progresnya</h3>
+          <p>Update Papan Milestone tiap kali nabung.</p>
+        </div>
+      </div>
+      <p class="steps-note">Banyak yang cerita, begitu mulai jalanin misinya, rezeki tambahan datang dari arah yang gak pernah dihitung.</p>
+    </div>
+  </section>
+
+  <section class="fullsection untuk-siapa" id="untuk-siapa">
+    <div class="inner reveal">
+      <h2>Buat Kamu yang Orang Tuanya Jauh, atau Udah Gak Ada</h2>
+      <p>Ebook ini tetap membahas jalannya buat kondisi itu, caranya cuma sedikit berbeda.</p>
+    </div>
+  </section>
+
+  <section class="fullsection harga" id="harga">
+    <div class="inner reveal">
+      <h2>Harga Buka Jalurnya</h2>
+      <div class="price-box">
+        <span class="price-old">Rp297.000</span>
+        <span class="price-new">Rp127.000</span>
+        <p class="price-desc">Sekali bayar, kamu dapet link + kode akses ke ebook Jalur Baitullah lengkap plus lima kit pendampingnya.</p>
+        <a href="#" class="btn btn-gold btn-large">Ya, Aku Mau Berangkatkan Orang Tuaku</a>
+        <ul class="risk-reversal">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Akses selamanya, sekali bayar, gak ada biaya bulanan.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Akses lewat link + kode pribadi, tinggal buka dari HP kapan pun kamu mau.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Pembayaran aman.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="fullsection penutup" id="penutup">
+    <div class="inner reveal">
+      <img class="penutup-img" src="https://drive.google.com/thumbnail?id=1ePoi7Y8RjN-X7ssHFvG9D8dk2EsVti9t&sz=w1200" alt="Ilustrasi gerbang terbuka lebar dengan cahaya hangat" loading="lazy">
+      <p class="closing-lead">Sekarang kamu ada di dua pilihan.</p>
+      <p>Lanjut jalan yang sama seperti bertahun-tahun kemarin, atau mulai pindah ke jalur yang selama ini kosong. Dananya mungkin belum penuh hari ini, dan itu gak apa apa. Yang penting, jalurnya udah mulai kebuka.</p>
+      <a href="#harga" class="btn btn-primary btn-large">Ya, Aku Mau Berangkatkan Orang Tuaku</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-inner">
+    <div class="sticky-price">
+      <span class="old">Rp297.000</span>
+      <span class="new">Rp127.000</span>
+    </div>
+    <a href="#harga" class="btn btn-gold btn-sm">Buka Jalurnya</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  // jalur progress line
+  function updateJalur(){
+    var doc = document.documentElement;
+    var scrollTop = window.scrollY || doc.scrollTop;
+    var height = doc.scrollHeight - doc.clientHeight;
+    var pct = height > 0 ? Math.min(100, Math.max(0,(scrollTop/height)*100)) : 0;
+    var fill = document.getElementById('jalurFill');
+    var dot = document.getElementById('jalurDot');
+    if(fill) fill.style.height = pct + '%';
+    if(dot) dot.style.top = pct + '%';
+  }
+  window.addEventListener('scroll', function(){ requestAnimationFrame(updateJalur); }, {passive:true});
+  updateJalur();
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          ro.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(function(el){ ro.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // sticky cta, muncul setelah lewat hero
+  var hero = document.getElementById('hero');
+  var stickyCta = document.getElementById('stickyCta');
+  if('IntersectionObserver' in window && hero && stickyCta){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          stickyCta.classList.remove('show');
+        } else {
+          stickyCta.classList.add('show');
+        }
+      });
+    }, {threshold:0});
+    co.observe(hero);
+  }
+})();
+</script>
+
+</body>
+</html>
