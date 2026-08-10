@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metode Hafal Quran, Hafalan Nempel Lebih Lama Cukup 20 Menit Sehari</title>
+<meta name="description" content="Metode SSI, cara menghafal Al Quran yang dirancang khusus untuk otak orang dewasa yang sibuk. Cukup 20 menit sehari, tanpa ngulang ratusan kali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+:root{
+  --emerald-deep: #14453D;
+  --emerald-900: #0D2E29;
+  --gold-accent: #C9973B;
+  --gold-soft: #E0BD7A;
+  --cream-bg: #FAF6EE;
+  --cream-card: #FFFFFF;
+  --charcoal-text: #262321;
+  --charcoal-soft: #55504A;
+  --sage-soft: #6B8F7F;
+  --on-dark: #F5EFE0;
+  --on-dark-soft: rgba(245,239,224,0.78);
+  --on-dark-faint: rgba(245,239,224,0.5);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --space-8: 128px;
+
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 20px 60px -20px rgba(20,69,61,0.35);
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--charcoal-text);
+  background: var(--cream-bg);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+@media (min-width: 900px){
+  .wrap{ padding: 0 64px; }
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1{ font-size: clamp(32px, 5.5vw, 56px); font-weight: 900; }
+h2{ font-size: clamp(26px, 4vw, 40px); }
+h3{ font-size: clamp(18px, 2.2vw, 22px); font-weight: 700; }
+
+p{ max-width: 60ch; }
+.center-text p{ margin-left: auto; margin-right: auto; }
+
+.eyebrow-none{ display: none; } /* sengaja tidak dipakai, sesuai catatan: nol eyebrow */
+
+/* ============================================================
+   SECTION LAYOUT (fullscreen desktop, natural mobile)
+============================================================ */
+.section{
+  position: relative;
+  padding: 64px 0;
+  display: flex;
+  align-items: center;
+}
+.section-inner{ width: 100%; }
+
+@media (min-width: 900px){
+  .section{
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+}
+
+.bg-cream{ background: var(--cream-bg); color: var(--charcoal-text); }
+.bg-emerald{ background: var(--emerald-deep); color: var(--on-dark); }
+.bg-emerald-900{ background: var(--emerald-900); color: var(--on-dark); }
+
+.bg-emerald h2, .bg-emerald h3,
+.bg-emerald-900 h2, .bg-emerald-900 h3{ color: var(--on-dark); }
+.bg-emerald p, .bg-emerald-900 p{ color: var(--on-dark-soft); }
+
+/* ============================================================
+   REVEAL ON SCROLL
+============================================================ */
+.reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.in-view{ opacity: 1; transform: translateY(0); }
+.reveal-delay-1{ transition-delay: 0.1s; }
+.reveal-delay-2{ transition-delay: 0.2s; }
+.reveal-delay-3{ transition-delay: 0.3s; }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 16px 28px;
+  border-radius: 100px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: normal;
+  max-width: 100%;
+}
+@media (max-width: 420px){
+  .btn{ font-size: 14.5px; padding: 14px 22px; }
+}
+.btn-gold{
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold-accent));
+  color: var(--emerald-900);
+  box-shadow: 0 12px 30px -10px rgba(201,151,59,0.55);
+}
+.btn-gold:hover{ transform: scale(1.02); box-shadow: 0 16px 36px -8px rgba(201,151,59,0.65); }
+.btn-outline{
+  border: 1.5px solid var(--sage-soft);
+  color: inherit;
+}
+.btn-block{ width: 100%; }
+
+.btn-sub{
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  background: var(--cream-bg);
+}
+.hero-grid{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.hero-headline{ order: 1; }
+.hero-visual{ order: 2; }
+.hero-content{ order: 3; }
+@media (min-width: 900px){
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-6);
+    row-gap: var(--space-2);
+    align-items: center;
+  }
+  .hero-headline{ grid-column: 1; grid-row: 1; order: initial; align-self: end; }
+  .hero-content{ grid-column: 1; grid-row: 2; order: initial; align-self: start; }
+  .hero-visual{ grid-column: 2; grid-row: 1 / span 2; order: initial; }
+}
+.hero-eyebrow-space{ height: 4px; } /* placeholder kecil, tanpa teks eyebrow */
+.hero h1{ color: var(--emerald-deep); }
+.hero .sub{
+  font-size: clamp(16px, 1.9vw, 19px);
+  color: var(--charcoal-soft);
+  max-width: 46ch;
+  margin-bottom: var(--space-4);
+}
+.hero-cta-row{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.hero-price-tag{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--emerald-deep);
+}
+.hero-price-tag .old{ text-decoration: line-through; opacity: 0.45; font-size: 15px; font-weight: 500; }
+.hero-price-tag .new{ font-size: 22px; }
+
+.hero-visual{
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  animation: float-y 4s ease-in-out infinite;
+}
+.hero-visual img{ width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
+
+@keyframes float-y{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-12px); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-visual{ animation: none; }
+  .reveal{ transition: none; opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO / ABOVE THE FOLD
+============================================================ -->
+<section class="section hero" id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-headline reveal in-view">
+        <h1>Hafalan Ayat Nempel Lebih Lama, Cukup 20 Menit Sehari, Tanpa Ngulang Ratusan Kali</h1>
+      </div>
+      <div class="hero-visual">
+        <img src="https://drive.google.com/thumbnail?id=1KNyDGsOoV67eYBY-yManQE5rr2IAfiPq&sz=w1200" alt="Ilustrasi mushaf terbuka dengan cahaya lembut">
+      </div>
+      <div class="hero-content reveal in-view">
+        <p class="sub">Metode SSI pakai cara mengingat yang udah kepake tiap hari, biar hafalan gak gampang hilang meski kamu sibuk.</p>
+        <div class="hero-cta-row">
+          <a href="#harga" class="btn btn-gold">Mulai Menghafal Sekarang</a>
+        </div>
+        <p class="hero-price-tag" style="margin-top:20px;"><span class="old">Rp347.000</span><span class="new">Rp127.000</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ============================================================
+   SPLIT MEDIA SECTIONS (masalah, bridge, mekanisme)
+============================================================ */
+.split{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+@media (min-width: 900px){
+  .split{ grid-template-columns: 0.95fr 1.05fr; gap: var(--space-6); }
+  .split.reverse .split-media{ order: 2; }
+  .split.reverse .split-text{ order: 1; }
+}
+.split-text h2{ margin-bottom: var(--space-3); }
+.split-text p{ margin-bottom: var(--space-2); }
+.split-text p:last-child{ margin-bottom: 0; }
+
+.media-frame{
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.media-frame img{ width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+
+.tag-line{
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-accent);
+  margin-bottom: var(--space-2);
+}
+
+/* ============================================================
+   OFFER STACK (ebook + kit)
+============================================================ */
+.offer-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 700px){
+  .offer-grid{ grid-template-columns: 1fr 1fr; }
+}
+.offer-card{
+  background: var(--cream-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 12px 32px -18px rgba(20,69,61,0.25);
+  border: 1px solid rgba(107,143,127,0.18);
+}
+.offer-card h3{ color: var(--emerald-deep); margin-bottom: var(--space-2); }
+.offer-card ul{ display: flex; flex-direction: column; gap: 10px; }
+.offer-card li{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 15px;
+  color: var(--charcoal-soft);
+}
+.offer-card li b{ color: var(--charcoal-text); }
+.check-ico{ flex: none; width: 18px; height: 18px; margin-top: 3px; color: var(--gold-accent); }
+
+.offer-mockup{
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-5);
+}
+.offer-mockup img{ width: 100%; object-fit: cover; }
+
+/* ============================================================
+   KIT PREVIEW (widget interaktif)
+============================================================ */
+.kit-preview{
+  max-width: 640px;
+  margin: var(--space-5) auto 0;
+  background: var(--cream-card);
+  border: 1px solid rgba(107,143,127,0.22);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: center;
+}
+.kit-preview-label{
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--emerald-deep);
+  margin-bottom: var(--space-3);
+  max-width: none;
+}
+.kit-steps{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: var(--space-3);
+}
+@media (min-width: 560px){
+  .kit-steps{ grid-template-columns: repeat(4, 1fr); }
+}
+.kit-step{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--charcoal-soft);
+  background: var(--cream-bg);
+  border: 1.5px solid rgba(107,143,127,0.3);
+  border-radius: 100px;
+  padding: 10px 14px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  text-align: left;
+}
+.kit-check{
+  flex: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sage-soft);
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.kit-step.done{
+  background: var(--emerald-deep);
+  border-color: var(--emerald-deep);
+  color: var(--on-dark);
+}
+.kit-step.done .kit-check{
+  background: var(--gold-accent);
+  border-color: var(--gold-accent);
+}
+.kit-step.done .kit-check::after{
+  content: '';
+  position: absolute;
+  left: 3px; top: 0px;
+  width: 4px; height: 8px;
+  border: solid var(--emerald-900);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.kit-progress-track{
+  height: 8px;
+  background: rgba(107,143,127,0.2);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.kit-progress-fill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold-accent));
+  border-radius: 100px;
+  transition: width 0.3s ease;
+}
+.kit-progress-text{
+  font-size: 13px;
+  color: var(--charcoal-soft);
+  margin-top: 10px;
+  max-width: none;
+}
+
+/* ============================================================
+   CARA KERJA (steps)
+============================================================ */
+.step-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+@media (min-width: 700px){
+  .step-grid{ grid-template-columns: repeat(4, 1fr); }
+}
+.step-card{
+  background: rgba(245,239,224,0.06);
+  border: 1px solid rgba(245,239,224,0.14);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+.step-num{
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--gold-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.step-icon{ color: var(--gold-accent); margin-bottom: var(--space-2); }
+.step-icon svg{ width: 30px; height: 30px; }
+.step-card h3{ font-size: 17px; margin-bottom: 6px; }
+.step-card p{ font-size: 14px; color: var(--on-dark-soft); }
+
+/* ============================================================
+   UNTUK SIAPA
+============================================================ */
+.audience-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+@media (min-width: 700px){
+  .audience-list{ grid-template-columns: 1fr 1fr; }
+}
+.audience-item{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--cream-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  border: 1px solid rgba(107,143,127,0.18);
+}
+.audience-item svg{ flex: none; width: 20px; height: 20px; color: var(--emerald-deep); margin-top: 2px; }
+.audience-item p{ font-size: 15px; color: var(--charcoal-soft); }
+
+/* ============================================================
+   CERITA (social proof narasi)
+============================================================ */
+.story{
+  max-width: 68ch;
+  margin: 0 auto;
+  text-align: left;
+}
+.story p{ max-width: none; font-size: 17px; color: var(--on-dark-soft); margin-bottom: var(--space-3); }
+.story p:last-child{ margin-bottom: 0; }
+
+/* ============================================================
+   PATTERN STRIP (motif geometris islami)
+============================================================ */
+.pattern-strip{
+  height: 16px;
+  background-image: repeating-linear-gradient(45deg, var(--gold-accent) 0 2px, transparent 2px 16px),
+                     repeating-linear-gradient(-45deg, var(--gold-accent) 0 2px, transparent 2px 16px);
+  opacity: 0.35;
+}
+
+/* ============================================================
+   HARGA / PRICE CARD
+============================================================ */
+.price-wrap{
+  max-width: 520px;
+  margin: var(--space-5) auto 0;
+  background: var(--cream-card);
+  color: var(--charcoal-text);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-soft);
+}
+.price-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(107,143,127,0.4);
+  font-size: 15px;
+}
+.price-row:last-of-type{ border-bottom: none; }
+.price-row .label{ color: var(--charcoal-soft); }
+.price-row .val{ font-weight: 700; }
+.price-row.total .val{ text-decoration: line-through; opacity: 0.45; }
+.price-final{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 2px solid var(--emerald-deep);
+}
+.price-final .label{ font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.price-final .val{ font-family: var(--font-display); font-weight: 900; font-size: 32px; color: var(--emerald-deep); }
+.price-wrap .btn{ margin-top: var(--space-4); }
+.price-note{ font-size: 13px; color: var(--charcoal-soft); margin-top: var(--space-2); text-align: center; max-width: none; }
+
+/* ============================================================
+   FAQ
+============================================================ */
+.faq-list{ max-width: 760px; margin: var(--space-5) auto 0; }
+.faq-item{
+  border-bottom: 1px solid rgba(107,143,127,0.3);
+}
+.faq-q{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 4px;
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--charcoal-text);
+}
+.faq-icon{
+  flex: none;
+  width: 22px; height: 22px;
+  position: relative;
+}
+.faq-icon::before, .faq-icon::after{
+  content: '';
+  position: absolute;
+  background: var(--emerald-deep);
+  transition: transform 0.3s ease;
+}
+.faq-icon::before{ width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+.faq-icon::after{ width: 2px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+.faq-item.open .faq-icon::after{ transform: translateX(-50%) rotate(90deg); opacity: 0; }
+.faq-a{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-a p{
+  padding: 0 4px var(--space-3);
+  font-size: 15px;
+  color: var(--charcoal-soft);
+  max-width: none;
+}
+
+/* ============================================================
+   CLOSING
+============================================================ */
+.closing{
+  position: relative;
+  color: var(--on-dark);
+  text-align: center;
+  padding-bottom: calc(64px + 110px);
+}
+@media (min-width: 900px){
+  .closing{ padding-bottom: 110px; }
+}
+.closing-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.closing-bg img{ width: 100%; height: 100%; object-fit: cover; }
+.closing-bg::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,46,41,0.55), rgba(13,46,41,0.92));
+}
+.closing .wrap{ position: relative; z-index: 1; }
+.closing h2{ max-width: 20ch; margin: 0 auto var(--space-3); }
+.closing p.sub{ max-width: 50ch; margin: 0 auto var(--space-4); color: var(--on-dark-soft); }
+
+footer{
+  padding: var(--space-5) 0 calc(var(--space-5) + 90px);
+  background: var(--emerald-900);
+  color: var(--on-dark-faint);
+  text-align: center;
+  font-size: 13px;
+}
+.footer-links{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  margin-bottom: var(--space-4);
+}
+.footer-links a{
+  color: var(--on-dark-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover{ color: var(--gold-soft); }
+.footer-links .dot{
+  color: rgba(245,239,224,0.25);
+  font-size: 13px;
+}
+.footer-disclaimer{
+  max-width: 56ch;
+  margin: 0 auto var(--space-2);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--on-dark-faint);
+}
+.footer-owner{
+  font-size: 12px;
+  color: var(--on-dark-faint);
+  opacity: 0.8;
+  max-width: 40ch;
+  margin: 0 auto;
+}
+@media (max-width: 560px){
+  .footer-links{ gap: 8px 12px; }
+  .footer-links .dot{ display: none; }
+  .footer-links a{ font-size: 13px; }
+}
+
+/* ============================================================
+   STICKY CTA
+============================================================ */
+.sticky-cta{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--emerald-900);
+  border-top: 1px solid rgba(245,239,224,0.12);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+  padding: 12px 16px;
+  overflow: hidden;
+}
+.sticky-cta.visible{ transform: translateY(0); }
+.sticky-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.sticky-price{ display: flex; flex-direction: column; line-height: 1.2; min-width: 0; flex: none; }
+.sticky-price .old{ font-size: 12px; text-decoration: line-through; color: var(--on-dark-faint); }
+.sticky-price .new{ font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--on-dark); }
+.sticky-cta .btn{ padding: 14px 24px; font-size: 15px; flex: none; }
+
+@media (max-width: 560px){
+  .sticky-price .new{ font-size: 17px; }
+  .sticky-cta .btn{ padding: 12px 18px; font-size: 14px; }
+}
+</style>
+
+<!-- ============================================================
+     MASALAH
+============================================================ -->
+<section class="section bg-cream" id="masalah">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-text reveal">
+        <span class="tag-line">Yang Sering Kejadian</span>
+        <h2>Kalau Ngulang Aja Cukup, Harusnya yang Paling Sering Ngulang yang Paling Cepat Hafal</h2>
+        <p>Kalau ngulang aja cukup, orang yang paling sering murojaah harusnya paling cepat hafal. Kenyataannya enggak selalu begitu. Ngulang belasan kali, besoknya ditanya ulang malah bengong. Bukan males, ada bagian penting yang belum kepenuhi.</p>
+        <p>Ngerasa udah kepala tiga kepala empat, atau minder lihat orang lain lebih cepat hafal? Itu bukan otakmu lemah. Itu cara yang salah buat kondisi yang salah.</p>
+      </div>
+      <div class="split-media reveal reveal-delay-1">
+        <div class="media-frame">
+          <img src="https://drive.google.com/thumbnail?id=1moFrxvhAtrR2nLSYorWcd4tCJ_ZyhD4-&sz=w1000" alt="Ilustrasi halaman mushaf yang teksnya memudar">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRIDGE
+============================================================ -->
+<section class="section bg-emerald" id="bridge">
+  <div class="wrap">
+    <div class="split reverse">
+      <div class="split-text reveal">
+        <span class="tag-line">Titik Baliknya</span>
+        <h2>Bukan Otakmu yang Melemah, Cuma Caranya yang Udah Gak Pas</h2>
+        <p>Bayangin sepatu SD kamu dulu, pas banget waktu itu. Dipaksain dipakai sekarang, jelas sesak. Bukan kakimu yang salah, sepatunya emang udah gak sesuai lagi.</p>
+        <p>Cara menghafal sejak kecil itu sama, diulang sampai lisan otomatis, pas buat anak anak. Begitu otak dewasa, gak akan pernah pas lagi. Bukan otaknya rusak, cuma sepatunya harus ganti.</p>
+      </div>
+      <div class="split-media reveal reveal-delay-1">
+        <div class="media-frame">
+          <img src="https://drive.google.com/thumbnail?id=1qvGR8uKgVzQ6gry9wsFDkOKZLuzui5H5&sz=w1000" alt="Ilustrasi lentera masjid redup bertransisi ke lentera menyala terang">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEKANISME
+============================================================ -->
+<section class="section bg-emerald-900" id="mekanisme">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-text reveal">
+        <span class="tag-line">Kenapa Ini Bisa Beda</span>
+        <h2>Otakmu Sebenarnya Udah Jago Mengingat, Cuma Belum Diarahkan ke Ayat</h2>
+        <p>Tengah malam lampu mati, kamu tetap bisa jalan ke dapur tanpa nabrak apa pun, otakmu udah nyimpen peta rumahmu sendiri. Lirik lagu SMA belasan tahun lalu pun masih bisa kamu nyanyikan penuh, padahal gak pernah niat menghafalnya.</p>
+        <p>Dua kekuatan itu, ingatan tempat dan ingatan cerita, udah ada di kepalamu, cuma belum pernah dipakai buat ayat. Metode SSI menyatukan keduanya plus satu lagi, keterlibatan multi indra, jadi ayat susah nempel jadi seringan jalan pulang ke rumah sendiri.</p>
+      </div>
+      <div class="split-media reveal reveal-delay-1">
+        <div class="media-frame">
+          <img src="https://drive.google.com/thumbnail?id=1m-bNVwOcZHp7MQ7qfcOaspnPaCThfgke&sz=w1200" alt="Ilustrasi siluet Kabah dengan garis kompas dan jejak cahaya">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OFFER STACK (Apa yang kamu dapat)
+============================================================ -->
+<section class="section bg-cream" id="offer">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 640px; margin: 0 auto;">
+      <span class="tag-line">Isi Paketnya</span>
+      <h2>Semua yang Kamu Butuhkan untuk Praktik Ada di Sini</h2>
+    </div>
+
+    <div class="offer-mockup reveal reveal-delay-1" style="max-width: 780px; margin-left:auto; margin-right:auto;">
+      <img src="https://drive.google.com/thumbnail?id=1VTjQ3LWLwD5ciujT-QeHKeZpacRIHRHa&sz=w1400" alt="Mockup Ebook Metode Hafal Quran dan KIT Tambahan">
+    </div>
+
+    <div class="offer-grid">
+      <div class="offer-card reveal reveal-delay-1">
+        <h3>Ebook Metode Hafal Quran</h3>
+        <p style="font-size:14px; color:var(--charcoal-soft); margin-bottom:14px;">Panduan lengkap 3 teknik inti metode SSI.</p>
+        <ul>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Pemetaan Spasial Ayat</b>, bikin memory palace di rumahmu sendiri, taruh ayat di titik yang udah familiar.</span></li>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Menghubungkan Makna Ayat</b>, ubah terjemahan jadi cerita mental yang gampang diingat.</span></li>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Pengelompokan Multi Sensorik</b>, libatkan visual, suara, dan ritme bacaan biar makin kuat.</span></li>
+        </ul>
+      </div>
+      <div class="offer-card reveal reveal-delay-2">
+        <h3>KIT Tambahan</h3>
+        <p style="font-size:14px; color:var(--charcoal-soft); margin-bottom:14px;">Alat praktik harian biar teorinya kepake beneran.</p>
+        <ul>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sesi Hafalan Harian</b>, checklist plus 4 langkah dengan timer, 20 sampai 45 menit.</span></li>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sistem Retensi 4 Fase</b>, jadwal review otomatis, hari yang sama sampai bulan depan.</span></li>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Rencana 90 Hari</b>, roadmap yang bisa kamu centang progresnya tiap bulan.</span></li>
+          <li><svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Kamus Istilah Hafalan</b>, cari tiap kali lupa arti istilah di ebook.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kit-preview reveal reveal-delay-2">
+      <p class="kit-preview-label">Coba rasain cara kerja KIT-nya, klik tiap langkah</p>
+      <div class="kit-steps" id="kitSteps">
+        <button class="kit-step" type="button" data-step="1"><span class="kit-check"></span>Dengar Murattal</button>
+        <button class="kit-step" type="button" data-step="2"><span class="kit-check"></span>Teknik Spasial</button>
+        <button class="kit-step" type="button" data-step="3"><span class="kit-check"></span>Teknik Makna</button>
+        <button class="kit-step" type="button" data-step="4"><span class="kit-check"></span>Review Hafalan</button>
+      </div>
+      <div class="kit-progress-track"><div class="kit-progress-fill" id="kitProgressFill"></div></div>
+      <p class="kit-progress-text" id="kitProgressText">0 dari 4 langkah selesai, sesi hari ini gitu doang</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CARA KERJA
+============================================================ -->
+<section class="section bg-emerald" id="cara-kerja">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 560px; margin: 0 auto;">
+      <span class="tag-line">Prosesnya</span>
+      <h2>Cara Kerjanya, Cuma 4 Langkah</h2>
+    </div>
+
+    <div class="step-grid">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Baca Metodenya</h3>
+        <p>Pahami 3 teknik inti lewat ebook, sekali baca santai.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Praktik Harian</h3>
+        <p>Ikuti checklist dan timer di KIT, sekitar 20 sampai 45 menit.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15 -6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
+        <h3>Ikuti Jadwal Retensi</h3>
+        <p>Biar hafalan yang udah didapat gak balik ilang.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h3>Pantau Progres 90 Hari</h3>
+        <p>Lihat sendiri perkembangannya tiap bulan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     UNTUK SIAPA
+============================================================ -->
+<section class="section bg-cream" id="untuk-siapa">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 600px; margin: 0 auto;">
+      <span class="tag-line">Cek Dirimu</span>
+      <h2>Cocok Buat Kamu yang Sibuk Tapi Tetap Pengin Hafal</h2>
+    </div>
+
+    <div class="audience-list">
+      <div class="audience-item reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <p>Udah sering coba menghafal, tapi paling lama bertahan beberapa minggu terus berhenti lagi.</p>
+      </div>
+      <div class="audience-item reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <p>Ngerasa umur udah gak muda buat mulai, padahal belum pernah coba cara buat otak dewasa.</p>
+      </div>
+      <div class="audience-item reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <p>Sibuk kerja, sibuk ngurus keluarga, cuma punya waktu terbatas tiap hari.</p>
+      </div>
+      <div class="audience-item reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <p>Capek ngulang ayat berkali kali, tapi besoknya tetap lupa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CERITA (social proof narasi, nol gambar)
+============================================================ -->
+<section class="section bg-emerald-900" id="cerita">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 640px; margin: 0 auto 8px;">
+      <span class="tag-line">Asal Usulnya</span>
+      <h2>Metode Ini Lahir dari Kegagalan Berkali Kali, Bukan Teori di Buku</h2>
+    </div>
+    <div class="story reveal reveal-delay-1">
+      <p>Metode ini lahir dari kegagalan berkali kali, bukan kajian di ruang kelas. Setoran ke ustadz, hafal, dua hari kemudian lupa lagi, sampai rasanya mau menyerah.</p>
+      <p>Titik baliknya sederhana. Otak yang katanya lemah ini tiap hari gampang inget jalan pulang sampai lirik lagu lama. Kekuatan itu tinggal diarahkan ke ayat, jadi tiga teknik ini disusun khusus buat otak dewasa yang sibuk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HARGA
+============================================================ -->
+<section class="section bg-cream" id="harga">
+  <div class="pattern-strip" style="position:absolute; top:0; left:0; right:0;"></div>
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 600px; margin: 0 auto;">
+      <span class="tag-line">Penawarannya</span>
+      <h2>Yang Kamu Investasikan Hari Ini</h2>
+      <p style="margin: 12px auto 0; color: var(--charcoal-soft);">Akses selamanya, sekali bayar, gak ada biaya bulanan. Ebook dan KIT bisa langsung dipakai begitu pembayaran selesai.</p>
+    </div>
+
+    <div class="price-wrap reveal reveal-delay-1">
+      <div class="price-row">
+        <span class="label">Ebook Metode Hafal Quran</span>
+        <span class="val">Rp197.000</span>
+      </div>
+      <div class="price-row">
+        <span class="label">KIT Tambahan, 4 alat praktik harian</span>
+        <span class="val">Rp150.000</span>
+      </div>
+      <div class="price-row total">
+        <span class="label">Total nilai</span>
+        <span class="val">Rp347.000</span>
+      </div>
+      <div class="price-final">
+        <span class="label">Harga hari ini</span>
+        <span class="val">Rp127.000</span>
+      </div>
+      <a href="#" class="btn btn-gold btn-block">Mulai Menghafal Sekarang</a>
+      <p class="price-note">Gak perlu nunggu jadwal kelas atau antre kelompok. Langsung praktik begitu selesai bayar.</p>
+    </div>
+  </div>
+  <div class="pattern-strip" style="position:absolute; bottom:0; left:0; right:0;"></div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="section bg-cream" id="faq">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 560px; margin: 0 auto;">
+      <span class="tag-line">Sebelum Mulai</span>
+      <h2>Pertanyaan yang Sering Muncul</h2>
+    </div>
+
+    <div class="faq-list reveal reveal-delay-1">
+      <div class="faq-item">
+        <button class="faq-q"><span>Aku baru mulai belajar ngaji, apa metode ini tetap bisa dipakai?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Bisa. Metode ini fokus ke cara mengingat, bukan cara membaca. Selama udah bisa baca ayat pelan pelan, langsung bisa dipraktikkan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Umurku udah kepala empat, otak udah gak seencer dulu, apa masih efektif?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Justru metode ini dirancang khusus buat otak dewasa, bukan cara belajar ala anak kecil. Makin dewasa, makin kuat dua kekuatan ingatan yang dipakai di sini.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>KIT tambahan itu perlu diinstall dulu?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Enggak. KIT ini file yang langsung dibuka lewat browser, gak butuh internet dan gak butuh aplikasi tambahan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Kalau aku pindah hp atau ganti browser, progresnya hilang?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Progres tersimpan di browser yang kamu pakai buka filenya. Simpan baik baik dan selalu buka dari browser yang sama.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Berapa lama sampai kerasa hasilnya?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><p>Bulan pertama fokus kuasai caranya dulu. Bulan kedua jumlah ayat mulai nambah. Bulan ketiga udah jadi kebiasaan yang jalan sendiri, gak berat lagi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING CTA
+============================================================ -->
+<section class="section closing" id="closing">
+  <div class="closing-bg">
+    <img src="https://drive.google.com/thumbnail?id=1EiOukdabAlyCV6Be_wDdcr3M0NouP_ln&sz=w1600" alt="Ilustrasi Kabah dengan cahaya fajar keemasan">
+  </div>
+  <div class="wrap reveal">
+    <h2>Ganti Sepatunya, Bukan Kakinya</h2>
+    <p class="sub">Udah cukup lama nyoba, udah cukup lama ngerasa gagal? Coba sekali lagi dengan cara yang beda. Niatmu gak pernah salah, yang belum ketemu cuma caranya.</p>
+    <a href="#harga" class="btn btn-gold">Mulai Menghafal Sekarang</a>
+    <span class="btn-sub">Rp127.000, akses selamanya</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="footer-links">
+      <a href="https://mireva.my.id/tnc-mireva" target="_blank" rel="noopener">Syarat & Ketentuan</a>
+      <span class="dot">|</span>
+      <a href="https://mireva.my.id/pp-mireva" target="_blank" rel="noopener">Kebijakan Privasi</a>
+      <span class="dot">|</span>
+      <a href="https://mireva.my.id/rp-mireva" target="_blank" rel="noopener">Kebijakan Pengembalian</a>
+      <span class="dot">|</span>
+      <a href="https://mireva.my.id/contactus-mireva" target="_blank" rel="noopener">Hubungi Kami</a>
+    </nav>
+    <p class="footer-disclaimer">Buku ini adalah bahan edukasi metode menghafal Al-Quran dan pengembangan diri. Ia tidak menjanjikan hafalan instan, cepat tanpa usaha, atau target waktu hafalan tertentu.</p>
+    <p class="footer-owner">Owned and Operated by Hadona Digital Media Limited.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     STICKY CTA
+============================================================ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-inner">
+    <div class="sticky-price">
+      <span class="old">Rp347.000</span>
+      <span class="new">Rp127.000</span>
+    </div>
+    <a href="#harga" class="btn btn-gold">Mulai Sekarang</a>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* Reveal on scroll */
+var revealEls = document.querySelectorAll('.reveal:not(.in-view)');
+if('IntersectionObserver' in window){
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(function(el){ revealObserver.observe(el); });
+} else {
+  revealEls.forEach(function(el){ el.classList.add('in-view'); });
+}
+
+/* Sticky CTA, muncul setelah melewati Above The Fold, lalu tetap muncul */
+var heroEl = document.getElementById('hero');
+var stickyBar = document.getElementById('stickyCta');
+var stickyShown = false;
+if('IntersectionObserver' in window && heroEl && stickyBar){
+  var heroObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting && entry.boundingClientRect.top < 0 && !stickyShown){
+        stickyShown = true;
+        stickyBar.classList.add('visible');
+        heroObserver.unobserve(heroEl);
+      }
+    });
+  }, { threshold: 0 });
+  heroObserver.observe(heroEl);
+}
+
+/* KIT preview widget */
+var kitSteps = document.querySelectorAll('.kit-step');
+var kitFill = document.getElementById('kitProgressFill');
+var kitText = document.getElementById('kitProgressText');
+if(kitSteps.length && kitFill && kitText){
+  kitSteps.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.classList.toggle('done');
+      var doneCount = document.querySelectorAll('.kit-step.done').length;
+      kitFill.style.width = (doneCount / kitSteps.length * 100) + '%';
+      if(doneCount === 0){
+        kitText.textContent = '0 dari 4 langkah selesai, sesi hari ini gitu doang';
+      } else if(doneCount === kitSteps.length){
+        kitText.textContent = 'Sesi selesai. Beneran segini doang tiap hari.';
+      } else {
+        kitText.textContent = doneCount + ' dari 4 langkah selesai';
+      }
+    });
+  });
+}
+
+/* FAQ accordion */
+var faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(function(item){
+  var q = item.querySelector('.faq-q');
+  var a = item.querySelector('.faq-a');
+  q.addEventListener('click', function(){
+    var isOpen = item.classList.contains('open');
+    faqItems.forEach(function(other){
+      if(other !== item && other.classList.contains('open')){
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      }
+    });
+    if(isOpen){
+      item.classList.remove('open');
+      a.style.maxHeight = null;
+    } else {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+})();
+</script>
+
+</body>
+</html>
