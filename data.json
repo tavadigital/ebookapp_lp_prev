@@ -1,8 +1,19 @@
 {
-  "generated_at": "2026-08-10T19:25:29+00:00",
+  "generated_at": "2026-08-10T19:46:06+00:00",
   "keyword": "-lp",
   "count": 13,
   "items": [
+    {
+      "path": "bc-lp.html",
+      "file": "bc-lp.html",
+      "folder": ".",
+      "slug": "BC",
+      "title": "Baraqah Code, Rezeki Terasa Lancar Lagi dalam 30 Hari",
+      "description": null,
+      "size": 19765,
+      "created": "2026-08-09T23:18:00+07:00",
+      "updated": "2026-08-11T02:45:48+07:00"
+    },
     {
       "path": "assets/shq-lp.html",
       "file": "shq-lp.html",
@@ -90,17 +101,6 @@
       "size": 22125,
       "created": "2026-08-10T01:03:09+07:00",
       "updated": "2026-08-10T01:03:09+07:00"
-    },
-    {
-      "path": "bc-lp.html",
-      "file": "bc-lp.html",
-      "folder": ".",
-      "slug": "BC",
-      "title": "Baraqah Code, Rezeki Terasa Lancar Lagi dalam 30 Hari",
-      "description": null,
-      "size": 18628,
-      "created": "2026-08-09T23:18:00+07:00",
-      "updated": "2026-08-09T23:18:00+07:00"
     },
     {
       "path": "br-lp.html",
