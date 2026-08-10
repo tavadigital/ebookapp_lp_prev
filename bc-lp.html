@@ -203,8 +203,15 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offs
 }
 
 /* ---------- FOOTER ---------- */
-.footer{padding:28px 0 110px;}
-.footer__inner{display:flex;justify-content:center;font-size:13px;color:var(--ink-soft);}
+.footer{padding:32px 0 110px;}
+.footer__nav{
+  list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;
+  margin:0 0 20px;padding:0;
+}
+.footer__nav a{font-size:14px;font-weight:600;color:var(--emerald-deep);text-decoration:none;}
+.footer__nav a:hover{color:var(--gold);}
+.footer__disclaimer-1{font-size:13px;color:var(--ink-soft);text-align:center;max-width:560px;margin:0 auto 8px;}
+.footer__disclaimer-2{font-size:13px;color:var(--ink-soft);text-align:center;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -363,8 +370,15 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offs
 </section>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <span>Baraqah Code</span>
+  <div class="container">
+    <ul class="footer__nav">
+      <li><a href="https://hikmavia.com/tnc-1" target="_blank" rel="noopener">Syarat &amp; Ketentuan</a></li>
+      <li><a href="https://hikmavia.com/pp-1" target="_blank" rel="noopener">Kebijakan Privasi</a></li>
+      <li><a href="https://hikmavia.com/rp-2" target="_blank" rel="noopener">Kebijakan Pengembalian</a></li>
+      <li><a href="https://hikmavia.com/contactus-1" target="_blank" rel="noopener">Hubungi Kami</a></li>
+    </ul>
+    <p class="footer__disclaimer-1">Baraqah Code adalah bahan edukasi dan pengembangan pola pikir spiritual seputar ketenangan menjemput rezeki. Ia tidak menjanjikan kepastian penghasilan, kekayaan instan, atau hasil finansial tertentu.</p>
+    <p class="footer__disclaimer-2">Owned and Operated by Hadona Digital Media Limited.</p>
   </div>
 </footer>
 
