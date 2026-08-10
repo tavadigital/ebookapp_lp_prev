@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-08-10T08:16:58+00:00",
+  "generated_at": "2026-08-10T11:17:12+00:00",
   "keyword": "-lp",
-  "count": 7,
+  "count": 9,
   "items": [
+    {
+      "path": "assets/hp-lp.html",
+      "file": "hp-lp.html",
+      "folder": "assets",
+      "slug": "HP",
+      "title": "Hukum Prasangka: Ilmu Husnudzon dari Kitab Al Hikam untuk Membuka Rezeki",
+      "description": null,
+      "size": 30025,
+      "created": "2026-08-10T18:17:05+07:00",
+      "updated": "2026-08-10T18:17:05+07:00"
+    },
+    {
+      "path": "assets/jb-lp.html",
+      "file": "jb-lp.html",
+      "folder": "assets",
+      "slug": "JB",
+      "title": "Jalur Baitullah: Ebook dan KIT Tambahan",
+      "description": null,
+      "size": 25035,
+      "created": "2026-08-10T18:17:05+07:00",
+      "updated": "2026-08-10T18:17:05+07:00"
+    },
     {
       "path": "hr-lp.html",
       "file": "hr-lp.html",
