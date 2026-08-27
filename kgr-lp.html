@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kid Game Rescue: Anak Berhenti Sendiri Main HP dalam 14 Hari</title>
+<meta name="description" content="Sistem 14 hari biar anak berhenti main HP sendiri, tanpa rebut paksa dan tanpa drama tiap sore. Ebook lengkap + 7 kit interaktif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF7F3;        --surface:#FFFFFF;
+  --ink:#2E2420;        --ink-soft:#7A6A60;   --line:#E6DDD3;
+  --pri:#A24B5E;        --pri-deep:#7A2E3F;   --pri-tint:#F3E0E4;
+  --sec:#6B5849;        --sec-deep:#4A3B30;   --sec-tint:#EEE5DB;
+  --hl:#C98A3D;         --hl-tint:#F8ECD6;
+  --ok:#5E8C61;         --ok-tint:#E8F1E8;
+  --warn:#B8791E;       --warn-tint:#F7EAD3;
+  --danger:#B23A3A;     --danger-deep:#8C2626; --danger-tint:#F6E2E1;
+  --info:#4E7A93;       --info-tint:#E5EDF1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--ink);background:var(--bg);-webkit-text-size-adjust:100%}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--hl);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} *,*::before,*::after{animation:none!important;transition:none!important}}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+/* ===== Section shell ===== */
+.sec{padding:88px 24px;border-bottom:1px solid var(--line)}
+.sec-inner{max-width:720px;margin:0 auto}
+.sec-inner.wide{max-width:1020px}
+.sec-label{display:block;font-size:11px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--pri-deep);margin-bottom:14px}
+.sec h2{font-family:'Lora',serif;font-weight:700;font-size:clamp(24px,3.2vw,34px);line-height:1.28;color:var(--ink);max-width:22ch}
+.sec h2 em{font-style:italic;color:var(--pri)}
+.sec p{font-size:16px;line-height:1.75;color:var(--ink);margin-top:20px}
+.sec p strong{color:var(--pri-deep)}
+@media(max-width:900px){
+  .sec{padding:56px 20px}
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:64px 24px calc(48px + env(safe-area-inset-bottom));overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background-image:url('https://drive.google.com/thumbnail?id=1UEGCOtGrdaW5ygMf0H799K8AKW8GOMsC&sz=w1920');
+  background-size:cover;background-position:center;
+}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg, rgba(46,36,32,.15) 0%, rgba(46,36,32,.55) 78%, rgba(46,36,32,.72) 100%)}
+.hero>*{position:relative;z-index:1}
+.hero h1{
+  font-family:'Lora',serif;font-weight:700;color:#fff;font-size:clamp(30px,4.4vw,64px);line-height:1.14;max-width:18ch;
+  text-shadow:0 2px 20px rgba(0,0,0,.25);
+}
+.hero h1 em{font-style:italic;color:#F3D4B8}
+.hero .subtitle{font-size:clamp(15px,1.4vw,19px);font-weight:700;color:#fff;max-width:44ch;margin-top:18px;line-height:1.6;opacity:.96}
+.hero-img-mobile{display:none}
+
+.hero-cta{
+  margin-top:32px;display:inline-flex;align-items:center;gap:10px;background:var(--pri);color:#fff;font-weight:800;
+  font-size:15px;padding:18px 36px;border-radius:14px;min-height:56px;box-shadow:0 16px 34px -10px rgba(0,0,0,.5);
+  transition:transform .2s, box-shadow .2s;border:1px solid rgba(255,255,255,.2);
+}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.micro-risk{margin-top:18px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:12px;font-weight:700;color:#fff;opacity:.92}
+.micro-risk span{display:inline-flex;align-items:center;gap:5px}
+.micro-risk span::before{content:"✓";color:#BFE3C0;font-weight:800}
+.scroll-cue{margin-top:44px;font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;opacity:.8}
+
+/* Mobile hero override, sengaja ditaruh SETELAH semua base rule .hero di atas, */
+/* supaya menang cascade buat tiap properti (color, display, background, dst), bukan cuma sebagian. */
+@media(max-width:900px){
+  .hero{
+    min-height:auto;padding:52px 22px 40px;
+    background:
+      radial-gradient(700px 420px at 92% -10%, var(--pri-tint), transparent 60%),
+      radial-gradient(600px 380px at -10% 105%, var(--hl-tint), transparent 55%),
+      var(--bg);
+  }
+  .hero::before,.hero::after{display:none}
+  .hero h1{color:var(--ink);text-shadow:none;max-width:15ch}
+  .hero h1 em{color:var(--pri)}
+  .hero-img-mobile{
+    display:block;width:100%;max-width:360px;margin:22px auto 0;border-radius:16px;overflow:hidden;
+    aspect-ratio:4/5;box-shadow:0 18px 40px -16px rgba(46,36,32,.3);
+  }
+  .hero-img-mobile img{width:100%;height:100%;display:block;object-fit:cover;object-position:top center}
+  .hero .subtitle{color:var(--sec-deep);opacity:1}
+  .micro-risk{color:var(--sec-deep);opacity:1}
+  .micro-risk span::before{color:var(--ok)}
+  .scroll-cue{color:var(--ink-soft);opacity:1}
+}
+
+
+/* ===== Problem ===== */
+.problem{background:var(--surface)}
+
+/* ===== Method / phase stepper (signature element) ===== */
+.method{background:var(--bg)}
+.phase-stepper{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:36px 0 8px;position:relative}
+.phase-stepper::before{content:"";position:absolute;top:22px;left:12.5%;right:12.5%;height:2px;background:var(--line);z-index:0}
+.phase-node{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 6px}
+.phase-dot{
+  width:44px;height:44px;border-radius:50%;background:var(--surface);border:2.5px solid var(--pri);
+  display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:700;color:var(--pri-deep);
+  font-size:13px;margin-bottom:12px;
+}
+.phase-node:nth-child(1) .phase-dot{border-color:var(--sec)}
+.phase-node:nth-child(2) .phase-dot{border-color:var(--pri)}
+.phase-node:nth-child(3) .phase-dot{border-color:var(--hl)}
+.phase-node:nth-child(4) .phase-dot{border-color:var(--ok)}
+.phase-node .pn{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.phase-node .pt{font-family:'Lora',serif;font-weight:700;font-size:15px;color:var(--ink)}
+.phase-node .pd{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+@media(max-width:700px){
+  .phase-stepper{grid-template-columns:1fr 1fr;gap:24px 0}
+  .phase-stepper::before{display:none}
+}
+
+.who-note{
+  margin-top:28px;border-left:4px solid var(--hl);background:var(--hl-tint);border-radius:0 14px 14px 0;
+  padding:16px 20px;font-size:14px;line-height:1.65;color:var(--sec-deep);
+}
+
+/* ===== What's inside ===== */
+.inside{background:var(--surface)}
+.inside-top{display:flex;flex-direction:column}
+.inside-mockup{margin-top:8px}
+.mockup-frame{margin:32px auto;max-width:560px;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px -20px rgba(46,36,32,.25)}
+.mockup-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:top center}
+@media(min-width:901px){
+  .inside-top{display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:start}
+  .inside-mockup{margin-top:0}
+  .inside-mockup .mockup-frame{margin:0}
+}
+.mockup-cap{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+.kit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.kit-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px}
+.kit-card .kn{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--pri-deep);background:var(--pri-tint);padding:4px 11px;border-radius:20px;margin-bottom:10px}
+.kit-card h3{font-family:'Lora',serif;font-weight:700;font-size:15.5px;color:var(--ink);line-height:1.3;margin-bottom:6px}
+.kit-card p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}
+@media(max-width:700px){.kit-grid{grid-template-columns:1fr}}
+
+/* ===== How it works ===== */
+.steps{background:var(--bg)}
+.step-list{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.step-item:last-child{border-bottom:none}
+.step-num{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--pri);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:700;font-size:15px;
+}
+.step-body h3{font-family:'Lora',serif;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:4px}
+.step-body p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0}
+
+/* ===== Risk reversal ===== */
+.risk{background:var(--surface)}
+.risk-list{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.risk-item{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink);font-weight:700}
+.risk-item .rc{width:26px;height:26px;border-radius:50%;background:var(--ok-tint);color:var(--ok);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+
+/* ===== Final CTA ===== */
+.final{
+  background:linear-gradient(160deg, var(--pri-deep), var(--pri) 60%);text-align:center;padding:96px 24px;border-bottom:none;
+}
+.final .sec-inner{max-width:640px}
+.final .sec-label{color:#F3D4B8}
+.final h2{color:#fff;max-width:20ch;margin:0 auto}
+.final p{color:rgba(255,255,255,.9)}
+.price-box{
+  margin:32px auto 0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:18px;
+  padding:26px;max-width:360px;backdrop-filter:blur(6px);
+}
+.price-box .pl{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#F3D4B8}
+.price-box .pv{font-family:'Lora',serif;font-weight:700;font-size:40px;color:#fff;margin-top:6px}
+.price-box .ps{font-size:12.5px;color:rgba(255,255,255,.85);margin-top:4px}
+.final-cta{
+  margin-top:26px;display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--pri-deep);font-weight:800;
+  font-size:15px;padding:18px 38px;border-radius:14px;min-height:56px;box-shadow:0 16px 34px -10px rgba(0,0,0,.4);
+  transition:transform .2s;
+}
+.final-cta:hover{transform:translateY(-2px)}
+.final .micro-risk{color:#fff}
+.final .micro-risk span::before{color:#BFE3C0}
+
+/* ===== Footer ===== */
+.foot{text-align:center;padding:32px 24px;background:var(--sec-deep)}
+.foot p{color:rgba(255,255,255,.65);font-size:12px}
+
+/* ===== Sticky mobile CTA ===== */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  display:none;box-shadow:0 -8px 24px rgba(0,0,0,.08);
+}
+.sticky-cta.show{display:block}
+.sticky-cta a{
+  display:flex;align-items:center;justify-content:center;background:var(--pri);color:#fff;font-weight:800;
+  font-size:14px;padding:14px;border-radius:12px;min-height:48px;
+}
+
+/* ===== Desktop lebar: manfaatin ruang layar penuh, bukan kolom mobile yang di-stretch ===== */
+@media(min-width:901px){
+  .sec{padding:112px 40px}
+  .sec-inner{max-width:820px}
+  .sec-inner.wide{max-width:1160px}
+  .sec p{font-size:17px}
+  .kit-grid{grid-template-columns:repeat(3,1fr)}
+  .final{padding:120px 40px}
+}
+@media(min-width:1400px){
+  .sec{padding:132px 60px}
+  .sec-inner{max-width:880px}
+  .sec-inner.wide{max-width:1320px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <h1 class="reveal on">Anak Berhenti Sendiri Main HP dalam <em>14 Hari</em></h1>
+  <div class="hero-img-mobile reveal on">
+    <img src="https://drive.google.com/thumbnail?id=1UEGCOtGrdaW5ygMf0H799K8AKW8GOMsC&sz=w1000" alt="Ibu dan anak duduk tenang di ruang tengah, momen HP diserahkan tanpa drama">
+  </div>
+  <p class="subtitle reveal on">Tanpa Drama Rebut Paksa Tiap Sore. Bukan disita, ataupun dimarahin tiap hari. Cukup ikuti sistem 14 hari yang udah diurutin, HP-nya diserahin sendiri sama anaknya.</p>
+  <!-- GANTI href di bawah dengan link checkout/pembayaran asli -->
+  <a class="hero-cta reveal on" href="#beli">Mulai Detoks 14 Hari Sekarang →</a>
+  <div class="micro-risk reveal on">
+    <span>Akses seumur hidup</span>
+    <span>Tanpa biaya bulanan</span>
+    <span>Pembayaran aman</span>
+  </div>
+  <div class="scroll-cue reveal on">↓ Gulir buat lihat isinya</div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="sec problem" id="problem">
+  <div class="sec-inner">
+    <span class="sec-label reveal">Kalau Ini Kerasa Familiar</span>
+    <h2 class="reveal">Kalau Malam Ini Aja Udah Berantem Soal HP, Kamu Nggak Sendirian</h2>
+    <p class="reveal">Jam sembilan malam, HP diminta balik karena besok sekolah. Anak malah meluk layarnya makin erat, terus nangis sampai suaranya serak. Tetangga kayaknya udah hafal suara itu, kamu sendiri udah hafal capeknya, cuma belum ketemu cara ngehentiinnya.</p>
+    <p class="reveal">Bukan cerita satu dua orang aja. Banyak keluarga lain juga ngalamin ini, karena akar masalahnya emang sama: HP dan game sekarang dirancang khusus biar susah dilepas, bukan cuma soal anak kurang nurut. Kalau kamu udah coba macam-macam, dari nyita sampai ngebentak, tapi hasilnya cuma tahan sehari dua hari, itu bukan karena kamu kurang tegas. Itu karena caranya keliru, bukan usahamu.</p>
+  </div>
+</section>
+
+<!-- ================= WHY OLD METHODS FAIL ================= -->
+<section class="sec" id="whyfail" style="background:var(--bg)">
+  <div class="sec-inner">
+    <h2 class="reveal">Rebut Paksa Cuma Bikin Besok Lebih Parah</h2>
+    <p class="reveal">Nyita HP mendadak emang kelihatannya solusi paling cepat, tapi hampir selalu berujung anak makin ngotot besoknya. Makin dilarang total, makin gede juga keinginan anak buat ngerebutnya balik.</p>
+    <p class="reveal">Yang belum pernah dicoba sebenarnya bukan ketegasan lebih gede, tapi sistem berurutan: dosis layarnya diturunin pelan-pelan, sambil waktu kosongnya diisi kegiatan lain yang beneran disukai anak.</p>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<section class="sec method" id="method">
+  <div class="sec-inner">
+    <span class="sec-label reveal">Cara Kerjanya</span>
+    <h2 class="reveal">Screen Detox Method: Empat Fase yang Bikin Anak Berhenti <em>Sendiri</em></h2>
+    <p class="reveal">Metode ini dibangun dari tiga prinsip yang saling berkaitan. Dosis layar diturunin bertahap, bukan dicabut sekaligus. Tiap menit layar dikurangi, diganti kegiatan lain sama serunya. Aturannya berlaku buat satu tim seisi rumah, bukan cuma anak sendirian.</p>
+
+    <div class="phase-stepper reveal">
+      <div class="phase-node">
+        <div class="phase-dot">1</div>
+        <span class="pn">3 Hari</span>
+        <span class="pt">SIAP</span>
+        <span class="pd">Nyamain suara, nata rumah, bikin perjanjian</span>
+      </div>
+      <div class="phase-node">
+        <div class="phase-dot">2</div>
+        <span class="pn">Hari 1-5</span>
+        <span class="pt">SURUT</span>
+        <span class="pd">Dosis layar turun pelan-pelan sesuai jadwal</span>
+      </div>
+      <div class="phase-node">
+        <div class="phase-dot">3</div>
+        <span class="pn">Hari 6-10</span>
+        <span class="pt">SERU</span>
+        <span class="pd">Kegiatan pengganti ngisi waktu kosongnya</span>
+      </div>
+      <div class="phase-node">
+        <div class="phase-dot">4</div>
+        <span class="pn">Hari 11-14</span>
+        <span class="pt">STABIL</span>
+        <span class="pd">Layar balik ke takaran sehat, jalan sendiri</span>
+      </div>
+    </div>
+
+    <div class="who-note reveal">Takaran sehat yang dipakai bukan angka asal comot. Usia 2-5 tahun ngikutin pedoman WHO 2019, maksimal satu jam sehari. Usia sekolah pakai kisaran umum yang direkomendasikan banyak pediater, karena organisasi kesehatan sekarang lebih nekenin keseimbangan dibanding angka pasti di usia segitu.</div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section class="sec inside" id="inside">
+  <div class="sec-inner wide">
+    <div class="inside-top">
+      <div class="inside-text">
+        <span class="sec-label reveal">Isi Paketnya</span>
+        <h2 class="reveal">Bukan Cuma Ebook, Ini Paket Lengkap 14 Hari</h2>
+        <p class="reveal"><strong>Ebook Kid Game Rescue</strong>, 10 bab lengkap, dari kenapa cara lama gagal, panduan tiap fase, sampai peta khusus buat balita (2-6 tahun) dan anak sekolah (7-12 tahun). Ditulis buat dibaca sambil langsung dijalanin.</p>
+      </div>
+
+      <!-- GANTI src di bawah dengan mockup screenshot Kit 3 -->
+      <div class="inside-mockup">
+        <div class="mockup-frame reveal">
+          <img src="https://drive.google.com/thumbnail?id=1R-odPqanO4iGjgh2CZA83AJNRShAvrWn&sz=w1200" alt="Tampilan Panel Pantau 14 Hari, salah satu kit interaktif di dalam paket Kid Game Rescue">
+        </div>
+        <p class="mockup-cap reveal">Salah satu dari tujuh kit interaktif di dalam paket, bukan cuma PDF diam</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="margin-top:48px">Tujuh kit yang nemenin tiap langkahnya:</p>
+    <div class="kit-grid">
+      <div class="kit-card reveal"><span class="kn">Kit 1</span><h3>Tes Level Cengkeraman Layar</h3><p>20 pertanyaan, langsung keluar skor dan level, plus rekomendasi seberapa pelan protokolnya perlu dijalanin.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 2</span><h3>Kalkulator Dosis Layar 14 Hari</h3><p>Ngitungin jadwal penurunan harian otomatis, beda buat hari sekolah dan libur.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 3</span><h3>Panel Pantau 14 Hari</h3><p>Catat menit layar dan konflik tiap hari, trennya kelihatan otomatis.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 4</span><h3>Bank 100 Kalimat Anti-Ngamuk</h3><p>Kalimat siap pakai buat tiap situasi, tinggal cari terus salin.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 5</span><h3>Peracik 50+ Aktivitas Pengganti Layar</h3><p>Lebih dari 50 kegiatan modal kecil, bisa diracik jadi jadwal seminggu otomatis.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 6</span><h3>Kartu Perjanjian Layar Keluarga</h3><p>Bikin perjanjian resmi bareng anak, langsung jadi dokumen rapi siap dicetak.</p></div>
+      <div class="kit-card reveal" style="grid-column:1/-1"><span class="kn">Kit 7</span><h3>Panduan Darurat Badai Hari 3-5</h3><p>Tinggal centang kejadiannya, panduannya langsung muncul, dipakai pas lagi paling panik.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="sec steps" id="steps">
+  <div class="sec-inner">
+    <span class="sec-label reveal">Mulai Dari Mana</span>
+    <h2 class="reveal">Cara Mulainya Gampang Banget</h2>
+    <div class="step-list">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <div class="step-body"><h3>Bayar sekali, langsung akses semua materi</h3><p>Ebook dan ketujuh kitnya, semua dalam satu paket.</p></div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">2</div>
+        <div class="step-body"><h3>Baca 3 bab pertama, isi Tes Level di Kit 1</h3><p>Biar tau titik awal anakmu sebelum mulai protokol.</p></div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">3</div>
+        <div class="step-body"><h3>Ikuti jadwal 14 hari</h3><p>Dibantu kit-kit yang udah nyambung satu sama lain.</p></div>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">4</div>
+        <div class="step-body"><h3>Hari ke-14, ukur ulang hasilnya</h3><p>Kelihatan jelas bedanya dari hari pertama.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RISK REVERSAL ================= -->
+<section class="sec risk" id="risk">
+  <div class="sec-inner">
+    <h2 class="reveal">Nggak Ada yang Perlu Dikhawatirin</h2>
+    <div class="risk-list">
+      <div class="risk-item reveal"><span class="rc">✓</span>Akses seumur hidup, file bisa disimpan selamanya</div>
+      <div class="risk-item reveal"><span class="rc">✓</span>Nggak ada biaya bulanan atau langganan</div>
+      <div class="risk-item reveal"><span class="rc">✓</span>Pembayaran aman</div>
+    </div>
+    <p class="reveal">Begitu bayar, semua materinya langsung bisa diakses dan disimpan sendiri. Nggak perlu bayar apa pun lagi buat pakai ini bulan depan, tahun depan, atau kapan pun kamu butuh buka ulang.</p>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="beli">
+  <div class="sec-inner">
+    <span class="sec-label reveal">Mulai Sekarang</span>
+    <h2 class="reveal">Empat Belas Hari dari Sekarang, Rumah Bisa Jauh Lebih Tenang</h2>
+    <p class="reveal">Sekali bayar, langsung dapet ebook lengkap dan ketujuh kitnya.</p>
+
+    <div class="price-box reveal">
+      <div class="pl">Harga Paket Lengkap</div>
+      <div class="pv">Rp127.000</div>
+      <div class="ps">Sekali bayar, bukan langganan</div>
+    </div>
+
+    <!-- GANTI href di bawah dengan link checkout/pembayaran asli -->
+    <a class="final-cta reveal" href="#beli">Ya, Aku Mau Mulai Sekarang →</a>
+    <div class="micro-risk reveal">
+      <span>Akses seumur hidup</span>
+      <span>Tanpa biaya bulanan</span>
+      <span>Pembayaran aman</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>© 2026 Kid Game Rescue. Screen Detox Method.</p>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <!-- GANTI href di bawah dengan link checkout/pembayaran asli -->
+  <a href="#beli">Mulai Detoks 14 Hari, Rp127.000 →</a>
+</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll
+  if('IntersectionObserver' in window && !reduced){
+    var revealEls = document.querySelectorAll('.reveal:not(.on)');
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('on');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('on'); });
+  }
+
+  // Sticky mobile CTA, muncul setelah lewat hero
+  try{
+    var hero = document.getElementById('hero');
+    var sticky = document.getElementById('stickyCta');
+    if(hero && sticky && 'IntersectionObserver' in window){
+      var heroObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          sticky.classList.toggle('show', !entry.isIntersecting && window.innerWidth <= 900);
+        });
+      }, {threshold:0});
+      heroObs.observe(hero);
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 900) sticky.classList.remove('show');
+      });
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
