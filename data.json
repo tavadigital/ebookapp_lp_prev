@@ -1,8 +1,19 @@
 {
-  "generated_at": "2026-08-10T19:52:41+00:00",
+  "generated_at": "2026-08-27T10:52:32+00:00",
   "keyword": "-lp",
-  "count": 13,
+  "count": 14,
   "items": [
+    {
+      "path": "kgr-lp.html",
+      "file": "kgr-lp.html",
+      "folder": ".",
+      "slug": "KGR",
+      "title": "Kid Game Rescue: Anak Berhenti Sendiri Main HP dalam 14 Hari",
+      "description": "Sistem 14 hari biar anak berhenti main HP sendiri, tanpa rebut paksa dan tanpa drama tiap sore. Ebook lengkap + 7 kit interaktif.",
+      "size": 23570,
+      "created": "2026-08-27T17:52:22+07:00",
+      "updated": "2026-08-27T17:52:22+07:00"
+    },
     {
       "path": "mr-lp.html",
       "file": "mr-lp.html",
@@ -81,17 +92,6 @@
       "updated": "2026-08-10T21:38:41+07:00"
     },
     {
-      "path": "assets/hp-lp.html",
-      "file": "hp-lp.html",
-      "folder": "assets",
-      "slug": "HP",
-      "title": "Hukum Prasangka: Ilmu Husnudzon dari Kitab Al Hikam untuk Membuka Rezeki",
-      "description": null,
-      "size": 30025,
-      "created": "2026-08-10T18:17:05+07:00",
-      "updated": "2026-08-10T18:17:05+07:00"
-    },
-    {
       "path": "assets/jb-lp.html",
       "file": "jb-lp.html",
       "folder": "assets",
@@ -99,6 +99,17 @@
       "title": "Jalur Baitullah: Ebook dan KIT Tambahan",
       "description": null,
       "size": 25035,
+      "created": "2026-08-10T18:17:05+07:00",
+      "updated": "2026-08-10T18:17:05+07:00"
+    },
+    {
+      "path": "assets/hp-lp.html",
+      "file": "hp-lp.html",
+      "folder": "assets",
+      "slug": "HP",
+      "title": "Hukum Prasangka: Ilmu Husnudzon dari Kitab Al Hikam untuk Membuka Rezeki",
+      "description": null,
+      "size": 30025,
       "created": "2026-08-10T18:17:05+07:00",
       "updated": "2026-08-10T18:17:05+07:00"
     },
@@ -125,17 +136,6 @@
       "updated": "2026-08-08T04:43:43+07:00"
     },
     {
-      "path": "mcs-lp.html.html",
-      "file": "mcs-lp.html.html",
-      "folder": ".",
-      "slug": "MCS",
-      "title": "MPASI Cegah Stunting: Ebook + 5 Kit Interaktif 6–24 Bulan | Rp 127.000",
-      "description": "MPASI Cegah Stunting: ebook 10 bab + 5 Kit interaktif berbasis WHO & IDAI yang langsung menghitung dan memandu Bunda tiap hari. Daily Command Center, Growth Monitor, Dapur MPASI, Safety Kit, MPASI Aca",
-      "size": 87322,
-      "created": "2026-08-08T04:07:50+07:00",
-      "updated": "2026-08-08T04:07:50+07:00"
-    },
-    {
       "path": "tlsm-lp.html",
       "file": "tlsm-lp.html",
       "folder": ".",
@@ -143,6 +143,17 @@
       "title": "TikTok Live Selling Mastery: 6 Tools Interaktif + Ebook 12 Bab, Rp 127rb",
       "description": "6 tools interaktif (Script Studio, Kalkulator Cuan, Pusat Persiapan Live, Akademi, Live Tracker, 30-Day Action Plan) + ebook 12 bab. Sistem live selling & affiliate TikTok Shop dari setup sampai closi",
       "size": 75302,
+      "created": "2026-08-08T04:07:50+07:00",
+      "updated": "2026-08-08T04:07:50+07:00"
+    },
+    {
+      "path": "mcs-lp.html.html",
+      "file": "mcs-lp.html.html",
+      "folder": ".",
+      "slug": "MCS",
+      "title": "MPASI Cegah Stunting: Ebook + 5 Kit Interaktif 6–24 Bulan | Rp 127.000",
+      "description": "MPASI Cegah Stunting: ebook 10 bab + 5 Kit interaktif berbasis WHO & IDAI yang langsung menghitung dan memandu Bunda tiap hari. Daily Command Center, Growth Monitor, Dapur MPASI, Safety Kit, MPASI Aca",
+      "size": 87322,
       "created": "2026-08-08T04:07:50+07:00",
       "updated": "2026-08-08T04:07:50+07:00"
     }
