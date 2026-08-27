@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Speech Delay Lab: Pancing Kata Pertama Si Kecil Mulai Sore Ini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,500;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F5;        --surface:#FBFEFD;
+  --ink:#1E2E2C;       --ink-soft:#5B6C68;   --line:#DCE6E3;
+  --pri:#2F6F6B;       --pri-deep:#1C4744;   --pri-tint:#E1F0EE;
+  --sec:#D68A3C;       --sec-deep:#A3621F;   --sec-tint:#FBEEDC;
+  --hl:#C97C86;        --hl-tint:#F8E9EB;
+  --ok:#4C8F63;        --ok-tint:#E7F3EA;
+  --danger:#B94436;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{font-family:'Nunito Sans',sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--pri);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px;margin:0 auto;padding:0 24px}
+
+section{padding:76px 0}
+h2{font-family:'Lora',serif;font-weight:700;font-size:clamp(26px,3.6vw,38px);color:var(--ink);line-height:1.25}
+h2 em{font-style:italic;font-weight:600;color:var(--pri)}
+
+.btn-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--pri);color:#fff;font-weight:800;font-size:16px;
+  padding:0 32px;min-height:56px;border-radius:14px;border:none;
+  box-shadow:0 16px 32px -12px rgba(28,71,68,.4);transition:transform .2s, box-shadow .2s;
+}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(28,71,68,.5)}
+
+/* ============ HERO ============ */
+.hero{padding-top:56px;padding-bottom:64px}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  grid-template-areas:"headline image" "subcta image";
+  column-gap:48px;row-gap:20px;align-items:center;
+}
+.hero-headline{grid-area:headline}
+.hero-subcta{grid-area:subcta}
+.hero h1{
+  font-family:'Lora',serif;font-weight:700;font-size:clamp(32px,4.6vw,52px);color:var(--ink);
+  line-height:1.18;letter-spacing:-.5px;
+}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--pri)}
+.hero .sub{margin-top:0;font-size:17px;color:var(--ink-soft);max-width:52ch;line-height:1.7}
+.hero .sub strong{color:var(--pri-deep);font-weight:800}
+.hero .cta-block{margin-top:32px}
+.hero .microcopy{margin-top:12px;font-size:12.5px;color:var(--ink-soft)}
+.hero-img-wrap{border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(28,71,68,.28)}
+.hero-img-wrap img{width:100%;height:auto}
+
+/* ============ BLAME REMOVAL ============ */
+.blame{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.blame p{font-size:17.5px;color:var(--ink);margin-top:20px;line-height:1.75}
+.blame p:first-child{margin-top:0}
+.blame .quote{
+  margin-top:28px;background:var(--pri-tint);border-left:4px solid var(--pri);border-radius:0 16px 16px 0;
+  padding:22px 26px;font-family:'Lora',serif;font-style:italic;font-size:18px;color:var(--pri-deep);line-height:1.6;
+}
+
+/* ============ MEKANISME ============ */
+.mekanisme-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.mekanisme-img-wrap{border-radius:24px;overflow:hidden;box-shadow:0 24px 48px -18px rgba(28,71,68,.25)}
+.mekanisme p{margin-top:16px;font-size:16px;color:var(--ink);line-height:1.75}
+.mekanisme .pantul-word{
+  margin-top:22px;background:var(--sec-tint);border-radius:14px;padding:16px 20px;
+  font-weight:800;color:var(--sec-deep);font-size:15px;
+}
+
+/* ============ TRUST ============ */
+.trust{background:var(--pri-deep);color:#fff}
+.trust h2{color:#fff}
+.trust p{margin-top:16px;font-size:16px;color:#DCEAE8;line-height:1.75;max-width:68ch}
+.trust p strong{color:#fff}
+
+/* ============ ISI PRODUK ============ */
+.produk-intro{max-width:720px}
+.produk-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px}
+.pcard.ebook{grid-column:1/-1;background:var(--pri-tint);border-color:var(--pri);display:flex;align-items:center;gap:20px}
+.pcard .kn{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--sec-deep)}
+.pcard.ebook .kn{color:var(--pri-deep)}
+.pcard h3{font-family:'Lora',serif;font-weight:700;font-size:17px;color:var(--ink);margin-top:6px}
+.pcard p{margin-top:8px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.pcard.ebook .ebook-icon{font-size:44px;flex:none}
+
+/* Value stack: mockup kiri, checklist+harga+CTA kanan */
+.value-stack{margin-top:48px}
+.value-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.value-img-wrap{border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(28,71,68,.25)}
+.value-img-wrap img{width:100%;height:auto}
+.value-content h3{font-family:'Lora',serif;font-weight:700;font-size:clamp(24px,2.6vw,30px);color:var(--ink);line-height:1.3}
+.value-checklist{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.vc-item{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink);font-weight:700}
+.vc-item .ck{flex:none;color:var(--ok);font-weight:900;font-size:15px}
+.value-cta-wrap{margin-top:28px}
+.value-cta-wrap .btn-cta{width:100%}
+.value-micro{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink-soft)}
+.value-micro span{white-space:nowrap}
+
+/* ============ HOW IT WORKS ============ */
+.how{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.how-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.how-card{text-align:center;padding:8px}
+.how-num{
+  width:52px;height:52px;border-radius:50%;background:var(--pri);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:700;font-size:20px;
+  margin:0 auto 18px;
+}
+.how-card h3{font-family:'Lora',serif;font-weight:700;font-size:17px;color:var(--ink)}
+.how-card p{margin-top:8px;font-size:14px;color:var(--ink-soft);line-height:1.65}
+
+/* ============ RISK REVERSAL ============ */
+.risk{text-align:center}
+.risk-list{margin:32px auto 0;max-width:520px;display:flex;flex-direction:column;gap:14px;text-align:left}
+.risk-item{display:flex;align-items:center;gap:12px;font-size:15.5px;color:var(--ink);font-weight:700}
+.risk-item .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ok-tint);color:var(--ok);display:flex;align-items:center;justify-content:center;font-weight:900}
+
+/* ============ FAQ ============ */
+.faq{background:var(--surface);border-top:1px solid var(--line)}
+.faq-list{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-q{
+  width:100%;text-align:left;padding:18px 22px;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-family:'Nunito Sans',sans-serif;font-weight:800;font-size:15px;color:var(--ink);
+  min-height:56px;
+}
+.faq-q .arrow{flex:none;transition:transform .25s;color:var(--pri)}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:220px}
+.faq-a p{padding:0 22px 20px;font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+
+/* ============ FINAL CTA ============ */
+.final-cta{text-align:center;background:linear-gradient(180deg,var(--bg),var(--pri-tint))}
+.final-cta h2{max-width:20ch;margin:0 auto}
+.final-cta .sub{margin-top:16px;font-size:16px;color:var(--ink-soft);max-width:56ch;margin-left:auto;margin-right:auto}
+.price-badge{
+  display:inline-flex;align-items:center;gap:10px;background:var(--sec-tint);color:var(--sec-deep);
+  font-weight:800;font-size:14px;padding:8px 18px;border-radius:20px;margin-bottom:20px;
+}
+.price-badge .amt{font-family:'Lora',serif;font-size:17px;color:var(--sec-deep)}
+.final-cta .cta-wrap{margin-top:12px}
+
+footer{text-align:center;padding:36px 24px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
+
+/* Sticky mobile CTA */
+.sticky-cta{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:600;
+  background:var(--surface);border-top:1px solid var(--line);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  box-shadow:0 -10px 24px -14px rgba(0,0,0,.18);
+  transform:translateY(100%);transition:transform .3s;
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .btn-cta{width:100%;min-height:52px}
+
+@media(max-width:900px){
+  section{padding:56px 0}
+  .hero{padding-top:36px}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"headline" "image" "subcta";row-gap:24px}
+  .mekanisme-grid{grid-template-columns:1fr;gap:28px}
+  .mekanisme-img-wrap{order:-1}
+  .value-grid{grid-template-columns:1fr;gap:24px}
+  .value-img-wrap{order:-1}
+  .produk-grid{grid-template-columns:1fr 1fr}
+  .pcard.ebook{flex-direction:column;text-align:center}
+  .how-grid{grid-template-columns:1fr;gap:28px}
+  .sticky-cta{display:block}
+  body{padding-bottom:0}
+}
+@media(max-width:560px){
+  .produk-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-headline reveal show">
+        <h1>Pancing Kata Pertama Si Kecil Mulai Sore Ini, Cukup <em>15 Menit</em> Sehari</h1>
+      </div>
+      <div class="hero-img-wrap reveal show">
+        <img src="https://drive.google.com/thumbnail?id=1OTlsox2cgmSFm73x0d-RBPAQzFyc-Mel&sz=w1000" alt="Ibu duduk sejajar lantai bersama anak balita, momen tatap-mata yang hangat">
+      </div>
+      <div class="hero-subcta reveal show">
+        <p class="sub">Metode PANTUL, <strong>6 langkah dari praktik terapi wicara</strong> yang dirangkum jadi protokol harian. Nggak perlu antri jadwal terapi, cukup pakai barang yang udah ada di rumah.</p>
+        <div class="cta-block">
+          <a class="btn-cta" href="#final-cta">Ya, Aku Mau Mulai Hari Ini →</a>
+          <div class="microcopy">Akses langsung setelah pembayaran, sekali bayar buat selamanya.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLAME REMOVAL ============ -->
+<section class="blame">
+  <div class="narrow">
+    <p class="reveal">Bunda udah googling tengah malam. Udah nonton puluhan reels dokter anak. Udah dapet nasihat "kurangi gadget, banyak ajak ngomong", terus buntu di situ.</p>
+    <div class="quote reveal">Bukan karena Bunda kurang ngajak ngomong. Bukan karena si kecil telat mikir. Otak bahasanya sehat, cuma kebanyakan menerima input satu arah dan kekurangan input dua arah. Bahasa itu nggak bisa ditonton. Bahasa harus dipantulkan.</div>
+    <p class="reveal">Yang selama ini kurang bukan usaha Bunda. Yang kurang cuma protokolnya.</p>
+  </div>
+</section>
+
+<!-- ============ MEKANISME ============ -->
+<section class="mekanisme">
+  <div class="wrap">
+    <div class="mekanisme-grid">
+      <div class="mekanisme-img-wrap reveal">
+        <img src="https://drive.google.com/thumbnail?id=1WLjMDZ2Z0TUb8y3uiJg59ZIoVKfBcH7E&sz=w1000" alt="Ibu menunduk sejajar tinggi mata anak sambil menyuarakan sesuatu">
+      </div>
+      <div class="reveal">
+        <h2>Bukan Kurang Diajak Ngomong, Cuma Kurang <em>Dipantulkan</em> Baliknya</h2>
+        <p>Semua orang kasih diagnosa gratis: "anaknya kurang distimulasi", "kebanyakan gadget", "nanti juga bisa sendiri". Yang jarang dikasih adalah urutan langkahnya.</p>
+        <p>Metode PANTUL isinya 6 langkah yang udah lama dipakai di ruang terapi wicara, dirangkum jadi satu urutan yang bisa dihafal 5 menit dan langsung dicoba sambil nyuapin anak.</p>
+        <div class="pantul-word">Pancing · Amati · Narasikan · Tunggu · Ulangi & Perluas · Luapkan</div>
+        <p>Bedanya sama nasihat generik "banyak-banyak ajak ngomong": PANTUL ngasih tau persis kapan harus diam, kapan harus nunggu, kapan harus pantulkan balik. Bukan nambah kata dari Bunda, tapi nambah jeda buat si kecil coba bersuara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="narrow">
+    <h2 class="reveal">Ini yang Kita <em style="color:#F8E9EB">Nggak</em> Janjiin</h2>
+    <p class="reveal">Metode PANTUL bukan temuan sendiri. Semua langkahnya diambil dari teknik yang emang dipakai terapis wicara, cuma disusun ulang jadi protokol harian yang bisa Bunda jalanin di rumah.</p>
+    <p class="reveal">Ebook ini <strong>bukan pengganti terapi</strong>, dan nggak akan pernah bilang gitu. Malah ada bab khusus yang isinya tanda-tanda kapan Bunda harus berhenti baca dan langsung ke dokter anak. Bukan buat nakut-nakutin, tapi karena kejujuran soal ini yang bikin apa yang kita tawarin di sini pantes dipercaya.</p>
+    <p class="reveal">Nggak ada jaminan "anak pasti bicara dalam 30 hari". Tiap anak punya ritmenya sendiri. Yang kita janjiin cuma satu: perubahan cara Bunda hadir tiap kali sama si kecil, dari 15 menit main biasa jadi 15 menit yang punya arah.</p>
+  </div>
+</section>
+
+<!-- ============ ISI PRODUK ============ -->
+<section class="produk">
+  <div class="wrap">
+    <div class="produk-intro reveal">
+      <h2>Bukan Cuma Buku. Sistem Lengkap Buat Dijalanin Setiap Hari</h2>
+    </div>
+    <div class="produk-grid">
+      <div class="pcard ebook reveal">
+        <span class="ebook-icon">📖</span>
+        <div>
+          <span class="kn">Produk Inti</span>
+          <h3>eBook Speech Delay Lab · 10 Bab</h3>
+          <p>Panduan lengkap dari paham penyebabnya, kenal Metode PANTUL, sampai protokol harian 30 hari. Ditulis buat dibaca sambil gendong anak, bukan buku tebal yang bikin puyeng.</p>
+        </div>
+      </div>
+      <div class="pcard reveal">
+        <span class="kn">Kit 1</span>
+        <h3>📅 Kalender Stimulasi 30 Hari</h3>
+        <p>Buka tiap hari, misinya udah ada. Progres kesimpen otomatis, ada penghitung hari beruntun, dan versi 3 menit buat hari-hari yang berat.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="kn">Kit 2</span>
+        <h3>🔤 Bank 100 Kata Pertama Prioritas</h3>
+        <p>Nggak perlu nebak sendiri kata mana yang diajarin duluan. 100 kata paling fungsional, bisa dicari dan difilter sesuai level.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="kn">Kit 3</span>
+        <h3>🃏 Kartu Pancingan Cheat Sheet</h3>
+        <p>Buat momen kepala mendadak blank di depan si kecil. Ringkasan 6 langkah plus kartu situasi siap pakai.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="kn">Kit 4</span>
+        <h3>🩺 Cek Milestone & Red Flags</h3>
+        <p>Isi sekali, langsung dapet gambaran: sesuai usia atau perlu diperhatikan lebih, plus ringkasan siap dibawa ke dokter.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="kn">Kit 5</span>
+        <h3>🗺️ Peta Rutinitas Skrip Siap Ucap</h3>
+        <p>Mandi, makan, jalan ke warung, semua bisa jadi sesi stimulasi. Pilih rutinitas rumahmu, skripnya langsung jadi.</p>
+      </div>
+    </div>
+
+    <div class="value-stack">
+      <div class="value-grid">
+        <div class="value-img-wrap reveal">
+          <img src="https://drive.google.com/thumbnail?id=17xMmsG6DQAxhgy5gwUmaFYOsSb1SJ8QO&sz=w1000" alt="Tampilan ebook dan kit Speech Delay Lab di laptop dan HP">
+        </div>
+        <div class="value-content reveal">
+          <h3>Semuanya Kamu Dapat dengan Rp 127.000</h3>
+          <div class="value-checklist">
+            <div class="vc-item"><span class="ck">✓</span> Ebook Speech Delay Lab, 10 bab lengkap</div>
+            <div class="vc-item"><span class="ck">✓</span> Kit 1, Kalender Stimulasi 30 Hari</div>
+            <div class="vc-item"><span class="ck">✓</span> Kit 2, Bank 100 Kata Pertama Prioritas</div>
+            <div class="vc-item"><span class="ck">✓</span> Kit 3, Kartu Pancingan Cheat Sheet</div>
+            <div class="vc-item"><span class="ck">✓</span> Kit 4, Cek Milestone & Red Flags</div>
+            <div class="vc-item"><span class="ck">✓</span> Kit 5, Peta Rutinitas Skrip Siap Ucap</div>
+          </div>
+          <div class="value-cta-wrap">
+            <a class="btn-cta" href="#final-cta">Ya, Aku Mau Akses Sekarang · Rp 127.000</a>
+          </div>
+          <div class="value-micro">
+            <span>✓ Akses seumur hidup</span>
+            <span>✓ Sekali bayar, tanpa biaya bulanan</span>
+            <span>✓ Pembayaran aman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="narrow" style="text-align:center">
+    <h2 class="reveal">Semudah 3 Langkah, Mulai Sore Ini</h2>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">1</div>
+        <h3>Cek Posisi Si Kecil</h3>
+        <p>Buka Kit 4, isi checklist singkat. Langsung dapet gambaran level dan rekomendasi langkah pertama.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">2</div>
+        <h3>Jalanin 15 Menit Pertama</h3>
+        <p>Ikuti Kalender di Kit 1, pilih satu permainan dari ebook, coba Metode PANTUL langsung hari ini juga.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">3</div>
+        <h3>Sebar ke Sepanjang Hari</h3>
+        <p>Pakai Kit 5 buat ubah mandi dan makan jadi sesi stimulasi, tanpa nambah satu menit pun ke jadwal yang udah padat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RISK REVERSAL ============ -->
+<section class="risk">
+  <div class="narrow">
+    <h2 class="reveal">Nggak Perlu Mikir Dua Kali</h2>
+    <div class="risk-list">
+      <div class="risk-item reveal"><span class="ck">✓</span> Akses selamanya, buka kapan aja dari HP</div>
+      <div class="risk-item reveal"><span class="ck">✓</span> Sekali bayar, nggak ada biaya bulanan</div>
+      <div class="risk-item reveal"><span class="ck">✓</span> Pembayaran aman</div>
+      <div class="risk-item reveal"><span class="ck">✓</span> Langsung bisa dipakai begitu link diterima, nggak perlu nunggu kirim barang</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="narrow">
+    <h2 class="reveal" style="text-align:center">Pertanyaan yang Sering Muncul</h2>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">Anakku udah 2,5 tahun, apa udah kelewat telat? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Keterlambatan mulai nggak sama dengan pintu tertutup. Hari ini selalu lebih awal daripada bulan depan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Aku kerja, gimana nyempetin waktu? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Nggak nambah waktu ke jadwal yang udah penuh. Metode PANTUL disusupin ke rutinitas yang udah pasti kejadian: mandi, makan, jalan ke warung.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Aku bukan terapis, apa bisa ngajarin? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Yang paling nentuin bukan gelar, tapi frekuensi dan kedekatan. Terapis ketemu anak 1 jam seminggu, Bunda bareng dia tiap hari.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Kalau ternyata anakku butuh terapi beneran gimana? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Kit 4 bakal bilang jujur kalau ada tanda yang perlu diperiksakan. Ebook ini didesain jadi pendamping harian, bukan pengganti terapi profesional.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta" id="final-cta">
+  <div class="narrow">
+    <div class="price-badge reveal">Akses lengkap cuma <span class="amt">Rp 127.000</span></div>
+    <h2 class="reveal">Lima Belas Menit Hari Ini, Bisa Jadi Kata Pertama Bulan Depan</h2>
+    <p class="sub reveal">Setiap hari yang lewat tanpa protokol adalah 15 menit yang bisa dipakai buat mulai. Bukan buat terburu-buru, tapi buat berhenti nunggu.</p>
+    <div class="cta-wrap reveal">
+      <a class="btn-cta" href="#" id="mainCtaBtn">Ya, Aku Mau Mulai Hari Ini →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · Speech Delay Lab. Metode PANTUL.
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn-cta" href="#final-cta">Mulai Hari Ini · Rp 127.000</a>
+</div>
+
+<script>
+(function(){
+  /* Fade-up saat scroll masuk viewport */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('show'); });
+  }
+
+  /* Sticky CTA mobile: muncul setelah lewat hero */
+  var stickyCta = document.getElementById('stickyCta');
+  var hero = document.querySelector('.hero');
+  if('IntersectionObserver' in window && stickyCta && hero){
+    var heroObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        stickyCta.classList.toggle('show', !e.isIntersecting);
+      });
+    }, {threshold:0});
+    heroObs.observe(hero);
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    q.addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
