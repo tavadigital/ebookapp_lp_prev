@@ -1,8 +1,19 @@
 {
-  "generated_at": "2026-08-27T19:47:39+00:00",
+  "generated_at": "2026-08-27T22:10:16+00:00",
   "keyword": "-lp",
-  "count": 16,
+  "count": 17,
   "items": [
+    {
+      "path": "assets/sdl-lp.html",
+      "file": "sdl-lp.html",
+      "folder": "assets",
+      "slug": "SDL",
+      "title": "Speech Delay Lab: Pancing Kata Pertama Si Kecil Mulai Sore Ini",
+      "description": null,
+      "size": 22701,
+      "created": "2026-08-28T05:10:04+07:00",
+      "updated": "2026-08-28T05:10:04+07:00"
+    },
     {
       "path": "assets/dcr-lp.html",
       "file": "dcr-lp.html",
