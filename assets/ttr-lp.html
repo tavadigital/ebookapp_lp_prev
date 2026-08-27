@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Toddler Tantrum Rescue: Redain Tantrum Anak Tanpa Bentak</title>
+<meta name="description" content="Redain tantrum anak di bawah 90 detik, cuma dalam 28 hari, tanpa bentak. Ebook + 6 kit interaktif siap pakai malam ini juga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F4EE;        --surface:#FFFFFF;
+  --ink:#2A2622;       --ink-soft:#6B6259;   --line:#E8E0D5;
+  --pri:#2D6B64;       --pri-deep:#1E4A45;   --pri-tint:#DCEDE9;
+  --sec:#CE9A4C;       --sec-deep:#9A7130;   --sec-tint:#F7EAD3;
+  --hl:#A85C72;        --hl-tint:#F2E1E6;
+  --ok:#5B8C4C;        --ok-tint:#E7F1E2;
+  --warn:#C2762A;      --warn-tint:#F7E4CE;
+  --danger:#B23B3B;    --danger-deep:#7A2424; --danger-tint:#F6DEDE;
+  --info:#3F6E8C;      --info-tint:#DEEAF1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--bg);
+  font-size:16.5px;line-height:1.75;-webkit-text-size-adjust:100%;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--hl);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+.wrap-wide{max-width:960px;margin:0 auto;padding:0 22px}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--ink);line-height:1.2}
+.sec-pad{padding:64px 0}
+@media(max-width:700px){.sec-pad{padding:48px 0}}
+
+/* ===== CTA button ===== */
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--pri);color:#fff;font-weight:800;font-size:15.5px;letter-spacing:.2px;
+  padding:18px 30px;border-radius:16px;min-height:56px;border:none;cursor:pointer;
+  box-shadow:0 16px 32px -10px rgba(30,74,69,.45);transition:transform .2s,box-shadow .2s;
+  width:100%;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 38px -10px rgba(30,74,69,.55)}
+.cta .ar{transition:transform .2s}
+.cta:hover .ar{transform:translateX(3px)}
+
+/* ===== Hero ===== */
+/* Mobile default: NOT background. Headline > Image > Subheadline, gambar full nggak dipotong. */
+.hero{
+  background:linear-gradient(160deg, var(--pri-tint) 0%, var(--bg) 55%);
+  padding:52px 0 48px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "h1"
+    "img"
+    "sub"
+    "cta"
+    "trust";
+  gap:18px;
+}
+.hero-h1{grid-area:h1}
+.hero-img-wrap{grid-area:img}
+.hero-sub{grid-area:sub}
+.hero-cta{grid-area:cta}
+.hero-trust{grid-area:trust}
+
+.hero h1{
+  font-weight:700;font-size:clamp(28px,5vw,44px);color:var(--ink);line-height:1.16;
+}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--pri)}
+.hero-img-wrap{
+  border-radius:20px;overflow:hidden;box-shadow:0 20px 44px -18px rgba(30,74,69,.35);
+}
+.hero-img-wrap img{width:100%;height:auto;display:block}
+.hero .sub{
+  font-size:15.5px;font-weight:600;color:var(--ink-soft);max-width:50ch;
+}
+.hero .cta{max-width:360px}
+.hero .trust{font-size:12px;color:var(--ink-soft);font-weight:700}
+
+/* Desktop: KEMBALI jadi full-bleed background, dengan crop yang proper (bukan stretch ala mobile) */
+@media(min-width:761px){
+  .hero{
+    /* ==========================================================
+       POSISI FOTO, ganti dua angka ini buat geser fokus foto
+       --hero-pos-x : geser kiri-kanan, 0% (kiri) sampai 100% (kanan)
+       --hero-pos-y : geser naik-turun, 0% (atas) sampai 100% (bawah)
+       ========================================================== */
+    --hero-pos-x:50%;
+    --hero-pos-y:51%;
+
+    /* ==========================================================
+       GELAP-TERANG FOTO
+       0%   = foto bening penuh
+       100% = hitam total
+       ========================================================== */
+    --hero-scrim:92%;
+
+    position:relative;min-height:88vh;display:flex;align-items:flex-end;
+    overflow:hidden;padding:0 0 72px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background-image:url('https://drive.google.com/thumbnail?id=1rxYNAFcifZKjgVpJVKUkFPJ01HJS1ysk&sz=w1600');
+    background-size:cover;
+    background-position:var(--hero-pos-x) var(--hero-pos-y);
+  }
+  .hero::after{
+    /* Lapis gelap: gradasi kiri (gelap, buat keterbacaan teks) ke kanan (bening, biar foto tetap kelihatan).
+       Kegelapan keseluruhannya dikontrol satu angka lewat --hero-scrim di atas. */
+    content:"";position:absolute;inset:0;z-index:0;
+    background:linear-gradient(90deg, rgba(42,38,34,1) 0%, rgba(42,38,34,.55) 48%, rgba(42,38,34,.08) 78%);
+    opacity:var(--hero-scrim);
+  }
+  .hero-grid{position:relative;z-index:1}
+  .hero-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "h1"
+      "sub"
+      "cta"
+      "trust";
+    max-width:540px;
+    gap:14px;
+  }
+  .hero-img-wrap{display:none} /* gambar udah tampil sebagai background, elemen ini disembunyikan di desktop */
+  .hero h1{color:#fff;text-shadow:0 4px 22px rgba(0,0,0,.3)}
+  .hero .sub{color:#fff;opacity:.95}
+  .hero .trust{color:#fff;opacity:.85}
+  .hero .cta{margin-top:8px}
+}
+
+/* ===== Sticky CTA bar (mobile) ===== */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--surface);
+  border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  transform:translateY(120%);transition:transform .3s ease;display:none;
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .cta{margin:0}
+@media(max-width:760px){ .sticky-cta{display:block} }
+
+/* ===== Pengakuan / Musuh section ===== */
+.narasi p{margin-bottom:16px;font-size:16px;color:var(--ink)}
+.narasi p:last-child{margin-bottom:0}
+.sec-tag{
+  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--sec-deep);margin-bottom:10px;
+}
+.sec-h{font-weight:700;font-size:clamp(24px,4vw,32px);margin-bottom:22px;max-width:18ch}
+
+.section-alt{background:var(--surface)}
+.section-hl{background:var(--hl-tint)}
+
+/* ===== Mekanisme ===== */
+.mek-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.mek-img{border-radius:20px;overflow:hidden;box-shadow:0 24px 48px -20px rgba(0,0,0,.25)}
+.mek-list{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.mek-item{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+}
+.mek-item .mk-n{
+  font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--pri-deep);
+  background:var(--pri-tint);display:inline-block;padding:4px 12px;border-radius:12px;margin-bottom:8px;
+}
+.mek-item p{font-size:14.5px;color:var(--ink)}
+.mek-closing{
+  margin-top:20px;font-size:14.5px;color:var(--ink-soft);border-left:3px solid var(--sec);padding-left:16px;
+}
+@media(max-width:800px){ .mek-grid{grid-template-columns:1fr;gap:24px} }
+
+/* ===== Isi Produk ===== */
+.mockup-row{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;margin-bottom:36px}
+.mockup-wrap{
+  border-radius:22px;overflow:hidden;box-shadow:0 24px 48px -22px rgba(0,0,0,.3);
+  background:var(--surface);
+}
+.mockup-wrap img{width:100%;height:auto;display:block}
+.mockup-caption h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.mockup-caption p{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+@media(min-width:761px){
+  .mockup-row{grid-template-columns:1fr 1fr;gap:44px}
+}
+.produk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.produk-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;
+}
+.produk-card.inti{grid-column:1/-1;background:var(--pri-tint);border-color:var(--pri)}
+.produk-card .pk-ic{font-size:26px;margin-bottom:8px}
+.produk-card h3{font-size:16.5px;font-weight:700;margin-bottom:6px}
+.produk-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+@media(max-width:700px){ .produk-grid{grid-template-columns:1fr} }
+
+/* ===== Cara Kerja ===== */
+.step-list{display:flex;flex-direction:column;gap:18px}
+.step-item{display:flex;gap:16px;align-items:flex-start}
+.step-num{
+  flex:none;width:38px;height:38px;border-radius:50%;background:var(--sec);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:16px;
+}
+.step-item h3{font-size:16.5px;font-weight:700;margin-bottom:4px}
+.step-item p{font-size:14px;color:var(--ink-soft)}
+
+/* ===== Harga ===== */
+.price-card{
+  background:var(--pri-deep);color:#fff;border-radius:26px;padding:44px 32px;text-align:center;
+}
+.price-card .sec-tag{color:var(--sec-tint)}
+.price-card h2{color:#fff;font-size:clamp(22px,3.6vw,28px);margin-bottom:20px;max-width:22ch;margin-left:auto;margin-right:auto}
+.price-num{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(40px,7vw,56px);margin:8px 0 4px}
+.price-note{font-size:12.5px;opacity:.75;margin-bottom:28px}
+.price-card .cta{background:var(--sec);color:#3a2a10;max-width:400px;margin:0 auto;box-shadow:0 16px 32px -10px rgba(0,0,0,.35)}
+.price-card .cta:hover{background:#dba95a}
+
+.risk-list{display:flex;flex-direction:column;gap:10px;max-width:380px;margin:28px auto 0;text-align:left}
+.risk-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+.risk-item .ck{color:var(--sec-tint);font-weight:800}
+
+/* ===== Kejujuran ===== */
+.jujur-box{background:var(--surface);border-radius:20px;padding:28px 26px;border:1px solid var(--line)}
+.jujur-box p{font-size:15px;margin-bottom:14px}
+.jujur-box p:last-child{margin-bottom:0}
+
+.foot{padding:36px 20px;text-align:center;background:var(--ink);color:#fff}
+.foot .mark{font-family:'Fraunces',serif;font-weight:700;font-size:17px;margin-bottom:6px}
+.foot .sm{font-size:11.5px;opacity:.6}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO / ABOVE THE FOLD ===== -->
+<section class="hero">
+  <div class="wrap-wide hero-grid">
+    <h1 class="hero-h1 reveal">Redain Tantrum Anak di Bawah 90 Detik, Cuma dalam <em>28 Hari</em>, Tanpa Bentak</h1>
+    <div class="hero-img-wrap reveal">
+      <img src="https://drive.google.com/thumbnail?id=1rxYNAFcifZKjgVpJVKUkFPJ01HJS1ysk&sz=w1000" alt="Ibu menenangkan anak dengan tenang di minimarket" loading="eager">
+    </div>
+    <p class="hero-sub sub reveal">Bukan teori parenting yang susah dipraktikin. Tinggal ucapin kalimat yang udah disiapin, anak reda, Bunda nggak perlu baper sama tatapan orang sekitar.</p>
+    <a href="#harga" class="hero-cta cta reveal"><span>Ya, Aku Mau Anakku Tenang Tanpa Bentak</span><span class="ar">→</span></a>
+    <div class="hero-trust trust reveal">Ebook + 6 kit interaktif · Akses langsung setelah bayar</div>
+  </div>
+</section>
+
+<!-- ===== PENGAKUAN ===== -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal">Kejadian yang Familiar</div>
+    <h2 class="sec-h reveal">Kalau Ini Kejadian yang Bunda Kenal Banget, Bunda Nggak Sendirian</h2>
+    <div class="narasi reveal">
+      <p>Anak berguling di lantai minimarket. Keranjang belanja baru setengah penuh. Sekitar sepuluh pasang mata mulai melirik. Bunda udah coba segala cara, dari ngebujuk sampe akhirnya kepancing ikut teriak, terus pulang bawa rasa bersalah yang nggak ilang-ilang.</p>
+      <p>Banyak ibu sesama kita ngerasain persis situasi ini tiap minggu. Bukan karena gagal mendidik. Bagian otak anak yang ngatur kesabaran emang belum kelar kebentuk di usia sepantaran ini, dan itu bisa dilatih kalau tau caranya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MUSUH BERSAMA ===== -->
+<section class="sec-pad section-hl">
+  <div class="wrap">
+    <div class="sec-tag reveal">Kenapa Cara Lama Nggak Jalan</div>
+    <h2 class="sec-h reveal">Bentak, Sogok, atau Nurutin, Tiga Jalan Pintas yang Bikin Tantrum Makin Sering</h2>
+    <div class="narasi reveal">
+      <p>Ketiganya keliatan berhasil hari ini. Tapi diam-diam ngajarin anak rumus yang keliru: makin lama ngamuk, makin gede peluang dapet yang diinginkan. Bulan depan, tantrumnya bukan mereda, malah makin sering muncul.</p>
+      <p>Yang Bunda butuhin bukan lebih sabar. Yang dibutuhin naskah kalimat yang udah disiapin, biar nggak perlu mikir keras di detik-detik anak mulai meledak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEKANISME ===== -->
+<section class="sec-pad">
+  <div class="wrap-wide">
+    <div class="mek-grid">
+      <div class="reveal">
+        <div class="sec-tag">Sistemnya</div>
+        <h2 class="sec-h">Calm Switch Method, Tiga Saklar buat Nurunin Gelombang Emosi Anak</h2>
+        <p style="color:var(--ink-soft);font-size:15px">Bukan soal seberapa keras Bunda mendorong situasi. Ini soal nekan saklar yang pas, di urutan yang pas.</p>
+        <div class="mek-list">
+          <div class="mek-item">
+            <span class="mk-n">Saklar 1 · Saat Kejadian</span>
+            <p>Protokol 90 detik, tiga fase: Turun, Namai, Arahkan. Lengkap naskah kata per kata.</p>
+          </div>
+          <div class="mek-item">
+            <span class="mk-n">Saklar 2 · Sebelum Kejadian</span>
+            <p>Latihan 5 sampai 10 menit, diselipin ke rutinitas yang udah ada, biar tantrumnya makin jarang muncul.</p>
+          </div>
+          <div class="mek-item">
+            <span class="mk-n">Saklar 3 · Sekitar Kita</span>
+            <p>Naskah buat jawab komentar mertua, tetangga, sampe orang asing, plus cara tenangin diri sendiri lebih dulu.</p>
+          </div>
+        </div>
+        <p class="mek-closing">Gelombang emosi anak secara alami mereda sendiri di bawah 90 detik, asal nggak dikasih bahan bakar tambahan kayak bentakan atau sogokan.</p>
+      </div>
+      <div class="mek-img reveal">
+        <img src="https://drive.google.com/thumbnail?id=1juL4p3dp3qAK-Ed6MR1u9nXC4S_AtfaF&sz=w1000" alt="Ibu menjalankan protokol menenangkan anak" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ISI PRODUK ===== -->
+<section class="sec-pad section-alt">
+  <div class="wrap-wide">
+    <div class="sec-tag reveal" style="text-align:center">Yang Bunda Dapat</div>
+    <h2 class="sec-h reveal" style="text-align:center;max-width:none;margin-left:auto;margin-right:auto">Satu Ebook, Enam Alat Bantu, Semua Siap Dipake Malam Ini Juga</h2>
+
+    <div class="mockup-row reveal">
+      <div class="mockup-wrap">
+        <img src="https://drive.google.com/thumbnail?id=1OjlEzrntmws5LtW1AC3GAwENSpBkMSax&sz=w1000" alt="Tampilan ebook dan kit Toddler Tantrum Rescue" loading="lazy">
+      </div>
+      <div class="mockup-caption">
+        <h3>Semuanya format HTML interaktif</h3>
+        <p>Langsung kebuka di browser HP atau laptop Bunda begitu bayar, nggak perlu install aplikasi apapun. Ebook-nya bisa dibaca lompat-lompat, kit-kitnya bisa dipake berkali-kali kapan aja dibutuhin.</p>
+      </div>
+    </div>
+
+    <div class="produk-grid reveal">
+      <div class="produk-card inti">
+        <div class="pk-ic">📖</div>
+        <h3>Ebook Toddler Tantrum Rescue</h3>
+        <p>8 bab, dari cara kerja otak anak sampe peta 4 minggu progres, ditulis abis kalau dibaca lompat-lompat pun tetep nyambung.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">📇</div>
+        <h3>Kit 1 · Kartu Kalimat Penyelamat</h3>
+        <p>60 kalimat siap pake, tinggal cari sesuai situasi, bisa ditandain favorit.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">⏱️</div>
+        <h3>Kit 2 · Pemandu Protokol 90 Detik</h3>
+        <p>Nuntun Bunda fase demi fase secara langsung pas kejadian, lengkap timer per fase.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">🗺️</div>
+        <h3>Kit 3 · Peta Darurat Tantrum</h3>
+        <p>Pilih lokasi kejadian dan pemicunya, langsung dapet rencana satu halaman.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">🎭</div>
+        <h3>Kit 4 · Papan Emosi Si Kecil</h3>
+        <p>12 wajah emosi, mode anak buat nunjuk perasaan, mode ibu buat panduan responnya.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">📓</div>
+        <h3>Kit 5 · Jurnal Gym Emosi 28 Hari</h3>
+        <p>Pencatat harian, keliatan progresnya minggu ke minggu, ada lencana pencapaian.</p>
+      </div>
+      <div class="produk-card">
+        <div class="pk-ic">🛡️</div>
+        <h3>Kit 6 · Perisai Komentar</h3>
+        <p>Jawaban siap pake buat komentar orang sekitar, tiga nada berbeda sesuai siapa yang ngomong.</p>
+      </div>
+    </div>
+
+    <a href="#harga" class="cta reveal" style="max-width:420px;margin:32px auto 0"><span>Ya, Aku Mau Semua Alat Bantu Ini</span><span class="ar">→</span></a>
+  </div>
+</section>
+
+<!-- ===== CARA KERJA ===== -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal">Prosesnya</div>
+    <h2 class="sec-h reveal">Empat Langkah Sederhana, Nggak Ada yang Ribet</h2>
+    <div class="step-list reveal">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div><h3>Pelajari Calm Switch Method</h3><p>Paham dulu kenapa anak tantrum dan tiga saklarnya.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div><h3>Praktikkan protokol 90 detiknya</h3><p>Pake naskah kalimat siap pakai, nggak perlu ngarang di tempat.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div><h3>Latih 5 sampai 10 menit sehari</h3><p>Diselipin ke rutinitas yang udah ada, pantau progresnya di jurnal.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div><h3>Hadapi situasi sulit dengan tenang</h3><p>Ada peta darurat dan perisai komentar buat momen paling menekan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KEJUJURAN BATASAN ===== -->
+<section class="sec-pad section-hl">
+  <div class="wrap">
+    <div class="sec-tag reveal">Biar Ekspektasinya Pas</div>
+    <h2 class="sec-h reveal">Yang Nggak Kita Janjikan</h2>
+    <div class="jujur-box reveal">
+      <p>Produk ini nggak janji anak berhenti tantrum selamanya. Nggak janji hasil instan dalam sehari. Nggak janji anak jadi penurut.</p>
+      <p>Yang bisa Bunda harapin, durasi tantrum memendek, intensitasnya menurun, dan Bunda punya kendali atas respons sendiri. Bukan lagi panik, tapi jalanin sesuatu yang udah disiapin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HARGA ===== -->
+<section class="sec-pad" id="harga">
+  <div class="wrap">
+    <div class="price-card reveal">
+      <div class="sec-tag">Mulai Sekarang</div>
+      <h2>Sekali Bayar, Dipake Berkali-kali</h2>
+      <div class="price-num">Rp 127.000</div>
+      <div class="price-note">Bukan biaya bulanan. Bayar sekali, akses seterusnya.</div>
+      <a href="#" class="cta"><span>Ya, Aku Mau Mulai Redain Tantrum Sekarang</span><span class="ar">→</span></a>
+      <div class="risk-list">
+        <div class="risk-item"><span class="ck">✓</span> Akses seumur hidup, sekali bayar</div>
+        <div class="risk-item"><span class="ck">✓</span> Tanpa biaya bulanan</div>
+        <div class="risk-item"><span class="ck">✓</span> Pembayaran aman</div>
+        <div class="risk-item"><span class="ck">✓</span> Langsung bisa dipakai malam ini juga</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="mark">Toddler Tantrum Rescue</div>
+  <div class="sm">© 2026 · Panduan Calm Switch Method untuk Bunda Indonesia.</div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#harga" class="cta"><span>Mulai Redain Tantrum</span><span class="ar">→</span></a>
+</div>
+
+<script>
+(function(){
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold:.15 });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var hero = document.querySelector('.hero');
+  var stickyCta = document.getElementById('stickyCta');
+  if('IntersectionObserver' in window && hero && stickyCta){
+    var heroIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        stickyCta.classList.toggle('show', !en.isIntersecting);
+      });
+    }, { threshold:0 });
+    heroIo.observe(hero);
+  }
+})();
+</script>
+
+</body>
+</html>
