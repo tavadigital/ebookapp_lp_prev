@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Defiant Child Reset | Anak Nurut Tanpa Membentak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F1EA;        --surface:#FDFAF5;
+  --ink:#2E2019;       --ink-soft:#7A6B60;   --line:#E6DACD;
+  --pri:#8B5A3C;       --pri-deep:#6B4128;   --pri-tint:#F3E4D3;
+  --sec:#9C4F5F;       --sec-deep:#793B49;   --sec-tint:#F6E3E6;
+  --hl:#C99A3E;        --hl-tint:#FAF0D9;
+  --ok:#6B8F6E;        --ok-tint:#E8F0E7;
+  --warn:#B8722A;      --warn-tint:#F7E4D0;
+  --danger:#B4423A;    --danger-tint:#F8DEDA;
+  --info:#5E7A8C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--ink);background:var(--bg);
+  font-size:16.5px;line-height:1.72;-webkit-text-size-adjust:100%}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--hl);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+.narrow{max-width:680px;margin:0 auto;padding:0 24px}
+.wide{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+
+h2{font-family:'Lora',serif;font-weight:700;font-size:clamp(26px,4.2vw,38px);line-height:1.22;color:var(--ink)}
+h2 em{font-style:italic;font-weight:600;color:var(--pri)}
+.lead{font-size:17px;color:var(--ink);margin-top:18px;line-height:1.75}
+.lead b, p b{color:var(--pri-deep)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--pri);color:#fff;font-weight:800;font-size:15.5px;
+  padding:18px 34px;border-radius:14px;min-height:56px;
+  box-shadow:0 14px 30px -10px rgba(107,65,40,.5);
+  border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;
+  animation:glow 2.6s ease-in-out infinite;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 18px 38px -10px rgba(107,65,40,.6)}
+@keyframes glow{0%,100%{box-shadow:0 14px 30px -10px rgba(107,65,40,.5)}50%{box-shadow:0 14px 40px -6px rgba(201,154,62,.55)}}
+.cta-wrap{text-align:center;margin-top:8px}
+
+/* ===== HERO ===== */
+.hero{padding-top:64px;padding-bottom:72px;background:
+  radial-gradient(900px 460px at 90% -10%, var(--hl-tint), transparent 60%),
+  radial-gradient(800px 460px at -10% 110%, var(--sec-tint), transparent 55%), var(--bg)}
+.hero .wide{display:grid;grid-template-columns:1.05fr 1fr;gap:20px 48px;align-items:center;
+  grid-template-areas:"h1 img" "sub img" "cta img"}
+.hero h1{grid-area:h1;font-family:'Lora',serif;font-weight:700;font-size:clamp(32px,5.6vw,52px);line-height:1.1;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--pri)}
+.hero .sub{grid-area:sub;font-size:16.5px;color:var(--ink-soft);max-width:46ch;line-height:1.65}
+.hero .cta-wrap{grid-area:cta;text-align:left}
+.hero .imgwrap{grid-area:img;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(46,32,25,.35);
+  border:1px solid var(--line)}
+.hero .imgwrap img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+
+@media(max-width:900px){
+  .hero{padding-top:max(22px, env(safe-area-inset-top));padding-bottom:44px}
+  .hero .wide{grid-template-columns:1fr;gap:18px;text-align:center;
+    grid-template-areas:"h1" "img" "sub" "cta"}
+  .hero .sub{margin-left:auto;margin-right:auto}
+  .hero .cta-wrap{text-align:center}
+  .hero .imgwrap{max-width:360px;margin:0 auto}
+}
+
+/* ===== PAIN ===== */
+.pain .wide{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+.pain .imgwrap{border-radius:20px;overflow:hidden;box-shadow:0 24px 50px -18px rgba(46,32,25,.3);border:1px solid var(--line)}
+.pain .imgwrap img{width:100%;aspect-ratio:4/5;object-fit:cover}
+@media(max-width:900px){
+  .pain .wide{grid-template-columns:1fr;gap:26px}
+  .pain .imgwrap{order:1;max-width:340px;margin:0 auto}
+  .pain .textcol{order:2}
+}
+
+/* ===== STORY ===== */
+.story{padding:56px 0}
+.story-card{background:var(--surface);border-left:4px solid var(--hl);border-radius:0 18px 18px 0;
+  padding:28px 30px;font-family:'Lora',serif;font-style:italic;font-size:16.5px;line-height:1.75;color:var(--ink)}
+
+/* ===== REFRAME ===== */
+.reframe{text-align:center}
+
+/* ===== WEEKS TIMELINE ===== */
+.weeks{background:var(--surface)}
+.weeks .wide{text-align:center}
+.week-grid{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.week-item{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:left;position:relative}
+.week-item .wn{display:inline-block;font-family:'Lora',serif;font-weight:700;font-size:13px;color:#fff;
+  background:var(--pri);padding:3px 12px;border-radius:20px;margin-bottom:12px}
+.week-item h3{font-family:'Lora',serif;font-weight:600;font-size:17px;color:var(--ink);margin-bottom:6px}
+.week-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+@media(max-width:900px){.week-grid{grid-template-columns:1fr}}
+
+/* ===== CHAPTERS ===== */
+.chapters{text-align:center}
+
+/* ===== KITS ===== */
+.kits{background:var(--surface)}
+.kits .wide{text-align:center}
+.kit-grid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+.kit-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px}
+.kit-card .kn{font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--sec-deep);
+  background:var(--sec-tint);padding:4px 11px;border-radius:12px;display:inline-block;margin-bottom:10px}
+.kit-card h3{font-family:'Lora',serif;font-weight:600;font-size:16px;color:var(--ink);margin-bottom:8px}
+.kit-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+@media(max-width:900px){.kit-grid{grid-template-columns:1fr}}
+
+/* ===== DAYS TIMELINE ===== */
+.days .wide{text-align:center}
+.day-line{margin-top:44px;display:flex;justify-content:space-between;position:relative;gap:8px}
+.day-line::before{content:"";position:absolute;top:17px;left:5%;right:5%;height:2px;background:var(--line)}
+.day-pt{position:relative;flex:1;text-align:center}
+.day-pt .dot{width:36px;height:36px;border-radius:50%;background:var(--pri);color:#fff;font-weight:800;font-size:12px;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 10px;position:relative;z-index:1;border:4px solid var(--bg)}
+.day-pt p{font-size:12.5px;color:var(--ink-soft);line-height:1.5;max-width:120px;margin:0 auto}
+@media(max-width:900px){
+  .day-line{flex-direction:column;gap:22px}
+  .day-line::before{display:none}
+  .day-pt{display:flex;align-items:center;gap:14px;text-align:left}
+  .day-pt .dot{margin:0;flex-shrink:0}
+  .day-pt p{max-width:none}
+}
+
+/* ===== PRICING ===== */
+.pricing{background:var(--pri-tint)}
+.pricing .wide{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.pricing .mockwrap{border-radius:20px;overflow:hidden;box-shadow:0 26px 54px -18px rgba(46,32,25,.35)}
+.pricing .mockwrap img{width:100%}
+.pricing h2{margin-bottom:20px}
+.stack-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.stack-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink)}
+.stack-list li .ck{color:var(--ok);font-weight:800;flex-shrink:0}
+.price-tag{font-family:'Lora',serif;font-weight:700;font-size:15px;color:var(--pri-deep);margin-bottom:18px}
+.risk-list{list-style:none;display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;justify-content:flex-start}
+.risk-list li{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
+.risk-list li .ck{color:var(--ok);font-weight:800}
+@media(max-width:900px){
+  .pricing .wide{grid-template-columns:1fr;gap:26px;text-align:center}
+  .pricing .mockwrap{max-width:300px;margin:0 auto}
+  .stack-list{text-align:left}
+  .risk-list{justify-content:center}
+}
+
+/* ===== FAQ ===== */
+.faq .wide{max-width:760px}
+.faq h2{text-align:center;margin-bottom:36px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 4px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;
+  font-family:'Lora',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.faq-q .plus{font-size:20px;color:var(--pri);transition:transform .3s;flex-shrink:0}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 4px 20px;font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+
+/* ===== CLOSING ===== */
+.closing{text-align:center;background:linear-gradient(180deg,var(--bg),var(--sec-tint))}
+.closing h2{max-width:20ch;margin:0 auto}
+.closing .lead{max-width:52ch;margin-left:auto;margin-right:auto}
+
+footer{text-align:center;padding:36px 24px 100px;color:var(--ink-soft);font-size:12px}
+footer .fm{font-family:'Lora',serif;font-weight:700;color:var(--pri-deep);font-size:15px;margin-bottom:6px}
+
+/* ===== STICKY MOBILE CTA ===== */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);
+  border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  display:none;transform:translateY(100%);transition:transform .3s ease;box-shadow:0 -10px 26px -14px rgba(46,32,25,.25)}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .cta{width:100%;animation:none;padding:14px}
+@media(max-width:900px){.sticky-cta{display:block}}
+
+@media(max-width:900px){
+  section{padding:56px 0}
+  .story{padding:36px 0}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wide">
+    <h1 class="reveal">Anak Nurut Lagi Dalam 28 Hari, Tanpa Kamu Harus <em>Membentak</em></h1>
+    <div class="imgwrap reveal">
+      <img src="https://drive.google.com/thumbnail?id=1AnIH4b-gbTp15CXVxAr_x6VsPH3qaKIS&sz=w1000" alt="Ibu dan anak duduk berdekatan, ngobrol santai">
+    </div>
+    <p class="sub reveal">Bukan jadwal baru yang nambah beban. Cukup ganti cara ngomong yang udah kamu pakai tiap hari, plus 15 menit yang bikin semuanya bergerak.</p>
+    <div class="cta-wrap reveal">
+      <a class="cta" href="#pricing">Ya, Aku Mau Mulai Sekarang →</a>
+    </div>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wide">
+    <div class="imgwrap">
+      <img src="https://drive.google.com/thumbnail?id=1cK0G0JdIpXJ5ACeIKfaBm8OotUvOiJ7L&sz=w1000" alt="Ibu berdiri di depan pintu kamar, ragu mau masuk">
+    </div>
+    <div class="textcol">
+      <h2 class="reveal">Kalau Tiap Hari Berasa Kayak Perang Sama Anak Sendiri, Ini Bukan Salahmu</h2>
+      <p class="lead reveal">Pintu kamar dibanting. "Bentar" yang nggak pernah selesai. Dibentak balik pas cuma nyuruh mandi. Kamu udah coba lebih tegas, udah coba lebih sabar, tapi rasanya makin hari makin jauh aja sama anak yang dulu nempel terus ke kamu.</p>
+      <p class="lead reveal">Ini bukan capek biasa. Ini rasanya lebih ke arah <b>patah hati</b>, takut kehilangan anak sendiri padahal masih tidur satu atap.</p>
+      <p class="lead reveal">Kabar baiknya, ini bukan tanda anakmu durhaka atau kamu gagal jadi orang tua. Ada pola yang lagi jalan di rumahmu, dan pola itu bisa diputus, mulai dari satu titik, hari ini juga.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="narrow">
+    <div class="story-card reveal">Ada seorang ibu yang tiap malam berdiri di depan pintu kamar anaknya, ragu mau masuk atau nggak, karena obrolan apapun rasanya berujung teriakan. Yang dia butuh bukan cara baru buat "menang" dari anaknya. Yang dia butuh cuma tau harus mulai dari mana.</div>
+  </div>
+</section>
+
+<section class="reframe">
+  <div class="narrow">
+    <h2 class="reveal">Bukan Anaknya yang Perlu Diperbaiki. Polanya yang Perlu di-<em>Reset</em>.</h2>
+    <p class="lead reveal">Selama ini mungkin kamu diajarin, kalau anak melawan, jawabannya cuma satu: dikerasin lagi. Masalahnya, makin keras ditekan, makin kuat balik ngelawannya. Yang rusak bukan <b>disiplinnya</b>. Yang rusak itu <b>koneksinya</b>.</p>
+    <p class="lead reveal">Begitu koneksi diperbaiki dulu, baru aturan ditegakkan, semuanya bergerak ke arah yang beda. Ini bukan soal jadi orang tua yang serba membolehkan. Ini soal urutan yang selama ini kebalik.</p>
+  </div>
+</section>
+
+<section class="weeks">
+  <div class="wide">
+    <h2 class="reveal">Empat Minggu, Empat Fokus, Nggak Ribet</h2>
+    <div class="week-grid">
+      <div class="week-item reveal"><span class="wn">Minggu 1</span><h3>Sambungkan</h3><p>Ritual 15 menit sehari yang ngisi ulang koneksi, tanpa nambah satu jadwal baru pun.</p></div>
+      <div class="week-item reveal"><span class="wn">Minggu 2</span><h3>Ganti Cara Ngomong</h3><p>Kalimat yang lebih gampang didengar anak, dipakai di momen yang udah ada tiap hari.</p></div>
+      <div class="week-item reveal"><span class="wn">Minggu 3</span><h3>Tegakkan Batas</h3><p>Aturan rumah yang disusun bareng anak, ditegakkan tanpa jadi ajang perang baru.</p></div>
+      <div class="week-item reveal"><span class="wn">Minggu 4</span><h3>Kunci Hasilnya</h3><p>Tanggung jawab bertahap yang bikin hasilnya bertahan, bukan cuma numpang lewat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapters">
+  <div class="narrow">
+    <h2 class="reveal">10 Bab yang Nuntun Kamu Langkah demi Langkah</h2>
+    <p class="lead reveal">Dari ngerti kenapa anak melawan, kenapa cara keras selama ini nggak jalan, sampai protokol lima langkah yang bisa langsung dipraktikkan hari ini. Ditulis dengan bahasa yang ngobrol, bukan bahasa buku teks, dan setiap bab langsung nyambung ke situasi harian yang beneran kamu hadapi: <b>HP</b>, <b>PR</b>, <b>sholat</b>, <b>jam tidur</b>, sampai momen paling panas saat semuanya meledak.</p>
+  </div>
+</section>
+
+<section class="kits">
+  <div class="wide">
+    <h2 class="reveal">5 Alat Bantu yang Kerja Otomatis, Bukan Cuma Bacaan</h2>
+    <div class="kit-grid">
+      <div class="kit-card reveal"><span class="kn">Kit 1</span><h3>Peta Tipe Perlawanan</h3><p>Jawab 12 pertanyaan singkat, langsung ketauan anakmu tipe Penunda, Peledak, Penawar, atau Pendiam, lengkap sama langkah mana yang paling perlu diperkuat buat rumahmu.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 2</span><h3>Kamus Kalimat Ajaib</h3><p>30 situasi harian yang paling sering jadi arena perang, tinggal cari, kalimatnya langsung ada. Bisa disalin sekali klik, bisa disimpen jadi favorit.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 3</span><h3>Kartu Darurat 60 Detik</h3><p>Pas lagi panas, tinggal tap kondisimu sekarang, langkahnya langsung muncul. Ada penuntun napas bareng buat bantu tenang duluan.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 4</span><h3>Penyusun Aturan Rumah</h3><p>Pilih area yang mau diatur, tinggal sesuaikan, langsung jadi satu lembar kesepakatan siap dicetak dan ditandatangani berdua.</p></div>
+      <div class="kit-card reveal"><span class="kn">Kit 5</span><h3>Peta Jalan 28 Hari</h3><p>Penuntun harian dari hari 1 sampai 28, catat progresnya, keliatan langsung lewat grafik sederhana seberapa jauh perubahannya.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="narrow">
+    <div class="story-card reveal">Bayangin nggak perlu lagi ngulang instruksi lima kali cuma buat nyuruh mandi. Nggak perlu lagi mikir keras kalimat apa yang harus diucapin pas anak lagi ngambek. Tinggal buka, kalimatnya udah ada, tinggal pakai.</div>
+  </div>
+</section>
+
+<section class="days">
+  <div class="wide">
+    <h2 class="reveal">Perubahannya Kelihatan dari Hari-Hari Pertama</h2>
+    <div class="day-line">
+      <div class="day-pt reveal"><div class="dot">H1</div><p>Satu pertengkaran yang biasanya meledak, nggak jadi, cuma karena satu kalimat diganti.</p></div>
+      <div class="day-pt reveal"><div class="dot">H7</div><p>Ritualnya mulai kerasa kayak kebiasaan.</p></div>
+      <div class="day-pt reveal"><div class="dot">H14</div><p>Instruksi yang tadinya diulang lima kali, cukup sekali.</p></div>
+      <div class="day-pt reveal"><div class="dot">H21</div><p>Konflik masih ada, tapi selesai tanpa teriakan.</p></div>
+      <div class="day-pt reveal"><div class="dot">H28</div><p>Momen yang paling ditunggu, anak yang dateng sendiri buat cerita.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="narrow">
+    <div class="story-card reveal">Bukan soal anak yang jadi penurut sempurna. Ini soal anak yang balik lagi jadi mau cerita hal kecil tanpa ditanya duluan, kayak dulu sebelum semuanya berasa jauh.</div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wide">
+    <div class="mockwrap reveal">
+      <img src="https://drive.google.com/thumbnail?id=1wuIXk8PCG93kI-ntzL_B6G-wu5qQL2us&sz=w1000" alt="Cover Defiant Child Reset">
+    </div>
+    <div>
+      <h2 class="reveal">Semuanya Kamu Dapat dengan Rp127.000</h2>
+      <ul class="stack-list reveal">
+        <li><span class="ck">✓</span> Ebook Defiant Child Reset, 10 bab lengkap</li>
+        <li><span class="ck">✓</span> Kit 1, Peta Tipe Perlawanan</li>
+        <li><span class="ck">✓</span> Kit 2, Kamus Kalimat Ajaib</li>
+        <li><span class="ck">✓</span> Kit 3, Kartu Darurat 60 Detik</li>
+        <li><span class="ck">✓</span> Kit 4, Penyusun Aturan Rumah</li>
+        <li><span class="ck">✓</span> Kit 5, Peta Jalan 28 Hari</li>
+      </ul>
+      <div class="cta-wrap reveal" style="text-align:left">
+        <a class="cta" href="#">Ya, Aku Mau Akses Sekarang, Rp127.000</a>
+      </div>
+      <ul class="risk-list reveal">
+        <li><span class="ck">✓</span> Akses seumur hidup</li>
+        <li><span class="ck">✓</span> Sekali bayar, tanpa biaya bulanan</li>
+        <li><span class="ck">✓</span> Pembayaran aman</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wide">
+    <h2 class="reveal">Yang Sering Ditanyain</h2>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span>Anakku udah SMP, masih kepake nggak?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Kepake. Materinya dirancang buat anak usia 7 sampai 14 tahun, dan usia segini justru paling pas karena anak udah bisa diajak bicara setara tapi masih menjadikan kamu tokoh utama dalam hidupnya.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Pasanganku belum tentu sejalan, gimana?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Tetap jalan. Protokolnya tetap bekerja walau dimulai satu pihak dulu, dan ada panduan khusus buat ngajak pasangan tanpa bikin dia ngerasa disalahkan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Aku kerja, nggak sempat baca banyak?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yang dibutuhkan cuma 15 menit sehari buat ritual utamanya. Ebook bisa dibaca bertahap, sambil langsung dipraktikkan bab demi bab.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Ini pendekatannya netral atau ada muatan agama tertentu?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Netral. Fokusnya ke pola komunikasi dan koneksi, jadi cocok dipakai keluarga dari latar belakang apapun.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="narrow">
+    <h2 class="reveal">Anaknya Nggak Perlu Diperbaiki. Polanya yang Perlu di-<em>Reset</em>.</h2>
+    <p class="lead reveal">Kamu udah baca sampai sini, itu tandanya kamu peduli jauh lebih besar dari yang kamu sadari sendiri. Tinggal satu langkah lagi.</p>
+    <div class="cta-wrap reveal">
+      <a class="cta" href="#pricing">Ya, Aku Mau Mulai Sekarang, Rp127.000</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fm">Defiant Child Reset</div>
+  <div>© 2026. Semua hak dilindungi.</div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="cta" href="#pricing">Mau Mulai, Rp127.000 →</a>
+</div>
+
+<script>
+(function(){
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Sticky mobile CTA: show after hero scrolled past
+  var stickyCta = document.getElementById('stickyCta');
+  var hero = document.querySelector('.hero');
+  if(hero && stickyCta){
+    var trigger = hero.offsetHeight;
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > trigger){ stickyCta.classList.add('show'); }
+      else{ stickyCta.classList.remove('show'); }
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
